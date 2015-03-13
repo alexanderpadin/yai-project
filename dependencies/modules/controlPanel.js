@@ -22,7 +22,7 @@
                             $scope.getAllItems(queryLimit, querySkip, first);
                         } else {
                             //Data ready.
-                            $scope.getServices();
+                            
                         }
                     } else {
                         var newQ = data.results;
@@ -34,7 +34,7 @@
                             $scope.getAllItems(queryLimit, querySkip, first);
                         } else {
                             //Data Ready
-                            $scope.getServices();
+                            
                         }
                     }
                 })
@@ -69,6 +69,10 @@
                     alert("Error");
                 });
         };
+
+        $scope.capitalizeStr = function(str){
+            return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+        }
 
         $scope.addItem = function(Nombre, Expiracion, Deuda, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Clave, Activo) {
             $http({
@@ -126,7 +130,7 @@
             var metodo = document.getElementById('add_metodo').value;
             var pago = document.getElementById('add_pago').value;
             var pueblo = document.getElementById('add_pueblo').value;
-            var servicio = $scope.servicios[parseInt(document.getElementById('add_servicio').value)].service;
+            var servicio = document.getElementById('add_servicio').value;
             var unidades = document.getElementById('add_unidades').value;
             var telefono = document.getElementById('add_telefono').value;
             var clave = "";
@@ -139,19 +143,24 @@
                 || (pago == null || pago == "")
                 || (servicio == null || servicio == ""))){
 
+                servicio = $scope.servicios[parseInt(document.getElementById('add_servicio').value)].service;
                 if($scope.validateDate(expiracion)) {
+                    document.getElementById('add_nombre').value = "";
+                    document.getElementById('add_expiracion').value = "";
+                    document.getElementById('add_metodo').value = "Selecciona";
+                    document.getElementById('add_pago').value = "0";
+                    document.getElementById('add_pueblo').value = "";
+                    document.getElementById('add_servicio').value = "Selecciona";
+                    document.getElementById('add_unidades').value = "1";
+                    document.getElementById('add_telefono').value = "";
+
+                    metodo = metodo.replace('_',' ');
+                    metodo = $scope.capitalizeStr(metodo);
+
+                    $('#myModal').modal('hide');
 
                     $scope.addItem(nombre, expiracion, deuda, metodo, pago, pueblo, servicio, unidades, telefono, clave, activo);
                    
-                    var nombre = document.getElementById('add_nombre').value = "";
-                    var expiracion = document.getElementById('add_expiracion').value = "";
-                    var metodo = document.getElementById('add_metodo').value = "Selecciona";
-                    var pago = document.getElementById('add_pago').value = "";
-                    var pueblo = document.getElementById('add_pueblo').value = "";
-                    var servicio = document.getElementById('add_servicio').value = "Selecciona";
-                    var unidades = document.getElementById('add_unidades').value = "";
-                    var telefono = document.getElementById('add_telefono').value = "";
-
                 } else {
                     alert("Fecha de expiracion invalida.");
                 }
@@ -169,6 +178,7 @@
         };
 
         $scope.getAllItems(1000,0, true);
+        $scope.getServices();
         
   	});
 

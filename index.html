@@ -37,7 +37,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body onload="tabsManagment('clientes_activos')" ng-controller="controlPanelCtrl as cp">
+    <body onload="tabsManagment('clientes_activos')">
         <div id="wrapper">
 
             <!-- Navigation -->
@@ -100,7 +100,7 @@
 
 
                 <!-- Clientes activos -->
-                <div class="clientes_activos" >
+                <div class="clientes_activos" ng-controller="controlPanelCtrl as cp">
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">Clientes Activos</h1>
@@ -162,6 +162,71 @@
                         <!-- /.col-lg-12 -->
                     </div>
                     <!-- /.row -->
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+                        aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Nuevo Cliente</h4>
+                          </div>
+                          <div class="modal-body">
+                                <label id="requiered" style="color:red;" class="pull-right">* requerido</label>
+                                <b>Nombre</b><label style="color:red;">*</label>
+                                <input type="text" class="form-control" id="add_nombre">
+                                <b>Fecha de Expiracion</b><label style="color:red;">*</label>
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input id="add_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
+                                    <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
+                                    </span>
+                                </div>
+                                <b>Servicio</b><label style="color:red;">*</label>
+                                    <select id="add_servicio" ng-model="selectedItem" ng-change="updatePrice()"
+                                        class="form-control" ng-options="i as i.service for i in servicios">
+                                        <option value="">Selecciona</option>
+                                    </select>
+                                <b>Unidades</b><label style="color:red;">*</label>
+                                <div class="input-group spinner">
+                                    <div id="spinner_plus" class="input-group-addon">
+                                        <a href="" class="glyphicon glyphicon-minus"></a>
+                                    </div>
+                                    <input id="add_unidades" type="text" class="form-control" value="1">
+                                    <div id="spinner_minus"class="input-group-addon">
+                                        <a href="" class="glyphicon glyphicon-plus"></a>
+                                    </div>
+                                  </div>
+                                <b>Telefono</b>
+                                <input id="add_telefono" type="text" class="form-control" placeholder="(123)456-7890" >
+                                <b>Direccion</b>
+                                <input id="add_pueblo" type="text" class="form-control">
+                                <b>Pago</b><label style="color:red;">*</label>
+                                <div class="input-group">
+                                  <div data-toggle="tooltip" data-placement="top" title="Update pago" ng-click="updatePrice()"class="input-group-addon"><a href="" class="">$</a></div>
+                                  <input value="0" id="add_pago" type="number" class="form-control"  placeholder="Costo del servicio">
+                                  <div class="input-group-addon">.00</div>
+                                </div>
+                                <b>Metodo de Pago</b><label style="color:red;">*</label>
+                                <select id="add_metodo" class="form-control">
+                                    <option value="">Selecciona</option>
+                                    <option value="ath_movil">ATH Movil</option>
+                                    <option value="personal">Personal</option>
+                                    <option value="paypal">Pay Pal</option>
+                                    <option value="otro">otro</option>
+                                </select>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button id="submitNewUser" ng-click="validatesAddInputs()"  type="button" 
+                                class="btn btn-primary">Guardar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
                 </div>
                 <!-- Clientes activos -->
             
@@ -221,67 +286,7 @@
         <!-- /#wrapper -->
 
 
-        <!-- Modal -->
-        <div class="modal fade" 
-        id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Nuevo Cliente</h4>
-              </div>
-              <div class="modal-body">
-                    <label id="requiered" style="color:red;" class="pull-right">* requerido</label>
-                    <b>Nombre</b><label style="color:red;">*</label>
-                    <input type="text" class="form-control" id="add_nombre">
-                    <b>Fecha de Expiracion</b><label style="color:red;">*</label>
-                    <div class='input-group date' id='datetimepicker1'>
-                        <input id="add_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
-                        <span data-toggle="tooltip" data-placement="top" title="Escoge fecha" class="input-group-addon"><a class=""><span class="glyphicon glyphicon-calendar"></span></a>
-                        </span>
-                    </div>
-                    <b>Servicio</b><label style="color:red;">*</label>
-                        <select id="add_servicio" ng-model="selectedItem" ng-change="updatePrice()"
-                            class="form-control" ng-options="i as i.service for i in servicios">
-                            <option value="">Selecciona</option>
-                        </select>
-                    <b>Unidades</b><label style="color:red;">*</label>
-                    <div class="input-group spinner">
-                        <div id="spinner_plus" class="input-group-addon">
-                            <a href="" class="glyphicon glyphicon-minus"></a>
-                        </div>
-                        <input id="add_unidades" type="text" class="form-control" value="1">
-                        <div id="spinner_minus"class="input-group-addon">
-                            <a href="" class="glyphicon glyphicon-plus"></a>
-                        </div>
-                      </div>
-                    <b>Telefono</b>
-                    <input id="add_telefono" type="text" class="form-control" placeholder="(123)456-7890" >
-                    <b>Direccion</b>
-                    <input id="add_pueblo" type="text" class="form-control">
-                    <b>Pago</b><label style="color:red;">*</label>
-                    <div class="input-group">
-                      <div data-toggle="tooltip" data-placement="top" title="Update pago" ng-click="updatePrice()"class="input-group-addon"><a href="" class="">$</a></div>
-                      <input value="0" id="add_pago" type="number" class="form-control"  placeholder="Costo del servicio">
-                      <div class="input-group-addon">.00</div>
-                    </div>
-                    <b>Metodo de Pago</b><label style="color:red;">*</label>
-                    <select id="add_metodo" class="form-control">
-                        <option value="">Selecciona</option>
-                        <option value="ath_movil">ATH Movil</option>
-                        <option value="personal">Personal</option>
-                        <option value="paypal">Pay Pal</option>
-                        <option value="otro">otro</option>
-                    </select>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button id="submitNewUser" ng-click="validatesAddInputs()"  type="button" 
-                    class="btn btn-primary" data-dismiss="modal">Guardar</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         <script type="text/javascript">
 
