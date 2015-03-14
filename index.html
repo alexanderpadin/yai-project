@@ -19,17 +19,13 @@
         <script src="dependencies/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="dependencies/bower_components/metisMenu/dist/metisMenu.min.js"></script>
         <script src="dependencies/bower_components/raphael/raphael-min.js"></script>
+        <script src="dependencies/js/simplePagination.js"></script>
         <script src="dependencies/dist/js/sb-admin-2.js"></script>
-
-
-        <!-- DateTimePicker -->
         <link rel="stylesheet" href="dependencies/date_picker/bootstrap-datetimepicker.css" />
         <script type="text/javascript" src="dependencies/date_picker/moment.js"></script>
         <script type="text/javascript" src="dependencies/date_picker/transition.js"></script>
         <script type="text/javascript" src="dependencies/date_picker/collapse.js"></script>
         <script type="text/javascript" src="dependencies/date_picker/bootstrap-datetimepicker.min.js"></script>
-
-
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -39,7 +35,6 @@
     </head>
     <body onload="tabsManagment('clientes_activos')">
         <div id="wrapper">
-
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -73,20 +68,17 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li id="clientes_activos" onclick="tabsManagment(this)">
-                                <a href="#"><i class="fa fa-table fa-fw"></i> Clientes Activos</a>
-                            </li>
-                            <li id="clientes_deudores" onclick="tabsManagment(this)">
-                                <a href="#" ><i class="fa fa-table fa-fw"></i> Clientes Deudores</a>
+                                <a href="#"><i class="fa fa-table fa-fw"></i> Clientes </a>
                             </li>
                             <!-- <li id="e_tickets">
                                 <a href="#"><i class="fa fa-edit fa-fw"></i> e-Tickets</a>
-                            </li>
-                            <li id="ventas">
+                                </li>
+                                <li id="ventas">
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Ventas</a>
-                            </li>
-                            <li id="congf">
+                                </li>
+                                <li id="congf">
                                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Configuracion</a>
-                            </li> -->
+                                </li> -->
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->
@@ -98,85 +90,99 @@
             <!-- #page-wrapper -->
             <div id="page-wrapper">
 
-
                 <!-- Clientes activos -->
                 <div class="clientes_activos" ng-controller="controlPanelCtrl as cp">
+
+
+                    <br>
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Clientes Activos</h1>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="" class="active" ng-click="showActive = true">
+                                    <a href="#" aria-controls="" role="tab" data-toggle="tab"><h4>Clientes Activos</h4></a>
+                                </li>
+                                <li role="" ng-click="showActive = false">
+                                    <a href="#" aria-controls="" role="tab" data-toggle="tab"><h4>Clientes Deudores</h4></a>
+                                </li>
+                            </ul>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
+                    <br>
                     <!-- /.row -->
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="dataTable_wrapper">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-
                                         <div class="input-group">
                                             <span data-toggle="modal" 
                                                 data-target="#myModal"  class="input-group-addon" id="sizing-addon2">
-                                                <a class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="top" title="Nuevo cliente"  href="#"></a>
+                                            <a class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="top" title="Nuevo cliente"  href="#"></a>
                                             </span>
-                                          <input type="text" class="form-control" placeholder="Search" aria-describedby="sizing-addon2"
-                                          ng-model="clientes">
+                                            <input ng-change="searchGlitch()" type="text" id="searchBar"
+                                                class="form-control" placeholder="Search" aria-describedby="sizing-addon2"
+                                                ng-model="clientes">
                                         </div>
-
-                                       <!--  <input type="text" class="form" placeholder="Search">&nbsp;&nbsp;&nbsp;
-                                        <a href="#" class="label label-primary"><span class="glyphicon glyphicon-plus"></span></a>
- -->
+                                        <!--  <input type="text" class="form" placeholder="Search">&nbsp;&nbsp;&nbsp;
+                                            <a href="#" class="label label-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                                            -->
                                     </div>
-                                    <table class="table table-bordered table-hover" id="dataTables-example">
+                                    <table class="table table-bordered table-hover" id="clientsTable">
                                         <thead>
-                                            <tr>
+                                            <tr style="background-color:rgb(245,245,245);">
                                                 <th>Nombre&nbsp; 
                                                     <a href="" ng-click="orderByField='nombre'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
+                                                    <i class="fa fa-sort"></i>
                                                     </a>
                                                 </th>
                                                 <th>Fecha De Expiracion&nbsp; 
                                                     <a href="" ng-click="orderByField='expiracion'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
+                                                    <i class="fa fa-sort"></i>
                                                     </a>
                                                 </th>
                                                 <th>Servicio&nbsp; 
                                                     <a href="" ng-click="orderByField='servicio'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
+                                                    <i class="fa fa-sort"></i>
                                                     </a>
                                                 </th>
                                                 <th>Unidades&nbsp; 
                                                     <a href="" ng-click="orderByField='unidades'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
+                                                    <i class="fa fa-sort"></i>
                                                     </a>
                                                 </th>
                                                 <th>Telefono</th>
                                                 <th>Direccion&nbsp;
                                                     <a href="" ng-click="orderByField='pueblo'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
+                                                    <i class="fa fa-sort"></i>
                                                     </a>
                                                 </th>
                                                 <th>Pago&nbsp;
                                                     <a href="" ng-click="orderByField='pago'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
+                                                    <i class="fa fa-sort"></i>
                                                     </a>
                                                 </th>
                                                 <th>Metodo de Pago&nbsp;
                                                     <a href="" ng-click="orderByField='metodo'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
+                                                    <i class="fa fa-sort"></i>
                                                     </a>
                                                 </th>
                                                 <th>Deuda&nbsp;
                                                     <a href="" ng-click="orderByField='deuda'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
+                                                    <i class="fa fa-sort"></i>
                                                     </a>
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody ng-repeat="item in clients | filter:clientes | orderBy:orderByField:reverseSort" >
+                                        <tbody ng-repeat="item in clients | filter:clientes | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage | orderBy:orderByField:reverseSort" 
+                                            data-toggle="modal" 
+                                            data-target="#editModal"
+                                            ng-click="populateModal(item.objectId, item.nombre, item.expiracion, item.servicio, item.unidades, item.telefono,
+                                            item.pueblo, item.pago, item.metodo, item.deuda)"
+                                            ng-hide="verifyDates(item.expiracion, showActive)">
                                             <tr>
                                                 <td>{{item.nombre}}</td>
-                                                <td>{{item.expiracion}}</td>
+                                                <td id="date_marked" >{{item.expiracion}}</td>
                                                 <td>{{item.servicio}}</td>
                                                 <td>{{item.unidades}}</td>
                                                 <td>{{item.telefono}}</td>
@@ -190,136 +196,224 @@
                                 </div>
                             </div>
                             <!-- /.table-responsive -->
+                            <div style="margin: 5px;" class="btn-group pull-left">
+                                <button type="button" class="btn btn-default dropdown-toggle" 
+                                    data-toggle="dropdown" aria-expanded="false">
+                                Per Page <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li ng-click="changeNumberOfPages(50)"><a href="">50</a></li>
+                                    <li ng-click="changeNumberOfPages(100)"><a href="">100</a></li>
+                                    <li ng-click="changeNumberOfPages(200)"><a href="">200</a></li>
+                                    <li ng-click="changeNumberOfPages(100000)"><a href="">All</a></li>
+                                </ul>
+                            </div>
+                            <div style="margin: 5px;" class="pull-left">
+                                <ul style="margin: 0px;" class="pagination">
+                                    <li>
+                                        <a href="" ng-click="pagination.prevPage()">&laquo;</a>
+                                    </li>
+                                    <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
+                                        <a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="" ng-click="pagination.nextPage()">&raquo;</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
                     <!-- /.row -->
 
-                    <!-- Modal -->
+                    <!-- Modals -->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
                         aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Nuevo Cliente</h4>
-                          </div>
-                          <div class="modal-body">
-                                <label id="requiered" style="color:red;" class="pull-right">* requerido</label>
-                                <b>Nombre</b><label style="color:red;">*</label>
-                                <input type="text" class="form-control" id="add_nombre">
-                                <b>Fecha de Expiracion</b><label style="color:red;">*</label>
-                                <div class='input-group date' id='datetimepicker1'>
-                                    <input id="add_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
-                                    <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
-                                    </span>
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Nuevo Cliente</h4>
                                 </div>
-                                <b>Servicio</b><label style="color:red;">*</label>
+                                <div class="modal-body">
+                                    <label id="requiered" style="color:red;" class="pull-right">* requerido</label>
+                                    <b>Nombre</b><label style="color:red;">*</label>
+                                    <input type="text" class="form-control" id="add_nombre">
+                                    <b>Fecha de Expiracion</b><label style="color:red;">*</label>
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        <input id="add_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
+                                        <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
+                                        </span>
+                                    </div>
+                                    <b>Servicio</b><label style="color:red;">*</label>
                                     <select id="add_servicio" ng-model="selectedItem" ng-change="updatePrice()"
                                         class="form-control" ng-options="i as i.service for i in servicios">
                                         <option value="">Selecciona</option>
                                     </select>
-                                <b>Unidades</b><label style="color:red;">*</label>
-                                <div class="input-group spinner">
-                                    <div id="spinner_plus" class="input-group-addon">
-                                        <a href="" class="glyphicon glyphicon-minus"></a>
+                                    <b>Unidades</b><label style="color:red;">*</label>
+                                    <div class="input-group spinner">
+                                        <div ng-click="updatePrice()" id="spinner_plus" class="input-group-addon">
+                                            <a href="" class="glyphicon glyphicon-minus"></a>
+                                        </div>
+                                        <input id="add_unidades" type="text" class="form-control" value="1" disabled>
+                                        <div ng-click="updatePrice()" id="spinner_minus"class="input-group-addon">
+                                            <a href="" class="glyphicon glyphicon-plus"></a>
+                                        </div>
                                     </div>
-                                    <input id="add_unidades" type="text" class="form-control" value="1">
-                                    <div id="spinner_minus"class="input-group-addon">
-                                        <a href="" class="glyphicon glyphicon-plus"></a>
+                                    <b>Telefono</b>
+                                    <input id="add_telefono" type="text" class="form-control" placeholder="(123)456-7890" >
+                                    <b>Direccion</b>
+                                    <input id="add_pueblo" type="text" class="form-control">
+                                    <b>Pago</b><label style="color:red;">*</label>
+                                    <div class="input-group">
+                                        <div data-toggle="tooltip" data-placement="top" title="Update pago" ng-click="updatePrice()" class="input-group-addon"><a href="" class="">$</a></div>
+                                        <input value="0" id="add_pago" type="number" class="form-control"  placeholder="Costo del servicio">
+                                        <div class="input-group-addon">.00</div>
                                     </div>
-                                  </div>
-                                <b>Telefono</b>
-                                <input id="add_telefono" type="text" class="form-control" placeholder="(123)456-7890" >
-                                <b>Direccion</b>
-                                <input id="add_pueblo" type="text" class="form-control">
-                                <b>Pago</b><label style="color:red;">*</label>
-                                <div class="input-group">
-                                  <div data-toggle="tooltip" data-placement="top" title="Update pago" ng-click="updatePrice()"class="input-group-addon"><a href="" class="">$</a></div>
-                                  <input value="0" id="add_pago" type="number" class="form-control"  placeholder="Costo del servicio">
-                                  <div class="input-group-addon">.00</div>
+                                    <b>Metodo de Pago</b><label style="color:red;">*</label>
+                                    <select id="add_metodo" class="form-control">
+                                        <option value="">Selecciona</option>
+                                        <option value="ath_movil">ATH Movil</option>
+                                        <option value="personal">Personal</option>
+                                        <option value="paypal">Paypal</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
                                 </div>
-                                <b>Metodo de Pago</b><label style="color:red;">*</label>
-                                <select id="add_metodo" class="form-control">
-                                    <option value="">Selecciona</option>
-                                    <option value="ath_movil">ATH Movil</option>
-                                    <option value="personal">Personal</option>
-                                    <option value="paypal">Pay Pal</option>
-                                    <option value="otro">otro</option>
-                                </select>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                            <button id="submitNewUser" ng-click="validatesAddInputs()"  type="button" 
-                                class="btn btn-primary">Guardar</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-
-
-                </div>
-                <!-- Clientes activos -->
-            
-                <!-- Clientes deudores -->
-                <div class="clientes_deudores">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">Clientes Deudores</h1>
-                        </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="dataTable_wrapper">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                         <tr>
-                                            <th>Nombre</th>
-                                            <th>Fecha De Expiracion</th>
-                                            <th>Servicio</th>
-                                            <th>Unidades</th>
-                                            <th>Telefono</th>
-                                            <th>Direccion</th>
-                                            <th>Pago</th>
-                                            <th>Metodo de Pago</th>
-                                            <th>Deuda</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="gradeC">
-                                            <td>Misc</td>
-                                            <td>PSP browser</td>
-                                            <td>PSP</td>
-                                            <td class="center">-</td>
-                                            <td class="center">C</td>
-                                            <td>PSP</td>
-                                            <td class="center">-</td>
-                                            <td class="center">C</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    <button id="submitNewUser" ng-click="validatesAddInputs()"  type="button" 
+                                        class="btn btn-primary">Guardar</button>
+                                </div>
                             </div>
-
-                            <!-- /.table-responsive -->
                         </div>
-                        <!-- /.col-lg-12 -->
                     </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /Clientes deudores -->
+                
+                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="ModalLabel">Cliente</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div role="tabpanel">
 
+
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" onclick="showModifyBtn()" class="active">
+                                                <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Modificar Cliente</a>
+                                            </li>
+                                            <li role="presentation" onclick="hideModifyBtn()">
+                                                <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Hacer Pago</a>
+                                            </li>
+                                        </ul>
+
+
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="home">
+                                                <label id="requiered" style="color:red;" class="pull-right">* requerido</label>
+                                                <b>ID</b>
+                                                <input type="text" class="form-control" id="edit_ID" disabled>
+                                                <b>Nombre</b><label style="color:red;">*</label>
+                                                <input type="text" class="form-control" id="edit_nombre">
+                                                <b>Fecha de Expiracion</b><label style="color:red;">*</label>
+                                                <div class='input-group date' id='datetimepicker2'>
+                                                    <input id="edit_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
+                                                    <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
+                                                    </span>
+                                                </div>
+                                                <b>Servicio</b><label style="color:red;">*</label>
+                                                <select id="edit_servicio" ng-model="edit_selectedItem" ng-change="edit_updatePrice()"
+                                                    class="form-control" ng-options="i as i.service for i in servicios">
+                                                    <option value="">Selecciona</option>
+                                                </select>
+                                                <b>Unidades</b><label style="color:red;">*</label>
+                                                <div class="input-group spinner">
+                                                    <div ng-click="edit_updatePrice()" id="edit_spinner_plus" class="input-group-addon">
+                                                        <a href="" class="glyphicon glyphicon-minus"></a>
+                                                    </div>
+                                                    <input id="edit_unidades" type="text" class="form-control" value="1" disabled>
+                                                    <div ng-click="edit_updatePrice()" id="edit_spinner_minus"class="input-group-addon">
+                                                        <a href="" class="glyphicon glyphicon-plus"></a>
+                                                    </div>
+                                                </div>
+                                                <b>Telefono</b>
+                                                <input id="edit_telefono" type="text" class="form-control" placeholder="(012)345-6789" >
+                                                <b>Direccion</b>
+                                                <input id="edit_pueblo" type="text" class="form-control">
+                                                <b>Pago</b><label style="color:red;">*</label>
+                                                <div class="input-group">
+                                                    <div data-toggle="tooltip" data-placement="top" title="Update pago" ng-click="edit_updatePrice()"class="input-group-addon"><a href="" class="">$</a></div>
+                                                    <input value="0" id="edit_pago" type="number" class="form-control"  placeholder="Costo del servicio">
+                                                    <div class="input-group-addon">.00</div>
+                                                </div>
+                                                <b>Metodo de Pago</b><label style="color:red;">*</label>
+                                                <select id="edit_metodo" class="form-control">
+                                                    <option value="">Selecciona</option>
+                                                    <option value="ath_movil">ATH Movil</option>
+                                                    <option value="personal">Personal</option>
+                                                    <option value="paypal">Paypal</option>
+                                                    <option value="otro">Otro</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Hacer Pago -->
+                                            <div role="tabpanel" class="tab-pane" id="profile">
+                                                <b>Nombre:</b>
+                                                <input type="text" class="form-control" id="pagar_nombre" disabled>
+                                                <b>Servicio:</b>
+                                                <input type="text" class="form-control" id="pagar_servicio" disabled>
+                                                <b>Unidades:</b>
+                                                <input type="text" class="form-control" id="pagar_unidades" disabled>
+                                                <b>Cantidad a pagar:</b>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"><i>$</i></div>
+                                                    <input value="0" id="pagar_pago" type="number" class="form-control" disabled>
+                                                    <div class="input-group-addon">.00</div>
+                                                </div>
+                                                <hr>
+                                                <b>Fecha de proximo pago</b><label style="color:red;">*</label>
+                                                <div class='input-group date' id='datetimepicker3'>
+                                                    <input id="pagar_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
+                                                    <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div id="deleteAlert" style="margin:5px;" class="alert alert-danger" role="alert">
+                                        <p class="pull-left">Estas seguro que quieres <strong>BORRAR</strong> este cliente?</p>
+                                        <button onclick="hideDeleteAlert()" type="button" class="btn btn-default">Cancelar</button>
+                                        <button type="button" ng-click="deleteClient()" class="btn btn-danger">Borrar</button>
+                                    </div>
+                                    <button type="button" class="btn btn-danger pull-left" 
+                                        onclick="showDeleteAlert()">Borrar Cliente</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    <button type="button" id="pagar_btn" class="btn btn-success" ng-click="makePayment()">Hacer Pago</button>
+                                    <button type="button" id="edit_btn" class="btn btn-primary" ng-click="modifyClient()">Modificar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                
+
+
+
+
+                </div>
+
+                <!-- Clientes activos -->
+                
             </div>
             <!-- /#page-wrapper -->
-
         </div>
         <!-- /#wrapper -->
-
-
-        
-
         <script type="text/javascript">
 
             $(function () {
@@ -331,6 +425,18 @@
                 });
             });
 
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    format: 'MM/DD/YYYY'
+                });
+            });
+
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    format: 'MM/DD/YYYY'
+                });
+            });
+            
             (function ($) {
               $('#spinner_minus').on('click', function() {
                 $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
@@ -340,16 +446,46 @@
               });
             })(jQuery);
 
+            (function ($) {
+              $('#edit_spinner_minus').on('click', function() {
+                $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+              });
+              $('#edit_spinner_plus').on('click', function() {
+                $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+              });
+            })(jQuery);
+            
             function tabsManagment(obj){
                 hideAllTabs();
                 var tab = (typeof obj == 'string') ? obj : $(obj).attr('id');
                 $("." + tab).show();
+                $("#pagar_btn").hide();
+                $("#deleteAlert").hide();
             }
-
+            
             function hideAllTabs(){
                 $(".clientes_activos").hide();
                 $(".clientes_deudores").hide();
             }
+
+            function hideModifyBtn() {
+                 $("#edit_btn").hide();
+                 $("#pagar_btn").show();
+            }
+
+            function showModifyBtn() {
+                 $("#edit_btn").show();
+                 $("#pagar_btn").hide();
+            }
+
+            function showDeleteAlert() {
+                $("#deleteAlert").show();
+            }
+
+            function hideDeleteAlert() {
+                $("#deleteAlert").hide();
+            }
+
         </script>
     </body>
 </html>
