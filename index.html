@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='controlPanel'>
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,8 +34,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
+    
     <body onload="tabsManagment('clientes_activos')">
         <div id="wrapper">
+
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -63,6 +66,7 @@
                     </li>
                     <!-- /.dropdown -->
                 </ul>
+
                 <!-- /.navbar-top-links -->
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
@@ -84,31 +88,35 @@
                     <!-- /.sidebar-collapse -->
                 </div>
                 <!-- /.navbar-static-side -->
+
             </nav>
             <!-- /Navigation -->
 
             <!-- #page-wrapper -->
             <div id="page-wrapper">
-
                 <!-- Clientes activos -->
                 <div class="clientes_activos" ng-controller="controlPanelCtrl as cp">
-
-
                     <br>
+
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="" class="active" ng-click="showActive = true">
-                                    <a href="#" aria-controls="" role="tab" data-toggle="tab"><h4>Clientes Activos</h4></a>
+                                    <a href="#" aria-controls="" role="tab" data-toggle="tab">
+                                        <h4>Clientes Activos</h4>
+                                    </a>
                                 </li>
                                 <li role="" ng-click="showActive = false">
-                                    <a href="#" aria-controls="" role="tab" data-toggle="tab"><h4>Clientes Deudores</h4></a>
+                                    <a href="#" aria-controls="" role="tab" data-toggle="tab">
+                                        <h4>Clientes Deudores</h4>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
                     <br>
+
                     <!-- /.row -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -196,6 +204,7 @@
                                 </div>
                             </div>
                             <!-- /.table-responsive -->
+
                             <div style="margin: 5px;" class="btn-group pull-left">
                                 <button type="button" class="btn btn-default dropdown-toggle" 
                                     data-toggle="dropdown" aria-expanded="false">
@@ -221,6 +230,7 @@
                                     </li>
                                 </ul>
                             </div>
+
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
@@ -287,7 +297,7 @@
                             </div>
                         </div>
                     </div>
-                
+
                     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -297,8 +307,6 @@
                                 </div>
                                 <div class="modal-body">
                                     <div role="tabpanel">
-
-
                                         <!-- Nav tabs -->
                                         <ul class="nav nav-tabs" role="tablist">
                                             <li role="presentation" onclick="showModifyBtn()" class="active">
@@ -308,8 +316,6 @@
                                                 <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Hacer Pago</a>
                                             </li>
                                         </ul>
-
-
                                         <!-- Tab panes -->
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane active" id="home">
@@ -401,15 +407,8 @@
                         </div>
                     </div>
 
-                
-
-
-
-
                 </div>
-
                 <!-- Clientes activos -->
-                
             </div>
             <!-- /#page-wrapper -->
         </div>
@@ -419,18 +418,19 @@
             $(function () {
               $('[data-toggle="tooltip"]').tooltip()
             })
+            
             $(function () {
                 $('#datetimepicker1').datetimepicker({
                     format: 'MM/DD/YYYY'
                 });
             });
-
+            
             $(function () {
                 $('#datetimepicker2').datetimepicker({
                     format: 'MM/DD/YYYY'
                 });
             });
-
+            
             $(function () {
                 $('#datetimepicker3').datetimepicker({
                     format: 'MM/DD/YYYY'
@@ -445,7 +445,7 @@
                 $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
               });
             })(jQuery);
-
+            
             (function ($) {
               $('#edit_spinner_minus').on('click', function() {
                 $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
@@ -467,25 +467,25 @@
                 $(".clientes_activos").hide();
                 $(".clientes_deudores").hide();
             }
-
+            
             function hideModifyBtn() {
                  $("#edit_btn").hide();
                  $("#pagar_btn").show();
             }
-
+            
             function showModifyBtn() {
                  $("#edit_btn").show();
                  $("#pagar_btn").hide();
             }
-
+            
             function showDeleteAlert() {
                 $("#deleteAlert").show();
             }
-
+            
             function hideDeleteAlert() {
                 $("#deleteAlert").hide();
             }
-
+            
         </script>
     </body>
 </html>
