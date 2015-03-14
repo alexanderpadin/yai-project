@@ -5,6 +5,9 @@
     	
     	$scope.clients = [];
         $scope.servicios = [];
+
+        $scope.orderByField = 'expiracion'; //Default sorting
+        $scope.reverseSort = false; //Reverse sorting
         
         $scope.getAllItems = function(queryLimit, querySkip, first) {
 

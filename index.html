@@ -130,18 +130,50 @@
                                     <table class="table table-bordered table-hover" id="dataTables-example">
                                         <thead>
                                             <tr>
-                                                <th>Nombre</th>
-                                                <th>Fecha De Expiracion</th>
-                                                <th>Servicio</th>
-                                                <th>Unidades</th>
+                                                <th>Nombre&nbsp; 
+                                                    <a href="" ng-click="orderByField='nombre'; reverseSort = !reverseSort">
+                                                        <i class="fa fa-sort"></i>
+                                                    </a>
+                                                </th>
+                                                <th>Fecha De Expiracion&nbsp; 
+                                                    <a href="" ng-click="orderByField='expiracion'; reverseSort = !reverseSort">
+                                                        <i class="fa fa-sort"></i>
+                                                    </a>
+                                                </th>
+                                                <th>Servicio&nbsp; 
+                                                    <a href="" ng-click="orderByField='servicio'; reverseSort = !reverseSort">
+                                                        <i class="fa fa-sort"></i>
+                                                    </a>
+                                                </th>
+                                                <th>Unidades&nbsp; 
+                                                    <a href="" ng-click="orderByField='unidades'; reverseSort = !reverseSort">
+                                                        <i class="fa fa-sort"></i>
+                                                    </a>
+                                                </th>
                                                 <th>Telefono</th>
-                                                <th>Direccion</th>
-                                                <th>Pago</th>
-                                                <th>Metodo de Pago</th>
-                                                <th>Deuda</th>
+                                                <th>Direccion&nbsp;
+                                                    <a href="" ng-click="orderByField='pueblo'; reverseSort = !reverseSort">
+                                                        <i class="fa fa-sort"></i>
+                                                    </a>
+                                                </th>
+                                                <th>Pago&nbsp;
+                                                    <a href="" ng-click="orderByField='pago'; reverseSort = !reverseSort">
+                                                        <i class="fa fa-sort"></i>
+                                                    </a>
+                                                </th>
+                                                <th>Metodo de Pago&nbsp;
+                                                    <a href="" ng-click="orderByField='metodo'; reverseSort = !reverseSort">
+                                                        <i class="fa fa-sort"></i>
+                                                    </a>
+                                                </th>
+                                                <th>Deuda&nbsp;
+                                                    <a href="" ng-click="orderByField='deuda'; reverseSort = !reverseSort">
+                                                        <i class="fa fa-sort"></i>
+                                                    </a>
+                                                </th>
                                             </tr>
                                         </thead>
-                                        <tbody ng-repeat="item in clients | filter:clientes" >
+                                        <tbody ng-repeat="item in clients | filter:clientes | orderBy:orderByField:reverseSort" >
                                             <tr>
                                                 <td>{{item.nombre}}</td>
                                                 <td>{{item.expiracion}}</td>
