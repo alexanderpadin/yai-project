@@ -14,7 +14,8 @@
         <link href="dependencies/bower_components/morrisjs/morris.css" rel="stylesheet">
         <link href="dependencies/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <script src="dependencies/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="dependencies/js/angular.min.js"></script>
+        <!-- <script src="dependencies/js/angular.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
         <script src="dependencies/modules/controlPanel.js"></script>
         <script src="dependencies/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="dependencies/bower_components/metisMenu/dist/metisMenu.min.js"></script>
@@ -181,8 +182,8 @@
                                             <tbody ng-repeat="item in clients | filter:clientes | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage | orderBy:orderByField:reverseSort" 
                                                 data-toggle="modal" 
                                                 data-target="#editModal"
-                                                ng-click="populateModal(item.objectId, item.nombre, item.expiracion, item.servicio, item.unidades, item.telefono,
-                                                item.pueblo, item.pago, item.metodo, item.deuda)"
+                                                ng-click="populateModal(item.objectId, item.nombre, item.expiracion, item.servicio, item.unidades, 
+                                                item.telefono, item.pueblo, item.pago, item.metodo, item.deuda, item.otro)"
                                                 ng-hide="verifyDates(item.expiracion, showActive)">
                                                 <tr>
                                                     <td>{{item.nombre}}</td>
@@ -192,7 +193,7 @@
                                                     <td>{{item.telefono}}</td>
                                                     <td>{{item.pueblo}}</td>
                                                     <td>{{item.pago | currency}}</td>
-                                                    <td>{{item.metodo}}</td>
+                                                    <td>{{item.metodo + " " + item.otro}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -263,8 +264,8 @@
                                             <a href="" class="glyphicon glyphicon-plus"></a>
                                         </div>
                                     </div>
-                                    <b>Telefono</b>
-                                    <input id="add_telefono" type="text" class="form-control" placeholder="(123)456-7890" >
+                                    <b>Telefono</b><label style="color:red;">*</label>
+                                    <input id="add_telefono" type="text" class="form-control" placeholder="+1 (012) 345-6789" >
                                     <b>Direccion</b>
                                     <input id="add_pueblo" type="text" class="form-control">
                                     <b>Pago</b><label style="color:red;">*</label>
@@ -274,13 +275,16 @@
                                         <div class="input-group-addon">.00</div>
                                     </div>
                                     <b>Metodo de Pago</b><label style="color:red;">*</label>
-                                    <select id="add_metodo" class="form-control">
+                                    <select id="add_metodo" class="form-control" ng-model="metodoModel" ng-change="metodoUpdate()">
                                         <option value="">Selecciona</option>
                                         <option value="ath_movil">ATH Movil</option>
                                         <option value="personal">Personal</option>
                                         <option value="paypal">Paypal</option>
+                                        <option value="correo">Correo</option>
                                         <option value="otro">Otro</option>
                                     </select>
+                                    <b id="add_otro_metodo_b">Otro</b><label id="add_otro_metodo_label" style="color:red;">*</label>
+                                    <input id="add_otro_metodo" type="text" class="form-control" placeholder="Especifique" >
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -337,8 +341,8 @@
                                                         <a href="" class="glyphicon glyphicon-plus"></a>
                                                     </div>
                                                 </div>
-                                                <b>Telefono</b>
-                                                <input id="edit_telefono" type="text" class="form-control" placeholder="(012)345-6789" >
+                                                <b>Telefono</b><label style="color:red;">*</label>
+                                                <input id="edit_telefono" type="text" class="form-control" placeholder="+1 (012) 345-6789" >
                                                 <b>Direccion</b>
                                                 <input id="edit_pueblo" type="text" class="form-control">
                                                 <b>Pago</b><label style="color:red;">*</label>
@@ -348,14 +352,19 @@
                                                     <div class="input-group-addon">.00</div>
                                                 </div>
                                                 <b>Metodo de Pago</b><label style="color:red;">*</label>
-                                                <select id="edit_metodo" class="form-control">
+                                                <select ng-change="metodoModifyUpdate()" id="edit_metodo" ng-model="metodoModifyModel" class="form-control">
                                                     <option value="">Selecciona</option>
                                                     <option value="ath_movil">ATH Movil</option>
                                                     <option value="personal">Personal</option>
                                                     <option value="paypal">Paypal</option>
+                                                    <option value="correo">Correo</option>
                                                     <option value="otro">Otro</option>
                                                 </select>
+                                                <b id="modify_otro_metodo_b">Otro</b><label id="modify_otro_metodo_label" style="color:red;">*</label>
+                                                <input id="modify_otro_metodo" type="text" class="form-control" placeholder="Especifique" >
+                            
                                             </div>
+
                                             <!-- Hacer Pago -->
                                             <div role="tabpanel" class="tab-pane" id="profile">
                                                 <b>Nombre:</b>
@@ -432,8 +441,12 @@
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     Ajustes de Servicios
-                                    <button style="visibility: hidden;" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i></button>
-                                    <button type="button" class="btn btn-default pull-right"><i class="glyphicon glyphicon-plus"></i></button>
+                                    <button style="visibility: hidden;" type="button" class="btn btn-success">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                    </button>
+                                    <button data-toggle="modal" data-target="#add_service_modal" type="button" class="btn btn-default pull-right">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                    </button>
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
@@ -445,7 +458,8 @@
                                                     <th>Costo</th>
                                                 </tr>
                                             </thead>
-                                            <tbody ng-repeat="s in services_conf">
+                                            <tbody ng-repeat="s in services_conf"
+                                                    ng-click="populateModificarService(s.objectId, s.service, s.price)">
                                                 <tr>
                                                     <td>{{s.service}}</td>
                                                     <td>{{s.price |currency}}</td>
@@ -465,7 +479,8 @@
                                 <div class="panel-heading">
                                     Usuarios del Sistema
                                     <button style="visibility: hidden;" type="button" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
-                                    <button type="button" class="btn btn-default pull-right"><i class="glyphicon glyphicon-plus"></i></button>
+                                    <button data-toggle="modal" data-target="#add_user_modal" type="button" class="btn btn-default pull-right">
+                                        <i class="glyphicon glyphicon-plus"></i></button>
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
@@ -478,7 +493,8 @@
                                                     <th>Username</th>
                                                 </tr>
                                             </thead>
-                                            <tbody ng-repeat="u in users_conf">
+                                            <tbody ng-repeat="u in users_conf"
+                                                    ng-click="populateModificarUser(u.objectId, u.firstName, u.lastName, u.username, u.password, u.role)">
                                                 <tr>
                                                     <td>{{u.role}}</th>
                                                     <td>{{u.firstName + " " + u.lastName}}</th>
@@ -533,7 +549,9 @@
                         <!-- /.col-lg-6 -->
                         <!-- configuracion de usuarios -->
                     </div>
+
                     <!-- Modals -->
+                    <!-- Cambio decontraseña -->
                     <div id="change_pass" class="modal fade bs-example-modal-sm" tabindex="-1">
                         <div class="modal-dialog modal-sm">
                             <div class="modal-content">
@@ -559,12 +577,158 @@
                         <!-- /.modal-dialog -->
                     </div>
                     <!-- /.login modal -->
+
+                    <!-- Add servicio -->
+                    <div id="add_service_modal" class="modal fade bs-example-modal-sm" tabindex="-1">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Crear Servicio</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="servicio_alert" class="alert alert-danger" role="alert">Entre nombre del servicio y precio.</div>
+                                    <b>Servicio:</b>
+                                    <input type="text" placeholder="servicio" class="form-control" id="add_service_config"><br>
+                                    <b>Pago</b>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">$</div>
+                                            <input value="0" id="add_pago_config" type="number" class="form-control"  placeholder="Costo del servicio">
+                                        <div class="input-group-addon">.00</div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success btn-block" ng-click="validatesAddService()">Crear</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.login modal -->
+
+                    <!-- Modificar servicio -->
+                    <div id="modificar_service_modal" class="modal fade bs-example-modal-sm" tabindex="-1">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Modificar Servicio</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="servicio_modificar_alert" class="alert alert-danger" role="alert">Entre nombre del servicio y precio.</div>
+                                    <b>Servicio:</b>
+                                    <input type="text" placeholder="servicio" class="form-control" id="modificar_service_config"><br>
+                                    <b>Pago</b>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">$</div>
+                                            <input value="0" id="modificar_pago_config" type="number" class="form-control"  placeholder="Costo del servicio">
+                                        <div class="input-group-addon">.00</div>
+                                    </div>
+                                    <input style="display:none;" type="text" placeholder="servicio" class="form-control" id="modificar_ID_config" disabled>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" ng-click="deleteService()">Borrar</button>
+                                    <button type="button" class="btn btn-success" ng-click="validatesModificarService()">Modificar</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.login modal -->
+
+                    
+                    <!-- Add User -->
+                    <div id="add_user_modal" class="modal fade bs-example-modal-sm" tabindex="-1">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Crear Usuario</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="usuario_alert" class="alert alert-danger" role="alert"></div>
+
+                                    <b>Nombre</b><br>
+                                    <input id="add_user_first" type="text" class="form-control" placeholder="Nombre" >
+                                    <b>Apellido</b><br>
+                                    <input id="add_user_Last" type="text" class="form-control" placeholder="Apellido">
+                                    <b>Username</b><br>
+                                    <input id="add_user_username" type="text" class="form-control" placeholder="Username">
+                                    <b>Permiso</b>
+                                    <select id="add_user_role" class="form-control">
+                                        <option value="">Selecciona</option>
+                                        <option value="admin">Administrado</option>
+                                        <option value="operador">Operador</option>
+                                        <option value="tecnico">Tecnico</option>
+                                    </select>
+                                    <b>Password</b><br>
+                                    <input id="add_user_pass1" type="password" class="form-control" placeholder="Password">
+                                    <b>Password</b><br>
+                                    <input id="add_user_pass2" type="password" class="form-control" placeholder="Password">
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success btn-block" ng-click="validatesAddUser()">Crear</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.login modal -->
+
+                    <!-- Modificar servicio -->
+                    <div id="modificar_user_modal" class="modal fade bs-example-modal-sm" tabindex="-1">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Modificar Usuario</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="user_modificar_alert" class="alert alert-danger" role="alert">Entre nombre del servicio y precio.</div>
+
+                                    <b>Nombre</b><br>
+                                    <input id="modify_user_first" type="text" class="form-control" placeholder="Nombre" disabled>
+                                    <b>Apellido</b><br>
+                                    <input id="modify_user_Last" type="text" class="form-control" placeholder="Apellido" disabled>
+                                    <b>Username</b><br>
+                                    <input id="modify_user_username" type="text" class="form-control" placeholder="Username" disabled>
+                                    <b>Permiso</b>
+                                    <select id="modify_user_role" class="form-control">
+                                        <option value="">Selecciona</option>
+                                        <option value="admin">Administrado</option>
+                                        <option value="operador">Operador</option>
+                                        <option value="tecnico">Tecnico</option>
+                                    </select>
+                                    <b>Password</b><br>
+                                    <input id="modify_user_pass1" type="password" class="form-control" placeholder="Password">
+                                    <b>Password</b><br>
+                                    <input id="modify_user_pass2" type="password" class="form-control" placeholder="Password">
+                                    
+
+                                    <input id="modify_user_ID_config" style="display:none;" type="text" placeholder="servicio" class="form-control" disabled>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" ng-click="deleteUser()">Borrar</button>
+                                    <button type="button" class="btn btn-success" ng-click="validatesModificarUser()">Modificar</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.login modal -->
+
                 </div>
                 <i style="display: none;" id="userID_header"></i>
                 <i style="display: none;" id="objID_header"></i>
                 <i style="display: none;" id="pass_header"></i>
             </div>
             <!-- /#page-wrapper -->
+
             <!-- login Modal -->
             <div ng-controller="loginCtrl as lc"
                 id="login" class="modal fade bs-example-modal-sm" tabindex="-1">
@@ -592,15 +756,9 @@
         </div>
         <!-- /#wrapper -->
         <script type="text/javascript">
-
-            $("#conf_log").hide();
-            $("#conf_usuarios").hide();
-            $("#conf_servicios").hide();
-            $("#deleteAlert").hide();
-            $("#login_alert").hide();
-            $("#changePass_alert").hide();
-            $("#pagar_btn").hide();
             
+            hideAll();
+
             $('#login').modal({
                 backdrop: 'static',
                 keyboard: false
@@ -646,6 +804,26 @@
               });
             })(jQuery);
             
+            function hideAll() {
+                $("#conf_log").hide();
+                $("#conf_usuarios").hide();
+                $("#conf_servicios").hide();
+                $("#deleteAlert").hide();
+                $("#login_alert").hide();
+                $("#changePass_alert").hide();
+                $("#pagar_btn").hide();
+                $("#servicio_alert").hide();
+                $("#servicio_modificar_alert").hide();
+                $("#usuario_alert").hide();
+                $("#user_modificar_alert").hide();
+                $("#add_otro_metodo").hide();
+                $("#add_otro_metodo_b").hide();
+                $("#add_otro_metodo_label").hide();
+                $("#modify_otro_metodo").hide();
+                $("#modify_otro_metodo_b").hide();
+                $("#modify_otro_metodo_label").hide();
+            }
+
             function tabsManagment(obj){
                 hideAllTabs();
                 var tab = (typeof obj == 'string') ? obj : $(obj).attr('id');

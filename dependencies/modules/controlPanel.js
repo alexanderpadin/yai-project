@@ -54,7 +54,7 @@
                     }
                 })
                 .error(function(data, status) {
-                    alert("Error");
+                    alert("Se ha producido un error obteniendo la lista de clientes.");
                 });
         };
 
@@ -85,7 +85,7 @@
                 });
         }
 
-        $scope.addItem = function(Nombre, Expiracion, Deuda, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Clave, Activo) {
+        $scope.addItem = function(Nombre, Expiracion, Deuda, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Clave, Activo, Otro) {
             $http({
                     method: 'POST',
                     url: 'https://api.parse.com/1/classes/clients',
@@ -104,7 +104,8 @@
                         unidades: parseInt(Unidades),
                         telefono: Telefono,
                         clave: Clave,
-                        activo: Activo
+                        activo: Activo,
+                        otro: Otro
                     }
                 }).success(function(data, status) {
                     $scope.getAllItems(1000, 0, true);
@@ -144,29 +145,36 @@
             var servicio = document.getElementById('add_servicio').value;
             var unidades = document.getElementById('add_unidades').value;
             var telefono = document.getElementById('add_telefono').value;
+            var otro = document.getElementById("add_otro_metodo").value;
             var clave = "";
             var activo = true;
             var deuda = 0;
 
-            if (!((nombre == null || nombre == "") || (expiracion == null || expiracion == "") || (metodo == null || metodo == "") || (pago == null || pago == "") || (servicio == null || servicio == ""))) {
-
+            if (!((nombre == null || nombre == "") || (expiracion == null || expiracion == "") || (metodo == null || metodo == "") || (pago == null || pago == "") || (servicio == null || servicio == "") || (telefono == null || telefono == ""))) {
+                telefono = $scope.phoneFormat(telefono);
                 servicio = $scope.servicios[parseInt(document.getElementById('add_servicio').value)].service;
                 if ($scope.validateDate(expiracion)) {
-                    document.getElementById('add_nombre').value = "";
-                    document.getElementById('add_expiracion').value = "";
-                    document.getElementById('add_metodo').value = "";
-                    document.getElementById('add_pago').value = "0";
-                    document.getElementById('add_pueblo').value = "";
-                    document.getElementById('add_servicio').value = "";
-                    document.getElementById('add_unidades').value = "1";
-                    document.getElementById('add_telefono').value = "";
 
-                    metodo = metodo.replace('_', ' ');
-                    metodo = $scope.capitalizeStr(metodo);
+                    if($scope.verifyIfClientExist(telefono)) {
+                        alert("Usuario ya existe.");
+                    } else {
+                        document.getElementById('add_nombre').value = "";
+                        document.getElementById('add_expiracion').value = "";
+                        document.getElementById('add_metodo').value = "";
+                        document.getElementById('add_pago').value = "0";
+                        document.getElementById('add_pueblo').value = "";
+                        document.getElementById('add_servicio').value = "";
+                        document.getElementById('add_unidades').value = "1";
+                        document.getElementById('add_telefono').value = "";
+                        document.getElementById("add_otro_metodo").value = "";
 
-                    $('#myModal').modal('hide');
+                        metodo = metodo.replace('_', ' ');
+                        metodo = $scope.capitalizeStr(metodo);
 
-                    $scope.addItem(nombre, expiracion, deuda, metodo, pago, pueblo, servicio, unidades, telefono, clave, activo);
+                        $('#myModal').modal('hide');
+                        $scope.addItem(nombre, expiracion, deuda, metodo, pago, pueblo, servicio, unidades, telefono, clave, activo, otro);
+
+                    }
 
                 } else {
                     alert("Fecha de expiracion invalida.");
@@ -175,6 +183,60 @@
                 alert("Llene todo los blancos requeridos.");
             }
         };
+
+        $scope.metodoUpdate = function() {
+            var metodo = document.getElementById('add_metodo').value;
+            if(metodo == 'otro') {
+                $("#add_otro_metodo").show();
+                $("#add_otro_metodo_b").show();
+                $("#add_otro_metodo_label").show();
+
+            } else {
+                $("#add_otro_metodo").hide();
+                $("#add_otro_metodo_b").hide();
+                $("#add_otro_metodo_label").hide();
+                document.getElementById("add_otro_metodo").value = "";
+            }
+        };
+
+        $scope.metodoModifyUpdate = function() {
+            var metodo = document.getElementById('edit_metodo').value;
+            if(metodo == 'otro') {
+                $("#modify_otro_metodo").show();
+                $("#modify_otro_metodo_b").show();
+                $("#modify_otro_metodo_label").show();
+            } else {
+                $("#modify_otro_metodo").hide();
+                $("#modify_otro_metodo_b").hide();
+                $("#modify_otro_metodo_label").hide();
+                document.getElementById("modify_otro_metodo").value = "";
+            }
+        };
+        
+
+        $scope.verifyIfClientExist = function(num) {
+            for(var i = 0 ; i < $scope.clients.length ; i++) {
+                if($scope.phoneFormat($scope.clients[i].telefono) == $scope.phoneFormat(num)) {
+                    return true;
+                } 
+            }
+            return false;
+        };
+
+        $scope.phoneFormat = function(phonenum) {
+            var regexObj = /^(?:\+?1[-. ]?)?(?:\(?([0-9]{3})\)?[-. ]?)?([0-9]{3})[-. ]?([0-9]{4})$/;
+            if (regexObj.test(phonenum)) {
+                var parts = phonenum.match(regexObj);
+                var phone = "";
+                if (parts[1]) { phone += "+1 (" + parts[1] + ") "; }
+                phone += parts[2] + "-" + parts[3];
+                return phone;
+            }
+            else {
+                //invalid phone number
+                return phonenum;
+            }
+        }
 
         $scope.updatePrice = function() {
             if (!(document.getElementById('add_servicio').value == null || document.getElementById('add_servicio').value == "")) {
@@ -206,7 +268,7 @@
             }
         };
 
-        $scope.populateModal = function(ID, nombre, expiracion, servicio, unidades, telefono, pueblo, pago, metodo, deuda) {
+        $scope.populateModal = function(ID, nombre, expiracion, servicio, unidades, telefono, pueblo, pago, metodo, deuda, otro) {
 
             var raw_servicio = servicio;
             metodo = metodo.replace(' ', '_');
@@ -229,14 +291,27 @@
             document.getElementById('edit_pueblo').value = pueblo;
             document.getElementById('edit_pago').value = pago;
             document.getElementById('edit_metodo').value = metodo;
+            document.getElementById('modify_otro_metodo').value = otro;
 
             document.getElementById('pagar_nombre').value = nombre;
             document.getElementById('pagar_servicio').value = raw_servicio;
             document.getElementById('pagar_unidades').value = unidades;
             document.getElementById('pagar_pago').value = pago;
+
+            if(metodo != 'otro') {
+                document.getElementById('modify_otro_metodo').value = "";
+                $("#modify_otro_metodo").hide();
+                $("#modify_otro_metodo_b").hide();
+                $("#modify_otro_metodo_label").hide();
+            } else {
+                document.getElementById('modify_otro_metodo').value = otro;
+                $("#modify_otro_metodo").show();
+                $("#modify_otro_metodo_b").show();
+                $("#modify_otro_metodo_label").show();
+            }
         };
 
-        $scope.UpdateItem = function(ID, Nombre, Expiracion, Deuda, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Clave, Activo) {
+        $scope.UpdateItem = function(ID, Nombre, Expiracion, Deuda, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Clave, Activo, Otro) {
             $http({
                     method: 'PUT',
                     url: 'https://api.parse.com/1/classes/clients/' + ID,
@@ -255,16 +330,19 @@
                         unidades: parseInt(Unidades),
                         telefono: Telefono,
                         clave: Clave,
-                        activo: Activo
+                        activo: Activo, 
+                        otro: Otro
                     }
                 }).success(function(data, status) {
                     alert("El cliente ha sido modificado exitosamente.")
                     $scope.getAllItems(1000, 0, true);
+                    $('#editModal').modal('hide');
 
-                    document.getElementById('pagar_nombre').value = Nombre;
-                    document.getElementById('pagar_servicio').value = Servicio;
-                    document.getElementById('pagar_unidades').value = Unidades;
-                    document.getElementById('pagar_pago').value = Pago;
+
+                    // document.getElementById('pagar_nombre').value = Nombre;
+                    // document.getElementById('pagar_servicio').value = Servicio;
+                    // document.getElementById('pagar_unidades').value = Unidades;
+                    // document.getElementById('pagar_pago').value = Pago;
 
                 })
                 .error(function(data, status) {
@@ -282,6 +360,7 @@
             var servicio = document.getElementById('edit_servicio').value;
             var unidades = document.getElementById('edit_unidades').value;
             var telefono = document.getElementById('edit_telefono').value;
+            var otro = document.getElementById('modify_otro_metodo').value;
             var clave = "";
             var activo = true;
             var deuda = 0;
@@ -293,8 +372,9 @@
 
                     metodo = metodo.replace('_', ' ');
                     metodo = $scope.capitalizeStr(metodo);
+                    telefono = $scope.phoneFormat(telefono);
 
-                    $scope.UpdateItem(ID, nombre, expiracion, deuda, metodo, pago, pueblo, servicio, unidades, telefono, clave, activo);
+                    $scope.UpdateItem(ID, nombre, expiracion, deuda, metodo, pago, pueblo, servicio, unidades, telefono, clave, activo, otro);
 
                 } else {
                     alert("Fecha de expiracion invalida.");
@@ -329,6 +409,7 @@
                     }).success(function(data, status) {
                         alert("Se realizo el pago exitosamente.");
                         $scope.getAllItems(1000, 0, true);
+                        $('#editModal').modal('hide');
 
                     })
                     .error(function(data, status) {
@@ -373,6 +454,7 @@
 
         $scope.getAllItems(1000, 0, true);
         $scope.getServices();
+
 
     }]);
 
@@ -464,8 +546,7 @@
 
                 $("#tickets_tab").show();
                 $("#configuracion_tab").show();
-
-                $("#conf_servicios").show();
+                
 
             } else {
                 $(".tickets_tab").show();
@@ -496,6 +577,9 @@
                     headers: {
                         'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    }, 
+                    params: {
+                        order: "-createdAt"
                     }
                 }).success(function(data, status) {
                     $scope.users_conf = data.results;
@@ -512,6 +596,9 @@
                     headers: {
                         'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    params: {
+                        order: "-createdAt"
                     }
                 }).success(function(data, status) {
                     $scope.services_conf = data.results;
@@ -551,13 +638,13 @@
                         password: pass,
                     }
                 }).success(function(data, status) {
-                    alert("Se a cambiado su contraseña exitosamente.");
+                    alert("Se ha cambiado su contraseña exitosamente.");
                     $('#change_pass').modal('hide');
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un ERROR modificando su contraseña.");
                 });
-        }
+        };
 
         $scope.validateChangePass = function() {
 
@@ -586,8 +673,282 @@
             }
         };
 
+        $scope.validatesAddService = function() {
+            var newService = document.getElementById("add_service_config").value;
+            var newPrice = document.getElementById("add_pago_config").value;
+
+            if((newService == null || newService == "") || 
+                (newPrice == null || newPrice =="")){
+
+                $("#servicio_alert").show();
+                return;
+            } else {
+                $("#servicio_alert").hide();
+                $scope.addNewService(newService, newPrice);
+            }
+        };
+
+        $scope.addNewService = function(newService, newPrice) {
+
+            var newServiceName = newService.split(' ').join('_');
+            newServiceName = newServiceName.toLowerCase();
+
+            $http({
+                    method: 'POST',
+                    url: 'https://api.parse.com/1/classes/services',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        name: newServiceName,
+                        service: newService,
+                        price: parseInt(newPrice)
+                    }
+                }).success(function(data, status) {
+                    $scope.prepareField();
+                    $("#add_service_modal").modal("hide");
+                })
+                .error(function(data, status) {
+                    alert("Se ha producido un error creando el nuevo servicio.");
+                });
+        };
+
+        $scope.populateModificarService = function(ID, Servicio, Precio){
+
+            document.getElementById("modificar_service_config").value = Servicio; 
+            document.getElementById("modificar_pago_config").value = Precio;
+            document.getElementById("modificar_ID_config").value = ID;
+
+            $("#modificar_service_modal").modal("show");
+        };
+
+        $scope.validatesModificarService = function() {
+            var modi_service = document.getElementById("modificar_service_config").value; 
+            var modi_price = document.getElementById("modificar_pago_config").value;
+            var modi_id = document.getElementById("modificar_ID_config").value;
+            
+            if ((modi_service == null || modi_service == "") ||
+                (modi_price == null || modi_price == "") ) {
+                $("#servicio_modificar_alert").show();
+                return;
+            } else {
+                $("#servicio_modificar_alert").hide();
+                $scope.modifyService(modi_id, modi_service, modi_price);
+            }
+        };
+
+        $scope.modifyService = function(ID, Service, Price) {
+
+            var ServiceName = Service.split(' ').join('_');
+            ServiceName = ServiceName.toLowerCase();
+
+            $http({
+                    method: 'PUT',
+                    url: 'https://api.parse.com/1/classes/services/' + ID,
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        name: ServiceName,
+                        service: Service,
+                        price: parseInt(Price)
+                    }
+                }).success(function(data, status) {
+                    $scope.prepareField();
+                    $("#modificar_service_modal").modal("hide");
+
+                })
+                .error(function(data, status) {
+                    alert("Se ha producido un error modificando el servicio.");
+                });
+        };
+
+        $scope.deleteService = function() {
+
+            var ID = document.getElementById('modificar_ID_config').value;
+            $http({
+                    method: 'DELETE',
+                    url: 'https://api.parse.com/1/classes/services/' + ID,
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    }
+                }).success(function(data, status) {
+                    $scope.prepareField();
+                    $('#modificar_service_modal').modal('hide')
+                })
+                .error(function(data, status) {
+                    alert("Se ha producido un error borrando el servicio.");
+                });
+        };
+
+        $scope.validatesAddUser = function() {
+
+            var newUserFName = document.getElementById("add_user_first").value;
+            var newUserLName = document.getElementById("add_user_Last").value;
+            var newUserRole = document.getElementById("add_user_role").value;
+            var newUserUsername = document.getElementById("add_user_username").value;
+            var newUserPass1 = document.getElementById("add_user_pass1").value;
+            var newUserPass2 = document.getElementById("add_user_pass2").value;
+
+            if((newUserFName == null || newUserFName == "") || 
+                (newUserLName == null || newUserLName =="") ||
+                (newUserRole == null || newUserRole =="") ||
+                (newUserUsername == null || newUserUsername =="") ||
+                (newUserPass1 == null || newUserPass1 =="") ||
+                (newUserPass2 == null || newUserPass2 =="")){
+
+                document.getElementById("usuario_alert").innerHTML = "Entre toda la informacion del nuevo usuario.";
+                $("#usuario_alert").show();
+                return;
+            } else if(newUserPass1 != newUserPass2){
+                document.getElementById("usuario_alert").innerHTML = "La contraseña no es la misma en las dos entradas."
+                $("#usuario_alert").show();
+                return;
+            } else if($scope.verifyIfNusernameExist(newUserUsername)) {
+                document.getElementById("usuario_alert").innerHTML = "Username ya existe."
+                $("#usuario_alert").show();
+                return;
+            } else {
+                $("#usuario_alert").hide();
+                $scope.addNewUser(newUserFName, newUserLName, newUserUsername, newUserPass1, newUserRole);
+            }
+        };
+
+        $scope.verifyIfNusernameExist = function(newUsername) {
+            for(var i = 0 ; i < $scope.users_conf.length ; i++) {
+                if($scope.users_conf[i].username == newUsername) {
+                    return true;
+                } 
+            }
+            return false;
+        };
+
+        $scope.addNewUser = function(nombre, apellido, usuario, pass, perm) {
+
+            $http({
+                    method: 'POST',
+                    url: 'https://api.parse.com/1/classes/users',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        firstName: nombre,
+                        lastName: apellido,
+                        username: usuario,
+                        password: pass,
+                        role: perm,
+                    }
+                }).success(function(data, status) {
+                    $scope.prepareField();
+                    $("#add_user_modal").modal("hide");
+                })
+                .error(function(data, status) {
+                    alert("Se ha producido un error creando el nuevo usuario.");
+                });
+        };
+
+        $scope.populateModificarUser = function(m_objectId, m_firstName, m_lastName, m_username, m_password, m_role){
+
+            document.getElementById("modify_user_first").value = m_firstName;
+            document.getElementById("modify_user_Last").value = m_lastName;
+            document.getElementById("modify_user_username").value = m_username;
+            document.getElementById("modify_user_role").value = m_role;
+            document.getElementById("modify_user_pass1").value = m_password;
+            document.getElementById("modify_user_pass2").value = m_password;
+            document.getElementById("modify_user_ID_config").value = m_objectId;
+
+
+            $("#modificar_user_modal").modal("show");
+        };
+
+        $scope.validatesModificarUser = function() {
+            var modi_fname = document.getElementById("modify_user_first").value;
+            var modi_lname = document.getElementById("modify_user_Last").value;
+            var modi_user = document.getElementById("modify_user_username").value;
+            var modi_role = document.getElementById("modify_user_role").value;
+            var modi_pass1 = document.getElementById("modify_user_pass1").value;
+            var modi_pass2 = document.getElementById("modify_user_pass2").value;
+            var modi_ID = document.getElementById("modify_user_ID_config").value;
+            
+            if((modi_fname == null || modi_fname == "") || 
+                (modi_lname == null || modi_lname =="") ||
+                (modi_user == null || modi_user =="") ||
+                (modi_role == null || modi_role =="") ||
+                (modi_pass1 == null || modi_pass1 =="") ||
+                (modi_pass2 == null || modi_pass2 =="")){
+
+                document.getElementById("user_modificar_alert").innerHTML = "Entre toda la informacion del usuario.";
+                $("#user_modificar_alert").show();
+                return;
+            } else if(modi_pass1 != modi_pass2){
+                document.getElementById("user_modificar_alert").innerHTML = "La contraseña no es la misma en las dos entradas."
+                $("#user_modificar_alert").show();
+                return;
+            } else {
+                $("#user_modificar_alert").hide();
+                $scope.modifyUser(modi_ID, modi_fname, modi_lname, modi_user, modi_pass1, modi_role);
+            }
+
+        };
+
+        $scope.modifyUser = function(ID, nombre, apellido, usuario, pass, perm) {
+            $http({
+                    method: 'PUT',
+                    url: 'https://api.parse.com/1/classes/users/' + ID ,
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        firstName: nombre,
+                        lastName: apellido,
+                        username: usuario,
+                        password: pass,
+                        role: perm,
+                    }
+                }).success(function(data, status) {
+                    $scope.prepareField();
+                    $("#modificar_user_modal").modal("hide");
+                })
+                .error(function(data, status) {
+                    alert("Se ha producido un error modificando el usuario.");
+                });
+        };
+        
+        $scope.deleteUser = function() {
+
+            var ID = document.getElementById('modify_user_ID_config').value;
+            $http({
+                    method: 'DELETE',
+                    url: 'https://api.parse.com/1/classes/users/' + ID,
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    }
+                }).success(function(data, status) {
+                    $scope.prepareField();
+                    $('#modificar_user_modal').modal('hide')
+                })
+                .error(function(data, status) {
+                    alert("Se ha producido un error borrando el usuario.");
+                });
+        };
+
         $scope.prepareField();
 
     }]);
 
 })();
+
+
+
+
+
+
+
+
+
