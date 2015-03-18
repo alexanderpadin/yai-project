@@ -85,6 +85,8 @@
                 });
         }
 
+
+
         $scope.addItem = function(Nombre, Expiracion, Deuda, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Clave, Activo, Otro) {
             $http({
                     method: 'POST',
@@ -270,45 +272,61 @@
 
         $scope.populateModal = function(ID, nombre, expiracion, servicio, unidades, telefono, pueblo, pago, metodo, deuda, otro) {
 
-            var raw_servicio = servicio;
-            metodo = metodo.replace(' ', '_');
-            metodo = metodo.toLowerCase();
+            $http({
+                    method: 'GET',
+                    url: 'https://api.parse.com/1/classes/services',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    params: {
+                        limit: 1000
+                    },
 
-            servicio = servicio.replace(' ', '_');
-            servicio = servicio.toLowerCase();
+                }).success(function(data, status) {
+                    $scope.servicios = data.results;
 
-            for (var i = 0; i < $scope.servicios.length; i++) {
-                if (servicio == $scope.servicios[i].name) {
-                    document.getElementById('edit_servicio').value = i;
-                }
-            }
+                    var raw_servicio = servicio;
+                    metodo = metodo.replace(' ', '_');
+                    metodo = metodo.toLowerCase();
 
-            document.getElementById('edit_ID').value = ID;
-            document.getElementById('edit_nombre').value = nombre;
-            document.getElementById('edit_expiracion').value = expiracion;
-            document.getElementById('edit_unidades').value = unidades;
-            document.getElementById('edit_telefono').value = telefono;
-            document.getElementById('edit_pueblo').value = pueblo;
-            document.getElementById('edit_pago').value = pago;
-            document.getElementById('edit_metodo').value = metodo;
-            document.getElementById('modify_otro_metodo').value = otro;
+                    document.getElementById('edit_servicio_print').value = servicio;
+                    document.getElementById('edit_ID').value = ID;
+                    document.getElementById('edit_nombre').value = nombre;
+                    document.getElementById('edit_expiracion').value = expiracion;
+                    document.getElementById('edit_unidades').value = unidades;
+                    document.getElementById('edit_telefono').value = telefono;
+                    document.getElementById('edit_pueblo').value = pueblo;
+                    document.getElementById('edit_pago').value = pago;
+                    document.getElementById('edit_metodo').value = metodo;
+                    document.getElementById('modify_otro_metodo').value = otro;
 
-            document.getElementById('pagar_nombre').value = nombre;
-            document.getElementById('pagar_servicio').value = raw_servicio;
-            document.getElementById('pagar_unidades').value = unidades;
-            document.getElementById('pagar_pago').value = pago;
+                    document.getElementById('pagar_nombre').value = nombre;
+                    document.getElementById('pagar_servicio').value = raw_servicio;
+                    document.getElementById('pagar_unidades').value = unidades;
+                    document.getElementById('pagar_pago').value = pago;
 
-            if(metodo != 'otro') {
-                document.getElementById('modify_otro_metodo').value = "";
-                $("#modify_otro_metodo").hide();
-                $("#modify_otro_metodo_b").hide();
-                $("#modify_otro_metodo_label").hide();
-            } else {
-                document.getElementById('modify_otro_metodo').value = otro;
-                $("#modify_otro_metodo").show();
-                $("#modify_otro_metodo_b").show();
-                $("#modify_otro_metodo_label").show();
-            }
+                    
+
+                    var d = new Date(expiracion);
+                    d.setMonth( d.getMonth( ) + 1 );
+                    document.getElementById("pagar_expiracion").value = ( d.getMonth( ) + 1 ) + '/' + d.getDate( ) + '/' + d.getFullYear( );
+
+                    if(metodo != 'otro') {
+                        document.getElementById('modify_otro_metodo').value = "";
+                        $("#modify_otro_metodo").hide();
+                        $("#modify_otro_metodo_b").hide();
+                        $("#modify_otro_metodo_label").hide();
+                    } else {
+                        document.getElementById('modify_otro_metodo').value = otro;
+                        $("#modify_otro_metodo").show();
+                        $("#modify_otro_metodo_b").show();
+                        $("#modify_otro_metodo_label").show();
+                    }
+                })
+                .error(function(data, status) {
+                    console.log("Error:" + data + " Status:" + status);
+                });
         };
 
         $scope.UpdateItem = function(ID, Nombre, Expiracion, Deuda, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Clave, Activo, Otro) {
@@ -357,7 +375,7 @@
             var metodo = document.getElementById('edit_metodo').value;
             var pago = document.getElementById('edit_pago').value;
             var pueblo = document.getElementById('edit_pueblo').value;
-            var servicio = document.getElementById('edit_servicio').value;
+            var servicio = document.getElementById('edit_servicio_print').value;
             var unidades = document.getElementById('edit_unidades').value;
             var telefono = document.getElementById('edit_telefono').value;
             var otro = document.getElementById('modify_otro_metodo').value;
@@ -367,7 +385,6 @@
 
             if (!((nombre == null || nombre == "") || (expiracion == null || expiracion == "") || (metodo == null || metodo == "") || (pago == null || pago == "") || (servicio == null || servicio == ""))) {
 
-                servicio = $scope.servicios[parseInt(document.getElementById('edit_servicio').value)].service;
                 if ($scope.validateDate(expiracion)) {
 
                     metodo = metodo.replace('_', ' ');
@@ -381,6 +398,15 @@
                 }
             } else {
                 alert("Llene todo los blancos requeridos.");
+            }
+        };
+
+        $scope.printService = function(value) {
+            if(value == "" || value == null) {
+                document.getElementById("edit_servicio_print").value = "";
+            } else {
+                document.getElementById("edit_servicio_print").value = value.service;
+                document.getElementById("edit_servicio").value = "";
             }
         };
 
@@ -943,7 +969,6 @@
     }]);
 
 })();
-
 
 
 

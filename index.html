@@ -327,7 +327,9 @@
                                                     </span>
                                                 </div>
                                                 <b>Servicio</b><label style="color:red;">*</label>
-                                                <select id="edit_servicio" ng-model="edit_selectedItem" ng-change="edit_updatePrice()"
+                                                <input id="edit_servicio_print" type="text" class="form-control" placeholder="Servicio" disabled>
+                                                <select id="edit_servicio" ng-model="edit_selectedItem" 
+                                                        ng-change="edit_updatePrice(); printService(edit_selectedItem)"
                                                     class="form-control" ng-options="i as i.service for i in servicios">
                                                     <option value="">Selecciona</option>
                                                 </select>
@@ -739,13 +741,14 @@
                         </div>
                         <div class="modal-body">
                             <div id="login_alert" class="alert alert-danger" role="alert">Error</div>
+                            
                             <b>Username:</b>
-                            <input type="text" placeholder="username" class="form-control" id="login_user"><br>
+                            <input type="text" ng-keyup="$event.keyCode == 13 ? validateLoginInputs() : null" placeholder="username" class="form-control" id="login_user"><br>
                             <b>Password:</b>
-                            <input type="password" placeholder="password" class="form-control" id="login_pass">
+                            <input type="password" ng-keyup="$event.keyCode == 13 ? validateLoginInputs() : null" placeholder="password" class="form-control" id="login_pass">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-success btn-block" ng-click="validateLoginInputs()">Log in</button>
+                            <button type="button" class="btn btn-success btn-block" ng-click="validateLoginInputs()" ng-enter="validateLoginInputs()">Log in</button>
                         </div>
                     </div>
                     <!-- /.modal-content -->
