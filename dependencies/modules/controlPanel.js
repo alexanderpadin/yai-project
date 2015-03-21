@@ -10,6 +10,8 @@
         $scope.orderByField = 'expiracion'; //Default sorting
         $scope.reverseSort = false; //Reverse sorting
 
+        $scope.numberOfPagesinClients = 50;
+
         $scope.getAllItems = function(queryLimit, querySkip, first) {
 
             $http({
@@ -33,8 +35,10 @@
                             querySkip += queryLimit;
                             $scope.getAllItems(queryLimit, querySkip, first);
                         } else {
-                            $scope.pagination = Pagination.getNew(50); //Generate pagination in table
+                            $scope.pagination = Pagination.getNew($scope.numberOfPagesinClients); //Generate pagination in table
+
                             $scope.pagination.numPages = Math.ceil($scope.clients.length / $scope.pagination.perPage); //Generate number of pages
+                            document.getElementById("numberOfClients").innerHTML = 'Clientes: ' + $scope.numberOfPagesinClients + ' de ' + $scope.clients.length +' total'
                             //Data ready.
 
                         }
@@ -47,8 +51,9 @@
                             querySkip += queryLimit;
                             $scope.getAllItems(queryLimit, querySkip, first);
                         } else {
-                            $scope.pagination = Pagination.getNew(50); //Generate pagination in table
+                            $scope.pagination = Pagination.getNew($scope.numberOfPagesinClients); //Generate pagination in table
                             $scope.pagination.numPages = Math.ceil($scope.clients.length / $scope.pagination.perPage); //Generate number of pages
+                            document.getElementById("numberOfClients").innerHTML = 'Clientes: ' + $scope.numberOfPagesinClients + ' de ' + $scope.clients.length +' total'
                             //Data ready.
                         }
                     }
@@ -84,8 +89,6 @@
                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
                 });
         }
-
-
 
         $scope.addItem = function(Nombre, Expiracion, Deuda, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Clave, Activo, Otro) {
             $http({
@@ -257,8 +260,14 @@
         };
 
         $scope.changeNumberOfPages = function(num) {
-            $scope.pagination = Pagination.getNew(num);
+            $scope.numberOfPagesinClients = num;
+            $scope.pagination = Pagination.getNew($scope.numberOfPagesinClients);
             $scope.pagination.numPages = Math.ceil($scope.clients.length / $scope.pagination.perPage);
+            if($scope.numberOfPagesinClients > $scope.clients.length ) {
+                document.getElementById("numberOfClients").innerHTML = 'Clientes: ' + $scope.clients.length + ' de ' + $scope.clients.length +' total'
+            } else {
+                document.getElementById("numberOfClients").innerHTML = 'Clientes: ' + $scope.numberOfPagesinClients + ' de ' + $scope.clients.length +' total'
+            } 
         };
 
         $scope.searchGlitch = function() {
@@ -516,6 +525,7 @@
                     var user_ID;
                     var user_role;
                     var obj_ID;
+                    var userFirstName;
 
                     for (var i = 0; i < data.results.length; i++) {
                         if (data.results[i].username == username && data.results[i].password == password) {
@@ -525,6 +535,7 @@
                             user_ID = data.results[i].username;
                             obj_ID = data.results[i].objectId;
                             user_pass = data.results[i].password;
+                            userFirstName = data.results[i].firstName;
                         }
                     }
 
@@ -537,6 +548,7 @@
                         document.getElementById("userID_header").innerHTML = user_ID;
                         document.getElementById("objID_header").innerHTML = obj_ID;
                         document.getElementById("pass_header").innerHTML = user_pass;
+                        document.getElementById("user_tk_firstName").value = userFirstName;
 
                         $("#login").modal("hide");
                         //login user!
@@ -566,6 +578,9 @@
                 $("#conf_usuarios").show();
                 $("#conf_servicios").show();
 
+
+                $("#numberOfClients").show();
+
             } else if (role == "operador") {
                 $(".clientes_tab").show();
                 $("#clientes_tab").show();
@@ -578,6 +593,7 @@
                 $(".tickets_tab").show();
                 $("#tickets_tab").show();
                 $("#configuracion_tab").show();
+                $('#calendar').fullCalendar('render');
             }
         };
 
@@ -968,9 +984,276 @@
 
     }]);
 
+    app.controller("eTicketsCtrl", ['$scope', '$http', function($scope, $http) {
+
+        $scope.tickets;
+        $scope.users = [];
+
+        $scope.populateCalendar = function() {
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                defaultDate: (new Date()).toISOString(),
+                editable: false,
+                eventLimit: true,
+                events: $scope.tickets,
+                eventClick: function(calEvent, jsEvent, view) {
+                    $scope.openTicket(calEvent);
+                }
+            });
+        };
+
+        $scope.getTickets = function() {
+            $http({
+                    method: 'GET',
+                    url: 'https://api.parse.com/1/classes/tickets',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    }
+                }).success(function(data, status) {
+
+
+                    $scope.tickets = data.results;
+                    $scope.populateCalendar();
+                })
+                .error(function(data, status) {
+                    console.log("Error:" + data + " Status:" + status);
+                });
+        };
+
+        $scope.getUsers = function() {
+            $http({
+                    method: 'GET',
+                    url: 'https://api.parse.com/1/classes/users',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    }
+                }).success(function(data, status) {
+                    
+                    for(var i = 0 ; i < data.results.length ; i++) {
+                        if(data.results[i].role == 'tecnico') {
+                            $scope.users.push(data.results[i]);
+                        }
+                    }
+                
+          
+                })
+                .error(function(data, status) {
+                    console.log("Error:" + data + " Status:" + status);
+                });
+        };
+
+        $scope.validateInputsNewTicket = function() {
+
+            var client = document.getElementById("tickets_cliente").value;
+            var fecha = document.getElementById("tickets_fecha").value;
+            var asunto = document.getElementById("tickets_asunto").value;
+            var encargado = document.getElementById("tickets_users").value;
+
+
+            if((client == null || client == "") || (fecha == null || fecha == "") || (asunto == null || asunto == "") ||
+                    (encargado == null || encargado == "")) {
+                $("#newTicket_alert").show();
+                return;
+
+            } else {
+                var tec = $scope.users[parseInt(document.getElementById('tickets_users').value)].firstName;
+
+                $("#newTicket_alert").hide();
+                $scope.insertNewTicket(client, fecha, asunto, tec);
+            }                        
+        };
+
+        $scope.validateDate = function(dateString) {
+            if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
+                return false;
+
+            var parts = dateString.split("/");
+            var day = parseInt(parts[1], 10);
+            var month = parseInt(parts[0], 10);
+            var year = parseInt(parts[2], 10);
+
+            if (year < 1000 || year > 3000 || month == 0 || month > 12)
+                return false;
+
+            var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+            if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+                monthLength[1] = 29;
+
+            return day > 0 && day <= monthLength[month - 1];
+        };
+
+        $scope.insertNewTicket = function(Client, HoraFecha, Asunto, Encargado) {
+            $http({
+                    method: 'POST',
+                    url: 'https://api.parse.com/1/classes/tickets',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        title: Asunto,
+                        start: HoraFecha,
+                        asunto: Asunto,
+                        cliente: Client,
+                        status: 'pendiente',
+                        tecnico: Encargado, 
+                        color: '#F78181'
+                    }
+                }).success(function(data, status) {
+                    $scope.getTickets();
+                    document.getElementById("tickets_cliente").value = "";
+                    document.getElementById("tickets_fecha").value = "";
+                    document.getElementById("tickets_asunto").value = "";
+                    document.getElementById('tickets_users').value = 0;
+                    
+                    $('#calendar').fullCalendar( 'removeEventSource', $scope.tickets);
+                    $scope.reGetTickets();
+
+                })
+                .error(function(data, status) {
+                    alert("Se ha producido un error creando el nuevo ticket.");
+                });
+        }
+
+        $scope.reGetTickets = function() {
+            $http({
+                    method: 'GET',
+                    url: 'https://api.parse.com/1/classes/tickets',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    }
+                }).success(function(data, status) {
+                    $scope.tickets = data.results;
+                    
+                    $('#calendar').fullCalendar( 'addEventSource', $scope.tickets);         
+                    $('#calendar').fullCalendar( 'refetchEvents' );
+                    $("#add_ticket").modal('hide');
+                })
+                .error(function(data, status) {
+                    console.log("Error:" + data + " Status:" + status);
+                });
+        };
+
+        $scope.openTicket = function(obj) {
+
+            var date = new Date(obj.start);
+            var mo = date.getMonth() + 1;
+            var day = date.getDate();
+            var y = date.getFullYear();
+            var h = date.getHours();
+            var m = date.getMinutes();
+
+            var newDate = mo + '/' + day +'/'+ y;
+   
+            h = ("0" + h).slice(-2);
+            m = ("0" + m).slice(-2);
+
+            var fourDigitTime = h +''+ m;
+
+
+            var hours24 = parseInt(fourDigitTime.substring(0, 2),10);
+            var hours = ((hours24 + 11) % 12) + 1;
+            var amPm = hours24 > 11 ? 'pm' : 'am';
+            var minutes = fourDigitTime.substring(2);
+
+            newDate = newDate + ' ' + hours + ':' + minutes + amPm;
+
+            document.getElementById("t_cliente").value = obj.cliente;
+            document.getElementById("t_fecha").value = newDate;
+            document.getElementById("t_asunto").value = obj.title;
+            document.getElementById('t_encargado').value = obj.tecnico;
+            document.getElementById('ticketID').innerHTML = obj.objectId;
+
+            if(obj.status == 'completado') {
+                $('#respondAndClose').hide();
+                $('#t_completed').show();
+                document.getElementById('t_comentario').value = obj.comentario;
+            } else {
+                $('#respondAndClose').show();
+                $('#t_completed').hide();
+                document.getElementById('t_comentario').value = '';
+            }
+            if(document.getElementById("role_header").innerHTML == 'admin' || document.getElementById("role_header").innerHTML == 'operador') {
+                $("#info_ticket").modal("show");
+            } else {
+                if(obj.tecnico == document.getElementById("user_tk_firstName").value) {
+                    $("#info_ticket").modal("show");
+                }
+            }
+        }; 
+
+        $scope.respondTicket = function() {
+            var commnt = document.getElementById('t_comentario').value;
+
+            if(commnt == null || commnt == '') {
+                $("#t_warning").show();
+                return;
+            } else {
+                $("#t_warning").hide();
+                var ID = document.getElementById('ticketID').innerText;
+                $scope.changeTicket(ID, commnt);
+            }
+        };
+
+        $scope.changeTicket = function(ID, comment) {
+
+            $http({
+                    method: 'PUT',
+                    url: 'https://api.parse.com/1/classes/tickets/' + ID,
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        color:'#00CC66',
+                        status:'completado',
+                        comentario:comment
+                    }
+                }).success(function(data, status) {
+                    $('#calendar').fullCalendar( 'removeEventSource', $scope.tickets);
+                    $scope.reGetTickets();
+                    $("#info_ticket").modal("hide");
+                })
+                .error(function(data, status) {
+                    alert("Se ha producido un ERROR respondiendo el ticket.");
+                });
+        };
+
+        $scope.deleteTicket = function() {
+
+            var ID = document.getElementById('ticketID').innerHTML;
+            $http({
+                    method: 'DELETE',
+                    url: 'https://api.parse.com/1/classes/tickets/' + ID,
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    }
+                }).success(function(data, status) {
+                    $('#calendar').fullCalendar( 'removeEventSource', $scope.tickets);
+                    $scope.reGetTickets();
+                    $('#info_ticket').modal('hide');
+                })
+                .error(function(data, status) {
+                    alert("Se ha producido un error borrando el ticket.");
+                });
+        };
+
+        $scope.getUsers();
+        $scope.getTickets();
+    }]);
+    
+    
+
 })();
-
-
 
 
 

@@ -15,8 +15,10 @@
         <link href="dependencies/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <script src="dependencies/bower_components/jquery/dist/jquery.min.js"></script>
         <!-- <script src="dependencies/js/angular.min.js"></script> -->
+        <link rel="stylesheet" type="text/css" href="dependencies/js/clockpicker.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
         <script src="dependencies/modules/controlPanel.js"></script>
+
         <script src="dependencies/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="dependencies/bower_components/metisMenu/dist/metisMenu.min.js"></script>
         <script src="dependencies/bower_components/raphael/raphael-min.js"></script>
@@ -27,6 +29,14 @@
         <script type="text/javascript" src="dependencies/date_picker/transition.js"></script>
         <script type="text/javascript" src="dependencies/date_picker/collapse.js"></script>
         <script type="text/javascript" src="dependencies/date_picker/bootstrap-datetimepicker.min.js"></script>
+        <link href='dependencies/js/fullcalendar.css' rel='stylesheet' />
+
+        <!-- Calendar -->
+        <link href='dependencies/js/fullcalendar.css' rel='stylesheet' />
+        <link href='dependencies/js/fullcalendar.print.css' rel='stylesheet' media='print' />
+        <script src='dependencies/js/fullcalendar.min.js'></script>
+        <script type="text/javascript" src="dependencies/js/clockpicker.js"></script>
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -35,8 +45,14 @@
         <![endif]-->
         <style type="text/css">
             #login .modal-backdrop.in{
-            opacity: 10000.0;
-            background-color: #595959;
+                opacity: 10000.0;
+                background-color: #595959;
+            }
+            .red {
+                background-color: #F78181;
+            }
+            .green {
+                background-color: #00CC66;
             }
         </style>
     </head>
@@ -97,6 +113,7 @@
             <!-- /Navigation -->
             <!-- #page-wrapper -->
             <div id="page-wrapper">
+
                 <!-- Clientes -->
                 <div class="clientes_tab" ng-controller="controlPanelCtrl as cp">
                     <br>
@@ -225,6 +242,9 @@
                                         <a href="" ng-click="pagination.nextPage()">&raquo;</a>
                                     </li>
                                 </ul>
+                            </div>
+                            <div style="margin: 5px;" class="pull-left">
+                                <i id="numberOfClients"></i>
                             </div>
                         </div>
                         <!-- /.col-lg-12 -->
@@ -408,15 +428,174 @@
                         </div>
                     </div>
                 </div>
-                <!-- Clientes -->
-                <div class="tickets_tab">
+                <!-- ./Clientes -->
+
+                <div class="tickets_tab" ng-controller="eTicketsCtrl as etp">
+                    <input  style="display: none;" type="text" class="form-control" ng-model="ticket_encargado" id="user_tk_firstName" disabled>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">e-Tickets</h1>
                         </div>
-                        <!-- /.col-lg-12 -->
+                        <div class="col-lg-6">
+                            <div id='calendar'></div>
+                            <br><br>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    e-Tickets Pendientes 
+                                    <button style="visibility: hidden;" type="button" class="btn btn-success">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                    </button>
+                                    <button data-toggle="modal" data-target="#add_ticket" type="button" class="btn btn-default pull-right">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                    </button>
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <input type="text" class="form-control" placeholder="Search" ng-model="t">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Cliente</th>
+                                                    <th>Fecha</th>
+                                                    <th>Asunto</th>
+                                                    <th>Estado</th>
+                                                    <th>Encargado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody ng-repeat="t in tickets |filter:t"
+                                                    ng-click="openTicket(t)" ng-if="t.status == 'pendiente'">
+                                                <tr>
+                                                    <td>{{t.cliente}}</td>
+                                                    <td>{{t.start  | date:'MM/dd/yyyy @ h:mma'}}</td>
+                                                    <td>{{t.title}}</td>
+                                                    <td ng-class="{'red' : t.status == 'pendiente', 'green' : t.status == 'completado'}">{{t.status}}</td>
+                                                    <td>{{t.tecnico}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+
+
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    e-Tickets Completados 
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <input type="text" class="form-control" placeholder="Search" ng-model="tc">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Cliente</th>
+                                                    <th>Fecha</th>
+                                                    <th>Asunto</th>
+                                                    <th>Estado</th>
+                                                    <th>Encargado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody ng-repeat="tc in tickets |filter:tc"
+                                             ng-if="tc.status == 'completado'" ng-click="openTicket(tc)">
+                                                <tr>
+                                                    <td>{{tc.cliente}}</td>
+                                                    <td>{{tc.start | date:'MM/dd/yyyy @ h:mma'}}</td>
+                                                    <td>{{tc.title}}</td>
+                                                    <td ng-class="{'red' : tc.status == 'pendiente', 'green' : tc.status == 'completado'}">{{tc.status}}</td>
+                                                    <td>{{tc.tecnico}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-6 -->
+                    </div>
+
+
+                
+                    <div class="modal fade" id="add_ticket" tabindex="-1" role="dialog" 
+                        aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Nuevo Ticket</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="newTicket_alert" class="alert alert-danger" role="alert">Entre toda la informacion de el nuevo ticket.</div>
+
+                                    <b>Cliente:</b>
+                                    <input type="text" placeholder="Cliente" class="form-control" id="tickets_cliente"><br>
+                                    <b>Fecha</b>
+                                    <div class='input-group date' id='datetimepicker4'>
+                                        <input id="tickets_fecha" placeholder="MM/DD/YYYY 00:00M" type='text' class="form-control"/>
+                                        <span class="input-group-addon">
+                                            <a class="">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </a>
+                                        </span>
+                                    </div><br>
+                                    <b>Asunto:</b>
+                                    <textarea class="form-control" rows="5" id="tickets_asunto"></textarea><br>
+                                    <b>Encargado:</b>
+                                    <select id="tickets_users" ng-model="tickets_selectedItem" 
+                                            ng-change="" class="form-control" ng-options="i as i.firstName for i in users">
+                                        <option value="">Selecciona</option>
+                                    </select>
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="" ng-click=""  data-dismiss="modal"  type="button" 
+                                        class="btn btn-default">cancelar</button>
+                                    <button id="" ng-click="validateInputsNewTicket()"  type="button" 
+                                        class="btn btn-primary">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="info_ticket" class="modal fade bs-example-modal-sm" tabindex="-1">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">e-Ticket &nbsp;<i id='ticketID'><i></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="t_completed" class="alert alert-success" role="alert">Este ticket se a completado.</div>
+                                    <div id="t_warning" class="alert alert-danger" role="alert">Entre comentario.</div>
+                                    <input type="text" class="form-control" id="t_cliente" disabled><br>
+                                    <input type="text" class="form-control" id="t_fecha" disabled><br>
+                                    <textarea class="form-control" rows="3" id="t_asunto" disabled></textarea><br>
+                                    <input type="text" class="form-control" id="t_encargado" disabled><br>
+                                    <b>Comentario</b><label style="color:red;">*</label>
+                                    <textarea placeholder="Escriba comentario para responder y cerrar el ticket." class="form-control" rows="3" id="t_comentario"></textarea><br>
+                                </div>
+                                <div class="modal-footer">                                    
+                                    <button type="button" class="btn btn-danger" ng-click="deleteTicket()">Borrar</button>
+                                    <button type="button" id='respondAndClose'class="btn btn-success" ng-click="respondTicket()">Responder y Cerrar</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
                     </div>
                 </div>
+
+
                 <div class="ventas_tab">
                     <div class="row">
                         <div class="col-lg-12">
@@ -425,6 +604,7 @@
                         <!-- /.col-lg-12 -->
                     </div>
                 </div>
+
                 <div class="configuracion_tab" ng-controller="configurationCtrl as cc">
                     <div class="row">
                         <div class="col-lg-12">
@@ -682,8 +862,9 @@
                     <!-- /.login modal -->
 
                     <!-- Modificar servicio -->
-                    <div id="modificar_user_modal" class="modal fade bs-example-modal-sm" tabindex="-1">
-                        <div class="modal-dialog modal-sm">
+                    <div id="modificar_user_modal" class="modal fade" tabindex="-1" role="dialog" 
+                        aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -723,9 +904,10 @@
                         <!-- /.modal-dialog -->
                     </div>
                     <!-- /.login modal -->
-
                 </div>
+
                 <i style="display: none;" id="userID_header"></i>
+                <i style="display: none;" id="userName_header"></i>
                 <i style="display: none;" id="objID_header"></i>
                 <i style="display: none;" id="pass_header"></i>
             </div>
@@ -776,6 +958,10 @@
                     format: 'MM/DD/YYYY'
                 });
             });
+
+            $(function () {
+                $('#datetimepicker4').datetimepicker();
+            });
             
             $(function () {
                 $('#datetimepicker2').datetimepicker({
@@ -825,14 +1011,19 @@
                 $("#modify_otro_metodo").hide();
                 $("#modify_otro_metodo_b").hide();
                 $("#modify_otro_metodo_label").hide();
+                $("#newTicket_alert").hide();
+                $("#t_warning").hide();
+                $("#numberOfClients").hide();
             }
 
             function tabsManagment(obj){
                 hideAllTabs();
                 var tab = (typeof obj == 'string') ? obj : $(obj).attr('id');
                 $("." + tab).show();   
+                $('#calendar').fullCalendar('render');
+               
             }
-            
+
             function hideAllTabs(){
                 $(".clientes_tab").hide();
                 $(".tickets_tab").hide();
@@ -864,6 +1055,8 @@
             function hideDeleteAlert() {
                 $("#deleteAlert").hide();
             }
+            $('.clockpicker').clockpicker();
+
             
         </script>
     </body>
