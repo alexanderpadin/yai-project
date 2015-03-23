@@ -1,1063 +1,1107 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='controlPanel'>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Control Panel</title>
-        <link href="dependencies/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="dependencies/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-        <link href="dependencies/dist/css/timeline.css" rel="stylesheet">
-        <link href="dependencies/dist/css/sb-admin-2.css" rel="stylesheet">
-        <link href="dependencies/bower_components/morrisjs/morris.css" rel="stylesheet">
-        <link href="dependencies/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <script src="dependencies/bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- <script src="dependencies/js/angular.min.js"></script> -->
-        <link rel="stylesheet" type="text/css" href="dependencies/js/clockpicker.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-        <script src="dependencies/modules/controlPanel.js"></script>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Control Panel</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <link href="dependencies/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="dependencies/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+      <link href="dependencies/dist/css/timeline.css" rel="stylesheet">
+      <link href="dependencies/dist/css/sb-admin-2.css" rel="stylesheet">
+      <link href="dependencies/bower_components/morrisjs/morris.css" rel="stylesheet">
+      <link href="dependencies/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <script src="dependencies/bower_components/jquery/dist/jquery.min.js"></script>
+      <!-- <script src="dependencies/js/angular.min.js"></script> -->
+      <link rel="stylesheet" type="text/css" href="dependencies/js/clockpicker.css">
+      <script src="dependencies/modules/controlPanel.js"></script>
+      <script src="dependencies/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="dependencies/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+      <script src="dependencies/bower_components/raphael/raphael-min.js"></script>
+      <script src="dependencies/js/simplePagination.js"></script>
+      <script src="dependencies/dist/js/sb-admin-2.js"></script>
+      <link rel="stylesheet" href="dependencies/date_picker/bootstrap-datetimepicker.css" />
+      <script type="text/javascript" src="dependencies/date_picker/moment.js"></script>
+      <script type="text/javascript" src="dependencies/date_picker/transition.js"></script>
+      <script type="text/javascript" src="dependencies/date_picker/collapse.js"></script>
+      <script type="text/javascript" src="dependencies/date_picker/bootstrap-datetimepicker.min.js"></script>
+      <link href='dependencies/js/fullcalendar.css' rel='stylesheet' />
+      <!-- Calendar -->
+      <link href='dependencies/js/fullcalendar.css' rel='stylesheet' />
+      <link href='dependencies/js/fullcalendar.print.css' rel='stylesheet' media='print' />
+      <script src='dependencies/js/fullcalendar.min.js'></script>
+      <script type="text/javascript" src="dependencies/js/clockpicker.js"></script>
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <style type="text/css">
+         #login .modal-backdrop.in{
+         opacity: 10000.0;
+         background-color: #595959;
+         }
+         .red {
+         background-color: #F78181;
+         }
+         .green {
+         background-color: #00CC66;
+         }
+      </style>
+   </head>
 
-        <script src="dependencies/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="dependencies/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-        <script src="dependencies/bower_components/raphael/raphael-min.js"></script>
-        <script src="dependencies/js/simplePagination.js"></script>
-        <script src="dependencies/dist/js/sb-admin-2.js"></script>
-        <link rel="stylesheet" href="dependencies/date_picker/bootstrap-datetimepicker.css" />
-        <script type="text/javascript" src="dependencies/date_picker/moment.js"></script>
-        <script type="text/javascript" src="dependencies/date_picker/transition.js"></script>
-        <script type="text/javascript" src="dependencies/date_picker/collapse.js"></script>
-        <script type="text/javascript" src="dependencies/date_picker/bootstrap-datetimepicker.min.js"></script>
-        <link href='dependencies/js/fullcalendar.css' rel='stylesheet' />
+   <body onload="hideAllTabs(); hideTabesOptions();">
+      <div id="wrapper">
+         <!-- Navigation -->
+         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
 
-        <!-- Calendar -->
-        <link href='dependencies/js/fullcalendar.css' rel='stylesheet' />
-        <link href='dependencies/js/fullcalendar.print.css' rel='stylesheet' media='print' />
-        <script src='dependencies/js/fullcalendar.min.js'></script>
-        <script type="text/javascript" src="dependencies/js/clockpicker.js"></script>
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand">Control Panel</a>
+            </div>
+            <!-- /.navbar-header -->
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-        <style type="text/css">
-            #login .modal-backdrop.in{
-                opacity: 10000.0;
-                background-color: #595959;
-            }
-            .red {
-                background-color: #F78181;
-            }
-            .green {
-                background-color: #00CC66;
-            }
-        </style>
-    </head>
-    <body onload="hideAllTabs(); hideTabesOptions();">
-        <div id="wrapper">
-            <!-- Navigation -->
-            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand">Control Panel</a>
-                </div>
-                <!-- /.navbar-header -->
-                <ul class="nav navbar-top-links navbar-right hidden-xs">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>
-                        &nbsp;<i id="user_header"></i>&nbsp;
-                        &nbsp;<span  style="display:none;" class="label label-default"><i id="role_header"></i></span>
-                        <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a onclick="location.reload();" href=""><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
-                        </ul>
-                        <!-- /.dropdown-user -->
-                    </li>
-                    <!-- /.dropdown -->
-                </ul>
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-                            <li id="clientes_tab" onclick="tabsManagment(this)">
-                                <a href="#"><i class="glyphicon glyphicon-th-list"></i> Clientes</a>
-                            </li>
-                            <li  id="tickets_tab" onclick="tabsManagment(this)">
-                                <a href="#"><i class="glyphicon glyphicon-check"></i> e-Tickets</a>
-                            </li>
-                            <li id="ventas_tab" onclick="tabsManagment(this)">
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Ventas</a>
-                            </li>
-                            <li id="configuracion_tab" onclick="tabsManagment(this)">
-                                <a href="#"><i class="glyphicon glyphicon-cog"></i> Configuracion</a>
-                            </li>
-                            <li id="logout_tab" onclick="location.reload();">
-                                <a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.sidebar-collapse -->
-                </div>
-                <!-- /.navbar-static-side -->
-            </nav>
-            </nav>
-            <!-- /Navigation -->
-            <!-- #page-wrapper -->
-            <div id="page-wrapper">
+            <ul class="nav navbar-top-links navbar-right hidden-xs">
+               <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="fa fa-user fa-fw"></i>
+                  &nbsp;<i id="user_header"></i>&nbsp;
+                  &nbsp;<span  style="display:none;" class="label label-default"><i id="role_header"></i></span>
+                  <i class="fa fa-caret-down"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user">
+                     <li><a onclick="location.reload();" href=""><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                  </ul>
+                  <!-- /.dropdown-user -->
+               </li>
+               <!-- /.dropdown -->
+            </ul>
 
-                <!-- Clientes -->
-                <div class="clientes_tab" ng-controller="controlPanelCtrl as cp">
-                    <br>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="" class="active" ng-click="showActive = true">
-                                    <a href="#" aria-controls="" role="tab" data-toggle="tab">
-                                        <h4>Clientes Activos</h4>
-                                    </a>
-                                </li>
-                                <li role="" ng-click="showActive = false">
-                                    <a href="#" aria-controls="" role="tab" data-toggle="tab">
-                                        <h4>Clientes Deudores</h4>
-                                    </a>
-                                </li>
-                            </ul>
+            <div class="navbar-default sidebar" role="navigation">
+               <div class="sidebar-nav navbar-collapse">
+                  <ul class="nav" id="side-menu">
+                     <li id="clientes_tab" onclick="tabsManagment(this)">
+                        <a href="#"><i class="glyphicon glyphicon-th-list"></i> Clientes</a>
+                     </li>
+                     <li  id="tickets_tab" onclick="tabsManagment(this)">
+                        <a href="#"><i class="glyphicon glyphicon-check"></i> e-Tickets</a>
+                     </li>
+                     <li id="ventas_tab" onclick="tabsManagment(this)">
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Ventas</a>
+                     </li>
+                     <li id="configuracion_tab" onclick="tabsManagment(this)">
+                        <a href="#"><i class="glyphicon glyphicon-cog"></i> Configuracion</a>
+                     </li>
+                     <li id="logout_tab" onclick="location.reload();">
+                        <a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                     </li>
+                  </ul>
+               </div>
+               <!-- /.sidebar-collapse -->
+
+            </div>
+            <!-- /.navbar-static-side -->
+         </nav>
+         </nav>
+         <!-- /Navigation -->
+         <!-- #page-wrapper -->
+         <div id="page-wrapper">
+
+            <!-- Clientes -->
+            <div class="clientes_tab" ng-controller="controlPanelCtrl as cp">
+               <br>
+               <div class="row">
+                  <div class="col-lg-12">
+                     <ul class="nav nav-tabs" role="tablist">
+                        <li role="" class="active" ng-click="showActive = true">
+                           <a href="#" aria-controls="" role="tab" data-toggle="tab">
+                              <h4>Clientes Activos</h4>
+                           </a>
+                        </li>
+                        <li role="" ng-click="showActive = false">
+                           <a href="#" aria-controls="" role="tab" data-toggle="tab">
+                              <h4>Clientes Deudores</h4>
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+                  <!-- /.col-lg-12 -->
+               </div>
+               <br>
+               <!-- /.row -->
+
+               <div class="row">
+                  <div class="col-lg-12">
+                     <div class="dataTable_wrapper">
+                        <div class="panel panel-default">
+                           <div class="panel-heading">
+                              <div class="input-group">
+                                 <span data-toggle="modal" 
+                                    data-target="#myModal"  class="input-group-addon" id="sizing-addon2">
+                                 <a class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="top" title="Nuevo cliente"  href="#"></a>
+                                 </span>
+                                 <input ng-change="searchGlitch()" type="text" id="searchBar"
+                                    class="form-control" placeholder="Search" aria-describedby="sizing-addon2"
+                                    ng-model="clientes">
+                              </div>
+                              <!--  <input type="text" class="form" placeholder="Search">&nbsp;&nbsp;&nbsp;
+                                 <a href="#" class="label label-primary"><span class="glyphicon glyphicon-plus"></span></a>
+                                 -->
+                           </div>
+                           <div class="table-responsive">
+                              <table class="table table-bordered table-hover" id="clientsTable">
+                                 <thead>
+                                    <tr style="background-color:rgb(245,245,245);">
+                                       <th>Nombre&nbsp; 
+                                          <a href="" ng-click="orderByField='nombre'; reverseSort = !reverseSort">
+                                          <i class="fa fa-sort"></i>
+                                          </a>
+                                       </th>
+                                       <th>Fecha De Expiracion&nbsp; 
+                                          <a href="" ng-click="orderByField='expiracion'; reverseSort = !reverseSort">
+                                          <i class="fa fa-sort"></i>
+                                          </a>
+                                       </th>
+                                       <th>Servicio&nbsp; 
+                                          <a href="" ng-click="orderByField='servicio'; reverseSort = !reverseSort">
+                                          <i class="fa fa-sort"></i>
+                                          </a>
+                                       </th>
+                                       <th>Unidades&nbsp; 
+                                          <a href="" ng-click="orderByField='unidades'; reverseSort = !reverseSort">
+                                          <i class="fa fa-sort"></i>
+                                          </a>
+                                       </th>
+                                       <th>Telefono</th>
+                                       <th>Direccion&nbsp;
+                                          <a href="" ng-click="orderByField='pueblo'; reverseSort = !reverseSort">
+                                          <i class="fa fa-sort"></i>
+                                          </a>
+                                       </th>
+                                       <th>Pago&nbsp;
+                                          <a href="" ng-click="orderByField='pago'; reverseSort = !reverseSort">
+                                          <i class="fa fa-sort"></i>
+                                          </a>
+                                       </th>
+                                       <th>Metodo de Pago&nbsp;
+                                          <a href="" ng-click="orderByField='metodo'; reverseSort = !reverseSort">
+                                          <i class="fa fa-sort"></i>
+                                          </a>
+                                       </th>
+                                    </tr>
+                                 </thead>
+                                 <tbody ng-repeat="item in clients | filter:clientes | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage | orderBy:orderByField:reverseSort" 
+                                    data-toggle="modal" 
+                                    data-target="#editModal"
+                                    ng-click="populateModal(item.objectId, item.nombre, item.expiracion, item.servicio, item.unidades, 
+                                    item.telefono, item.pueblo, item.pago, item.metodo, item.deuda, item.otro)"
+                                    ng-hide="verifyDates(item.expiracion, showActive)">
+                                    <tr>
+                                       <td>{{item.nombre}}</td>
+                                       <td>{{item.expiracion}}</td>
+                                       <td>{{item.servicio}}</td>
+                                       <td>{{item.unidades}}</td>
+                                       <td>{{item.telefono}}</td>
+                                       <td>{{item.pueblo}}</td>
+                                       <td>{{item.pago | currency}}</td>
+                                       <td>{{item.metodo + " " + item.otro}}</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
                         </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <br>
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="dataTable_wrapper">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <div class="input-group">
-                                            <span data-toggle="modal" 
-                                                data-target="#myModal"  class="input-group-addon" id="sizing-addon2">
-                                            <a class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="top" title="Nuevo cliente"  href="#"></a>
-                                            </span>
-                                            <input ng-change="searchGlitch()" type="text" id="searchBar"
-                                                class="form-control" placeholder="Search" aria-describedby="sizing-addon2"
-                                                ng-model="clientes">
-                                        </div>
-                                        <!--  <input type="text" class="form" placeholder="Search">&nbsp;&nbsp;&nbsp;
-                                            <a href="#" class="label label-primary"><span class="glyphicon glyphicon-plus"></span></a>
-                                            -->
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover" id="clientsTable">
-                                            <thead>
-                                                <tr style="background-color:rgb(245,245,245);">
-                                                    <th>Nombre&nbsp; 
-                                                        <a href="" ng-click="orderByField='nombre'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
-                                                        </a>
-                                                    </th>
-                                                    <th>Fecha De Expiracion&nbsp; 
-                                                        <a href="" ng-click="orderByField='expiracion'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
-                                                        </a>
-                                                    </th>
-                                                    <th>Servicio&nbsp; 
-                                                        <a href="" ng-click="orderByField='servicio'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
-                                                        </a>
-                                                    </th>
-                                                    <th>Unidades&nbsp; 
-                                                        <a href="" ng-click="orderByField='unidades'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
-                                                        </a>
-                                                    </th>
-                                                    <th>Telefono</th>
-                                                    <th>Direccion&nbsp;
-                                                        <a href="" ng-click="orderByField='pueblo'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
-                                                        </a>
-                                                    </th>
-                                                    <th>Pago&nbsp;
-                                                        <a href="" ng-click="orderByField='pago'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
-                                                        </a>
-                                                    </th>
-                                                    <th>Metodo de Pago&nbsp;
-                                                        <a href="" ng-click="orderByField='metodo'; reverseSort = !reverseSort">
-                                                        <i class="fa fa-sort"></i>
-                                                        </a>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody ng-repeat="item in clients | filter:clientes | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage | orderBy:orderByField:reverseSort" 
-                                                data-toggle="modal" 
-                                                data-target="#editModal"
-                                                ng-click="populateModal(item.objectId, item.nombre, item.expiracion, item.servicio, item.unidades, 
-                                                item.telefono, item.pueblo, item.pago, item.metodo, item.deuda, item.otro)"
-                                                ng-hide="verifyDates(item.expiracion, showActive)">
-                                                <tr>
-                                                    <td>{{item.nombre}}</td>
-                                                    <td>{{item.expiracion}}</td>
-                                                    <td>{{item.servicio}}</td>
-                                                    <td>{{item.unidades}}</td>
-                                                    <td>{{item.telefono}}</td>
-                                                    <td>{{item.pueblo}}</td>
-                                                    <td>{{item.pago | currency}}</td>
-                                                    <td>{{item.metodo + " " + item.otro}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.table-responsive -->
-                            <div style="margin: 5px;" class="btn-group pull-left">
-                                <button type="button" class="btn btn-default dropdown-toggle" 
-                                    data-toggle="dropdown" aria-expanded="false">
-                                Per Page <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li ng-click="changeNumberOfPages(50)"><a href="">50</a></li>
-                                    <li ng-click="changeNumberOfPages(100)"><a href="">100</a></li>
-                                    <li ng-click="changeNumberOfPages(200)"><a href="">200</a></li>
-                                    <li ng-click="changeNumberOfPages(100000)"><a href="">All</a></li>
-                                </ul>
-                            </div>
-                            <div style="margin: 5px;" class="pull-left">
-                                <ul style="margin: 0px;" class="pagination">
-                                    <li>
-                                        <a href="" ng-click="pagination.prevPage()">&laquo;</a>
-                                    </li>
-                                    <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
-                                        <a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
-                                    </li>
-                                    <li>
-                                        <a href="" ng-click="pagination.nextPage()">&raquo;</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div style="margin: 5px;" class="pull-left">
-                                <i id="numberOfClients"></i>
-                            </div>
+                     </div>
+                     <!-- /.table-responsive -->
+                     <div style="margin: 5px;" class="btn-group pull-left">
+                        <button type="button" class="btn btn-default dropdown-toggle" 
+                           data-toggle="dropdown" aria-expanded="false">
+                        Per Page <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                           <li ng-click="changeNumberOfPages(50)"><a href="">50</a></li>
+                           <li ng-click="changeNumberOfPages(100)"><a href="">100</a></li>
+                           <li ng-click="changeNumberOfPages(200)"><a href="">200</a></li>
+                           <li ng-click="changeNumberOfPages(100000)"><a href="">All</a></li>
+                        </ul>
+                     </div>
+                     <div style="margin: 5px;" class="pull-left">
+                        <ul style="margin: 0px;" class="pagination">
+                           <li>
+                              <a href="" ng-click="pagination.prevPage()">&laquo;</a>
+                           </li>
+                           <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
+                              <a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+                           </li>
+                           <li>
+                              <a href="" ng-click="pagination.nextPage()">&raquo;</a>
+                           </li>
+                        </ul>
+                     </div>
+                     <div style="margin: 5px;" class="pull-left">
+                        <i id="numberOfClients"></i>
+                     </div>
+                  </div>
+                  <!-- /.col-lg-12 -->
+               </div>
+               <!-- /.row -->
+
+               <!-- Modals -->
+               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+                  aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title" id="myModalLabel">Nuevo Cliente</h4>
                         </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <!-- /.row -->
-                    <!-- Modals -->
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
-                        aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Nuevo Cliente</h4>
-                                </div>
-                                <div class="modal-body">
+                        <div class="modal-body">
+                           <label id="requiered" style="color:red;" class="pull-right">* requerido</label>
+                           <b>Nombre</b><label style="color:red;">*</label>
+                           <input type="text" class="form-control" id="add_nombre">
+                           <b>Fecha de Expiracion</b><label style="color:red;">*</label>
+                           <div class='input-group date' id='datetimepicker1'>
+                              <input id="add_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
+                              <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
+                              </span>
+                           </div>
+                           <b>Servicio</b><label style="color:red;">*</label>
+                           <select id="add_servicio" ng-model="selectedItem" ng-change="updatePrice()"
+                              class="form-control" ng-options="i as i.service for i in servicios">
+                              <option value="">Selecciona</option>
+                           </select>
+                           <b>Unidades</b><label style="color:red;">*</label>
+                           <div class="input-group spinner">
+                              <div ng-click="updatePrice()" id="spinner_plus" class="input-group-addon">
+                                 <a href="" class="glyphicon glyphicon-minus"></a>
+                              </div>
+                              <input id="add_unidades" type="text" class="form-control" value="1" disabled>
+                              <div ng-click="updatePrice()" id="spinner_minus"class="input-group-addon">
+                                 <a href="" class="glyphicon glyphicon-plus"></a>
+                              </div>
+                           </div>
+                           <b>Telefono</b><label style="color:red;">*</label>
+                           <input id="add_telefono" type="text" class="form-control" placeholder="+1 (012) 345-6789" >
+                           <b>Direccion</b>
+                           <input id="add_pueblo" type="text" class="form-control">
+                           <b>Pago</b><label style="color:red;">*</label>
+                           <div class="input-group">
+                              <div data-toggle="tooltip" data-placement="top" title="Update pago" ng-click="updatePrice()" class="input-group-addon"><a href="" class="">$</a></div>
+                              <input value="0" id="add_pago" type="number" class="form-control"  placeholder="Costo del servicio">
+                              <div class="input-group-addon">.00</div>
+                           </div>
+                           <b>Metodo de Pago</b><label style="color:red;">*</label>
+                           <select id="add_metodo" class="form-control" ng-model="metodoModel" ng-change="metodoUpdate()">
+                              <option value="">Selecciona</option>
+                              <option value="ath_movil">ATH Movil</option>
+                              <option value="personal">Personal</option>
+                              <option value="paypal">Paypal</option>
+                              <option value="correo">Correo</option>
+                              <option value="otro">Otro</option>
+                           </select>
+                           <b id="add_otro_metodo_b">Otro</b><label id="add_otro_metodo_label" style="color:red;">*</label>
+                           <input id="add_otro_metodo" type="text" class="form-control" placeholder="Especifique" >
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                           <button id="submitNewUser" ng-click="validatesAddInputs()"  type="button" 
+                              class="btn btn-primary">Guardar</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title" id="ModalLabel">Cliente</h4>
+                        </div>
+                        <div class="modal-body">
+                           <div role="tabpanel">
+                              <!-- Nav tabs -->
+                              <ul class="nav nav-tabs" role="tablist">
+                                 <li role="presentation" onclick="showModifyBtn()" class="active">
+                                    <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Modificar Cliente</a>
+                                 </li>
+                                 <li role="presentation" onclick="hideModifyBtn()">
+                                    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Hacer Pago</a>
+                                 </li>
+                              </ul>
+                              <!-- Tab panes -->
+                              <div class="tab-content">
+                                 <div role="tabpanel" class="tab-pane active" id="home">
                                     <label id="requiered" style="color:red;" class="pull-right">* requerido</label>
+                                    <b>ID</b>
+                                    <input type="text" class="form-control" id="edit_ID" disabled>
                                     <b>Nombre</b><label style="color:red;">*</label>
-                                    <input type="text" class="form-control" id="add_nombre">
+                                    <input type="text" class="form-control" id="edit_nombre">
                                     <b>Fecha de Expiracion</b><label style="color:red;">*</label>
-                                    <div class='input-group date' id='datetimepicker1'>
-                                        <input id="add_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
-                                        <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
-                                        </span>
+                                    <div class='input-group date' id='datetimepicker2'>
+                                       <input id="edit_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
+                                       <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
+                                       </span>
                                     </div>
                                     <b>Servicio</b><label style="color:red;">*</label>
-                                    <select id="add_servicio" ng-model="selectedItem" ng-change="updatePrice()"
-                                        class="form-control" ng-options="i as i.service for i in servicios">
-                                        <option value="">Selecciona</option>
+                                    <input id="edit_servicio_print" type="text" class="form-control" placeholder="Servicio" disabled>
+                                    <select id="edit_servicio" ng-model="edit_selectedItem" 
+                                       ng-change="edit_updatePrice(); printService(edit_selectedItem)"
+                                       class="form-control" ng-options="i as i.service for i in servicios">
+                                       <option value="">Selecciona</option>
                                     </select>
                                     <b>Unidades</b><label style="color:red;">*</label>
                                     <div class="input-group spinner">
-                                        <div ng-click="updatePrice()" id="spinner_plus" class="input-group-addon">
-                                            <a href="" class="glyphicon glyphicon-minus"></a>
-                                        </div>
-                                        <input id="add_unidades" type="text" class="form-control" value="1" disabled>
-                                        <div ng-click="updatePrice()" id="spinner_minus"class="input-group-addon">
-                                            <a href="" class="glyphicon glyphicon-plus"></a>
-                                        </div>
+                                       <div ng-click="edit_updatePrice()" id="edit_spinner_plus" class="input-group-addon">
+                                          <a href="" class="glyphicon glyphicon-minus"></a>
+                                       </div>
+                                       <input id="edit_unidades" type="text" class="form-control" value="1" disabled>
+                                       <div ng-click="edit_updatePrice()" id="edit_spinner_minus"class="input-group-addon">
+                                          <a href="" class="glyphicon glyphicon-plus"></a>
+                                       </div>
                                     </div>
                                     <b>Telefono</b><label style="color:red;">*</label>
-                                    <input id="add_telefono" type="text" class="form-control" placeholder="+1 (012) 345-6789" >
+                                    <input id="edit_telefono" type="text" class="form-control" placeholder="+1 (012) 345-6789" >
                                     <b>Direccion</b>
-                                    <input id="add_pueblo" type="text" class="form-control">
+                                    <input id="edit_pueblo" type="text" class="form-control">
                                     <b>Pago</b><label style="color:red;">*</label>
                                     <div class="input-group">
-                                        <div data-toggle="tooltip" data-placement="top" title="Update pago" ng-click="updatePrice()" class="input-group-addon"><a href="" class="">$</a></div>
-                                        <input value="0" id="add_pago" type="number" class="form-control"  placeholder="Costo del servicio">
-                                        <div class="input-group-addon">.00</div>
+                                       <div data-toggle="tooltip" data-placement="top" title="Update pago" ng-click="edit_updatePrice()"class="input-group-addon"><a href="" class="">$</a></div>
+                                       <input value="0" id="edit_pago" type="number" class="form-control"  placeholder="Costo del servicio">
+                                       <div class="input-group-addon">.00</div>
                                     </div>
                                     <b>Metodo de Pago</b><label style="color:red;">*</label>
-                                    <select id="add_metodo" class="form-control" ng-model="metodoModel" ng-change="metodoUpdate()">
-                                        <option value="">Selecciona</option>
-                                        <option value="ath_movil">ATH Movil</option>
-                                        <option value="personal">Personal</option>
-                                        <option value="paypal">Paypal</option>
-                                        <option value="correo">Correo</option>
-                                        <option value="otro">Otro</option>
+                                    <select ng-change="metodoModifyUpdate()" id="edit_metodo" ng-model="metodoModifyModel" class="form-control">
+                                       <option value="">Selecciona</option>
+                                       <option value="ath_movil">ATH Movil</option>
+                                       <option value="personal">Personal</option>
+                                       <option value="paypal">Paypal</option>
+                                       <option value="correo">Correo</option>
+                                       <option value="otro">Otro</option>
                                     </select>
-                                    <b id="add_otro_metodo_b">Otro</b><label id="add_otro_metodo_label" style="color:red;">*</label>
-                                    <input id="add_otro_metodo" type="text" class="form-control" placeholder="Especifique" >
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                    <button id="submitNewUser" ng-click="validatesAddInputs()"  type="button" 
-                                        class="btn btn-primary">Guardar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="ModalLabel">Cliente</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div role="tabpanel">
-                                        <!-- Nav tabs -->
-                                        <ul class="nav nav-tabs" role="tablist">
-                                            <li role="presentation" onclick="showModifyBtn()" class="active">
-                                                <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Modificar Cliente</a>
-                                            </li>
-                                            <li role="presentation" onclick="hideModifyBtn()">
-                                                <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Hacer Pago</a>
-                                            </li>
-                                        </ul>
-                                        <!-- Tab panes -->
-                                        <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane active" id="home">
-                                                <label id="requiered" style="color:red;" class="pull-right">* requerido</label>
-                                                <b>ID</b>
-                                                <input type="text" class="form-control" id="edit_ID" disabled>
-                                                <b>Nombre</b><label style="color:red;">*</label>
-                                                <input type="text" class="form-control" id="edit_nombre">
-                                                <b>Fecha de Expiracion</b><label style="color:red;">*</label>
-                                                <div class='input-group date' id='datetimepicker2'>
-                                                    <input id="edit_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
-                                                    <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
-                                                    </span>
-                                                </div>
-                                                <b>Servicio</b><label style="color:red;">*</label>
-                                                <input id="edit_servicio_print" type="text" class="form-control" placeholder="Servicio" disabled>
-                                                <select id="edit_servicio" ng-model="edit_selectedItem" 
-                                                        ng-change="edit_updatePrice(); printService(edit_selectedItem)"
-                                                    class="form-control" ng-options="i as i.service for i in servicios">
-                                                    <option value="">Selecciona</option>
-                                                </select>
-                                                <b>Unidades</b><label style="color:red;">*</label>
-                                                <div class="input-group spinner">
-                                                    <div ng-click="edit_updatePrice()" id="edit_spinner_plus" class="input-group-addon">
-                                                        <a href="" class="glyphicon glyphicon-minus"></a>
-                                                    </div>
-                                                    <input id="edit_unidades" type="text" class="form-control" value="1" disabled>
-                                                    <div ng-click="edit_updatePrice()" id="edit_spinner_minus"class="input-group-addon">
-                                                        <a href="" class="glyphicon glyphicon-plus"></a>
-                                                    </div>
-                                                </div>
-                                                <b>Telefono</b><label style="color:red;">*</label>
-                                                <input id="edit_telefono" type="text" class="form-control" placeholder="+1 (012) 345-6789" >
-                                                <b>Direccion</b>
-                                                <input id="edit_pueblo" type="text" class="form-control">
-                                                <b>Pago</b><label style="color:red;">*</label>
-                                                <div class="input-group">
-                                                    <div data-toggle="tooltip" data-placement="top" title="Update pago" ng-click="edit_updatePrice()"class="input-group-addon"><a href="" class="">$</a></div>
-                                                    <input value="0" id="edit_pago" type="number" class="form-control"  placeholder="Costo del servicio">
-                                                    <div class="input-group-addon">.00</div>
-                                                </div>
-                                                <b>Metodo de Pago</b><label style="color:red;">*</label>
-                                                <select ng-change="metodoModifyUpdate()" id="edit_metodo" ng-model="metodoModifyModel" class="form-control">
-                                                    <option value="">Selecciona</option>
-                                                    <option value="ath_movil">ATH Movil</option>
-                                                    <option value="personal">Personal</option>
-                                                    <option value="paypal">Paypal</option>
-                                                    <option value="correo">Correo</option>
-                                                    <option value="otro">Otro</option>
-                                                </select>
-                                                <b id="modify_otro_metodo_b">Otro</b><label id="modify_otro_metodo_label" style="color:red;">*</label>
-                                                <input id="modify_otro_metodo" type="text" class="form-control" placeholder="Especifique" >
-                            
-                                            </div>
-
-                                            <!-- Hacer Pago -->
-                                            <div role="tabpanel" class="tab-pane" id="profile">
-                                                <b>Nombre:</b>
-                                                <input type="text" class="form-control" id="pagar_nombre" disabled>
-                                                <b>Servicio:</b>
-                                                <input type="text" class="form-control" id="pagar_servicio" disabled>
-                                                <b>Unidades:</b>
-                                                <input type="text" class="form-control" id="pagar_unidades" disabled>
-                                                <b>Cantidad a pagar:</b>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon"><i>$</i></div>
-                                                    <input value="0" id="pagar_pago" type="number" class="form-control" disabled>
-                                                    <div class="input-group-addon">.00</div>
-                                                </div>
-                                                <hr>
-                                                <b>Fecha de proximo pago</b><label style="color:red;">*</label>
-                                                <div class='input-group date' id='datetimepicker3'>
-                                                    <input id="pagar_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
-                                                    <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <div id="deleteAlert" style="margin:5px;" class="alert alert-danger" role="alert">
-                                        <p class="pull-left">Estas seguro que quieres <strong>BORRAR</strong> este cliente?</p>
-                                        <button onclick="hideDeleteAlert()" type="button" class="btn btn-default">Cancelar</button>
-                                        <button type="button" ng-click="deleteClient()" class="btn btn-danger">Borrar</button>
-                                    </div>
-                                    <button type="button" class="btn btn-danger pull-left" 
-                                        onclick="showDeleteAlert()">Borrar Cliente</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" id="pagar_btn" class="btn btn-success" ng-click="makePayment()">Hacer Pago</button>
-                                    <button type="button" id="edit_btn" class="btn btn-primary" ng-click="modifyClient()">Modificar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ./Clientes -->
-
-                <div class="tickets_tab" ng-controller="eTicketsCtrl as etp">
-                    <input  style="display: none;" type="text" class="form-control" ng-model="ticket_encargado" id="user_tk_firstName" disabled>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">e-Tickets</h1>
-                        </div>
-                        <div class="col-lg-6">
-                            <div id='calendar'></div>
-                            <br><br>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="panel panel-danger">
-                                <div class="panel-heading">
-                                    e-Tickets Pendientes 
-                                    <button style="visibility: hidden;" type="button" class="btn btn-success">
-                                        <i class="glyphicon glyphicon-plus"></i>
-                                    </button>
-                                    <button data-toggle="modal" data-target="#add_ticket" type="button" class="btn btn-default pull-right">
-                                        <i class="glyphicon glyphicon-plus"></i>
-                                    </button>
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <input type="text" class="form-control" placeholder="Search" ng-model="t">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Cliente</th>
-                                                    <th>Fecha</th>
-                                                    <th>Asunto</th>
-                                                    <th>Estado</th>
-                                                    <th>Encargado</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody ng-repeat="t in tickets |filter:t"
-                                                    ng-click="openTicket(t)" ng-if="t.status == 'pendiente'">
-                                                <tr>
-                                                    <td>{{t.cliente}}</td>
-                                                    <td>{{t.start  | date:'MM/dd/yyyy @ h:mma'}}</td>
-                                                    <td>{{t.title}}</td>
-                                                    <td ng-class="{'red' : t.status == 'pendiente', 'green' : t.status == 'completado'}">{{t.status}}</td>
-                                                    <td>{{t.tecnico}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-
-
-                            <div class="panel panel-success">
-                                <div class="panel-heading">
-                                    e-Tickets Completados 
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <input type="text" class="form-control" placeholder="Search" ng-model="tc">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Cliente</th>
-                                                    <th>Fecha</th>
-                                                    <th>Asunto</th>
-                                                    <th>Estado</th>
-                                                    <th>Encargado</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody ng-repeat="tc in tickets |filter:tc"
-                                             ng-if="tc.status == 'completado'" ng-click="openTicket(tc)">
-                                                <tr>
-                                                    <td>{{tc.cliente}}</td>
-                                                    <td>{{tc.start | date:'MM/dd/yyyy @ h:mma'}}</td>
-                                                    <td>{{tc.title}}</td>
-                                                    <td ng-class="{'red' : tc.status == 'pendiente', 'green' : tc.status == 'completado'}">{{tc.status}}</td>
-                                                    <td>{{tc.tecnico}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
-                        <!-- /.col-lg-6 -->
-                    </div>
-
-
-                
-                    <div class="modal fade" id="add_ticket" tabindex="-1" role="dialog" 
-                        aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Nuevo Ticket</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="newTicket_alert" class="alert alert-danger" role="alert">Entre toda la informacion de el nuevo ticket.</div>
-
-                                    <b>Cliente:</b>
-                                    <input type="text" placeholder="Cliente" class="form-control" id="tickets_cliente"><br>
-                                    <b>Fecha</b>
-                                    <div class='input-group date' id='datetimepicker4'>
-                                        <input id="tickets_fecha" placeholder="MM/DD/YYYY 00:00M" type='text' class="form-control"/>
-                                        <span class="input-group-addon">
-                                            <a class="">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </a>
-                                        </span>
-                                    </div><br>
-                                    <b>Asunto:</b>
-                                    <textarea class="form-control" rows="5" id="tickets_asunto"></textarea><br>
-                                    <b>Encargado:</b>
-                                    <select id="tickets_users" ng-model="tickets_selectedItem" 
-                                            ng-change="" class="form-control" ng-options="i as i.firstName for i in users">
-                                        <option value="">Selecciona</option>
-                                    </select>
-                                    
-                                </div>
-                                <div class="modal-footer">
-                                    <button id="" ng-click=""  data-dismiss="modal"  type="button" 
-                                        class="btn btn-default">cancelar</button>
-                                    <button id="" ng-click="validateInputsNewTicket()"  type="button" 
-                                        class="btn btn-primary">Guardar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="info_ticket" class="modal fade bs-example-modal-sm" tabindex="-1">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">e-Ticket &nbsp;<i id='ticketID'><i></h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="t_completed" class="alert alert-success" role="alert">Este ticket se a completado.</div>
-                                    <div id="t_warning" class="alert alert-danger" role="alert">Entre comentario.</div>
-                                    <input type="text" class="form-control" id="t_cliente" disabled><br>
-                                    <input type="text" class="form-control" id="t_fecha" disabled><br>
-                                    <textarea class="form-control" rows="3" id="t_asunto" disabled></textarea><br>
-                                    <input type="text" class="form-control" id="t_encargado" disabled><br>
-                                    <b>Comentario</b><label style="color:red;">*</label>
-                                    <textarea placeholder="Escriba comentario para responder y cerrar el ticket." class="form-control" rows="3" id="t_comentario"></textarea><br>
-                                </div>
-                                <div class="modal-footer">                                    
-                                    <button type="button" class="btn btn-danger" ng-click="deleteTicket()">Borrar</button>
-                                    <button type="button" id='respondAndClose'class="btn btn-success" ng-click="respondTicket()">Responder y Cerrar</button>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                </div>
-
-
-                <div class="ventas_tab">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">Ventas</h1>
-                        </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                </div>
-
-                <div class="configuracion_tab" ng-controller="configurationCtrl as cc">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">Configuraciones</h1>
-                        </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <div class="col-lg-12">
-                        <h4>
-                            <a data-toggle="modal" data-target="#change_pass" href="" ng-click="">Cambiar mi contraseña</a>
-                        </h4>
-                    </div>
-                    <div class="row">
-                        <!-- configuracion de servicios -->
-                        <div id="conf_servicios" class="col-lg-6">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    Ajustes de Servicios
-                                    <button style="visibility: hidden;" type="button" class="btn btn-success">
-                                        <i class="glyphicon glyphicon-plus"></i>
-                                    </button>
-                                    <button data-toggle="modal" data-target="#add_service_modal" type="button" class="btn btn-default pull-right">
-                                        <i class="glyphicon glyphicon-plus"></i>
-                                    </button>
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Servicio</th>
-                                                    <th>Costo</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody ng-repeat="s in services_conf"
-                                                    ng-click="populateModificarService(s.objectId, s.service, s.price)">
-                                                <tr>
-                                                    <td>{{s.service}}</td>
-                                                    <td>{{s.price |currency}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
-                        <!-- /.col-lg-6 -->
-                        <div id="conf_usuarios" class="col-lg-6">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    Usuarios del Sistema
-                                    <button style="visibility: hidden;" type="button" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
-                                    <button data-toggle="modal" data-target="#add_user_modal" type="button" class="btn btn-default pull-right">
-                                        <i class="glyphicon glyphicon-plus"></i></button>
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Rol</th>
-                                                    <th>Nombre</th>
-                                                    <th>Username</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody ng-repeat="u in users_conf"
-                                                    ng-click="populateModificarUser(u.objectId, u.firstName, u.lastName, u.username, u.password, u.role)">
-                                                <tr>
-                                                    <td>{{u.role}}</th>
-                                                    <td>{{u.firstName + " " + u.lastName}}</th>
-                                                    <td>{{u.username}}</th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
-                        <!-- /.col-lg-6 -->
-                    </div>
-                    <div class="row">
-                        <!--  Log del sistema -->
-                        <div id="conf_log" class="col-lg-12">
-                            <div class="panel panel-success">
-                                <div class="panel-heading">
-                                    Log del Sistema
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Accion</th>
-                                                    <th>Usuario</th>
-                                                    <th>Fecha</th>
-                                                    <th>Rol</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody ng-repeat="l in logs_conf">
-                                                <tr>
-                                                    <td>{{l.accion}}</th>
-                                                    <td>{{l.usuario}}</th>
-                                                    <td>{{l.fecha}}</th>
-                                                    <td>{{l.rol}}</th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
-                        <!-- /.col-lg-6 -->
-                        <!-- configuracion de usuarios -->
-                    </div>
-
-                    <!-- Modals -->
-                    <!-- Cambio decontraseña -->
-                    <div id="change_pass" class="modal fade bs-example-modal-sm" tabindex="-1">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Cambio Contraseña</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="changePass_alert" class="alert alert-danger" role="alert">Error</div>
-                                    <b>Actual Cantraseña:</b>
-                                    <input type="password" placeholder="password" class="form-control" id="actual_pass"><br>
-                                    <b>Nueva Contraseña:</b>
-                                    <input type="password" placeholder="password" class="form-control" id="new_pass_1"><br>
-                                    <b>Nueva Contraseña:</b>
-                                    <input type="password" placeholder="password" class="form-control" id="new_pass_2">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success btn-block" ng-click="validateChangePass()">Cambiar</button>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.login modal -->
-
-                    <!-- Add servicio -->
-                    <div id="add_service_modal" class="modal fade bs-example-modal-sm" tabindex="-1">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Crear Servicio</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="servicio_alert" class="alert alert-danger" role="alert">Entre nombre del servicio y precio.</div>
+                                    <b id="modify_otro_metodo_b">Otro</b><label id="modify_otro_metodo_label" style="color:red;">*</label>
+                                    <input id="modify_otro_metodo" type="text" class="form-control" placeholder="Especifique" >
+                                 </div>
+                                 <!-- Hacer Pago -->
+                                 <div role="tabpanel" class="tab-pane" id="profile">
+                                    <b>Nombre:</b>
+                                    <input type="text" class="form-control" id="pagar_nombre" disabled>
                                     <b>Servicio:</b>
-                                    <input type="text" placeholder="servicio" class="form-control" id="add_service_config"><br>
-                                    <b>Pago</b>
+                                    <input type="text" class="form-control" id="pagar_servicio" disabled>
+                                    <b>Unidades:</b>
+                                    <input type="text" class="form-control" id="pagar_unidades" disabled>
+                                    <b>Cantidad a pagar:</b>
                                     <div class="input-group">
-                                        <div class="input-group-addon">$</div>
-                                            <input value="0" id="add_pago_config" type="number" class="form-control"  placeholder="Costo del servicio">
-                                        <div class="input-group-addon">.00</div>
+                                       <div class="input-group-addon"><i>$</i></div>
+                                       <input value="0" id="pagar_pago" type="number" class="form-control" disabled>
+                                       <div class="input-group-addon">.00</div>
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success btn-block" ng-click="validatesAddService()">Crear</button>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.login modal -->
-
-                    <!-- Modificar servicio -->
-                    <div id="modificar_service_modal" class="modal fade bs-example-modal-sm" tabindex="-1">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Modificar Servicio</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="servicio_modificar_alert" class="alert alert-danger" role="alert">Entre nombre del servicio y precio.</div>
-                                    <b>Servicio:</b>
-                                    <input type="text" placeholder="servicio" class="form-control" id="modificar_service_config"><br>
-                                    <b>Pago</b>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">$</div>
-                                            <input value="0" id="modificar_pago_config" type="number" class="form-control"  placeholder="Costo del servicio">
-                                        <div class="input-group-addon">.00</div>
+                                    <hr>
+                                    <b>Fecha de proximo pago</b><label style="color:red;">*</label>
+                                    <div class='input-group date' id='datetimepicker3'>
+                                       <input id="pagar_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
+                                       <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
+                                       </span>
                                     </div>
-                                    <input style="display:none;" type="text" placeholder="servicio" class="form-control" id="modificar_ID_config" disabled>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" ng-click="deleteService()">Borrar</button>
-                                    <button type="button" class="btn btn-success" ng-click="validatesModificarService()">Modificar</button>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.login modal -->
-
-                    
-                    <!-- Add User -->
-                    <div id="add_user_modal" class="modal fade bs-example-modal-sm" tabindex="-1">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Crear Usuario</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="usuario_alert" class="alert alert-danger" role="alert"></div>
-
-                                    <b>Nombre</b><br>
-                                    <input id="add_user_first" type="text" class="form-control" placeholder="Nombre" >
-                                    <b>Apellido</b><br>
-                                    <input id="add_user_Last" type="text" class="form-control" placeholder="Apellido">
-                                    <b>Username</b><br>
-                                    <input id="add_user_username" type="text" class="form-control" placeholder="Username">
-                                    <b>Permiso</b>
-                                    <select id="add_user_role" class="form-control">
-                                        <option value="">Selecciona</option>
-                                        <option value="admin">Administrado</option>
-                                        <option value="operador">Operador</option>
-                                        <option value="tecnico">Tecnico</option>
-                                    </select>
-                                    <b>Password</b><br>
-                                    <input id="add_user_pass1" type="password" class="form-control" placeholder="Password">
-                                    <b>Password</b><br>
-                                    <input id="add_user_pass2" type="password" class="form-control" placeholder="Password">
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success btn-block" ng-click="validatesAddUser()">Crear</button>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.login modal -->
-
-                    <!-- Modificar servicio -->
-                    <div id="modificar_user_modal" class="modal fade" tabindex="-1" role="dialog" 
-                        aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Modificar Usuario</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="user_modificar_alert" class="alert alert-danger" role="alert">Entre nombre del servicio y precio.</div>
-
-                                    <b>Nombre</b><br>
-                                    <input id="modify_user_first" type="text" class="form-control" placeholder="Nombre" disabled>
-                                    <b>Apellido</b><br>
-                                    <input id="modify_user_Last" type="text" class="form-control" placeholder="Apellido" disabled>
-                                    <b>Username</b><br>
-                                    <input id="modify_user_username" type="text" class="form-control" placeholder="Username" disabled>
-                                    <b>Permiso</b>
-                                    <select id="modify_user_role" class="form-control">
-                                        <option value="">Selecciona</option>
-                                        <option value="admin">Administrado</option>
-                                        <option value="operador">Operador</option>
-                                        <option value="tecnico">Tecnico</option>
-                                    </select>
-                                    <b>Password</b><br>
-                                    <input id="modify_user_pass1" type="password" class="form-control" placeholder="Password">
-                                    <b>Password</b><br>
-                                    <input id="modify_user_pass2" type="password" class="form-control" placeholder="Password">
-                                    
-
-                                    <input id="modify_user_ID_config" style="display:none;" type="text" placeholder="servicio" class="form-control" disabled>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" ng-click="deleteUser()">Borrar</button>
-                                    <button type="button" class="btn btn-success" ng-click="validatesModificarUser()">Modificar</button>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.login modal -->
-                </div>
-
-                <i style="display: none;" id="userID_header"></i>
-                <i style="display: none;" id="userName_header"></i>
-                <i style="display: none;" id="objID_header"></i>
-                <i style="display: none;" id="pass_header"></i>
-            </div>
-            <!-- /#page-wrapper -->
-
-            <!-- login Modal -->
-            <div ng-controller="loginCtrl as lc"
-                id="login" class="modal fade bs-example-modal-sm" tabindex="-1">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Login</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div id="login_alert" class="alert alert-danger" role="alert">Error</div>
-                            
-                            <b>Username:</b>
-                            <input type="text" ng-keyup="$event.keyCode == 13 ? validateLoginInputs() : null" placeholder="username" class="form-control" id="login_user"><br>
-                            <b>Password:</b>
-                            <input type="password" ng-keyup="$event.keyCode == 13 ? validateLoginInputs() : null" placeholder="password" class="form-control" id="login_pass">
+                                 </div>
+                              </div>
+                           </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-success btn-block" ng-click="validateLoginInputs()" ng-enter="validateLoginInputs()">Log in</button>
+                           <div id="deleteAlert" style="margin:5px;" class="alert alert-danger" role="alert">
+                              <p class="pull-left">Estas seguro que quieres <strong>BORRAR</strong> este cliente?</p>
+                              <button onclick="hideDeleteAlert()" type="button" class="btn btn-default">Cancelar</button>
+                              <button type="button" ng-click="deleteClient()" class="btn btn-danger">Borrar</button>
+                           </div>
+                           <button type="button" class="btn btn-danger pull-left" 
+                              onclick="showDeleteAlert()">Borrar Cliente</button>
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                           <button type="button" id="pagar_btn" class="btn btn-success" ng-click="makePayment()">Hacer Pago</button>
+                           <button type="button" id="edit_btn" class="btn btn-primary" ng-click="modifyClient()">Modificar</button>
                         </div>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
+                     </div>
+                  </div>
+               </div>
             </div>
-            <!-- /.login modal -->
-        </div>
-        <!-- /#wrapper -->
-        <script type="text/javascript">
-            
-            hideAll();
 
+            <!-- ./Clientes -->
+            <div class="tickets_tab" ng-controller="eTicketsCtrl as etp">
+               <input  style="display: none;" type="text" class="form-control" ng-model="ticket_encargado" id="user_tk_firstName" disabled>
+               <div class="row">
+                  <div class="col-lg-12">
+                     <h1 class="page-header">e-Tickets</h1>
+                  </div>
+                  <div class="col-lg-6">
+                     <div id='calendar'></div>
+                     <br><br>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="panel panel-danger">
+                        <div class="panel-heading">
+                           e-Tickets Pendientes 
+                           <button style="visibility: hidden;" type="button" class="btn btn-success">
+                           <i class="glyphicon glyphicon-plus"></i>
+                           </button>
+                           <button id="addMoreTickets" data-toggle="modal" data-target="#add_ticket" type="button" class="btn btn-default pull-right">
+                           <i class="glyphicon glyphicon-plus"></i>
+                           </button>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                           <input style="display:none;"  type="text" class="form-control" placeholder="Search" ng-model="t"> 
+                           <div class="row">
+                              <div class="col-lg-6">
+                                 <input type="text" ng-click="filterClear2()" class="form-control" placeholder="Search" ng-model="tx"> 
+                              </div>
+                              <div class="col-lg-6">
+                                 <select id="job_tecnicos" ng-model="t" ng-click="filterClear2()" ng-change="filterJobs2()"
+                                    class="form-control" ng-options="i as i.firstName for i in users">
+                                    <option value="">Filtro</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="table-responsive">
+                              <table class="table table-striped table-bordered table-hover">
+                                 <thead>
+                                    <tr>
+                                       <th>Cliente</th>
+                                       <th>Fecha</th>
+                                       <th>Asunto</th>
+                                       <th>Estado</th>
+                                       <th>Encargado</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody ng-repeat="t in tickets |filter:t | filter:tx | orderBy:'start'"
+                                    ng-click="openTicket(t)" ng-if="t.status == 'pendiente'">
+                                    <tr>
+                                       <td>{{t.cliente}}</td>
+                                       <td>{{t.start  | date:'MM/dd/yyyy @ h:mma'}}</td>
+                                       <td>{{t.title}}</td>
+                                       <td ng-class="{'red' : t.status == 'pendiente', 'green' : t.status == 'completado'}">{{t.status}}</td>
+                                       <td>{{t.tecnico}}</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                           <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                     </div>
+                     <!-- /.panel -->
+
+                     <div class="panel panel-success">
+                        <div class="panel-heading">
+                           e-Tickets Completados
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                           <input style="display:none;"  type="text" class="form-control" placeholder="Search" ng-model="tc"> 
+                           <div class="row">
+                              <div class="col-lg-6">
+                                 <input type="text" ng-click="filterClear()" class="form-control" placeholder="Search" ng-model="tb"> 
+                              </div>
+                              <div class="col-lg-6">
+                                 <select id="job_tecnicos" ng-model="tc" ng-click="filterClear()" ng-change="filterJobs()"
+                                    class="form-control" ng-options="i as i.firstName for i in users">
+                                    <option value="">Filtro</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="table-responsive">
+                              <table class="table table-striped table-bordered table-hover">
+                                 <thead>
+                                    <tr>
+                                       <th>Cliente</th>
+                                       <th>Fecha</th>
+                                       <th>Asunto</th>
+                                       <th>Estado</th>
+                                       <th>Encargado</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody ng-repeat="tc in tickets |filter:tc | filter:tb | orderBy:'start'"
+                                    ng-if="tc.status == 'completado'" ng-click="openTicket(tc)">
+                                    <tr>
+                                       <td>{{tc.cliente}}</td>
+                                       <td>{{tc.start | date:'MM/dd/yyyy @ h:mma'}}</td>
+                                       <td>{{tc.title}}</td>
+                                       <td ng-class="{'red' : tc.status == 'pendiente', 'green' : tc.status == 'completado'}">{{tc.status}}</td>
+                                       <td>{{tc.tecnico}}</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                           <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                     </div>
+                     <!-- /.panel -->
+                  </div>
+                  <!-- /.col-lg-6 -->
+               </div>
+
+               <div class="modal fade" id="add_ticket" tabindex="-1" role="dialog" 
+                  aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title" id="myModalLabel">Nuevo Ticket</h4>
+                        </div>
+                        <div class="modal-body">
+                           <div id="newTicket_alert" class="alert alert-danger" role="alert"></div>
+                           <b>Cliente:</b>
+                           <input type="text" placeholder="Cliente" class="form-control" id="tickets_cliente"><br>
+                           <b>Fecha</b>
+                           <div id="fechaAlert" class="alert alert-warning" role="alert">...</div>
+                           <div id="fechaAlertGood" class="alert alert-success" role="alert">No hay tickets pendientes para esa fecha.</div>
+                           <div class="row">
+                              <div class="col-lg-8">
+                                 <div class='input-group date' id='datetimepicker4'>
+                                    <input id="tickets_fecha" ng-model="dateChosen" placeholder="MM/DD/YYYY 00:00M" type='text' class="form-control"/>
+                                    <span class="input-group-addon">
+                                    <a class="">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                    </a>
+                                    </span>
+                                 </div>
+                              </div>
+                              <div class="col-lg-4">
+                                 <a href="#" ng-click="verifyEvents()" class="btn btn-info"><span class="glyphicon glyphicon-calendar"></span> Verificar Calendario</a>
+                                 <!-- <button ng-click="verifyEvents()" class="btn btn-default" type="button">Verificar Calendario</button> -->
+                              </div>
+                           </div>
+                           <br>
+                           <b>Asunto:</b>
+                           <textarea class="form-control" rows="5" id="tickets_asunto"></textarea>
+                           <br>
+                           <b>Encargado:</b>
+                           <select id="tickets_users" ng-model="tickets_selectedItem" 
+                              ng-change="" class="form-control" ng-options="i as i.firstName for i in users">
+                              <option value="">Selecciona</option>
+                           </select>
+                        </div>
+                        <div class="modal-footer">
+                           <button id="" ng-click=""  data-dismiss="modal"  type="button" 
+                              class="btn btn-default">cancelar</button>
+                           <button id="" ng-click="validateInputsNewTicket()"  type="button" 
+                              class="btn btn-primary">Guardar</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div id="info_ticket" class="modal fade bs-example-modal-sm" tabindex="-1">
+                  <div class="modal-dialog modal-sm">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title">e-Ticket &nbsp;<i id='ticketID'><i></h4>
+                        </div>
+                        <div class="modal-body">
+                           <div id="overdue_warning" class="alert alert-warning" role="alert">Este ticket esta atrasado</div>
+                           <div id="t_completed" class="alert alert-success" role="alert">Este ticket se a respondido.</div>
+                           <div id="t_warning" class="alert alert-danger" role="alert">Entre comentario.</div>
+                           <input type="text" class="form-control" id="t_cliente" disabled><br>
+                           <input type="text" class="form-control" id="t_fecha" disabled><br>
+                           <textarea class="form-control" rows="3" id="t_asunto" disabled></textarea>
+                           <br>
+                           <input type="text" class="form-control" id="t_encargado" disabled><br>
+                           <b>Comentario</b><label style="color:red;">*</label>
+                           <textarea placeholder="Escriba comentario para responder y cerrar el ticket." class="form-control" rows="3" id="t_comentario"></textarea>
+                           <br>
+                        </div>
+                        <div class="modal-footer">                                    
+                           <button type="button" class="btn btn-danger" ng-click="deleteTicket()">Borrar</button>
+                           <button type="button" id='respondAndClose'class="btn btn-success" ng-click="respondTicket()">Responder y Cerrar</button>
+                        </div>
+                     </div>
+                     <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+               </div>
+            </div>
+
+            <div class="ventas_tab">
+               <div class="row">
+                  <div class="col-lg-12">
+                     <h1 class="page-header">Ventas</h1>
+                  </div>
+                  <!-- /.col-lg-12 -->
+               </div>
+            </div>
+
+            <div class="configuracion_tab" ng-controller="configurationCtrl as cc">
+               <div class="row">
+                  <div class="col-lg-12">
+                     <h1 class="page-header">Configuraciones</h1>
+                  </div>
+                  <!-- /.col-lg-12 -->
+               </div>
+               <div class="col-lg-12">
+                  <h4>
+                     <a data-toggle="modal" data-target="#change_pass" href="" ng-click="">Cambiar mi contraseña</a>
+                  </h4>
+               </div>
+               <div class="row">
+
+                  <!-- configuracion de servicios -->
+                  <div id="conf_servicios" class="col-lg-6">
+                     <div class="panel panel-info">
+                        <div class="panel-heading">
+                           Ajustes de Servicios
+                           <button style="visibility: hidden;" type="button" class="btn btn-success">
+                           <i class="glyphicon glyphicon-plus"></i>
+                           </button>
+                           <button data-toggle="modal" data-target="#add_service_modal" type="button" class="btn btn-default pull-right">
+                           <i class="glyphicon glyphicon-plus"></i>
+                           </button>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                           <div class="table-responsive">
+                              <table class="table table-striped table-bordered table-hover">
+                                 <thead>
+                                    <tr>
+                                       <th>Servicio</th>
+                                       <th>Costo</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody ng-repeat="s in services_conf"
+                                    ng-click="populateModificarService(s.objectId, s.service, s.price)">
+                                    <tr>
+                                       <td>{{s.service}}</td>
+                                       <td>{{s.price |currency}}</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                           <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                     </div>
+                     <!-- /.panel -->
+                  </div>
+                  <!-- /.col-lg-6 -->
+
+                  <div id="conf_usuarios" class="col-lg-6">
+                     <div class="panel panel-info">
+                        <div class="panel-heading">
+                           Usuarios del Sistema
+                           <button style="visibility: hidden;" type="button" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+                           <button data-toggle="modal" data-target="#add_user_modal" type="button" class="btn btn-default pull-right">
+                           <i class="glyphicon glyphicon-plus"></i></button>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                           <div class="table-responsive">
+                              <table class="table table-striped table-bordered table-hover">
+                                 <thead>
+                                    <tr>
+                                       <th>Rol</th>
+                                       <th>Nombre</th>
+                                       <th>Username</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody ng-repeat="u in users_conf"
+                                    ng-click="populateModificarUser(u.objectId, u.firstName, u.lastName, u.username, u.password, u.role)">
+                                    <tr>
+                                       <td>{{u.role}}</th>
+                                       <td>{{u.firstName + " " + u.lastName}}</th>
+                                       <td>{{u.username}}</th>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                           <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                     </div>
+                     <!-- /.panel -->
+                  </div>
+                  <!-- /.col-lg-6 -->
+               </div>
+
+               <div class="row">
+
+                  <!--  Log del sistema -->
+                  <div id="conf_log" class="col-lg-12">
+                     <div class="panel panel-success">
+                        <div class="panel-heading">
+                           Log del Sistema
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                           <div class="table-responsive">
+                              <table class="table table-striped table-bordered table-hover">
+                                 <thead>
+                                    <tr>
+                                       <th>Accion</th>
+                                       <th>Usuario</th>
+                                       <th>Fecha</th>
+                                       <th>Rol</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody ng-repeat="l in logs_conf">
+                                    <tr>
+                                       <td>{{l.accion}}</th>
+                                       <td>{{l.usuario}}</th>
+                                       <td>{{l.fecha}}</th>
+                                       <td>{{l.rol}}</th>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                           <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                     </div>
+                     <!-- /.panel -->
+                  </div>
+                  <!-- /.col-lg-6 -->
+                  <!-- configuracion de usuarios -->
+               </div>
+
+               <!-- Modals -->
+               <!-- Cambio decontraseña -->
+               <div id="change_pass" class="modal fade bs-example-modal-sm" tabindex="-1">
+                  <div class="modal-dialog modal-sm">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title">Cambio Contraseña</h4>
+                        </div>
+                        <div class="modal-body">
+                           <div id="changePass_alert" class="alert alert-danger" role="alert">Error</div>
+                           <b>Actual Cantraseña:</b>
+                           <input type="password" placeholder="password" class="form-control" id="actual_pass"><br>
+                           <b>Nueva Contraseña:</b>
+                           <input type="password" placeholder="password" class="form-control" id="new_pass_1"><br>
+                           <b>Nueva Contraseña:</b>
+                           <input type="password" placeholder="password" class="form-control" id="new_pass_2">
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-success btn-block" ng-click="validateChangePass()">Cambiar</button>
+                        </div>
+                     </div>
+                     <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+               </div>
+               <!-- /.login modal -->
+
+               <!-- Add servicio -->
+               <div id="add_service_modal" class="modal fade bs-example-modal-sm" tabindex="-1">
+                  <div class="modal-dialog modal-sm">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title">Crear Servicio</h4>
+                        </div>
+                        <div class="modal-body">
+                           <div id="servicio_alert" class="alert alert-danger" role="alert">Entre nombre del servicio y precio.</div>
+                           <b>Servicio:</b>
+                           <input type="text" placeholder="servicio" class="form-control" id="add_service_config"><br>
+                           <b>Pago</b>
+                           <div class="input-group">
+                              <div class="input-group-addon">$</div>
+                              <input value="0" id="add_pago_config" type="number" class="form-control"  placeholder="Costo del servicio">
+                              <div class="input-group-addon">.00</div>
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-success btn-block" ng-click="validatesAddService()">Crear</button>
+                        </div>
+                     </div>
+                     <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+               </div>
+               <!-- /.login modal -->
+
+               <!-- Modificar servicio -->
+               <div id="modificar_service_modal" class="modal fade bs-example-modal-sm" tabindex="-1">
+                  <div class="modal-dialog modal-sm">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title">Modificar Servicio</h4>
+                        </div>
+                        <div class="modal-body">
+                           <div id="servicio_modificar_alert" class="alert alert-danger" role="alert">Entre nombre del servicio y precio.</div>
+                           <b>Servicio:</b>
+                           <input type="text" placeholder="servicio" class="form-control" id="modificar_service_config"><br>
+                           <b>Pago</b>
+                           <div class="input-group">
+                              <div class="input-group-addon">$</div>
+                              <input value="0" id="modificar_pago_config" type="number" class="form-control"  placeholder="Costo del servicio">
+                              <div class="input-group-addon">.00</div>
+                           </div>
+                           <input style="display:none;" type="text" placeholder="servicio" class="form-control" id="modificar_ID_config" disabled>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-danger" ng-click="deleteService()">Borrar</button>
+                           <button type="button" class="btn btn-success" ng-click="validatesModificarService()">Modificar</button>
+                        </div>
+                     </div>
+                     <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+               </div>
+               <!-- /.login modal -->
+
+               <!-- Add User -->
+               <div id="add_user_modal" class="modal fade bs-example-modal-sm" tabindex="-1">
+                  <div class="modal-dialog modal-sm">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title">Crear Usuario</h4>
+                        </div>
+                        <div class="modal-body">
+                           <div id="usuario_alert" class="alert alert-danger" role="alert"></div>
+                           <b>Nombre</b><br>
+                           <input id="add_user_first" type="text" class="form-control" placeholder="Nombre" >
+                           <b>Apellido</b><br>
+                           <input id="add_user_Last" type="text" class="form-control" placeholder="Apellido">
+                           <b>Username</b><br>
+                           <input id="add_user_username" type="text" class="form-control" placeholder="Username">
+                           <b>Permiso</b>
+                           <select id="add_user_role" class="form-control">
+                              <option value="">Selecciona</option>
+                              <option value="admin">Administrado</option>
+                              <option value="operador">Operador</option>
+                              <option value="tecnico">Tecnico</option>
+                           </select>
+                           <b>Password</b><br>
+                           <input id="add_user_pass1" type="password" class="form-control" placeholder="Password">
+                           <b>Password</b><br>
+                           <input id="add_user_pass2" type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-success btn-block" ng-click="validatesAddUser()">Crear</button>
+                        </div>
+                     </div>
+                     <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+               </div>
+               <!-- /.login modal -->
+
+               <!-- Modificar servicio -->
+               <div id="modificar_user_modal" class="modal fade" tabindex="-1" role="dialog" 
+                  aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title">Modificar Usuario</h4>
+                        </div>
+                        <div class="modal-body">
+                           <div id="user_modificar_alert" class="alert alert-danger" role="alert">Entre nombre del servicio y precio.</div>
+                           <b>Nombre</b><br>
+                           <input id="modify_user_first" type="text" class="form-control" placeholder="Nombre" disabled>
+                           <b>Apellido</b><br>
+                           <input id="modify_user_Last" type="text" class="form-control" placeholder="Apellido" disabled>
+                           <b>Username</b><br>
+                           <input id="modify_user_username" type="text" class="form-control" placeholder="Username" disabled>
+                           <b>Permiso</b>
+                           <select id="modify_user_role" class="form-control">
+                              <option value="">Selecciona</option>
+                              <option value="admin">Administrado</option>
+                              <option value="operador">Operador</option>
+                              <option value="tecnico">Tecnico</option>
+                           </select>
+                           <b>Password</b><br>
+                           <input id="modify_user_pass1" type="password" class="form-control" placeholder="Password">
+                           <b>Password</b><br>
+                           <input id="modify_user_pass2" type="password" class="form-control" placeholder="Password">
+                           <input id="modify_user_ID_config" style="display:none;" type="text" placeholder="servicio" class="form-control" disabled>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-danger" ng-click="deleteUser()">Borrar</button>
+                           <button type="button" class="btn btn-success" ng-click="validatesModificarUser()">Modificar</button>
+                        </div>
+                     </div>
+                     <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+               </div>
+               <!-- /.login modal -->
+            </div>
+
+            <i style="display: none;" id="userID_header"></i>
+            <i style="display: none;" id="userName_header"></i>
+            <i style="display: none;" id="objID_header"></i>
+            <i style="display: none;" id="pass_header"></i>
+
+         </div>
+         <!-- /#page-wrapper -->
+
+         <!-- login Modal -->
+        <div ng-controller="loginCtrl as lc" id="login" class="modal fade bs-example-modal-sm" tabindex="-1">
+            <div class="modal-dialog modal-sm">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title">Login</h4>
+                  </div>
+                  <div class="modal-body">
+                     <div id="login_alert" class="alert alert-danger" role="alert">Error</div>
+                     <b>Username:</b>
+                     <input type="text" ng-keyup="$event.keyCode == 13 ? validateLoginInputs() : null" placeholder="username" class="form-control" id="login_user"><br>
+                     <b>Password:</b>
+                     <input type="password"  ng-keyup="$event.keyCode == 13 ? validateLoginInputs() : null" placeholder="password" class="form-control" id="login_pass">
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-success btn-block" ng-click="validateLoginInputs()" ng-enter="validateLoginInputs()">Log in</button>
+                  </div>
+               </div>
+               <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+         <!-- /.login modal -->
+
+      </div>
+      <!-- /#wrapper -->
+        <script type="text/javascript">
+
+            hideAll();
+             
             $('#login').modal({
                 backdrop: 'static',
                 keyboard: false
             });
-            
+             
             $(function () {
-              $('[data-toggle="tooltip"]').tooltip()
+                $('[data-toggle="tooltip"]').tooltip()
             })
-            
+             
             $(function () {
                 $('#datetimepicker1').datetimepicker({
                     format: 'MM/DD/YYYY'
                 });
             });
-
+             
             $(function () {
-                $('#datetimepicker4').datetimepicker();
+                $("#datetimepicker4").datetimepicker(
+                    {
+                        sideBySide:true,
+                        widgetPositioning: {
+                            horizontal: 'auto',
+                            vertical: 'bottom',
+                        }
+                    }
+                );
             });
-            
-            $(function () {
-                $('#datetimepicker2').datetimepicker({
-                    format: 'MM/DD/YYYY'
-                });
-            });
-            
-            $(function () {
-                $('#datetimepicker3').datetimepicker({
-                    format: 'MM/DD/YYYY'
-                });
-            });
-            
-            (function ($) {
-              $('#spinner_minus').on('click', function() {
-                $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
-              });
-              $('#spinner_plus').on('click', function() {
-                $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
-              });
-            })(jQuery);
-            
-            (function ($) {
-              $('#edit_spinner_minus').on('click', function() {
-                $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
-              });
-              $('#edit_spinner_plus').on('click', function() {
-                $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
-              });
-            })(jQuery);
-            
-            function hideAll() {
-                $("#conf_log").hide();
-                $("#conf_usuarios").hide();
-                $("#conf_servicios").hide();
-                $("#deleteAlert").hide();
-                $("#login_alert").hide();
-                $("#changePass_alert").hide();
-                $("#pagar_btn").hide();
-                $("#servicio_alert").hide();
-                $("#servicio_modificar_alert").hide();
-                $("#usuario_alert").hide();
-                $("#user_modificar_alert").hide();
-                $("#add_otro_metodo").hide();
-                $("#add_otro_metodo_b").hide();
-                $("#add_otro_metodo_label").hide();
-                $("#modify_otro_metodo").hide();
-                $("#modify_otro_metodo_b").hide();
-                $("#modify_otro_metodo_label").hide();
-                $("#newTicket_alert").hide();
-                $("#t_warning").hide();
-                $("#numberOfClients").hide();
-            }
 
-            function tabsManagment(obj){
-                hideAllTabs();
-                var tab = (typeof obj == 'string') ? obj : $(obj).attr('id');
-                $("." + tab).show();   
-                $('#calendar').fullCalendar('render');
-               
-            }
-
-            function hideAllTabs(){
-                $(".clientes_tab").hide();
-                $(".tickets_tab").hide();
-                $(".ventas_tab").hide();
-                $(".configuracion_tab").hide();
-            }
-            
-            function hideTabesOptions(){
-                $("#clientes_tab").hide();
-                $("#tickets_tab").hide();
-                $("#ventas_tab").hide();
-                $("#configuracion_tab").hide();
-            }
-            
-            function hideModifyBtn() {
-                 $("#edit_btn").hide();
-                 $("#pagar_btn").show();
-            }
-            
-            function showModifyBtn() {
-                 $("#edit_btn").show();
+             $(function () {
+                 $('#datetimepicker2').datetimepicker({
+                     format: 'MM/DD/YYYY'
+                 });
+             });
+             
+             $(function () {
+                 $('#datetimepicker3').datetimepicker({
+                     format: 'MM/DD/YYYY'
+                 });
+             });
+             
+             (function ($) {
+               $('#spinner_minus').on('click', function() {
+                 $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+               });
+               $('#spinner_plus').on('click', function() {
+                 $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+               });
+             })(jQuery);
+             
+             (function ($) {
+               $('#edit_spinner_minus').on('click', function() {
+                 $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+               });
+               $('#edit_spinner_plus').on('click', function() {
+                 $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+               });
+             })(jQuery);
+             
+             function hideAll() {
+                 $("#conf_log").hide();
+                 $("#conf_usuarios").hide();
+                 $("#conf_servicios").hide();
+                 $("#deleteAlert").hide();
+                 $("#login_alert").hide();
+                 $("#changePass_alert").hide();
                  $("#pagar_btn").hide();
-            }
-            
-            function showDeleteAlert() {
-                $("#deleteAlert").show();
-            }
-            
-            function hideDeleteAlert() {
-                $("#deleteAlert").hide();
-            }
-            $('.clockpicker').clockpicker();
+                 $("#servicio_alert").hide();
+                 $("#servicio_modificar_alert").hide();
+                 $("#usuario_alert").hide();
+                 $("#user_modificar_alert").hide();
+                 $("#add_otro_metodo").hide();
+                 $("#add_otro_metodo_b").hide();
+                 $("#add_otro_metodo_label").hide();
+                 $("#modify_otro_metodo").hide();
+                 $("#modify_otro_metodo_b").hide();
+                 $("#modify_otro_metodo_label").hide();
+                 $("#newTicket_alert").hide();
+                 $("#t_warning").hide();
+                 $("#numberOfClients").hide();
+                 $("#addMoreTickets").hide();
+                 $("#fechaAlert").hide();
+                 $("#fechaAlertGood").hide();
+                 $("#overdue_warning").hide();
+             }
+             
+             function tabsManagment(obj){
+                 hideAllTabs();
+                 var tab = (typeof obj == 'string') ? obj : $(obj).attr('id');
+                 $("." + tab).show();   
+                 $('#calendar').fullCalendar('render');
+             }
+             
+             function hideAllTabs(){
+                 $(".clientes_tab").hide();
+                 $(".tickets_tab").hide();
+                 $(".ventas_tab").hide();
+                 $(".configuracion_tab").hide();
+             }
+             
+             function hideTabesOptions(){
+                 $("#clientes_tab").hide();
+                 $("#tickets_tab").hide();
+                 $("#ventas_tab").hide();
+                 $("#configuracion_tab").hide();
+             }
+             
+             function hideModifyBtn() {
+                  $("#edit_btn").hide();
+                  $("#pagar_btn").show();
+             }
+             
+             function showModifyBtn() {
+                  $("#edit_btn").show();
+                  $("#pagar_btn").hide();
+             }
+             
+             function showDeleteAlert() {
+                 $("#deleteAlert").show();
+             }
+             
+             function hideDeleteAlert() {
+                 $("#deleteAlert").hide();
+             }
 
-            
+             $('.clockpicker').clockpicker();
+
         </script>
-    </body>
+   </body>
 </html>

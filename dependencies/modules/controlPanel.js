@@ -2,6 +2,7 @@
     var app = angular.module('controlPanel', ['simplePagination']);
 
     app.controller('controlPanelCtrl', ['$scope', '$http', 'Pagination', function($scope, $http, Pagination) {
+        
         $scope.pagination = Pagination.getNew();
         $scope.clients = [];
         $scope.servicios = [];
@@ -13,7 +14,6 @@
         $scope.numberOfPagesinClients = 50;
 
         $scope.getAllItems = function(queryLimit, querySkip, first) {
-
             $http({
                     method: 'GET',
                     url: 'https://api.parse.com/1/classes/clients',
@@ -141,7 +141,6 @@
         };
 
         $scope.validatesAddInputs = function() {
-
             var nombre = document.getElementById('add_nombre').value;
             var expiracion = document.getElementById('add_expiracion').value;
             var metodo = document.getElementById('add_metodo').value;
@@ -159,7 +158,6 @@
                 telefono = $scope.phoneFormat(telefono);
                 servicio = $scope.servicios[parseInt(document.getElementById('add_servicio').value)].service;
                 if ($scope.validateDate(expiracion)) {
-
                     if($scope.verifyIfClientExist(telefono)) {
                         alert("Usuario ya existe.");
                     } else {
@@ -178,9 +176,7 @@
 
                         $('#myModal').modal('hide');
                         $scope.addItem(nombre, expiracion, deuda, metodo, pago, pueblo, servicio, unidades, telefono, clave, activo, otro);
-
                     }
-
                 } else {
                     alert("Fecha de expiracion invalida.");
                 }
@@ -280,7 +276,6 @@
         };
 
         $scope.populateModal = function(ID, nombre, expiracion, servicio, unidades, telefono, pueblo, pago, metodo, deuda, otro) {
-
             $http({
                     method: 'GET',
                     url: 'https://api.parse.com/1/classes/services',
@@ -314,8 +309,6 @@
                     document.getElementById('pagar_servicio').value = raw_servicio;
                     document.getElementById('pagar_unidades').value = unidades;
                     document.getElementById('pagar_pago').value = pago;
-
-                    
 
                     var d = new Date(expiracion);
                     d.setMonth( d.getMonth( ) + 1 );
@@ -420,7 +413,6 @@
         };
 
         $scope.makePayment = function() {
-
             var ID = document.getElementById('edit_ID').value;
             var Expiracion = document.getElementById('pagar_expiracion').value;
 
@@ -454,7 +446,6 @@
         };
 
         $scope.deleteClient = function() {
-
             var ID = document.getElementById('edit_ID').value;
             $http({
                     method: 'DELETE',
@@ -490,7 +481,6 @@
         $scope.getAllItems(1000, 0, true);
         $scope.getServices();
 
-
     }]);
 
     app.controller("loginCtrl", ['$scope', '$http', function($scope, $http) {
@@ -519,7 +509,6 @@
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
                     }
                 }).success(function(data, status) {
-
                     var validPass = false;
                     var user_username;
                     var user_ID;
@@ -578,8 +567,9 @@
                 $("#conf_usuarios").show();
                 $("#conf_servicios").show();
 
-
                 $("#numberOfClients").show();
+
+                $("#addMoreTickets").show();
 
             } else if (role == "operador") {
                 $(".clientes_tab").show();
@@ -587,8 +577,8 @@
 
                 $("#tickets_tab").show();
                 $("#configuracion_tab").show();
-                
 
+                $("#addMoreTickets").show();
             } else {
                 $(".tickets_tab").show();
                 $("#tickets_tab").show();
@@ -598,7 +588,6 @@
         };
 
     }]);
-
 
     app.controller("configurationCtrl", ['$scope', '$http', function($scope, $http) {
 
@@ -667,7 +656,6 @@
         };
 
         $scope.changePassword = function(pass) {
-
             var ID = document.getElementById("objID_header").innerText;
             $http({
                     method: 'PUT',
@@ -689,7 +677,6 @@
         };
 
         $scope.validateChangePass = function() {
-
             var realPass = document.getElementById("pass_header").innerText;
             var actualPass = document.getElementById("actual_pass").value;
             var newPass1 = document.getElementById("new_pass_1").value;
@@ -731,7 +718,6 @@
         };
 
         $scope.addNewService = function(newService, newPrice) {
-
             var newServiceName = newService.split(' ').join('_');
             newServiceName = newServiceName.toLowerCase();
 
@@ -757,7 +743,6 @@
         };
 
         $scope.populateModificarService = function(ID, Servicio, Precio){
-
             document.getElementById("modificar_service_config").value = Servicio; 
             document.getElementById("modificar_pago_config").value = Precio;
             document.getElementById("modificar_ID_config").value = ID;
@@ -781,7 +766,6 @@
         };
 
         $scope.modifyService = function(ID, Service, Price) {
-
             var ServiceName = Service.split(' ').join('_');
             ServiceName = ServiceName.toLowerCase();
 
@@ -808,7 +792,6 @@
         };
 
         $scope.deleteService = function() {
-
             var ID = document.getElementById('modificar_ID_config').value;
             $http({
                     method: 'DELETE',
@@ -827,7 +810,6 @@
         };
 
         $scope.validatesAddUser = function() {
-
             var newUserFName = document.getElementById("add_user_first").value;
             var newUserLName = document.getElementById("add_user_Last").value;
             var newUserRole = document.getElementById("add_user_role").value;
@@ -869,7 +851,6 @@
         };
 
         $scope.addNewUser = function(nombre, apellido, usuario, pass, perm) {
-
             $http({
                     method: 'POST',
                     url: 'https://api.parse.com/1/classes/users',
@@ -894,7 +875,6 @@
         };
 
         $scope.populateModificarUser = function(m_objectId, m_firstName, m_lastName, m_username, m_password, m_role){
-
             document.getElementById("modify_user_first").value = m_firstName;
             document.getElementById("modify_user_Last").value = m_lastName;
             document.getElementById("modify_user_username").value = m_username;
@@ -902,7 +882,6 @@
             document.getElementById("modify_user_pass1").value = m_password;
             document.getElementById("modify_user_pass2").value = m_password;
             document.getElementById("modify_user_ID_config").value = m_objectId;
-
 
             $("#modificar_user_modal").modal("show");
         };
@@ -962,7 +941,6 @@
         };
         
         $scope.deleteUser = function() {
-
             var ID = document.getElementById('modify_user_ID_config').value;
             $http({
                     method: 'DELETE',
@@ -988,6 +966,9 @@
 
         $scope.tickets;
         $scope.users = [];
+        $scope.tc;
+        $scope.t;
+        $scope.dateChosen;
 
         $scope.populateCalendar = function() {
             $('#calendar').fullCalendar({
@@ -1034,14 +1015,11 @@
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
                     }
                 }).success(function(data, status) {
-                    
                     for(var i = 0 ; i < data.results.length ; i++) {
                         if(data.results[i].role == 'tecnico') {
                             $scope.users.push(data.results[i]);
                         }
                     }
-                
-          
                 })
                 .error(function(data, status) {
                     console.log("Error:" + data + " Status:" + status);
@@ -1049,24 +1027,26 @@
         };
 
         $scope.validateInputsNewTicket = function() {
-
             var client = document.getElementById("tickets_cliente").value;
             var fecha = document.getElementById("tickets_fecha").value;
             var asunto = document.getElementById("tickets_asunto").value;
             var encargado = document.getElementById("tickets_users").value;
 
-
+            var now = new Date();
+            var selectedDate = new Date(fecha);
+            
             if((client == null || client == "") || (fecha == null || fecha == "") || (asunto == null || asunto == "") ||
                     (encargado == null || encargado == "")) {
-                $("#newTicket_alert").show();
-                return;
+                        document.getElementById("newTicket_alert").innerHTML = "Entre toda la informacion de el nuevo ticket.";
+                        $("#newTicket_alert").show();
+                        return;
 
             } else {
                 var tec = $scope.users[parseInt(document.getElementById('tickets_users').value)].firstName;
 
                 $("#newTicket_alert").hide();
                 $scope.insertNewTicket(client, fecha, asunto, tec);
-            }                        
+            }                       
         };
 
         $scope.validateDate = function(dateString) {
@@ -1143,7 +1123,6 @@
         };
 
         $scope.openTicket = function(obj) {
-
             var date = new Date(obj.start);
             var mo = date.getMonth() + 1;
             var day = date.getDate();
@@ -1161,7 +1140,7 @@
 
             var hours24 = parseInt(fourDigitTime.substring(0, 2),10);
             var hours = ((hours24 + 11) % 12) + 1;
-            var amPm = hours24 > 11 ? 'pm' : 'am';
+            var amPm = hours24 > 11 ? ' PM' : ' AM';
             var minutes = fourDigitTime.substring(2);
 
             newDate = newDate + ' ' + hours + ':' + minutes + amPm;
@@ -1175,11 +1154,18 @@
             if(obj.status == 'completado') {
                 $('#respondAndClose').hide();
                 $('#t_completed').show();
+                $("#overdue_warning").hide();
                 document.getElementById('t_comentario').value = obj.comentario;
             } else {
                 $('#respondAndClose').show();
                 $('#t_completed').hide();
                 document.getElementById('t_comentario').value = '';
+                            
+                if((new Date(newDate)).getTime() < (new Date().getTime())) {
+                    $("#overdue_warning").show();
+                } else {
+                    $("#overdue_warning").hide();
+                }
             }
             if(document.getElementById("role_header").innerHTML == 'admin' || document.getElementById("role_header").innerHTML == 'operador') {
                 $("#info_ticket").modal("show");
@@ -1192,7 +1178,6 @@
 
         $scope.respondTicket = function() {
             var commnt = document.getElementById('t_comentario').value;
-
             if(commnt == null || commnt == '') {
                 $("#t_warning").show();
                 return;
@@ -1204,7 +1189,6 @@
         };
 
         $scope.changeTicket = function(ID, comment) {
-
             $http({
                     method: 'PUT',
                     url: 'https://api.parse.com/1/classes/tickets/' + ID,
@@ -1228,7 +1212,6 @@
         };
 
         $scope.deleteTicket = function() {
-
             var ID = document.getElementById('ticketID').innerHTML;
             $http({
                     method: 'DELETE',
@@ -1247,16 +1230,61 @@
                 });
         };
 
+        $scope.filterJobs = function() {
+            $scope.tc = $scope.tc.firstName;
+        };
+
+        $scope.filterJobs2 = function() {
+            $scope.t = $scope.t.firstName;
+        };
+
+        $scope.filterClear = function() {
+            $scope.tc = "";
+        };
+
+        $scope.filterClear2 = function() {
+            $scope.t = "";
+        };
+
+        $scope.verifyEvents = function() {  
+            var dateTry = new Date(document.getElementById("tickets_fecha").value);
+            var events = "Tickets pendientes para " + (dateTry.getMonth() + 1) + '/' + dateTry.getDate() + '/' + dateTry.getFullYear() + ":"  + 
+                        "<table class='table table-bordered table-hover'><thead>" + 
+                        "<tr ><th>Cliente</th><th>Fecha</th><th>Asunto</th><th>Encargado</th></tr></thead><tbody>";
+            var isThereTickets = false;  
+
+            for(var i = 0 ; i < $scope.tickets.length ; i++) {
+                var date2 = new Date($scope.tickets[i].start);
+
+                console.log($scope.tickets[i].start);
+                if(dateTry.getFullYear() == date2.getFullYear() 
+                    && dateTry.getMonth() == date2.getMonth()
+                    && dateTry.getDate() == date2.getDate()) {
+                    isThereTickets = true;
+                    events += "<tr bgcolor='#FFFFFF'><th>" + $scope.tickets[i].cliente + "</th><th>" + $scope.tickets[i].start + "</th><th>" + $scope.tickets[i].title + "</th><th>" + $scope.tickets[i].tecnico + "</th></tr>";
+                }      
+            }
+
+            events += "</tbody></table>";
+
+            if(isThereTickets) {
+                document.getElementById("fechaAlert").innerHTML = events;
+                $("#fechaAlertGood").hide();
+                $("#fechaAlert").show();
+
+            } else {
+                document.getElementById("fechaAlert").innerHTML = events;
+                $("#fechaAlert").hide();
+                $("#fechaAlertGood").show();
+            }
+        };
+
         $scope.getUsers();
         $scope.getTickets();
     }]);
-    
-    
+
+    app.controller("ventasCtrl", ['$scope', '$http', function($scope, $http) {
+
+    }]);
 
 })();
-
-
-
-
-
-
