@@ -571,6 +571,10 @@
 
                 $("#addMoreTickets").show();
 
+                $("#deleteOpenTicket").show();
+
+
+
             } else if (role == "operador") {
                 $(".clientes_tab").show();
                 $("#clientes_tab").show();
@@ -969,6 +973,7 @@
         $scope.tc;
         $scope.t;
         $scope.dateChosen;
+        $scope.tickets_selectedItem_edit;
 
         $scope.populateCalendar = function() {
             $('#calendar').fullCalendar({
@@ -1156,12 +1161,17 @@
                 $('#t_completed').show();
                 $("#overdue_warning").hide();
                 document.getElementById('t_comentario').value = obj.comentario;
+                $("#t_comentario").prop('disabled', true);
+                $("#restaurarTicket").show();
             } else {
+                $("#restaurarTicket").hide();
                 $('#respondAndClose').show();
                 $('#t_completed').hide();
+                $("#t_comentario").prop('disabled', false);
                 document.getElementById('t_comentario').value = '';
-                            
-                if((new Date(newDate)).getTime() < (new Date().getTime())) {
+                var date = new Date(newDate);
+                date.setDate(date.getDate() + 1);
+                if((date).getTime() < (new Date().getTime())) {
                     $("#overdue_warning").show();
                 } else {
                     $("#overdue_warning").hide();
@@ -1169,8 +1179,29 @@
             }
             if(document.getElementById("role_header").innerHTML == 'admin' || document.getElementById("role_header").innerHTML == 'operador') {
                 $("#info_ticket").modal("show");
+                if(obj.status == 'pendiente') {
+                    $('#t_cliente').prop('disabled', false);
+                    $('#t_asunto').prop('disabled', false);
+                    $("#t_fecha").prop('disabled', false);
+                    $("#editTicketBtn").show();
+                    $("#t_users").show();
+                    $("#varifyBtn").show();
+                } else {
+                    $('#t_cliente').prop('disabled', true);
+                    $('#t_asunto').prop('disabled', true);
+                    $("#t_fecha").prop('disabled', true);
+                    $("#editTicketBtn").hide();
+                    $("#t_users").hide();
+                    $("#varifyBtn").hide();
+                }
+                
             } else {
+
                 if(obj.tecnico == document.getElementById("user_tk_firstName").value) {
+                    $("#restaurarTicket").hide();
+                    $("#editTicketBtn").hide();
+                    $("#t_users").hide();
+                    $("#varifyBtn").hide();
                     $("#info_ticket").modal("show");
                 }
             }
@@ -1255,8 +1286,6 @@
 
             for(var i = 0 ; i < $scope.tickets.length ; i++) {
                 var date2 = new Date($scope.tickets[i].start);
-
-                console.log($scope.tickets[i].start);
                 if(dateTry.getFullYear() == date2.getFullYear() 
                     && dateTry.getMonth() == date2.getMonth()
                     && dateTry.getDate() == date2.getDate()) {
@@ -1277,6 +1306,111 @@
                 $("#fechaAlert").hide();
                 $("#fechaAlertGood").show();
             }
+        };
+
+        $scope.verifyEvents2 = function() {  
+            var dateTry = new Date(document.getElementById("t_fecha").value);
+            var events = "Tickets pendientes para " + (dateTry.getMonth() + 1) + '/' + dateTry.getDate() + '/' + dateTry.getFullYear() + ":"  + 
+                        "<table class='table table-bordered table-hover'><thead>" + 
+                        "<tr ><th>Cliente</th><th>Fecha</th><th>Asunto</th><th>Encargado</th></tr></thead><tbody>";
+            var isThereTickets = false;  
+
+            for(var i = 0 ; i < $scope.tickets.length ; i++) {
+                var date2 = new Date($scope.tickets[i].start);
+                if(dateTry.getFullYear() == date2.getFullYear() 
+                    && dateTry.getMonth() == date2.getMonth()
+                    && dateTry.getDate() == date2.getDate()) {
+                    isThereTickets = true;
+                    events += "<tr bgcolor='#FFFFFF'><th>" + $scope.tickets[i].cliente + "</th><th>" + $scope.tickets[i].start + "</th><th>" + $scope.tickets[i].title + "</th><th>" + $scope.tickets[i].tecnico + "</th></tr>";
+                }      
+            }
+
+            events += "</tbody></table>";
+
+            if(isThereTickets) {
+                document.getElementById("fechaAlert_edit").innerHTML = events;
+                $("#fechaAlertGood_edit").hide();
+                $("#fechaAlert_edit").show();
+
+            } else {
+                document.getElementById("fechaAlert_edit").innerHTML = events;
+                $("#fechaAlert_edit").hide();
+                $("#fechaAlertGood_edit").show();
+            }
+        };
+
+        $scope.updateEncargado = function() {    
+            document.getElementById("t_encargado").value = $scope.tickets_selectedItem_edit.firstName;
+            $scope.tickets_selectedItem_edit = ""
+        };
+
+        $scope.validateEdit = function() {
+            var client = document.getElementById("t_cliente").value;
+            var fecha = document.getElementById("t_fecha").value;
+            var asunto = document.getElementById("t_asunto").value;
+            var encargado = document.getElementById("t_encargado").value;
+            var cmnt = document.getElementById("t_comentario").value;
+
+            if((client == null || client == "") || (fecha == null || fecha == "") || (asunto == null || asunto == "") ||
+                    (encargado == null || encargado == "")) {
+                        document.getElementById("newTicket_alert_edit").innerHTML = "Entre toda la informacion del ticket.";
+                        $("#newTicket_alert_edit").show();
+                        return;
+            } else {
+                $("#newTicket_alert_edit").hide();
+                $scope.editTicket(client, fecha, asunto, encargado, cmnt);
+            }                     
+        };
+
+        $scope.editTicket = function(client, fecha, asu, tec, com) {
+            var ID = document.getElementById("ticketID").innerHTML;
+            $http({
+                    method: 'PUT',
+                    url: 'https://api.parse.com/1/classes/tickets/' + ID,
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        title:asu,
+                        cliente:client,
+                        start:fecha,
+                        asunto:asu,
+                        tecnico:tec,
+                        comentario:com
+                    }
+                }).success(function(data, status) {
+                    $('#calendar').fullCalendar( 'removeEventSource', $scope.tickets);
+                    $scope.reGetTickets();
+                    $("#info_ticket").modal("hide");
+                })
+                .error(function(data, status) {
+                    alert("Se ha producido un ERROR editando el ticket.");
+                });
+        };  
+
+        $scope.restaurarTicket = function() {
+            var ID = document.getElementById("ticketID").innerHTML;
+            $http({
+                    method: 'PUT',
+                    url: 'https://api.parse.com/1/classes/tickets/' + ID,
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        color:'#F78181',
+                        status:'pendiente',
+                        comentario:""
+                    }
+                }).success(function(data, status) {
+                    $('#calendar').fullCalendar( 'removeEventSource', $scope.tickets);
+                    $scope.reGetTickets();
+                    $("#info_ticket").modal("hide");
+                })
+                .error(function(data, status) {
+                    alert("Se ha producido un ERROR restaurando el ticket.");
+                });
         };
 
         $scope.getUsers();
