@@ -13,6 +13,7 @@
 
         $scope.numberOfPagesinClients = 50;
 
+
         $scope.getAllItems = function(queryLimit, querySkip, first) {
             $http({
                     method: 'GET',
@@ -79,7 +80,6 @@
                     $scope.servicios = data.results;
                 })
                 .error(function(data, status) {
-                    console.log("Error:" + data + " Status:" + status);
                 });
         }
 
@@ -90,7 +90,58 @@
                 });
         }
 
+        $scope.generateDate = function() {
+            var date = new Date();
+            var mo = date.getMonth() + 1;
+            var day = date.getDate();
+            var y = date.getFullYear();
+            var h = date.getHours();
+            var m = date.getMinutes();
+
+            var newDate = mo + '/' + day +'/'+ y;
+   
+            h = ("0" + h).slice(-2);
+            m = ("0" + m).slice(-2);
+
+            var fourDigitTime = h +''+ m;
+
+
+            var hours24 = parseInt(fourDigitTime.substring(0, 2),10);
+            var hours = ((hours24 + 11) % 12) + 1;
+            var amPm = hours24 > 11 ? ' PM' : ' AM';
+            var minutes = fourDigitTime.substring(2);
+
+            newDate = newDate + ' ' + hours + ':' + minutes + amPm;
+            return newDate;
+        }
+
+        $scope.insertLog = function(Action) {
+            var USER = document.getElementById('user_header').innerText;
+            var ROL =  document.getElementById('role_header').innerText;
+            var FECHA = $scope.generateDate();
+
+            $http({
+                    method: 'POST',
+                    url: 'https://api.parse.com/1/classes/log',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        usuario: USER,
+                        rol: ROL,
+                        accion: Action,
+                        fecha: FECHA
+                    }
+                }).success(function(data, status) {
+                    
+                })
+                .error(function(data, status) {
+                });
+        }
+
         $scope.addItem = function(Nombre, Expiracion, Deuda, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Clave, Activo, Otro) {
+            var action = "Nuevo Cliente: " + Nombre + " con servicio de " + Servicio + " en " + Pueblo; 
             $http({
                     method: 'POST',
                     url: 'https://api.parse.com/1/classes/clients',
@@ -114,6 +165,7 @@
                     }
                 }).success(function(data, status) {
                     $scope.getAllItems(1000, 0, true);
+                    $scope.insertLog(action);
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un error creando el nuevo cliente.");
@@ -214,7 +266,6 @@
             }
         };
         
-
         $scope.verifyIfClientExist = function(num) {
             for(var i = 0 ; i < $scope.clients.length ; i++) {
                 if($scope.phoneFormat($scope.clients[i].telefono) == $scope.phoneFormat(num)) {
@@ -325,13 +376,78 @@
                         $("#modify_otro_metodo_b").show();
                         $("#modify_otro_metodo_label").show();
                     }
+
+                    $scope.storeTempModifications();
                 })
                 .error(function(data, status) {
-                    console.log("Error:" + data + " Status:" + status);
                 });
         };
 
+        $scope.storeTempModifications = function() {
+            var nom = document.getElementById('edit_nombre').value;
+            var exp = document.getElementById('edit_expiracion').value;
+            var serv = document.getElementById('edit_servicio_print').value;
+            var uni = document.getElementById('edit_unidades').value;
+            var tel = document.getElementById('edit_telefono').value;
+            var pue = document.getElementById('edit_pueblo').value;
+            var pag = document.getElementById('edit_pago').value;
+            var met = document.getElementById('edit_metodo').value;
+            var otr = document.getElementById('modify_otro_metodo').value;
+
+            $scope.tempModifications = {
+                'nombre': nom,
+                'expiracion': exp,
+                'metodo': met,
+                'pago': pag,
+                'pueblo': pue,
+                'servicio': serv,
+                'unidades': uni,
+                'telefono': tel,
+                'otro': otr
+            };
+        };
+
+        $scope.checkWhichIsDiff = function(old, Nombre, Expiracion, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Otro) {
+            var changes = "(";
+
+            if (old.nombre != Nombre) {
+                changes += "nombre, ";
+            }
+            if (old.expiracion != Expiracion) {
+                changes += "expiracion de pago, ";
+            }
+            if (old.metodo != Metodo.toLowerCase() || old.otro != Otro) {
+                changes += "metodo de pago, ";
+            }
+            if (old.pago != Pago) {
+                changes += "cantidad de pago, ";
+            }
+            if (old.pueblo != Pueblo) {
+                changes += "pueblo, ";
+            }
+            if (old.servicio != Servicio) {
+                changes += "plan de servicio, ";
+            }
+            if (old.unidades != Unidades) {
+                changes += "numero de unidades de servicio, ";
+            }
+            if (old.telefono != Telefono) {
+                changes += "telefono, ";
+            }
+            
+            
+            changes += ".)";
+            changes = changes.replace(", .", '');
+            
+            return changes;
+
+        };
+
         $scope.UpdateItem = function(ID, Nombre, Expiracion, Deuda, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Clave, Activo, Otro) {
+
+            var cambios = $scope.checkWhichIsDiff($scope.tempModifications, Nombre, Expiracion, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Otro);
+            var action = "Modifico Cliente: " + Nombre + " modificacion en " + cambios;
+
             $http({
                     method: 'PUT',
                     url: 'https://api.parse.com/1/classes/clients/' + ID,
@@ -357,13 +473,7 @@
                     alert("El cliente ha sido modificado exitosamente.")
                     $scope.getAllItems(1000, 0, true);
                     $('#editModal').modal('hide');
-
-
-                    // document.getElementById('pagar_nombre').value = Nombre;
-                    // document.getElementById('pagar_servicio').value = Servicio;
-                    // document.getElementById('pagar_unidades').value = Unidades;
-                    // document.getElementById('pagar_pago').value = Pago;
-
+                    $scope.insertLog(action); 
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un error modificando el cliente.");
@@ -415,6 +525,11 @@
         $scope.makePayment = function() {
             var ID = document.getElementById('edit_ID').value;
             var Expiracion = document.getElementById('pagar_expiracion').value;
+            var CLIENTE = document.getElementById('pagar_nombre').value;
+            var SERVICIO = document.getElementById('pagar_servicio').value;
+            var PAGO = document.getElementById('pagar_pago').value;
+
+            var action = "Hacer Pago: ($" + PAGO + ".00) " + CLIENTE + " con servicio " + SERVICIO;
 
             if (Expiracion == null || Expiracion == "") {
                 alert("Entre nueva fecha de expiracion.")
@@ -437,6 +552,7 @@
                         alert("Se realizo el pago exitosamente.");
                         $scope.getAllItems(1000, 0, true);
                         $('#editModal').modal('hide');
+                        $scope.insertLog(action);
 
                     })
                     .error(function(data, status) {
@@ -446,6 +562,10 @@
         };
 
         $scope.deleteClient = function() {
+            var CLIENTE = document.getElementById('pagar_nombre').value;
+            var SERVICIO = document.getElementById('pagar_servicio').value;
+            var action = "Borrar Cliente: " + CLIENTE + " con servicio " + SERVICIO;
+
             var ID = document.getElementById('edit_ID').value;
             $http({
                     method: 'DELETE',
@@ -459,6 +579,7 @@
                     $("#deleteAlert").hide();
                     $scope.getAllItems(1000, 0, true);
                     $('#editModal').modal('hide')
+                    $scope.insertLog(action); 
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un error borrando el cliente.");
@@ -550,7 +671,6 @@
 
                 })
                 .error(function(data, status) {
-                    console.log("Error:" + data + " Status:" + status);
                 });
         };
 
@@ -563,7 +683,7 @@
                 $("#ventas_tab").show();
                 $("#configuracion_tab").show();
 
-                $("#conf_log").show();
+                $("#tBtnLog").show();
                 $("#conf_usuarios").show();
                 $("#conf_servicios").show();
 
@@ -599,6 +719,128 @@
         $scope.services_conf = [];
         $scope.logs_conf = [];
 
+        $scope.tempModifications_service;
+        $scope.tempModifications_users;
+
+        $scope.insertLog = function(Action) {
+            var USER = document.getElementById('user_header').innerText;
+            var ROL =  document.getElementById('role_header').innerText;
+            var FECHA = $scope.generateDate();
+
+            $http({
+                    method: 'POST',
+                    url: 'https://api.parse.com/1/classes/log',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        usuario: USER,
+                        rol: ROL,
+                        accion: Action,
+                        fecha: FECHA
+                    }
+                }).success(function(data, status) {
+                    
+                })
+                .error(function(data, status) {
+                });
+        };
+
+        $scope.generateDate = function() {
+            var date = new Date();
+            var mo = date.getMonth() + 1;
+            var day = date.getDate();
+            var y = date.getFullYear();
+            var h = date.getHours();
+            var m = date.getMinutes();
+
+            var newDate = mo + '/' + day +'/'+ y;
+   
+            h = ("0" + h).slice(-2);
+            m = ("0" + m).slice(-2);
+
+            var fourDigitTime = h +''+ m;
+
+
+            var hours24 = parseInt(fourDigitTime.substring(0, 2),10);
+            var hours = ((hours24 + 11) % 12) + 1;
+            var amPm = hours24 > 11 ? ' PM' : ' AM';
+            var minutes = fourDigitTime.substring(2);
+
+            newDate = newDate + ' ' + hours + ':' + minutes + amPm;
+            return newDate;
+        };
+
+        $scope.storeTempModifications_service = function() {
+            var servicio = document.getElementById('modificar_service_config').value;
+            var pago = document.getElementById('modificar_pago_config').value;
+
+            $scope.tempModifications_service = {
+                'service': servicio,
+                'price': pago,
+            };
+
+        };
+
+        $scope.checkWhichIsDiff_service = function(old, serv, pag) {
+            var changes = "(";
+
+            if (old.service != serv) {
+                changes += "nombre de servicio, ";
+            }
+            if (old.price != pag) {
+                changes += "costo de servicio, ";
+            }
+            
+            changes += ".)";
+            changes = changes.replace(", .", '');
+            
+            return changes;
+        };
+
+        $scope.storeTempModifications_users = function() {
+            var userF = document.getElementById('modify_user_first').value;
+            var userL = document.getElementById('modify_user_Last').value;
+            var userN = document.getElementById('modify_user_username').value;
+            var userR = document.getElementById('modify_user_role').value;
+            var userP = document.getElementById('modify_user_pass1').value;
+
+            $scope.tempModifications_users = {
+                'firstName': userF,
+                'lastName': userL,
+                'username': userN,
+                'password': userP,
+                'role': userR,
+            };
+
+        };
+
+        $scope.checkWhichIsDiff_users = function(old, FirstName, LastName, Username, PassWord, Role) {
+            var changes = "(";
+
+            if (old.firstName != FirstName) {
+                changes += "nombre de usuario, ";
+            }
+            if (old.lastName != LastName) {
+                changes += "apellido de usuario, ";
+            }
+            if (old.username != Username) {
+                changes += "username, ";
+            }
+            if (old.password != PassWord) {
+                changes += "password, ";
+            }
+            if (old.role != Role) {
+                changes += "permisos, ";
+            }
+            
+            changes += ".)";
+            changes = changes.replace(", .", '');
+            
+            return changes;
+        };
+
         $scope.prepareField = function() {
             $scope.getUsers_conf();
             $scope.getServices_conf();
@@ -620,7 +862,6 @@
                     $scope.users_conf = data.results;
                 })
                 .error(function(data, status) {
-                    console.log("Error:" + data + " Status:" + status);
                 });
         };
 
@@ -639,7 +880,6 @@
                     $scope.services_conf = data.results;
                 })
                 .error(function(data, status) {
-                    console.log("Error:" + data + " Status:" + status);
                 });
         };
 
@@ -655,7 +895,6 @@
                     $scope.logs_conf = data.results;
                 })
                 .error(function(data, status) {
-                    console.log("Error:" + data + " Status:" + status);
                 });
         };
 
@@ -722,9 +961,11 @@
         };
 
         $scope.addNewService = function(newService, newPrice) {
+
             var newServiceName = newService.split(' ').join('_');
             newServiceName = newServiceName.toLowerCase();
 
+            var action = "Nuevo Servicio: " + newService + " ($" + newPrice + ".00)";
             $http({
                     method: 'POST',
                     url: 'https://api.parse.com/1/classes/services',
@@ -740,6 +981,7 @@
                 }).success(function(data, status) {
                     $scope.prepareField();
                     $("#add_service_modal").modal("hide");
+                    $scope.insertLog(action);
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un error creando el nuevo servicio.");
@@ -750,6 +992,9 @@
             document.getElementById("modificar_service_config").value = Servicio; 
             document.getElementById("modificar_pago_config").value = Precio;
             document.getElementById("modificar_ID_config").value = ID;
+
+
+            $scope.storeTempModifications_service();
 
             $("#modificar_service_modal").modal("show");
         };
@@ -770,6 +1015,10 @@
         };
 
         $scope.modifyService = function(ID, Service, Price) {
+
+            var cambios = $scope.checkWhichIsDiff_service($scope.tempModifications_service, Service, Price);
+            var action = "Modifico Servicio: " + Service + " ($" + Price + ".00) modificacion en " + cambios;
+
             var ServiceName = Service.split(' ').join('_');
             ServiceName = ServiceName.toLowerCase();
 
@@ -788,7 +1037,7 @@
                 }).success(function(data, status) {
                     $scope.prepareField();
                     $("#modificar_service_modal").modal("hide");
-
+                    $scope.insertLog(action);
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un error modificando el servicio.");
@@ -797,6 +1046,11 @@
 
         $scope.deleteService = function() {
             var ID = document.getElementById('modificar_ID_config').value;
+            var SERVICIO = document.getElementById('modificar_service_config').value;
+            var PAGO = document.getElementById('modificar_pago_config').value;
+            
+            var action = "Borro Servicio: " + SERVICIO + " ($" + PAGO + ".00)";
+
             $http({
                     method: 'DELETE',
                     url: 'https://api.parse.com/1/classes/services/' + ID,
@@ -807,6 +1061,7 @@
                 }).success(function(data, status) {
                     $scope.prepareField();
                     $('#modificar_service_modal').modal('hide')
+                    $scope.insertLog(action);
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un error borrando el servicio.");
@@ -855,6 +1110,7 @@
         };
 
         $scope.addNewUser = function(nombre, apellido, usuario, pass, perm) {
+            var action = "Nuevo Usuario: " + nombre + " " + apellido + " (" + perm + ")";
             $http({
                     method: 'POST',
                     url: 'https://api.parse.com/1/classes/users',
@@ -872,6 +1128,7 @@
                 }).success(function(data, status) {
                     $scope.prepareField();
                     $("#add_user_modal").modal("hide");
+                    $scope.insertLog(action);
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un error creando el nuevo usuario.");
@@ -886,6 +1143,8 @@
             document.getElementById("modify_user_pass1").value = m_password;
             document.getElementById("modify_user_pass2").value = m_password;
             document.getElementById("modify_user_ID_config").value = m_objectId;
+
+            $scope.storeTempModifications_users();
 
             $("#modificar_user_modal").modal("show");
         };
@@ -921,6 +1180,9 @@
         };
 
         $scope.modifyUser = function(ID, nombre, apellido, usuario, pass, perm) {
+            var cambios = $scope.checkWhichIsDiff_users($scope.tempModifications_users, nombre, apellido, usuario, pass, perm);
+            var action = "Modifico Usuario: " + nombre + " " + apellido + " modificacion en " + cambios;
+
             $http({
                     method: 'PUT',
                     url: 'https://api.parse.com/1/classes/users/' + ID ,
@@ -938,6 +1200,7 @@
                 }).success(function(data, status) {
                     $scope.prepareField();
                     $("#modificar_user_modal").modal("hide");
+                    $scope.insertLog(action);
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un error modificando el usuario.");
@@ -946,6 +1209,13 @@
         
         $scope.deleteUser = function() {
             var ID = document.getElementById('modify_user_ID_config').value;
+
+            var nF = document.getElementById('modify_user_first').value;
+            var nL = document.getElementById('modify_user_Last').value;
+            var ro = document.getElementById('modify_user_role').value;
+
+            var action = "Borro Usuario: " + nF + " " + nL + " (" + ro + ")";
+
             $http({
                     method: 'DELETE',
                     url: 'https://api.parse.com/1/classes/users/' + ID,
@@ -955,7 +1225,8 @@
                     }
                 }).success(function(data, status) {
                     $scope.prepareField();
-                    $('#modificar_user_modal').modal('hide')
+                    $('#modificar_user_modal').modal('hide');
+                    $scope.insertLog(action);
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un error borrando el usuario.");
@@ -974,6 +1245,106 @@
         $scope.t;
         $scope.dateChosen;
         $scope.tickets_selectedItem_edit;
+        $scope.tempModifications;
+
+        $scope.insertLog = function(Action) {
+            var USER = document.getElementById('user_header').innerText;
+            var ROL =  document.getElementById('role_header').innerText;
+            var FECHA = $scope.generateDate();
+
+            $http({
+                    method: 'POST',
+                    url: 'https://api.parse.com/1/classes/log',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        usuario: USER,
+                        rol: ROL,
+                        accion: Action,
+                        fecha: FECHA
+                    }
+                }).success(function(data, status) {
+                    
+                })
+                .error(function(data, status) {
+                });
+        };
+
+        $scope.generateDate = function() {
+            var date = new Date();
+            var mo = date.getMonth() + 1;
+            var day = date.getDate();
+            var y = date.getFullYear();
+            var h = date.getHours();
+            var m = date.getMinutes();
+
+            var newDate = mo + '/' + day +'/'+ y;
+   
+            h = ("0" + h).slice(-2);
+            m = ("0" + m).slice(-2);
+
+            var fourDigitTime = h +''+ m;
+
+
+            var hours24 = parseInt(fourDigitTime.substring(0, 2),10);
+            var hours = ((hours24 + 11) % 12) + 1;
+            var amPm = hours24 > 11 ? ' PM' : ' AM';
+            var minutes = fourDigitTime.substring(2);
+
+            newDate = newDate + ' ' + hours + ':' + minutes + amPm;
+            return newDate;
+        };
+
+        $scope.storeTempModifications = function() {
+            var cli = document.getElementById('t_cliente').value;
+            var pue = document.getElementById('t_pueblo').value;
+            var tel = document.getElementById('t_telefono').value;
+            var fec = $('#datetimepicker5').data("DateTimePicker").date().format("MM/DD/YYYY h:mm A");
+            var asu = document.getElementById('t_asunto').value;
+            var enc = document.getElementById('t_encargado').value;
+
+            $scope.tempModifications = {
+                'cliente': cli,
+                'pueblo': pue,
+                'telefono': tel,
+                'start': fec,
+                'asunto': asu,
+                'title' : asu,
+                'tecnico': enc,
+            };
+
+        };
+
+        $scope.checkWhichIsDiff = function(old, client, fecha, asu, tec, com, pue, tel) {
+            var changes = "(";
+
+            if (old.cliente != client) {
+                changes += "nombre de cliente, ";
+            }
+            if (old.pueblo != pue) {
+                changes += "pueblo de cliente, ";
+            }
+            if (old.telefono != tel) {
+                changes += "telefono de cliente, ";
+            }
+            if (old.start != fecha) {
+                changes += "fecha de expiracion de ticket, ";
+            }
+            if (old.asunto != asu || old.title != asu) {
+                changes += "asunto de ticket, ";
+            }
+            if (old.tecnico != tec) {
+                changes += "encargado de ticket, ";
+            }
+            
+            changes += ".)";
+            changes = changes.replace(", .", '');
+            
+            return changes;
+
+        };
 
         $scope.populateCalendar = function() {
             $('#calendar').fullCalendar({
@@ -1007,7 +1378,6 @@
                     $scope.populateCalendar();
                 })
                 .error(function(data, status) {
-                    console.log("Error:" + data + " Status:" + status);
                 });
         };
 
@@ -1027,30 +1397,27 @@
                     }
                 })
                 .error(function(data, status) {
-                    console.log("Error:" + data + " Status:" + status);
                 });
         };
 
         $scope.validateInputsNewTicket = function() {
             var client = document.getElementById("tickets_cliente").value;
-            var fecha = document.getElementById("tickets_fecha").value;
+            var fecha = $('#datetimepicker4').data("DateTimePicker").date().format("MM/DD/YYYY h:mm A");
             var asunto = document.getElementById("tickets_asunto").value;
             var encargado = document.getElementById("tickets_users").value;
+            var pueblo = document.getElementById("tickets_pueblo").value;
+            var telefono = document.getElementById("tickets_telefono").value;
 
-            var now = new Date();
-            var selectedDate = new Date(fecha);
-            
             if((client == null || client == "") || (fecha == null || fecha == "") || (asunto == null || asunto == "") ||
-                    (encargado == null || encargado == "")) {
+                    (encargado == null || encargado == "") || (pueblo == null || pueblo == "") || (telefono == null || telefono == "")) {
                         document.getElementById("newTicket_alert").innerHTML = "Entre toda la informacion de el nuevo ticket.";
                         $("#newTicket_alert").show();
                         return;
-
             } else {
                 var tec = $scope.users[parseInt(document.getElementById('tickets_users').value)].firstName;
-
+                telefono = $scope.phoneFormat(telefono);
                 $("#newTicket_alert").hide();
-                $scope.insertNewTicket(client, fecha, asunto, tec);
+                $scope.insertNewTicket(client, fecha, asunto, tec, pueblo, telefono);
             }                       
         };
 
@@ -1074,7 +1441,8 @@
             return day > 0 && day <= monthLength[month - 1];
         };
 
-        $scope.insertNewTicket = function(Client, HoraFecha, Asunto, Encargado) {
+        $scope.insertNewTicket = function(Client, HoraFecha, Asunto, Encargado, Pueblo, Telefono) {
+            var action = "Nuevo Ticket: " + Client + " - " + Asunto; 
             $http({
                     method: 'POST',
                     url: 'https://api.parse.com/1/classes/tickets',
@@ -1089,22 +1457,40 @@
                         cliente: Client,
                         status: 'pendiente',
                         tecnico: Encargado, 
-                        color: '#F78181'
+                        color: '#F78181',
+                        pueblo: Pueblo,
+                        telefono: Telefono
                     }
                 }).success(function(data, status) {
                     $scope.getTickets();
                     document.getElementById("tickets_cliente").value = "";
-                    document.getElementById("tickets_fecha").value = "";
                     document.getElementById("tickets_asunto").value = "";
                     document.getElementById('tickets_users').value = 0;
-                    
+                    document.getElementById("tickets_pueblo").value = "";
+                    document.getElementById("tickets_telefono").value = "";
+
                     $('#calendar').fullCalendar( 'removeEventSource', $scope.tickets);
                     $scope.reGetTickets();
-
+                    $scope.insertLog(action);
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un error creando el nuevo ticket.");
                 });
+        }
+
+        $scope.phoneFormat = function(phonenum) {
+            var regexObj = /^(?:\+?1[-. ]?)?(?:\(?([0-9]{3})\)?[-. ]?)?([0-9]{3})[-. ]?([0-9]{4})$/;
+            if (regexObj.test(phonenum)) {
+                var parts = phonenum.match(regexObj);
+                var phone = "";
+                if (parts[1]) { phone += "+1 (" + parts[1] + ") "; }
+                phone += parts[2] + "-" + parts[3];
+                return phone;
+            }
+            else {
+                //invalid phone number
+                return phonenum;
+            }
         }
 
         $scope.reGetTickets = function() {
@@ -1123,11 +1509,11 @@
                     $("#add_ticket").modal('hide');
                 })
                 .error(function(data, status) {
-                    console.log("Error:" + data + " Status:" + status);
                 });
         };
 
         $scope.openTicket = function(obj) {
+
             var date = new Date(obj.start);
             var mo = date.getMonth() + 1;
             var day = date.getDate();
@@ -1151,10 +1537,14 @@
             newDate = newDate + ' ' + hours + ':' + minutes + amPm;
 
             document.getElementById("t_cliente").value = obj.cliente;
-            document.getElementById("t_fecha").value = newDate;
+            $('#datetimepicker5').data("DateTimePicker").date(newDate);
             document.getElementById("t_asunto").value = obj.title;
             document.getElementById('t_encargado').value = obj.tecnico;
+            document.getElementById('t_telefono').value = obj.telefono;
+            document.getElementById('t_pueblo').value = obj.pueblo;
             document.getElementById('ticketID').innerHTML = obj.objectId;
+            document.getElementById('t_fecha_tecnicos').value = obj.start;
+
 
             if(obj.status == 'completado') {
                 $('#respondAndClose').hide();
@@ -1163,9 +1553,13 @@
                 document.getElementById('t_comentario').value = obj.comentario;
                 $("#t_comentario").prop('disabled', true);
                 $("#restaurarTicket").show();
+                $("#t_fecha_tecnicos").show();
+                $('#datetimepicker5').data("DateTimePicker").hide();
             } else {
+                $('#datetimepicker5').data("DateTimePicker").show();
                 $("#restaurarTicket").hide();
                 $('#respondAndClose').show();
+                $("#t_fecha_tecnicos").hide();
                 $('#t_completed').hide();
                 $("#t_comentario").prop('disabled', false);
                 document.getElementById('t_comentario').value = '';
@@ -1182,14 +1576,16 @@
                 if(obj.status == 'pendiente') {
                     $('#t_cliente').prop('disabled', false);
                     $('#t_asunto').prop('disabled', false);
-                    $("#t_fecha").prop('disabled', false);
+                    $('#t_telefono').prop('disabled', false);
+                    $('#t_pueblo').prop('disabled', false);
                     $("#editTicketBtn").show();
                     $("#t_users").show();
                     $("#varifyBtn").show();
                 } else {
                     $('#t_cliente').prop('disabled', true);
                     $('#t_asunto').prop('disabled', true);
-                    $("#t_fecha").prop('disabled', true);
+                    $('#t_telefono').prop('disabled', true);
+                    $('#t_pueblo').prop('disabled', true);
                     $("#editTicketBtn").hide();
                     $("#t_users").hide();
                     $("#varifyBtn").hide();
@@ -1203,8 +1599,11 @@
                     $("#t_users").hide();
                     $("#varifyBtn").hide();
                     $("#info_ticket").modal("show");
+                    $('#datetimepicker5').data("DateTimePicker").hide();
+                    $("#t_fecha_tecnicos").show();
                 }
             }
+            $scope.storeTempModifications();
         }; 
 
         $scope.respondTicket = function() {
@@ -1220,6 +1619,9 @@
         };
 
         $scope.changeTicket = function(ID, comment) {
+            var cliente = document.getElementById('t_cliente').value;
+            var asunto = document.getElementById('t_asunto').value;
+            var action = "Respondio Ticket: " + cliente + " - " + asunto + ' (' + comment + ')';
             $http({
                     method: 'PUT',
                     url: 'https://api.parse.com/1/classes/tickets/' + ID,
@@ -1236,6 +1638,7 @@
                     $('#calendar').fullCalendar( 'removeEventSource', $scope.tickets);
                     $scope.reGetTickets();
                     $("#info_ticket").modal("hide");
+                    $scope.insertLog(action);
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un ERROR respondiendo el ticket.");
@@ -1243,6 +1646,11 @@
         };
 
         $scope.deleteTicket = function() {
+
+            var cliente = document.getElementById('t_cliente').value;
+            var asunto = document.getElementById('t_asunto').value;
+            var action = "Borro Ticket: " + cliente + " - " + asunto;
+
             var ID = document.getElementById('ticketID').innerHTML;
             $http({
                     method: 'DELETE',
@@ -1255,6 +1663,7 @@
                     $('#calendar').fullCalendar( 'removeEventSource', $scope.tickets);
                     $scope.reGetTickets();
                     $('#info_ticket').modal('hide');
+                    $scope.insertLog(action);
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un error borrando el ticket.");
@@ -1277,10 +1686,11 @@
             $scope.t = "";
         };
 
-        $scope.verifyEvents = function() {  
-            var dateTry = new Date(document.getElementById("tickets_fecha").value);
+        $scope.verifyEvents = function() { 
+            var D = $('#datetimepicker4').data("DateTimePicker").date().format("MM/DD/YYYY h:mm A");
+            var dateTry = new Date(D);
             var events = "Tickets pendientes para " + (dateTry.getMonth() + 1) + '/' + dateTry.getDate() + '/' + dateTry.getFullYear() + ":"  + 
-                        "<table class='table table-bordered table-hover'><thead>" + 
+                        "<div class='table-responsive'><table class='table table-bordered table-hover'><thead>" + 
                         "<tr ><th>Cliente</th><th>Fecha</th><th>Asunto</th><th>Encargado</th></tr></thead><tbody>";
             var isThereTickets = false;  
 
@@ -1294,7 +1704,7 @@
                 }      
             }
 
-            events += "</tbody></table>";
+            events += "</tbody></table></div>";
 
             if(isThereTickets) {
                 document.getElementById("fechaAlert").innerHTML = events;
@@ -1309,9 +1719,11 @@
         };
 
         $scope.verifyEvents2 = function() {  
-            var dateTry = new Date(document.getElementById("t_fecha").value);
+            
+            var D = $('#datetimepicker5').data("DateTimePicker").date().format("MM/DD/YYYY h:mm A");
+            var dateTry = new Date(D);
             var events = "Tickets pendientes para " + (dateTry.getMonth() + 1) + '/' + dateTry.getDate() + '/' + dateTry.getFullYear() + ":"  + 
-                        "<table class='table table-bordered table-hover'><thead>" + 
+                        "<div class='table-responsive'><table class='table table-bordered table-hover'><thead>" + 
                         "<tr ><th>Cliente</th><th>Fecha</th><th>Asunto</th><th>Encargado</th></tr></thead><tbody>";
             var isThereTickets = false;  
 
@@ -1325,7 +1737,7 @@
                 }      
             }
 
-            events += "</tbody></table>";
+            events += "</tbody></table></div>";
 
             if(isThereTickets) {
                 document.getElementById("fechaAlert_edit").innerHTML = events;
@@ -1346,23 +1758,29 @@
 
         $scope.validateEdit = function() {
             var client = document.getElementById("t_cliente").value;
-            var fecha = document.getElementById("t_fecha").value;
+            var fecha = $('#datetimepicker5').data("DateTimePicker").date().format("MM/DD/YYYY h:mm A");
             var asunto = document.getElementById("t_asunto").value;
             var encargado = document.getElementById("t_encargado").value;
+            var pueblo = document.getElementById("t_pueblo").value;
+            var telefono = document.getElementById("t_telefono").value;
             var cmnt = document.getElementById("t_comentario").value;
 
             if((client == null || client == "") || (fecha == null || fecha == "") || (asunto == null || asunto == "") ||
-                    (encargado == null || encargado == "")) {
+                    (encargado == null || encargado == "") || (pueblo == null || pueblo == "") || (telefono == null || telefono == "")) {
                         document.getElementById("newTicket_alert_edit").innerHTML = "Entre toda la informacion del ticket.";
                         $("#newTicket_alert_edit").show();
                         return;
             } else {
                 $("#newTicket_alert_edit").hide();
-                $scope.editTicket(client, fecha, asunto, encargado, cmnt);
+                telefono = $scope.phoneFormat(telefono);
+                $scope.editTicket(client, fecha, asunto, encargado, cmnt, pueblo, telefono);
             }                     
         };
 
-        $scope.editTicket = function(client, fecha, asu, tec, com) {
+        $scope.editTicket = function(client, fecha, asu, tec, com, pue, tel) {
+            var cambios = $scope.checkWhichIsDiff($scope.tempModifications, client, fecha, asu, tec, com, pue, tel);
+            var action = "Modifico Ticket: " + client + " - modificacion en " + cambios;
+
             var ID = document.getElementById("ticketID").innerHTML;
             $http({
                     method: 'PUT',
@@ -1377,12 +1795,15 @@
                         start:fecha,
                         asunto:asu,
                         tecnico:tec,
+                        pueblo:pue,
+                        telefono:tel,
                         comentario:com
                     }
                 }).success(function(data, status) {
                     $('#calendar').fullCalendar( 'removeEventSource', $scope.tickets);
                     $scope.reGetTickets();
                     $("#info_ticket").modal("hide");
+                    $scope.insertLog(action); 
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un ERROR editando el ticket.");
@@ -1390,6 +1811,9 @@
         };  
 
         $scope.restaurarTicket = function() {
+            var cliente = document.getElementById('t_cliente').value;
+            var asunto = document.getElementById('t_asunto').value;
+            var action = "Restauro Ticket: " + cliente + " - " + asunto;
             var ID = document.getElementById("ticketID").innerHTML;
             $http({
                     method: 'PUT',
@@ -1407,6 +1831,7 @@
                     $('#calendar').fullCalendar( 'removeEventSource', $scope.tickets);
                     $scope.reGetTickets();
                     $("#info_ticket").modal("hide");
+                    $scope.insertLog(action);
                 })
                 .error(function(data, status) {
                     alert("Se ha producido un ERROR restaurando el ticket.");
@@ -1420,5 +1845,4 @@
     app.controller("ventasCtrl", ['$scope', '$http', function($scope, $http) {
 
     }]);
-
 })();
