@@ -529,7 +529,7 @@
             var SERVICIO = document.getElementById('pagar_servicio').value;
             var PAGO = document.getElementById('pagar_pago').value;
 
-            var action = "Hacer Pago: ($" + PAGO + ".00) " + CLIENTE + " con servicio " + SERVICIO;
+            var action = "Ejecuto Pago: ($" + PAGO + ".00) " + CLIENTE + " con servicio " + SERVICIO;
 
             if (Expiracion == null || Expiracion == "") {
                 alert("Entre nueva fecha de expiracion.")
@@ -564,7 +564,7 @@
         $scope.deleteClient = function() {
             var CLIENTE = document.getElementById('pagar_nombre').value;
             var SERVICIO = document.getElementById('pagar_servicio').value;
-            var action = "Borrar Cliente: " + CLIENTE + " con servicio " + SERVICIO;
+            var action = "Borro Cliente: " + CLIENTE + " con servicio " + SERVICIO;
 
             var ID = document.getElementById('edit_ID').value;
             $http({
@@ -713,7 +713,10 @@
 
     }]);
 
-    app.controller("configurationCtrl", ['$scope', '$http', function($scope, $http) {
+    app.controller("configurationCtrl", ['$scope', '$http', 'Pagination', function($scope, $http, Pagination) {
+
+        $scope.pagination = Pagination.getNew();
+        $scope.numberOfPagesinLogs = 15;
 
         $scope.users_conf = [];
         $scope.services_conf = [];
@@ -841,11 +844,26 @@
             return changes;
         };
 
+        $scope.searchGlitch = function() {
+            var characters = document.getElementById("searchLogs").value;
+            if (characters.length > 0) {
+                $scope.changeNumberOfPages(1000);
+            } else {
+                $scope.changeNumberOfPages(15);
+            }
+        };
+
+        $scope.changeNumberOfPages = function(num) {
+            $scope.numberOfPagesinLogs = num;
+            $scope.pagination = Pagination.getNew($scope.numberOfPagesinLogs);
+            $scope.pagination.numPages = Math.ceil($scope.logs_conf.length / $scope.pagination.perPage);
+        };
+
         $scope.prepareField = function() {
             $scope.getUsers_conf();
             $scope.getServices_conf();
             $scope.getLogs_conf();
-        }
+        };
 
         $scope.getUsers_conf = function() {
             $http({
@@ -893,6 +911,9 @@
                     }
                 }).success(function(data, status) {
                     $scope.logs_conf = data.results;
+
+                    $scope.pagination = Pagination.getNew($scope.numberOfPagesinLogs);
+                    $scope.pagination.numPages = Math.ceil($scope.logs_conf.length / $scope.pagination.perPage);
                 })
                 .error(function(data, status) {
                 });
