@@ -1,0 +1,635 @@
+activo,clave,createdAt,deuda,expiracion,metodo,nombre,objectId,otro,pago,pueblo,servicio,telefono,unidades,updatedAt,$$hashKey
+1,,2015-03-22T22:55:47.120Z,0,01/01/2016,Personal,"Neris / 406684",YZ53oPjtYC,,10,"Villa Rey 4ta, Caguas",Cajas,11-787-435-5184,1,2015-03-22T22:56:05.192Z,object:462
+1,,2015-03-13T07:54:54.512Z,0,01/01/2016,Otro,"Jose Miranda 371371",IS2csPyRZa,???,10,"Aibonito, Coamo",Cajas,"+1 (787) 487-7705",1,2015-03-22T22:58:49.004Z,object:463
+1,,2015-03-22T23:01:03.957Z,0,01/03/2016,Otro,"Fernando Aponte / 517751",9sYqEBarlA,???,10,Aibonito,Cajas,"+1 (787) 238-6350",1,2015-03-22T23:03:21.454Z,object:465
+1,,2015-03-22T23:21:30.538Z,0,01/03/2016,Otro,"Angelito Vega / 517824 / 517750",L41loCMwGD,"No Paga",0,"Ciudad Masso, San Lorenzo",Cajas,"+1 (939) 241-9486",1,2015-03-23T00:43:55.598Z,object:464
+1,,2015-03-22T23:02:36.497Z,0,01/12/2016,Otro,"Jose Luis Cruz / Hijo / 371408",cpiQ8L6hki,???,10,Yabucoa,Cajas,11-787-613-9622,1,2015-03-22T23:02:36.497Z,object:467
+1,,2015-03-23T01:00:56.682Z,0,01/12/2016,Otro,"Awilda Hernandez / 517772 / 517773",X2y92pTY9G,"No Paga",0,"Urb, Delgado, Caguas",Cajas,"+1 (939) 242-1118",2,2015-03-23T01:00:56.682Z,object:466
+1,,2015-03-23T01:02:44.059Z,0,01/13/2016,Otro,"Orlando Rivera / Suegro / 517777",T8rUhevdki,"No Paga",0,"Aguas Buenas",Cajas,"+1 (787) 532-1589",1,2015-03-23T01:02:44.059Z,object:468
+1,,2015-03-23T02:05:59.341Z,0,01/31/2016,Otro,"Mi Mai / Caja Cuarto / 517845",Stp77a8daY,"No Paga",0,BM,Cajas,11-787-402-2810,1,2015-03-23T02:05:59.341Z,object:469
+1,,2015-03-24T23:46:48.767Z,0,01/31/2016,Paypal,"Jose Rivera / 517848",yP8ba3OdU4,,10,Ciales,Cajas,"+1 (787) 249-8647",1,2015-03-24T23:46:48.767Z,object:470
+1,,2015-03-28T13:55:12.199Z,0,01/31/2016,Otro,"Kevin Jimenez  / 517847",X9DKjj4OX1,"Pago 1 año, aun no se como paga",80,Guaynabo,Cajas,"+1 (787) 459-8726",1,2015-03-30T14:58:49.187Z,object:471
+1,,2015-04-01T16:08:34.412Z,0,02/01/2016,Otro,"Alfredo Ramos / 371376 / 406665",2mk6sZxq27,"No Paga ",0,"Las Piedras",Cajas,"+1 (787) 475-9139",2,2015-04-01T16:10:14.359Z,object:472
+1,,2015-04-04T19:08:23.140Z,0,03/02/2015,Personal,"Carmen Reyes Carmin",ntQ4OPTkiX,,25,"Turabo Gardens, Caguas","Internet 3M","+1 (787) 595-1974",1,2015-04-04T19:08:23.140Z,object:473
+1,,2015-03-13T07:54:55.073Z,0,03/11/2016,Otro,"Jorge L Hernadez / Nuevo / Caja HIjo",jcL6SvTvMF,Cheque,10,"Bo, Mula, Aguas Buenas",Cajas,"+1 (787) 221-2137",1,2015-03-22T21:09:07.534Z,object:474
+1,,2015-03-17T23:35:44.877Z,0,03/13/2016,Personal,Leandro/Nuevo,st9HA1Q1V3,,20,Guaynabo,Cajas,"+1 (787) 245-3419",2,2015-03-18T00:23:27.385Z,object:475
+1,,2015-04-04T19:05:10.347Z,0,03/15/2015,Personal,"Joseph Lopez Piwi",fsKM8pMQHQ,,30,"Turabo Gardens, Caguas","Internet 5M","+1 (787) 321-1747",1,2015-04-04T19:05:10.347Z,object:476
+1,,2015-03-18T14:12:41.907Z,0,03/24/2015,Paypal,Richie,LUUzXsR1eW,,15,Yabucoa,Roku,"+1 (787) 340-8376",1,2015-03-18T14:12:41.907Z,object:477
+1,,2015-03-18T20:41:45.306Z,0,03/24/2015,Otro,"EdgardoTorre/ Desconectado",zHLMNASxo3,???,10,Gurabo,Cajas,"+1 (787) 613-1845",1,2015-04-02T14:19:26.125Z,object:478
+1,,2015-03-18T22:01:16.337Z,0,03/27/2016,Otro,"MIchael Borrero/ Nuevo",qQn88Rs7D1,"Paypal, Paga anual $90",90,Ponce,Cajas,"+1 (787) 432-7538",1,2015-03-29T16:26:27.320Z,object:479
+1,,2015-03-19T00:58:07.983Z,0,03/28/2015,Personal,"Edwin Ramirez/517726",6i0t4EcwsN,,10,"Oficina Caguas/ Casa-Gurabo",Cajas,"+1 (787) 585-3199",1,2015-03-19T01:03:11.774Z,object:480
+1,,2015-03-19T01:24:54.538Z,0,03/28/2015,Personal,"Pascual Padre/517735/517734/517733",tOvdrMmOtx,,30,Cidra,Cajas,"+1 (787) 316-6132",3,2015-03-19T01:24:54.538Z,object:481
+1,,2015-03-19T01:27:01.634Z,0,03/28/2015,Personal,"Ana Pascual/517732/517731",gVlUrdJzp9,,20,Cidra,Cajas,"+1 (787) 485-7801",2,2015-03-19T01:27:01.634Z,object:482
+1,,2015-03-19T01:28:48.980Z,0,03/28/2015,Personal,"Pascual Jr/517831",E55fpxXMt5,,10,Cidra,Cajas,"+1 (787) 205-9060",1,2015-03-19T01:28:48.980Z,object:483
+1,,2015-03-18T22:53:05.501Z,0,03/28/2016,Personal,"Samuel Rosa (Sammy)/517790/517736",14vMpucYly,,30,"Villas De Castro, Caguas","2Caja, Roku","+1 (787) 410-6174",1,2015-03-28T21:27:07.556Z,object:484
+1,,2015-03-13T07:54:54.351Z,0,04/01/2015,Personal,"Luis Diaz (Gure)/405019",OmwKo2xGYA,,10,BM,Cajas,"+1 (787) 361-0557",1,2015-03-19T16:59:38.548Z,object:485
+1,,2015-03-13T07:54:54.369Z,0,04/01/2015,Personal,"Wanda Colon/Jovi/404831/517843",Xqevo9l9R5,,20,BM,Cajas,"+1 (787) 486-5781",2,2015-03-19T17:29:38.554Z,object:486
+1,,2015-03-13T07:54:54.326Z,0,04/01/2015,Personal,"Terbel/404931/517718/406662 ",fBbFxXNCCY,,20,"Bunker, Caguas",Cajas,"017878008496 # fuera de servicio",2,2015-04-06T15:06:44.068Z,object:487
+1,,2015-03-13T07:54:54.404Z,0,04/01/2015,"Ath Movil","Jose Ramos (Papito)/Carmen Aponte/404978",lurn5dvy54,,10,"Caguas Norte, Caguas",Cajas,"+1 (939) 640-7330",1,2015-04-02T13:55:46.996Z,object:488
+1,,2015-03-13T07:54:54.473Z,0,04/01/2015,Personal,"Angel Garcia/Empleado/Pascual/406660",OPnovmas1G,,10,Carolina,Cajas,"+1 (787) 374-4420",1,2015-03-19T18:02:45.475Z,object:489
+1,,2015-03-23T01:35:10.055Z,0,04/01/2015,Personal,"Jessica Cruz Tum Tum / 404992",0WOK76KyCT,,30,"El Pueblo, Caguas, Bm","Caja,Internet 3M",01-939-639-6352,1,2015-03-23T01:35:10.055Z,object:490
+1,,2015-03-13T07:54:54.530Z,0,04/02/2015,Otro,"William Trinidad/517746/517747/517748",IPQzJo8T2p,???,30,"Sabanera, Gurabo",Cajas,"+1 (719) 494-3574",3,2015-03-19T18:17:01.618Z,object:491
+1,,2015-03-13T07:54:54.727Z,0,04/02/2015,Otro,"Rafael De Jesus Rivera/517832",fCXWHvHVVu,???,10,"San Lorenzo",Cajas,"+1 (787) 636-0340 # equivocado",1,2015-04-02T13:06:43.068Z,object:495
+1,,2015-03-13T07:54:54.746Z,0,04/02/2015,Otro,"Adriana Medina/406642",aYVdh6KN4b,"Cliente indica q se va E.U",10,Yabucoa,Cajas,"+1 (787) 527-5159",1,2015-04-02T13:13:09.423Z,object:492
+1,,2015-03-13T07:54:54.704Z,0,04/02/2015,Personal,"Lydia Olmedo(Bibi ) / Mama Elijah / 517841",Gj1xFawQ72,,10,BM,Cajas,"+1 (787) 469-0519",1,2015-04-02T13:40:11.799Z,object:493
+1,,2015-03-19T18:30:51.998Z,0,04/02/2015,Paypal,"Christian Gonzalez/406646",2iabuv6ONY,,10,Luquillo,Cajas,"+1 (787) 396-9187",1,2015-03-19T18:49:09.189Z,object:494
+1,,2015-03-13T07:54:54.781Z,0,04/03/2015,Personal,"Maria Dolores Ramos Roman(Lola)/Nuevo",lV5zNGIZlp,,10,"Turabo Heigh TH, Caguas",Cajas,"+1 (787) 747-5772",1,2015-04-06T22:19:43.210Z,object:496
+1,,2015-03-18T01:43:45.056Z,0,04/03/2015,Otro,"Yolanda Ramos/Nuevo",L7hFMXGW90,"Aun No se Como Paga",20,Cidra,Cajas,"+1 (787) 910-7596",2,2015-03-18T01:43:45.056Z,object:497
+1,,2015-03-13T07:54:54.847Z,0,04/03/2015,Correo,"Miguel Leon/ Mickey/371386/371387",JD6IvBtzhP,,20,"Trujillo Alto",Cajas,"+1 (787) 314-5385",2,2015-03-19T19:23:42.419Z,object:498
+1,,2015-03-13T07:54:54.914Z,0,04/03/2015,Personal,"Sonia Lopez/404996/406677",u7qTENv01w,,20,"Villa Guadalupe",Cajas,017873082781,2,2015-04-06T14:29:00.327Z,object:499
+1,,2015-03-18T02:09:33.584Z,0,04/04/2015,Paypal,"Pedro Benitez (Peter)/ Nuevo",fkWkXpVcOm,,10,"Boneville Caguas",Cajas,11-787-215-4451,1,2015-03-18T02:22:53.117Z,object:500
+1,,2015-03-13T07:54:55.524Z,0,04/04/2015,Correo,"Armando Quinones (Papa Kervin)/ 407170",oGdZcL6Kl3,,10,"Bo, Santa Clara Cidra",Cajas,"+1 (787) 678-1172",1,2015-03-23T01:24:41.051Z,object:501
+1,,2015-03-13T07:54:55.045Z,0,04/04/2015,Otro,Santos/517749,ZEAeQ6HkHt,???,10,Gurabo,Cajas,"+1 (787) 398-4385",1,2015-03-19T20:02:33.557Z,object:502
+1,,2015-03-13T07:54:54.992Z,0,04/04/2015,Paypal,"Joel Cancel/407235",qLOAUL255K,,10,"Trujillo Alto",Cajas,"+1 (787) 908-7562",1,2015-03-19T20:04:41.349Z,object:503
+1,,2015-03-13T07:54:55.001Z,0,04/04/2015,Correo,"Kelvin Qunones/371379",9K8UwiuleB,,10,Cidra,Cajas,"+1 (939) 339-0220",1,2015-03-19T19:55:03.470Z,object:504
+1,,2015-03-13T07:54:55.065Z,0,04/04/2015,Personal,Polo/404995,fHsf9YlQja,,10,"Bunker, Caguas",Cajas,"+1 (787) 922-9718",1,2015-03-19T20:07:14.884Z,object:505
+1,,2015-03-13T07:54:54.975Z,0,04/04/2015,"Ath Movil","Mayra Colon/Estancia del Lago/407195/407197",dBg0B10X44,,20,Caguas,Cajas,"+1 (787) 222-4985",2,2015-03-19T20:10:53.307Z,object:506
+1,,2015-03-13T07:54:55.019Z,0,04/04/2015,Paypal,"Maricarmen Gonzalez/Mari/517728",bb7l7jp6n6,,10,Guaynabo,Cajas,"+1 (787) 364-4833",1,2015-03-19T20:01:00.269Z,object:507
+1,,2015-03-23T01:26:43.364Z,0,04/04/2015,Correo,"Armando Quinones / Hijo / 371383",OpPwQgoZjB,,10,"Bo, Sta Clara, Cidra",Cajas,"+1 (939) 579-7037",1,2015-03-23T01:26:43.364Z,object:508
+1,,2015-04-04T21:12:36.684Z,0,04/04/2015,Otro,"Jose Omar Pedroza",cuSYjztuLI,???,15,"San Lorenzo","Mach Tv","+1 (787) 934-9040",1,2015-04-04T21:12:36.684Z,object:509
+1,,2015-03-17T15:28:10.729Z,0,04/05/2015,Personal,"Angie Munoz / Nuevo / Debe / $120",MLHCmlDRCz,,20,BM,"Caja,Internet 1M",017872029454,1,2015-04-04T20:07:35.901Z,object:510
+1,,2015-03-17T23:41:23.136Z,0,04/05/2015,Otro,"Eliezer Rolon/Nuevo",0TdvXT8CCL,"aun no se como el paga",10,Cayey,Cajas,"+1 (787) 263-1035",1,2015-03-17T23:41:23.136Z,object:511
+1,,2015-03-13T07:54:55.240Z,0,04/05/2015,Otro,"Jose Colon/406647",qerbF0BspN,???,10,Naguabo,Cajas,"+1 (787) 718-2820",1,2015-03-19T20:22:29.932Z,15
+1,,2015-03-13T07:54:55.125Z,0,04/05/2015,Paypal,"Carlos G Rosado/407140/407138",XUdLb7To23,,20,"San Lorenzo",Cajas,"+1 (787) 602-9964",2,2015-03-19T20:25:10.690Z,15
+1,,2015-03-13T07:54:55.214Z,0,04/05/2015,Otro,"Isaac Medina/371375",ErjaCqlJJx,???,10,Maunabo,Cajas,"+1 (787) 861-0923",1,2015-03-19T20:27:50.828Z,15
+1,,2015-03-13T07:54:55.249Z,0,04/05/2015,Personal,"Carlos Aponte/406671",ujpdCr7Tv0,,10,"Aguas Buenas",Cajas,"+1 (787) 484-7294",1,2015-03-19T20:32:57.561Z,15
+1,,2015-03-19T20:32:43.312Z,0,04/05/2015,Otro,"Angel / 371407",1Mbc2frcpk,"deposita en la cuenta",10,Yabucoa,Cajas,"+1 (939) 247-7904",1,2015-03-19T20:37:47.146Z,15
+1,,2015-03-13T07:54:55.205Z,0,04/05/2015,Personal,"Chambi / 517836",bJzFWk1MB8,,10,BM,Cajas,"+1 (787) 744-9413",1,2015-03-19T20:45:10.168Z,15
+1,,2015-03-13T07:54:55.232Z,0,04/05/2015,Paypal,"Bryan Aponte / Obryan / 404982 / 404983 / 404984 / 404985 / 404986",1xEobEgbGA,,50,Luquillo,Cajas,"+1 (787) 409-8569",5,2015-03-19T20:44:33.839Z,15
+1,,2015-03-13T07:54:55.117Z,0,04/05/2015,Personal,"Thomas / Pee Wee / 407122",vISMvMEhKt,,10,Gurabo,Cajas,01-787-400-3594,1,2015-04-04T14:52:18.149Z,15
+1,,2015-03-24T23:14:36.748Z,0,04/05/2015,Otro,"Nelson Ramos / 407248",zRkK1uqvMN,"PayPal, Tiene 2 equipos rokus por separado",30,Cidra,"Caja,Nano,Mach Tv","+1 (787) 314-1082",1,2015-03-24T23:26:28.586Z,15
+1,,2015-04-04T17:43:55.232Z,0,04/05/2015,Otro,"Jose Oquendo",kkm78cry2V,???,15,Juncos,"Mach Tv","+1 (787) 559-5292",1,2015-04-06T12:07:21.723Z,15
+1,,2015-04-04T17:57:05.257Z,0,04/05/2015,Otro,"Jose Luis Fuerte",XZmiHUsvO9,???,15,"San Lorenzo",Nano,"+1 (787) 736-4082",1,2015-04-04T17:57:05.257Z,15
+1,,2015-03-18T01:35:14.564Z,0,04/06/2015,Otro,"Ivan Rodriguez / Nuevo",PktrxkdygO,"aun no se como paga",10,Juncos,Cajas,017876856812,1,2015-04-04T21:01:02.292Z,15
+1,,2015-03-13T07:54:55.284Z,0,04/06/2015,Paypal,"Luis Berrios / 407156",eQeHqkHAwl,,10,Bayamon,Cajas,"+1 (787) 922-7682",1,2015-03-19T20:49:19.471Z,15
+1,,2015-03-13T07:54:55.091Z,0,04/06/2015,Personal,"Carlos Serrano / EL Negro / 371412",pe8GlYXTLA,,10,"Buena Vista, Bayamon",Cajas,"+1 (787) 967-8982",1,2015-03-19T20:55:51.776Z,15
+1,,2015-04-04T19:10:13.377Z,0,04/06/2015,Personal,"Angel Lopez",gGuBBVZ3Kt,,20,BM,"Internet 3M","+1 (787) 377-0661",1,2015-04-04T19:10:13.377Z,15
+1,,2015-04-04T21:07:07.092Z,0,04/06/2015,Otro,"Joey Rodriguez Barreto",9nWLKwU9WV,???,15,???,"Mach Tv",787-???,1,2015-04-04T21:07:07.092Z,15
+1,,2015-04-04T21:14:12.988Z,0,04/06/2015,Otro,"Jowi Rodriguez",H2mzeILzB0,???,15,Carolina,"Mach Tv","+1 (787) 501-1740",1,2015-04-04T21:14:12.988Z,15
+1,,2015-03-18T02:02:37.681Z,0,04/07/2015,"Ath Movil","Jose de Jesus (Mateo)/Nuevo/ Debe$75",c29cCPbEoK,,10,Fajardo,Cajas,"+1 (939) 400-0623",1,2015-03-18T02:02:37.681Z,15
+1,,2015-03-19T22:29:49.363Z,0,04/07/2015,Personal,"Georgie Arieta / 517681",NzjsBkKE3k,,10,"Bairoa La 25, Caguas",Cajas,"+1 (787) 631-9990",1,2015-03-19T22:48:10.539Z,15
+1,,2015-03-13T07:54:54.343Z,0,04/07/2015,"Ath Movil","Miguel De Jesus Mateo / Debe $75 / Nuevo",hhahkiTuBe,,10,Fajardo,Cajas,"+1 (787) 470-2434",1,2015-03-19T23:04:41.903Z,15
+1,,2015-03-13T07:54:55.433Z,0,04/07/2015,Personal,"Xavier / Cookie / 407201 / 407120",EWPOWLDsej,,20,"Villa del Rey 4secc",Cajas,"+1 (787) 299-8404",2,2015-03-19T23:10:11.874Z,15
+1,,2015-03-13T07:54:55.352Z,0,04/07/2015,Personal,"Manuel Veterinario / 371422 / 371423 / 371424",Bl9RfQfwH4,,30,"Aguas Buenas",Cajas,"+1 (787) 307-4632",3,2015-03-19T22:47:41.499Z,15
+1,,2015-03-13T07:54:55.369Z,0,04/07/2015,Paypal,"Luis Aponte (Kike) / 371427",6zqI2HaEv8,,10,"Vega Alta",Cajas,"+1 (787) 547-2764",1,2015-03-19T23:20:24.604Z,15
+1,,2015-03-13T07:54:55.334Z,0,04/07/2015,Paypal,"Jose M. Burgos / 407252 / 517648 ",qu5lhq6aFd,,20,Bayamon,Cajas,"+1 (787) 376-5508",2,2015-03-26T15:34:17.106Z,15
+1,,2015-03-13T07:54:55.441Z,0,04/07/2015,Correo,"Serrano / 404951",B16GfqIoak,,10,"Bayamon Rexvillle",Cajas,"+1 (787) 996-1723",1,2015-03-19T23:25:27.043Z,15
+1,,2015-04-04T17:30:46.177Z,0,04/07/2015,Otro,"Jensen Medina",CTL9csXXUp,"No Paga, Intercambio por ventas de rokus en su local",0,Caguas,Nano,01-787-996-4655,1,2015-04-04T17:31:16.735Z,15
+1,,2015-04-04T17:55:33.192Z,0,04/07/2015,Otro,"Jose Flores Joseito",k0ZfBu8d62,???,25,"San Lorenzo","Nano,Mach Tv","+1 (787) 235-8574",1,2015-04-04T21:10:56.493Z,15
+1,,2015-04-04T18:19:19.848Z,0,04/07/2015,Otro,"Moises Roman",qSvcg0YBfd,???,35,"Urb,Jardines, Caguas","Internet 3M, Nano","+1 (787) 944-0322",1,2015-04-04T18:19:19.848Z,15
+1,,2015-03-13T07:54:55.318Z,0,04/08/2015,Paypal,"Rey Torres / Luis Torres/Nuevo",3yqqK7bG4u,,30,Cidra,Cajas,"+1 (787) 612-4981",3,2015-03-18T01:16:34.125Z,15
+1,,2015-03-19T23:27:24.993Z,0,04/08/2015,Otro,"Rafel Mejias / ",C0YgjuQ7Fh,???,10,"San Lorenzo",Cajas,"+1 (939) 579-6371",1,2015-03-19T23:27:24.993Z,15
+1,,2015-03-19T23:33:44.567Z,0,04/08/2015,Otro,"Rafael Mejias / 371421",J0M9GhXBOs,???,10,"San Lorenzo",Cajas,"+1 (939) 579-6371",1,2015-03-20T01:45:54.334Z,15
+1,,2015-03-13T07:54:55.669Z,0,04/08/2015,Personal,"Miguel Santana / 406666",ApHf760Mly,,10,"Villa Borinquen",Cajas,"+1 (787) 633-8445",1,2015-03-19T23:48:10.418Z,15
+1,,2015-03-13T07:54:55.515Z,0,04/08/2015,Personal,"Joel (Tio Melanie) / 517761 / 371402",awNKjkkPXl,,20,"Aguas Buenas",Cajas,"+1 (787) 447-1067",2,2015-03-19T23:52:57.756Z,15
+1,,2015-03-13T07:54:55.550Z,0,04/08/2015,"Ath Movil","Edsel Astacio / Mayra Colon /407249 / 407250",VJr2E6ChsW,,20,"Veredas Gurabo",Cajas,"+1 (787) 645-9139",2,2015-03-19T23:58:14.212Z,15
+1,,2015-03-13T07:54:55.585Z,0,04/08/2015,Correo,"Carlos W Cruz Alicea / Freddy / 517753",xY8ObLpJ98,,10,"Las Piedras",Cajas,"+1 (787) 374-3280",1,2015-03-20T00:12:32.044Z,15
+1,,2015-03-13T07:54:55.678Z,0,04/08/2015,Otro,"Leonor Alicea / 406670 / 406669",5ZQ0HUXVjT,???,20,Juncos,Cajas,"+1 (787) 768-2592",2,2015-03-20T00:13:45.220Z,15
+1,,2015-03-13T07:54:55.643Z,0,04/08/2015,Otro,"Gerardo Flores / 517666",ItVUz159Zj,???,10,Cayey,Cajas,"+1 (787) 420-2466",1,2015-03-20T00:51:14.628Z,15
+1,,2015-03-19T23:56:36.513Z,0,04/08/2015,"Ath Movil","Maribel Rosario / 406634 / 406633",bbBuSOBpUX,,40,"Villa Esperanza, Caguas","2 Cajas,Internet 3M",017872205565,1,2015-04-04T19:11:46.729Z,15
+1,,2015-03-13T07:54:55.619Z,0,04/08/2015,"Ath Movil","Myrna Ribot / 404997",yn0bgPQhc8,,10,Caguas,Cajas,"+1 (787) 485-7608",1,2015-03-20T00:15:32.668Z,15
+1,,2015-03-18T02:00:07.785Z,0,04/09/2015,Otro,"Roberto Navarro / Nuevo",74d7w5q1BP,"Aun No se como paga",20,Gurabo,"Caja, Nano",019392925700,1,2015-04-04T18:34:05.008Z,15
+1,,2015-03-13T07:54:55.800Z,0,04/09/2015,Otro,"David Santiago / 404976",5yA9Ucfut4,???,10,Caguas,Cajas,"+1 (787) 238-7729",1,2015-03-20T00:47:21.654Z,15
+1,,2015-03-13T07:54:55.713Z,0,04/09/2015,Personal,"Joel Colon / 371435",AQoeXDkZVU,,10,BM,Cajas,"+1 (787) 556-2994",1,2015-03-20T01:01:10.349Z,15
+1,,2015-03-13T07:54:55.774Z,0,04/09/2015,Otro,"Ariel Agosto / Ari / 407171",d6duhzYaGg,???,10,"Canta Gallo, Juncos",Cajas,"+1 (787) 734-2412",1,2015-03-20T02:05:21.797Z,15
+1,,2015-03-13T07:54:55.809Z,0,04/09/2015,"Ath Movil","Josefina Morales / Josy /405008 / 405009",urrhJVihSg,,20,Juncos,Cajas,"+1 (787) 423-3972",2,2015-03-20T00:59:52.739Z,15
+1,,2015-04-04T19:13:45.330Z,0,04/09/2015,Paypal,"Jose Marcano All Motion",zu0tOUmH2H,,25,"Ave Degetau, Caguas","Internet 3M","+1 (787) 222-6738",1,2015-04-04T19:13:45.330Z,15
+1,,2015-04-04T19:15:40.981Z,0,04/09/2015,Personal,"Juan Antonio Colon Toño",Im6YVRuey1,,20,Bm,"Internet 3M",787-,1,2015-04-04T19:15:40.981Z,15
+1,,2015-03-13T07:54:54.984Z,0,04/10/2015,"Ath Movil","Angel Echevaria/Nuevo/ Debe $245",1jqMmeZos7,,30,"Mansiones De Bairoa B1, Caguas",Cajas,"+1 (787) 212-5512",3,2015-03-17T23:17:21.509Z,15
+1,,2015-03-13T07:54:55.739Z,0,04/10/2015,"Ath Movil","Miguel Rivera / Juanita Ramos / Ana H Elizalde / Nuevo",VGEXjPn2Cy,,20,"Rio Grande",Cajas,"+1 (787) 313-5245",2,2015-03-23T02:48:27.714Z,15
+1,,2015-03-13T07:54:55.611Z,0,04/10/2015,Personal,"Macho (Cafeteria Limar)/Nuevo",ND7OLLg4jE,,10,"Pueblo, Caguas",Cajas,"+1 (787) 469-6731",1,2015-03-18T00:35:00.160Z,15
+1,,2015-03-13T07:54:55.686Z,0,04/10/2015,Paypal,"Enrique Montijo/Nuevo",8wGZaRx9Qo,,10,Canovanas,Cajas,"+1 (787) 668-8321",1,2015-03-18T01:31:35.150Z,15
+1,,2015-03-18T01:41:46.559Z,0,04/10/2015,"Ath Movil","Enid Velazquez / Nuevo",R6NgVj0Qmy,,20,"Montones, Las Piedras","Caja, Mach Tv",017879009657,1,2015-04-04T20:53:46.338Z,15
+1,,2015-03-13T07:54:55.602Z,0,04/10/2015,Paypal,"Jose Vallejo/Nuevo",4wV143E3Oj,,20,"San Lorenzo",Cajas,"+1 (787) 923-1006",2,2015-03-18T01:46:54.761Z,15
+1,,2015-03-13T07:54:55.846Z,0,04/10/2015,Otro,"Lourdes / Red Medica / 371446",4O1TlsNkTZ,"Paga en Hima",10,Yabucoa,Cajas,"+1 (787) 469-5567",1,2015-03-20T01:14:10.902Z,15
+1,,2015-03-13T07:54:55.828Z,0,04/10/2015,Paypal,"Benny Otero / Jose Laracuente / Jennifer Otero /371448 / 371449 / 406679 / 517657",9D2BUlWRZl,,0,"Dorado, 3  Monjita",Cajas,"+1 (939) 630-4005",4,2015-03-20T01:25:07.560Z,15
+1,,2015-03-13T07:54:55.882Z,0,04/10/2015,Personal,"Zory / 517764",UaCOjNPKsD,,10,"Idamaris, Caguas",Cajas,"+1 (787) 475-2104",1,2015-03-20T01:18:00.601Z,15
+1,,2015-03-13T07:54:55.918Z,0,04/10/2015,Personal,"Jose D Ramirez / 371453",lskiNcdwhX,,10,"Idamaris, Caguas",Cajas,"+1 (787) 402-4812",1,2015-03-20T01:29:36.695Z,15
+1,,2015-03-13T07:54:55.863Z,0,04/10/2015,Personal,"Carlos De Leon / 517690",B4sl2uXGqD,,10,"Hacienda Borinquen",Cajas,017873834232,1,2015-04-04T16:32:22.617Z,15
+1,,2015-04-04T18:38:34.504Z,0,04/10/2015,Otro,"Thomas Maisonet",ejKExJyRAR,???,15,Caguas,Nano,"+1 (787) 378-8893",1,2015-04-04T18:38:34.504Z,15
+1,,2015-03-20T01:21:45.861Z,0,04/11/2015,Correo,"Manuel / 371455",CDGVyFTlOH,,10,"Villas De Gurabo, Juncos",Cajas,"+1 (787) 340-8081",1,2015-03-20T01:32:24.929Z,15
+1,,2015-03-20T01:23:22.825Z,0,04/11/2015,Paypal,"Hector Rodriguez / 371458",KY4LdOX3BO,,10,Pensylvania,Cajas,1-267-625-715,1,2015-03-20T01:34:00.208Z,15
+1,,2015-03-20T01:36:09.790Z,0,04/11/2015,Paypal,"Rey / San Lorenzo Copy& Computer / 371388 / 371389",pyQztaSjiq,,20,"San Lorenzo",Cajas,"+1 (787) 466-8500",2,2015-03-23T02:30:32.600Z,15
+1,,2015-03-20T01:37:54.719Z,0,04/11/2015,Personal,"Omayra / 371456 / 371457",UZTcEjrAxy,,20,"Aguas Buenas",Cajas,"+1 (787) 638-5592",2,2015-03-20T01:37:54.719Z,15
+1,,2015-03-20T01:39:37.903Z,0,04/11/2015,Paypal,"Jose Torres / 371440",DrdpBkGcP7,,10,Carolina,Cajas,"+1 (787) 810-6303",1,2015-03-20T01:39:37.903Z,15
+1,,2015-03-20T01:42:28.282Z,0,04/11/2015,Paypal,"Juan Gonzalez / Matruco / Orlando Borges / 406659 / 406658 / 406657 / 406655",HTl6E8MMp9,,40,"San Lorenzo",Cajas,01-787-376-4166,4,2015-04-04T14:53:30.728Z,15
+1,,2015-03-20T01:44:03.222Z,0,04/11/2015,Paypal,"Morayma Pena / 404956 / 404957",VMLpro2SQX,,20,Humacao,Cajas,"+1 (787) 210-1721",2,2015-03-23T02:32:34.557Z,15
+1,,2015-03-23T00:19:43.090Z,0,04/11/2015,Personal,"Keila Ramos / 371450",kGK89Iplhx,,10,"Villa de Rey, Caguas",Cajas,"787-378-9925 / 787-918-0091",1,2015-03-23T00:20:08.441Z,15
+1,,2015-04-04T19:17:52.680Z,0,04/11/2015,Personal,"Glenda Liz Rojas",EEFuXCnysJ,,20,"Idamaris, Caguas","Internet 3M","+1 (939) 644-1065",1,2015-04-04T19:17:52.680Z,15
+1,,2015-04-04T21:19:31.074Z,0,04/11/2015,Otro,"Lorrain Tanet",KZvpfVtSb6,???,15,???,"Mach Tv","+1 (787) 396-8371",1,2015-04-04T21:19:31.074Z,15
+1,,2015-03-13T07:54:55.696Z,0,04/12/2015,Paypal,"Edwin Ramos (Tato)/Nuevo",TW971n7KuF,,10,Caguas,Cajas,"+1 (939) 208-4012",1,2015-03-18T01:55:25.451Z,15
+1,,2015-03-13T07:54:55.790Z,0,04/12/2015,"Ath Movil","Daniel Hernandez/Nuevo",IomrFGj4UX,,30,Cataño,Cajas,"+1 (787) 426-6467",3,2015-03-23T17:04:25.540Z,15
+1,,2015-03-18T01:36:30.609Z,0,04/12/2015,Personal,"Erick Quintanal / Nuevo / Debe $95",TqQwQ7hvju,,20,BM,"Caja,Internet 1M",017877186357,1,2015-04-04T19:25:12.693Z,15
+1,,2015-03-18T02:05:40.478Z,0,04/12/2015,Otro,"Glenda Merced/Nuevo",rfC4lmmSgT,"Aun No se como paga",10,"Hacienda San Jose, Caguas",Cajas,"+1 (939) 640-9599",1,2015-03-18T02:05:40.478Z,15
+1,,2015-03-19T21:58:51.155Z,0,04/12/2015,Personal,"Lilliam Torres Bonilla",4NbJI29IUd,,15,"Urb. Delgado Caguas",Nano,"+1 (787) 372-1474",1,2015-04-04T18:06:34.988Z,15
+1,,2015-03-20T18:05:21.509Z,0,04/12/2015,Paypal,"Tito / Chango / 517632 / 407245 / 517687",QPD8CwDD5x,,10,Caguas,Cajas,"787-205-6487 / 787-238-7303",1,2015-03-20T18:11:50.490Z,15
+1,,2015-03-20T18:07:49.177Z,0,04/12/2015,Personal,"Elsie / 517645",2xlqbrbfZU,,10,"Urb, El Mirador, Caguas",Cajas,"+1 (787) 312-6693",1,2015-03-20T18:21:13.120Z,15
+1,,2015-03-20T18:09:04.084Z,0,04/12/2015,Otro,"Betsy Gonzalez / 406654",8BHEab6RHL,???,10,Cayey,Cajas,"+1 (787) 718-2491",1,2015-03-20T18:36:29.568Z,15
+1,,2015-03-20T18:11:11.376Z,0,04/12/2015,Otro,"Javier Roperia / 371425",u3iLLOriZ2,"Paga en Hima",10,Cidra,Cajas,"+1 (787) 598-2125",1,2015-03-20T18:38:04.378Z,15
+1,,2015-03-20T18:14:05.050Z,0,04/12/2015,Personal,"David / ",hBB6RrxW0V,,10,"La Capilla, Sumidero, Aguas Buenas",Cajas,"+1 (787) 243-8048",1,2015-03-20T18:44:05.035Z,15
+1,,2015-03-20T18:17:09.447Z,0,04/12/2015,Paypal,"Antonio J Arce / 407161",dD28cygXM6,,10,"Tomas de Castro, Caguas",Cajas,"+1 (787) 472-5894",1,2015-03-23T02:33:54.312Z,15
+1,,2015-03-20T18:25:14.314Z,0,04/12/2015,Paypal,"Jesus / 517849 / 405002 /371432",edIlas3ybn,,30,"Bo, Obrero, Santurce, 3 Monjitas",Cajas,"+1 (787) 639-5632",3,2015-03-20T18:48:20.423Z,15
+1,,2015-03-25T14:29:30.983Z,0,04/12/2015,Otro,"Luis Martinez / Leysha Vega / Nuevo",do9hXfKkJl,,20,"Bairoa Caguas","Caja, Nano","787-409-2339 / 787529-3196",1,2015-04-01T16:34:56.036Z,15
+1,,2015-04-04T15:54:16.829Z,0,04/12/2015,Otro,Yamil,iLrZvuolrW,???,30,"Aguas Buenas",Roku,"+1 (787) 370-9556",2,2015-04-04T15:54:39.120Z,15
+1,,2015-04-04T18:08:56.756Z,0,04/12/2015,Otro,"Luis Acevedo",uqdg4Tgk6q,???,15,Caguas,Nano,"+1 (787) 410-3367",1,2015-04-04T18:08:56.756Z,15
+1,,2015-04-04T18:29:02.737Z,0,04/12/2015,Otro,"Pedro Nieves",DSQ9jZR4sR,???,15,Caguas,Nano,"+1 (787) 469-8473",1,2015-04-04T18:29:02.737Z,15
+1,,2015-03-13T07:54:55.576Z,0,04/13/2015,Personal,Teresita/Nuevo,FdZ6PvnilM,,10,"Bunker, Caguas",Cajas,"+1 (787) 548-4337",1,2015-03-18T00:56:09.993Z,15
+1,,2015-03-20T18:27:10.167Z,0,04/13/2015,Personal,"Joel Marcano / Jonty / 517778",w2soCLKayw,,28,Caguas,"Caja,Internet 2M",019393324757,1,2015-04-04T19:26:42.545Z,15
+1,,2015-03-20T18:28:39.375Z,0,04/13/2015,Correo,"Wiso / 517647",ebzTdGeecp,,10,"San Lorenzo",Cajas,"+1 (787) 736-1029",1,2015-03-20T18:43:05.127Z,15
+1,,2015-03-20T18:29:43.834Z,0,04/13/2015,Personal,"Steve Perez / 405005",fxGlsN0QiF,,10,"Sabanera, Gurabo",Cajas,"+1 (787) 235-0335",1,2015-03-20T18:42:17.035Z,15
+1,,2015-03-20T18:55:07.632Z,0,04/13/2015,Personal,"Jorge Luna / 406653",utZGEitIGP,,10,"Las Orquideas, Aguas Buenas",Cajas,"+1 (787) 439-3624",1,2015-03-20T18:55:29.692Z,15
+1,,2015-03-20T19:00:56.865Z,0,04/13/2015,Personal,"Alberto Baez / 407253 tiene un credito de $5",NONRxg8k96,,10,"Veredas, Gurabo",Cajas,01-787-547-1514,1,2015-04-04T16:24:44.916Z,15
+1,,2015-03-20T19:01:51.790Z,0,04/13/2015,Personal,"Ariel / 371377 /517775",QGNv2IrzSG,,20,"Sumidero, Aguas Buenas",Cajas,"+1 (787) 515-0211",2,2015-03-20T19:31:20.271Z,15
+1,,2015-03-20T19:05:10.371Z,0,04/13/2015,Paypal,"Rafael Gimenez / Heriberto Medina / 517720 / 517781",1t7AZGlaxt,,20,,Cajas,"787-586-9692 / 787-565-6338",2,2015-03-29T16:15:21.665Z,15
+1,,2015-03-20T19:10:32.195Z,0,04/13/2015,Personal,"Andres Cruz / 407129",kVmEx59BMH,,10,"El 6, San Lorenzo",Cajas,"+1 (787) 376-4705",1,2015-03-20T19:39:23.630Z,15
+1,,2015-03-23T02:02:08.916Z,0,04/13/2015,Personal,"Eldrid Calderon / 371399",FcKFsjpOcr,,10,"Aguas BUenas",Cajas,"+1 (787) 209-6893",1,2015-03-23T02:02:08.916Z,15
+1,,2015-03-23T03:46:22.789Z,0,04/13/2015,Personal,"Panchi / 405001",Ka9U39exkS,,10,"Villa Guadalupe, Caguas",Cajas,"+1 (787) 938-3095",1,2015-03-23T03:57:07.145Z,15
+1,,2015-04-04T15:41:43.613Z,0,04/13/2015,Personal,"Lidya Vazquez/ Carlos Rosa Padre/Nuevo",nQI1R8m2Ti,,20,???,"Mach Tv,Roku","+1 (787) 469-9721",1,2015-04-04T15:41:43.613Z,15
+1,,2015-04-04T18:44:31.789Z,0,04/13/2015,Otro,"Xaymary Santos",p6l80fOalb,???,15,Caguas,Nano,"+1 (787) 941-0796",1,2015-04-04T18:44:31.789Z,15
+1,,2015-04-04T21:08:50.603Z,0,04/13/2015,Otro,"Jorge Maisonet",NO2JK6wjZb,???,10,Santurce,"Mach Tv","+1 (787) 649-4801",1,2015-04-04T21:08:50.603Z,15
+1,,2015-03-23T03:43:23.297Z,0,04/14/2015,Correo,"Edwin Ramirez / 371396",iTD2WSZ2Fa,,10,Cayey,Cajas,"+1 (787) 557-4411",1,2015-03-23T03:54:13.369Z,15
+1,,2015-03-20T19:12:28.661Z,0,04/14/2015,Correo,"Luisa Torres / 407186",ivHQazlLAz,,10,Salinas,Cajas,"+1 (787) 447-5519",1,2015-03-20T19:42:41.767Z,15
+1,,2015-03-20T19:14:01.067Z,0,04/14/2015,Personal,"Pedro / 407184 / 407222",rs1p6LYb4y,,20,"Aguas Buenas, Galletas Poly",Cajas,"+1 (787) 510-7429",2,2015-03-20T19:48:14.096Z,15
+1,,2015-03-20T19:15:32.116Z,0,04/14/2015,"Ath Movil","Luis Maisonet / 517689",yWNSech5b3,,10,Carolina,Cajas,"+1 (787) 922-5026",1,2015-03-20T19:48:58.663Z,15
+1,,2015-03-20T19:30:50.326Z,0,04/14/2015,Personal,"Melissa Mojica Nuevo / 517701",a2Sfuxi8LJ,,20,"Villa Rey , Caguas",Cajas,"+1 (787) 344-6811",2,2015-03-28T18:24:39.345Z,15
+1,,2015-03-20T19:41:40.036Z,0,04/14/2015,Personal,"Rafael / Gas / 404964",2JYUO2hDDu,,10,Caguas,Cajas,"+1 (787) 470-7006",1,2015-03-20T19:50:19.637Z,15
+1,,2015-03-23T02:03:50.779Z,0,04/14/2015,Otro,"Luis Perez / 406663 / otra en el nuevo",hn9XnOr2ga,???,10,Juncos,Cajas,"+1 (787) 907-5317",1,2015-04-02T13:52:58.189Z,15
+1,,2015-04-04T17:50:37.752Z,0,04/14/2015,Paypal,"Jose Davila / Milena Davila",l2r4NY57Q6,,10,"La Mesa, Caguas",Nano,"+1 (787) 531-4834",1,2015-04-04T17:50:37.752Z,15
+1,,2015-04-04T19:41:18.778Z,0,04/14/2015,Personal,"Jensen Medina",Ny6RnA0boj,,15,Caguas,"Internet 2M",11-787-996-4655,1,2015-04-04T19:41:18.778Z,15
+1,,2015-03-13T07:54:54.412Z,0,04/15/2015,Personal,"Yessenia Cruz",GwrF4EW9fe,,30,BM,"Caja,Internet 3M","+1 (939) 639-6352",1,2015-03-17T15:49:05.525Z,15
+1,,2015-03-18T00:50:34.677Z,0,04/15/2015,Paypal,"Reynaldo Gonzalez (Rey)/Nuevo",DXmh6Dg8Ko,,10,Ponce,Cajas,"+1 (787) 484-6602",1,2015-03-18T00:50:34.677Z,15
+1,,2015-03-18T14:19:11.881Z,0,04/15/2015,Paypal,"Gaby Medina / Gabyno",zJJg4y7MGM,,25,???,"Nano,Roku","+1 (787) 368-7999",1,2015-04-04T17:11:10.712Z,15
+1,,2015-03-20T19:43:44.935Z,0,04/15/2015,Personal,"Laureano / 517696",O0bQJptOAR,,10,Caguas,Cajas,"+1 (787) 392-7211",1,2015-03-20T19:56:29.073Z,15
+1,,2015-03-20T19:45:00.970Z,0,04/15/2015,Personal,"Tati / 371431",yLwtKy8NQZ,,10,"Villa Esperanza, Caguas",Cajas,"+1 (787) 605-6174",1,2015-03-20T19:57:24.197Z,15
+1,,2015-03-20T19:46:42.225Z,0,04/15/2015,Otro,"Enrique Ortiz / 406651",a8t6fIGqu4,"Paga en Hima",10,Cayey,Cajas,"+1 (787) 516-3280",1,2015-03-20T19:59:19.097Z,15
+1,,2015-03-20T19:51:38.517Z,0,04/15/2015,"Ath Movil","Hernan Sanchez / Jenny Vega /407223 / 407167",0VY1NwI6ov,,20,,Cajas,"787-955-9258 / 787-423-7510",2,2015-03-20T20:00:54.046Z,15
+1,,2015-03-20T19:52:37.497Z,0,04/15/2015,Otro,"Jose Domena / 405011",ZJkvn0x3rh,???,10,Carolina,Cajas,"+1 (787) 398-3363",1,2015-03-20T20:02:31.903Z,15
+1,,2015-03-20T19:54:55.417Z,0,04/15/2015,Personal,"Norma Tirado / Hector Velazquez / Yun /Nuevo",85gdoS6EnM,,45,"Villa Rey, Caguas","2 Cajas,Internet 3M","+1 (787) 633-1248",1,2015-03-20T19:54:55.417Z,15
+1,,2015-04-04T20:59:11.334Z,0,04/15/2015,Otro,"Hector Perdomo",qjFBYbrzTa,???,15,???,"Mach Tv","+1 (787) 403-5384",1,2015-04-04T20:59:11.334Z,15
+1,,2015-04-04T21:28:27.697Z,0,04/15/2015,Otro,"Ramon Santiago",Xb5ms7IoSz,???,15,???,"Mach Tv","+1 (787) 435-3609",1,2015-04-04T21:28:27.697Z,15
+1,,2015-03-13T07:54:54.421Z,0,04/16/2015,Paypal,"Jose Rodriguez/ Nicole Laracuente /404993 /404994",qKyfy7k1es,,40,"Villa Carolina","2 Cajas, Nano, Mach Tv",017879228731,1,2015-04-04T21:25:15.657Z,15
+1,,2015-03-13T07:54:55.593Z,0,04/16/2015,Personal,"Hector Velazquez (Yun)/Norma Tirado/Nuevo",S0CEpgh4m6,,45,"Villa Rey 4ta, Caguas","2 Cajas,Internet 3M","+1 (787) 633-0776",1,2015-03-18T01:27:21.015Z,15
+1,,2015-03-13T07:54:54.317Z,0,04/16/2015,Paypal,"Jose Rodriguez/Caja Hijo/Nicole Laracuente / 517698",N4z2D6TWuo,,10,"Rio Piedras",Cajas,"+1 (787) 922-8731",1,2015-03-20T20:20:36.266Z,15
+1,,2015-03-20T20:08:14.779Z,0,04/16/2015,Otro,"Amarilys Baez / 517782 / 5177783",p166gx4qE1,???,20,"Toa Alta",Cajas,"+1 (787) 245-5137",2,2015-03-20T20:08:14.779Z,15
+1,,2015-03-20T20:09:23.972Z,0,04/16/2015,Personal,"Dennise / Oscar / 407165",t0xNnDDfSl,,10,Cayey,Cajas,"+1 (787) 314-2771",1,2015-03-20T20:13:55.342Z,15
+1,,2015-03-20T20:10:49.229Z,0,04/16/2015,Personal,"Oscar / 407166",lFiwg6PwN6,,10,"Bayamoncito, Aguas Buenas",Cajas,"+1 (787) 501-7503",1,2015-03-20T20:13:30.515Z,15
+1,,2015-03-20T20:17:50.913Z,0,04/16/2015,Personal,"Maria Soqui Rivera / 371438",N76m8HY7Mv,,28,"Las Orquideas, Aguas Buenas","Caja,Internet 2M",017873673636,1,2015-04-04T19:42:28.133Z,15
+1,,2015-03-23T00:14:05.121Z,0,04/16/2015,Paypal,"Ramon Adorno / 406649",6TI6s0MSNU,,10,"Aguas Buenas",Cajas,"+1 (787) 347-9687",1,2015-03-23T00:14:05.121Z,15
+1,,2015-04-04T17:19:34.496Z,0,04/16/2015,Personal,"Hector Del Valle Ribot",d6q8nR97Gu,,10,"Urb Delgado, Caguas",Nano,"+1 (787) 579-1776",1,2015-04-04T17:19:34.496Z,15
+1,,2015-04-04T18:23:25.348Z,0,04/16/2015,Personal,"Orlando Cintron",gkzjptp6Zo,,28,"Carr, 172, Atras De los PInchos Caguas","Internet 2M, Nano","+1 (787) 562-5073",1,2015-04-04T19:28:36.507Z,15
+1,,2015-04-04T18:37:30.275Z,0,04/16/2015,Otro,"Ruben Estrada",WVfcnlrUEG,???,15,Gurabo,Nano,"+1 (787) 469-7884",1,2015-04-04T18:37:30.275Z,15
+1,,2015-04-04T19:44:26.460Z,0,04/16/2015,Personal,"Maribel Rivera",Bh22NfqYON,,20,"Sonadora, Aguas Buenas","Internet 3M",787,1,2015-04-04T19:44:26.460Z,15
+1,,2015-03-17T23:52:51.401Z,0,04/17/2015,"Ath Movil","Kenny Ortiz / Nuevo",vaITF6TYh2,,20,"Bo, Santa Clara, Cidra","Caja, Mach Tv",017873870554,1,2015-04-04T21:18:06.756Z,15
+1,,2015-03-18T00:58:43.997Z,0,04/17/2015,Otro,"Rafael Ocasio/Nuevo",etQRbplqs9,"Aun No se como paga",10,Gurabo,Cajas,"+1 (787) 586-6519",1,2015-03-18T00:58:43.997Z,15
+1,,2015-03-18T01:50:27.703Z,0,04/17/2015,Otro,"Jose O Pedraza/Nuevo",NTuupkzcAE,"Aun No Se como paga",10,"San Lorenzo",Cajas,"+1 (787) 934-9840",1,2015-03-18T01:50:27.703Z,15
+1,,2015-03-19T22:02:18.324Z,0,04/17/2015,Otro,"Hector Coss",g2ZlUzkUhE,,15,"San Lorenzo",Nano,"+1 (787) 477-7560",1,2015-03-19T22:02:18.324Z,15
+1,,2015-03-19T22:04:45.276Z,0,04/17/2015,Otro,"Erick Vazquez",OxW5AjzAOU,,15,"San Lorenzo",Nano,"+1 (787) 930-6697",1,2015-03-19T22:04:45.276Z,15
+1,,2015-03-20T20:22:42.590Z,0,04/17/2015,Personal,"David / Nelly /Captive 800 / 517744",HKTnkWtaj3,,10,"Turabo Gardens, Caguas",Cajas,"787-638-6213 / 787-585-0566",1,2015-03-20T20:22:42.590Z,15
+1,,2015-03-20T20:26:20.352Z,0,04/17/2015,Personal,"Luz Aida  / 517770",SSsiNGieXV,,10,"Turabo Gardens, Caguas",Cajas,"+1 (787) 643-6938",1,2015-03-20T20:26:20.352Z,15
+1,,2015-03-20T20:27:36.890Z,0,04/17/2015,"Ath Movil","Marilyn Santiago / 517664",wuBfzKGKLE,,10,"Sta, Elvira, Caguas",Cajas,"+1 (787) 501-4458",1,2015-03-23T02:31:26.392Z,15
+1,,2015-03-21T01:59:58.326Z,0,04/17/2015,Personal,"Bryan / 517791 / 517792 / 517793 / 517794",l3EJyXxVgG,,40,"Las Carolinas, Caguas",Cajas,"+1 (787) 423-3973",4,2015-03-21T01:59:58.326Z,15
+1,,2015-03-22T23:46:26.056Z,0,04/17/2015,"Ath Movil","Rafael VIdal / Papo / 371405",cOl5S9Y9zZ,,10,"Caguas Norte, Caguas",Cajas,"+1 (787) 391-3339",1,2015-03-22T23:49:50.104Z,15
+1,,2015-03-23T01:47:59.084Z,0,04/17/2015,Otro,"Cuchita Juncos",y0LdtIVCIC,"Paga en Hima con Angel de Record Medico",10,Juncos,Cajas,"+1 (787) 536-9576",1,2015-03-23T01:47:59.084Z,15
+1,,2015-03-13T07:54:54.678Z,0,04/17/2015,Personal,"Sixto Ruiz / Nuevo",1EKcVwX5ma,,20,"Las Carolinas, Caguas",Cajas,"+1 (787) 597-3445",2,2015-03-23T03:50:23.226Z,15
+1,,2015-04-04T18:00:17.604Z,0,04/17/2015,Otro,"Jose Rene Flores Hijo",ww8OxOvRpz,???,15,"San Lorenzo",Nano,"+1 (787) 217-3577",1,2015-04-04T18:00:17.604Z,15
+1,,2015-04-04T19:46:05.899Z,0,04/17/2015,Personal,"Rafyel Lucianno",hL4bjGRyuL,,25,"Idamaris, Caguas","Internet 3M",787-?,1,2015-04-04T19:46:05.899Z,15
+1,,2015-04-04T21:06:17.048Z,0,04/17/2015,Otro,"Jesse Verdesia",0bokC0FAk7,???,15,Manati,"Mach Tv","+1 (787) 429-5064",1,2015-04-04T21:06:17.048Z,15
+1,,2015-03-18T12:35:48.025Z,0,04/18/2015,Paypal,"Mailyn Rodriguez/Nuevo",wZF95qm9wi,,20,Manati,Cajas,"+1 (787) 485-0142",2,2015-03-18T12:35:48.025Z,15
+1,,2015-03-13T07:54:55.343Z,0,04/18/2015,Personal,"Julio Concepcion / Nuevo",pMTV1jTAF7,,10,"La Barra, Caguas",Cajas,"+1 (939) 218-2112",1,2015-03-23T03:48:55.017Z,15
+1,,2015-04-04T19:47:09.270Z,0,04/18/2015,Paypal,"Cesar Heredia",ZDG3io0M3f,,25,"Aguas Buenas","Internet 3M","+1 (787) 943-3797",1,2015-04-04T19:47:09.270Z,15
+1,,2015-03-19T22:34:18.765Z,0,04/19/2015,Otro,"Efrain Del Valle(Nuevo)",eYxgus8D40,,10,"Aguas Buenas",Cajas,"+1 (787) 594-7796",1,2015-03-25T12:14:14.067Z,15
+1,,2015-03-19T22:40:38.732Z,0,04/19/2015,Otro,"Jose Luis Ortiz(Nuevo)",oXSQM3DZMk,,0,"Aguas Buenas",Cajas,"+1 (787) 642-4598",1,2015-03-19T22:40:38.732Z,15
+1,,2015-03-19T22:44:10.445Z,0,04/19/2015,Otro,"Jaysy Lopez(Nuevo)",QdJYyFwHP3,,10,Juncos,Cajas,"+1 (787) 394-0689",1,2015-03-19T22:44:10.445Z,15
+1,,2015-03-24T23:38:26.835Z,0,04/19/2015,Paypal,"Jessica Morales / 407212",peuxkDaaEQ,,10,"Metropolis, Carolina",Cajas,"+1 (787) 562-7057",1,2015-03-24T23:38:26.835Z,15
+1,,2015-04-04T18:07:56.353Z,0,04/19/2015,Otro,"Liza Flores",Bs6ctUeOut,???,25,???,"Nano,Mach Tv","787-220-8679 / 787-479-1661",1,2015-04-04T21:18:26.081Z,15
+1,,2015-04-04T18:27:30.924Z,0,04/19/2015,Otro,"Pablo Escobal",EuPe6qI3yF,???,15,Guaynabo,Nano,"+1 (787) 313-2981",1,2015-04-04T18:27:30.924Z,15
+1,,2015-04-04T19:48:14.590Z,0,04/19/2015,Paypal,"Julian Cruz",dbuXkVZMFY,,20,BM,"Internet 3M","+1 (787) 368-1670",1,2015-04-04T19:48:14.590Z,15
+1,,2015-04-04T21:22:06.204Z,0,04/19/2015,Otro,"Luis Maisonet",Vp6YHjtQ9z,???,15,Manati,"Mach Tv",01-939-257-5241,1,2015-04-04T21:22:06.204Z,15
+1,,2015-04-04T21:33:24.266Z,0,04/19/2015,Otro,"Richi Ayala",ZzresdEZjc,???,15,Manati,"Mach Tv","+1 (787) 486-6565",1,2015-04-04T21:33:24.266Z,15
+1,,2015-03-17T23:39:50.368Z,0,04/20/2015,Personal,Cheo/Nuevo,yZp1kq0lyz,,10,BM,Cajas,"+1 (787) 258-6057",1,2015-03-17T23:39:50.368Z,15
+1,,2015-03-20T20:34:02.504Z,0,04/20/2015,Correo,"Kenia Marquez / 517700",qKAxveGsXv,,10,"Trujillo Alto",Cajas,"+1 (787) 313-6364",1,2015-03-20T20:35:37.029Z,15
+1,,2015-03-20T20:36:48.078Z,0,04/20/2015,Personal,"Agripina Reyes / 517806",aONYuQYD6s,,10,"Villa Guadalupe",Cajas,"+1 (787) 219-4201",1,2015-03-20T20:36:48.078Z,15
+1,,2015-03-20T20:39:05.164Z,0,04/20/2015,Otro,"William / 517642",BWivcTsotJ,???,10,"San Lorenzo",Cajas,"+1 (787) 382-5832",1,2015-03-20T20:40:38.173Z,15
+1,,2015-03-20T20:42:07.610Z,0,04/20/2015,Personal,"Sylvia Vega / 517786 / 371437",kVsAyyO6fJ,,10,"Las Orquideas, Aguas Buenas",Cajas,"787-469-8818 / 787-732-2399",1,2015-03-23T00:39:40.687Z,15
+1,,2015-03-20T20:43:29.385Z,0,04/20/2015,Personal,"Ricky / 405018",mdjm7q7ctB,,10,"Tomas de Castro",Cajas,"+1 (787) 604-6366",1,2015-03-20T20:43:29.385Z,15
+1,,2015-03-23T00:42:07.464Z,0,04/20/2015,Personal,"Sylvia / 517802",7ni8LStNWP,,10,"Villa Criollo, Caguas",Cajas,"+1 (787) 410-3327",1,2015-03-23T00:42:24.335Z,15
+1,,2015-03-23T16:51:59.187Z,0,04/20/2015,Otro,"Eladio Llina (Papo) Nuevo",1LZ3UFvuqE,,10,"Caguas  Norte ",Cajas,"+1 (787) 608-1539",1,2015-04-01T16:37:04.607Z,15
+1,,2015-03-23T17:06:06.422Z,0,04/20/2015,Otro,"Rafael Pagan (Nuevo)",n6Vp8SBc7g,,10,Cataño,Cajas,"+1 (787) 666-2129",1,2015-03-23T17:07:03.762Z,15
+1,,2015-03-23T17:15:16.303Z,0,04/20/2015,"Ath Movil","Magda Gonzalez ",QTPQYfQ2BG,,15,"Rio Piedras","Mach Tv","787-764-0303 / 787-613-1977",1,2015-03-23T17:15:16.303Z,15
+1,,2015-04-04T16:27:36.812Z,0,04/20/2015,Otro,"Angel Diaz",T6OiIogTxt,???,15,"Las Piedras",Nano,"+1 (787) 485-6037",1,2015-04-04T16:27:36.812Z,15
+1,,2015-04-04T17:04:37.085Z,0,04/20/2015,Otro,"Edgardo Padilla",9isJOm14z3,???,25,"San Lorenzo","Nano,Mach Tv","+1 (787) 396-7224",1,2015-04-04T20:43:52.951Z,15
+1,,2015-04-04T19:49:30.943Z,0,04/20/2015,Paypal,"Carmen Cruz / Julian Cruz",qcHU2qvYps,,20,BM,"Internet 3M","+1 (787) 515-9879",1,2015-04-04T19:49:30.943Z,15
+1,,2015-04-04T19:50:32.682Z,0,04/20/2015,Personal,"Joel Ortiz",9ubEVCFZeR,,20,BM,"Internet 3M","+1 (787) 718-2382",1,2015-04-04T19:50:32.682Z,15
+1,,2015-03-18T13:14:21.725Z,0,04/21/2015,Otro,"Jose N Torres/517635/517760",FFMloJrKku,"No aun Como Paga",20,,Cajas,"+1 (787) 385-4354",2,2015-03-18T13:14:21.725Z,15
+1,,2015-03-18T13:17:37.725Z,0,04/21/2015,Paypal,"Limarie Flores/371390",XPwxJkHiVX,,10,"Bayamoncito, Aguas Buenas",Cajas,"+1 (787) 448-6657",1,2015-03-23T03:18:47.749Z,15
+1,,2015-03-18T13:48:55.003Z,0,04/21/2015,Paypal,"Carlos Merced/Emilio Rios/407194",2DAGA3D8pN,,10,"3 monjitas/Carolina",Cajas,"+1 (787) 316-5152",1,2015-03-20T17:35:31.167Z,15
+1,,2015-03-20T20:45:56.011Z,0,04/21/2015,Personal,"William / 517713",8Z6Y5EoM5s,,10,"Paseo Del Rio, El 6, San Lorenzo",Cajas,"+1 (787) 920-0045",1,2015-03-20T20:45:56.011Z,15
+1,,2015-03-20T20:52:52.197Z,0,04/21/2015,Personal,"Hector Del Valle Ribot / 407206",htmFFfhHLl,,30,"Urb, Delgado, Caguas","Caja,Internet 3M",017875791776,1,2015-04-04T17:18:25.850Z,15
+1,,2015-03-20T20:54:00.428Z,0,04/21/2015,Correo,"Demetrio Rodriguez / 407207 / 407205",sgx1reGxeb,,20,"Sta Juana, Caguas",Cajas,"+1 (787) 390-7181",2,2015-03-20T20:55:02.469Z,15
+1,,2015-04-04T17:58:41.679Z,0,04/21/2015,Otro,"Jose Rene Flores",zpNKwZhSv3,???,25,"San Lorenzo","Nano,Mach Tv","+1 (939) 244-7647",1,2015-04-04T21:09:24.334Z,15
+1,,2015-03-18T19:02:57.574Z,0,04/22/2015,Paypal,"Cesar LInares/407203",5raDul1eyh,,10,Gurabo,Cajas,"+1 (787) 225-5061",1,2015-03-20T18:00:55.937Z,15
+1,,2015-03-20T19:55:52.394Z,0,04/22/2015,Correo,"Johny Rodriguez / Cano / 407145 / 407143 / 517850",EB40sbTQ5r,,30,"San  Lorenzo",Cajas,"+1 (787) 205-8626",3,2015-03-23T17:08:45.407Z,15
+1,,2015-03-18T18:59:23.617Z,0,04/22/2015,Otro,"Lily Rodriguez/ Cano SL / 517779",dNDOFQa79U,"pagado por cano(Johnny Rodroguez)",10,"San Lorenzo",Cajas,"+1 (787) 509-2089",1,2015-03-23T17:09:39.843Z,15
+1,,2015-03-18T19:17:47.115Z,0,04/23/2015,Correo,"Delwin Ponce/517811/517812",Qiznzadaj0,,20,"Valenciano, Juncos",Cajas,"+1 (787) 460-1347",2,2015-03-23T01:57:47.840Z,15
+1,,2015-03-18T19:55:49.997Z,0,04/23/2015,Paypal,"Angel De Jesus/404975",Yr8TchWfxt,,10,Cidra,Cajas,"+1 (787) 602-2493",1,2015-03-18T20:16:10.451Z,15
+1,,2015-03-20T20:57:23.023Z,0,04/23/2015,Personal,"Pedro / 517821",3G26ZImmjj,,10,"Turabo Gardens, Caguas",Cajas,"+1 (787) 469-2994",1,2015-03-20T20:57:23.023Z,15
+1,,2015-03-20T20:58:56.758Z,0,04/23/2015,Paypal,"Nelvin Santiago / 517651 / 517652",V70DmTLfKy,,12,"San Lorenzo",Cajas,017874576701,2,2015-04-06T12:08:42.094Z,15
+1,,2015-03-20T21:00:09.476Z,0,04/23/2015,Otro,"Hector Malave / 406630",j0wYu4PwSR,???,10,Carolina,Cajas,"+1 (787) 526-0055",1,2015-03-20T21:01:44.086Z,15
+1,,2015-03-23T16:30:53.021Z,0,04/23/2015,Personal,"Anthony Arce / Nuevo",iAwuN13kxK,,10,"Bayamoncito, Aguas Buenas",Cajas,017876300392,1,2015-03-23T16:30:53.021Z,15
+1,,2015-03-23T18:22:23.910Z,0,04/23/2015,Otro,"Wendy Dilone / Raul / Karate",FtZwc3H0fn,"Ath Movil a travez de Dennis Alvarado",20,"Aguas Buenas","Nano,Roku","787-327-2351 / 787-608-5006",1,2015-03-23T18:22:23.910Z,15
+1,,2015-03-13T07:54:55.275Z,0,04/23/2015,"Ath Movil","Danny Cotto / Carmen Cotto / Nuevo",4PUwEHF7kC,,20,Caimito,Cajas,"+1 (787) 473-1301",2,2015-03-24T01:08:58.632Z,15
+1,,2015-03-24T01:11:04.307Z,0,04/23/2015,Otro,"Luis Elis Martinez / Nuevo",Lz4abBZRkN,???,10,"Bairoa, Caguas",Cajas,"+1 (787) 409-2339",1,2015-03-24T01:11:04.307Z,15
+1,,2015-04-04T15:34:42.529Z,0,04/23/2015,Otro,"Miguel Diaz",Oo990yTkUn,???,15,???,Roku,"+1 (787) 466-9642",1,2015-04-04T15:34:42.529Z,15
+1,,2015-04-04T17:10:48.280Z,0,04/23/2015,Otro,"Francisco Arroyo",B4ngSwhVdH,???,15,Yabucoa,Nano,"+1 (787) 914-2514",1,2015-04-04T17:10:48.280Z,15
+1,,2015-04-04T18:12:41.125Z,0,04/23/2015,Otro,"Luis Sanchez",9F9pdRvBoX,???,15,Bayamon,Nano,"+1 (787) 376-8783",1,2015-04-04T18:15:10.881Z,15
+1,,2015-03-18T03:12:50.181Z,0,04/24/2015,Paypal,"Elias Kuilan / Emilio Rios / 404936",6voBS1QGpH,,20,"Toa Alta,3 Monjitas","Caja, Nano",017875879088,1,2015-04-04T17:07:29.569Z,15
+1,,2015-03-20T21:04:05.749Z,0,04/24/2015,Personal,"Jose Trinidad / 406631 /407162",zTnzdMdPjK,,20,"Villa de Rey 1ra, Caguas",Cajas,"+1 (787) 920-8223",2,2015-03-20T21:04:05.749Z,15
+1,,2015-03-20T21:05:51.031Z,0,04/24/2015,Otro,"Raiza / 404990 / 404991",AWGZixx3Hq,"Paga en Hima",20,"Tomas De Castro, Caguas",Cajas,"+1 (787) 203-6565",2,2015-03-20T21:05:51.031Z,15
+1,,2015-03-20T21:08:00.872Z,0,04/24/2015,Paypal,"Mayra Lespier / Edwin Aponte / Kike / 407242, 407240",m5St5CzO9B,,20,Carolina,Cajas,"787-923-3137, 787-645-5823",2,2015-03-23T23:03:22.582Z,15
+1,,2015-03-23T01:05:57.787Z,0,04/24/2015,"Ath Movil","Raul Rivas / Nuevo",EJKEM9ripI,,10,Catano,Cajas,"017873590684 ",1,2015-04-04T16:40:20.254Z,15
+1,,2015-04-04T17:02:43.916Z,0,04/24/2015,Personal,Eddie,cE1SoVzI5l,,10,"Certeneja, Cidra",Nano,"+1 (787) 328-7768",1,2015-04-04T17:02:43.916Z,15
+1,,2015-04-04T17:53:52.837Z,0,04/24/2015,Otro,"Jose Grant",56eJijzLn4,???,15,Juncos,Nano,"+1 (787) 697-2664",1,2015-04-04T17:53:52.837Z,15
+1,,2015-04-04T21:00:15.197Z,0,04/24/2015,Otro,"Hector Baez",RtGgezPwh2,???,15,Manati,"Mach Tv","+1 (787) 306-8734",1,2015-04-04T21:00:15.197Z,15
+1,,2015-04-04T15:48:59.529Z,0,04/25/2015,Otro,"Janet Lopez",w2lLsDbyIF,???,35,???,"Nano, Mach Tv, Roku","+1 (787) 908-3864",1,2015-04-04T21:02:38.492Z,15
+1,,2015-03-17T23:13:36.909Z,0,04/26/2015,Personal,"Neida Gonzalez / Nuevo",EgsDX6KoUd,,38,"Valle Tolima, Caguas","2 Cajas,Internet 2M","+1 (787) 210-9734",1,2015-04-04T19:56:38.168Z,15
+1,,2015-03-20T21:12:38.395Z,0,04/26/2015,Personal,"Rosita / 517660",YShZPvmf7R,,10,Gurabo,Cajas,"787-737-8158 / 787-215-8793 / 787-944-8793",1,2015-03-20T21:12:38.395Z,15
+1,,2015-03-23T04:00:07.453Z,0,04/26/2015,Personal,"Marisol Cotto / Mari / Nuevo",AJ9FTkfiSa,,25,BM,"Caja,Internet 2M",017873180309,1,2015-04-04T19:58:12.859Z,15
+1,,2015-03-18T23:44:42.118Z,0,04/27/2015,Correo,"Nereida Del Valle / 406681 / 406682",FGFLzZjDzi,,20,"San Lorenzo",Cajas,"+1 (787) 360-5326",2,2015-03-23T03:22:16.253Z,15
+1,,2015-03-20T21:14:20.318Z,0,04/27/2015,Otro,"Ilian Vega / 517827",f4j8w2HD8Q,???,10,Caguas,Cajas,"+1 (787) 232-9671",1,2015-03-20T21:14:39.227Z,15
+1,,2015-03-20T21:16:03.161Z,0,04/27/2015,Otro,"Magaly Class / 517723 / 517724",1x291FkkSe,???,20,Valenciano,Cajas,"+1 (787) 559-8851",2,2015-03-20T21:16:03.161Z,15
+1,,2015-03-20T21:17:29.820Z,0,04/27/2015,Otro,"Roberto / 517727",YMmliGxCbX,???,10,Carolina,Cajas,"+1 (787) 246-9999",1,2015-03-20T21:17:29.820Z,15
+1,,2015-03-20T21:22:00.586Z,0,04/27/2015,Paypal,"Angel 172 / 517817",M03AWZH3Jv,,10,Cidra,Cajas,"787-448-4459, 787-703-2188",1,2015-03-20T21:22:00.586Z,15
+1,,2015-03-20T21:23:16.240Z,0,04/27/2015,Personal,"Ismael / White / 407176",a1lbIODvZs,,10,"San Lorenzo",Cajas,"+1 (787) 478-1518",1,2015-03-20T21:23:43.283Z,15
+1,,2015-03-20T21:26:19.048Z,0,04/27/2015,Paypal,"Carmen tia iris / 407181",IitRQQhs7k,,10,Juncos,Cajas,"+1 (787) 692-0671",1,2015-03-20T21:26:19.048Z,15
+1,,2015-03-22T13:38:06.552Z,0,04/27/2015,Otro,"Willie /",h6gJjHO9xO,???,10,"La Serrania, Caguas",Cajas,017877189983,1,2015-04-04T18:42:09.931Z,15
+1,,2015-03-23T00:35:27.525Z,0,04/27/2015,"Ath Movil","Willie Colon / 517717 / 517716",8oEoO9oKrJ,,30,"San Lorenzo","Caja,Nano,Mach Tv",119396404822,1,2015-04-04T18:42:43.988Z,15
+1,,2015-03-23T00:45:56.425Z,0,04/27/2015,Paypal,"Andres Cruz / 517667",4C29V14b3v,,10,"Guarabo, Juncos",Cajas,"+1 (787) 446-7334",1,2015-03-23T00:45:56.425Z,15
+1,,2015-03-30T17:32:16.049Z,0,04/27/2015,Otro,"Ruth Hernandez / Nuevo",vEWLieZC7e,"Debe 100 Fianza de internet",35,"Paseo las Catalina Caguas","Caja,Internet 3M",017875306269,1,2015-04-04T19:58:49.380Z,15
+1,,2015-04-04T15:25:50.780Z,0,04/27/2015,Otro,"Waleska Collazo",fCSyLs6P90,???,25,???,"Nano,Roku","+1 (787) 205-2219",1,2015-04-04T18:39:05.228Z,15
+1,,2015-04-04T17:15:06.875Z,0,04/27/2015,Paypal,"Gineza Gonzalez / Gina",LvajJ1RP4b,,10,Caimito,Nano,"+1 (787) 907-3737",1,2015-04-04T17:15:06.875Z,15
+1,,2015-04-04T17:28:59.994Z,0,04/27/2015,Otro,"Javier Correa",0gijo4ybG8,???,15,Manati,Nano,"+1 (787) 225-8142",1,2015-04-04T17:28:59.994Z,15
+1,,2015-04-04T18:02:46.883Z,0,04/27/2015,Otro,"Juan Marrero",zQoGMKsCjx,???,25,Manati,"Nano,Mach Tv","+1 (787) 346-6788",1,2015-04-04T21:16:59.043Z,15
+1,,2015-04-04T21:15:26.647Z,0,04/27/2015,Otro,"Juan Maisonet",Cnn7Q44ods,???,15,Manati,"Mach Tv","+1 (939) 257-5241",1,2015-04-04T21:15:26.647Z,15
+1,,2015-04-04T21:31:30.125Z,0,04/27/2015,Otro,"Jose Rene Flores Hijo",nbMq5S1Ach,???,10,"San Lorenzo","Mach Tv",01-787-217-3577,1,2015-04-04T21:32:27.000Z,15
+1,,2015-03-18T14:16:29.069Z,0,04/28/2015,"Ath Movil","Miliangie Diaz",lpL6Fq3rDK,,25,???,"Nano,Roku","+1 (787) 349-2505",1,2015-04-04T18:17:32.464Z,15
+1,,2015-03-19T00:31:04.977Z,0,04/28/2015,Personal,"Bryan / 407126",BaeFKMgVN7,,20,Carolina,"Caja, Roku",01-787-646-0671,1,2015-04-04T15:46:56.336Z,15
+1,,2015-03-20T21:30:19.803Z,0,04/28/2015,Personal,"Mairin Rodriguez  / 517712",o85ik9qWxe,,10,"Mariolga, Caguas",Cajas,"+1 (787) 975-5412",1,2015-03-20T21:30:19.803Z,15
+1,,2015-03-20T21:33:40.252Z,0,04/28/2015,Personal,"Mr Inti / 517767",ZjjAIf2Abl,,10,"Hac San Jose, Caguas, Bm",Cajas,"+1 (787) 374-0598",1,2015-03-20T21:34:01.194Z,15
+1,,2015-03-20T21:36:03.400Z,0,04/28/2015,Personal,"Pedro Power / 517737/ 407114 / 406683",FG1rT9ndXS,,30,"San Lorenzo",Cajas,"787-644-3330 / 787-736-9413",3,2015-03-20T21:37:00.234Z,15
+1,,2015-03-20T21:38:54.963Z,0,04/28/2015,Correo,"Jose SL Tonita / 407146",IXPSGKqMuB,,10,"San Lorenzo",Cajas,"+1 (787) 371-9676",1,2015-03-20T21:38:54.963Z,15
+1,,2015-03-20T21:41:57.817Z,0,04/28/2015,Correo,"Wanda / 407215",xEmLSbYRTp,,10,"Caimito, Montehiedra",Cajas,"+1 (787) 354-4506",1,2015-03-20T21:41:57.817Z,15
+1,,2015-03-20T21:46:29.014Z,0,04/28/2015,Correo,"Angel Navarro / Conchita / 407182 / 407147",k1M85nHGZo,,20,"San Lorenzo",Cajas,"787-209-1028, 787-955-1521, 787-217-7502",2,2015-03-20T21:46:29.014Z,15
+1,,2015-03-20T21:47:41.562Z,0,04/28/2015,Personal,"Juanita Torres / 517818",3Lc2pLes8X,,10,"Villa Rey, Caguas",Cajas,"+1 (787) 613-5601",1,2015-03-20T21:49:38.832Z,15
+1,,2015-04-04T15:43:14.067Z,0,04/28/2015,Paypal,"Jorge Lebron",igbipQiqdv,,15,Yabucoa,Roku,"+1 (787) 515-5277",1,2015-04-04T15:43:14.067Z,15
+1,,2015-04-04T16:44:42.921Z,0,04/28/2015,Otro,"David Diaz",VcwINQB0VD,???,25,???,"Nano,Mach Tv","+1 (787) 232-3480",1,2015-04-04T20:41:27.679Z,15
+1,,2015-04-04T17:12:24.190Z,0,04/28/2015,Otro,"Gerardo Colon",ze3a7Je70o,???,15,"San Lorenzo",Nano,"+1 (787) 923-5525",1,2015-04-04T17:12:24.190Z,15
+1,,2015-04-04T18:01:13.615Z,0,04/28/2015,Otro,"Jose Rosario",KeocHxPrh9,???,25,Manati,"Nano,Mach Tv","+1 (787) 383-8718",1,2015-04-04T21:13:01.664Z,15
+1,,2015-04-04T20:01:55.108Z,0,04/28/2015,Personal,"Edwin Torres Doble 5",xGWKK8Xcdh,,28,"Aguas Buenas","Internet 2M, Mach Tv","+1 (787) 590-2781",1,2015-04-04T20:01:55.108Z,15
+1,,2015-04-04T20:55:38.128Z,0,04/28/2015,Otro,"Felix Hernandez",2JhU2JWgrw,???,15,"San Lorenzo","Mach Tv","+1 (787) 554-3617",1,2015-04-04T20:55:38.128Z,15
+1,,2015-04-04T21:04:19.269Z,0,04/28/2015,Otro,"Jensen Medina",pPnUnzFQDn,"No Paga, Intercambio por ventas de rokus en su local",0,Caguas,"Mach Tv",21-787-996-4655,1,2015-04-04T21:05:13.050Z,15
+1,,2015-04-04T16:47:20.246Z,0,04/29/2015,"Ath Movil","Dennis Alvarado",mppwFO4tQR,,20,"Sonadora,Aguas Buenas","Nano,Roku","+1 (787) 205-5590",1,2015-04-04T16:47:20.246Z,15
+1,,2015-04-04T18:21:56.128Z,0,04/29/2015,Otro,"Norma Rivera / Carlos Dehnel",sqNuZDIbML,???,25,???,"Nano,Mach Tv","+1 (787) 368-9447",1,2015-04-04T21:25:41.795Z,15
+1,,2015-04-04T20:03:45.353Z,0,04/29/2015,Personal,"Elvin Rivera Fresh",wGkf6kWE7Q,,50,"Bairoa, Caguas","Internet 5M, Mach Tv",787-??,1,2015-04-04T20:03:45.353Z,15
+1,,2015-03-19T01:43:54.996Z,0,04/29/2015,"Ath Movil","Pablo Zavala / Marina / 517835 / 517639",vYeK5KYtAJ,,30,"Urb, Condado, Caguas","Caja,Nano,Mach Tv",117876372739,1,2015-04-04T21:27:14.300Z,15
+1,,2015-03-20T21:54:30.395Z,0,04/30/2015,Personal,"Rolando / Maricela / 517820",2rchtgDlDs,,10,"Las Carollinas, Caguas",Cajas,"787-310-4975 / 787-595-6260 / 787-702-4369",1,2015-03-20T21:54:30.395Z,15
+1,,2015-03-30T17:27:51.542Z,0,04/30/2015,Otro,"Victor Roman / Nuevo",pgcUQHql4D,,20,Humacao,Cajas,"+1 (939) 639-7436",2,2015-04-01T16:31:38.076Z,15
+1,,2015-04-04T15:24:18.363Z,0,04/30/2015,Paypal,"Juan Rivera",3YyPZ7eVD8,,25,Texas,"Mach Tv,Roku","+1 (210) 687-4754",1,2015-04-04T21:17:29.526Z,15
+1,,2015-04-04T16:28:39.064Z,0,04/30/2015,Otro,"Awilda Pagan",jVLLYQofDO,???,15,Manati,Nano,"+1 (787) 367-0809",1,2015-04-04T16:28:39.064Z,15
+1,,2015-04-04T21:01:51.537Z,0,04/30/2015,Otro,"Ivan Rodriguez",zJwIktIdjq,???,15,Manati,"Mach Tv","+1 (787) 346-0321",1,2015-04-04T21:01:51.537Z,15
+1,,2015-03-13T07:54:54.360Z,0,05/01/2015,Personal,"Mayra Colon / 407226",egPiNikDm4,,25,BM,"Caja,Internet 2M",017875315205,1,2015-04-04T20:06:05.208Z,15
+1,,2015-03-13T07:54:54.291Z,0,05/01/2015,Correo,"Roberto Ramirez / 517663",dV4ci3iYt6,,10,"Levitown, Toa Baja",Cajas,"+1 (787) 674-2325",1,2015-03-28T14:40:14.517Z,15
+1,,2015-03-31T15:13:38.593Z,0,05/01/2015,Personal,"Joel Ruiz / Nuevo",HgAFHLSuOB,,20,"Villa de Castro Caguas","Caja, Nano",017879194066,1,2015-04-04T17:37:26.180Z,15
+1,,2015-03-31T19:12:25.096Z,0,05/01/2015,Otro,"Julio Santana / Nuevo",UYDPqiGCzB,,20,Canovana,Cajas,"+1 (787) 518-9491",2,2015-04-01T16:31:10.830Z,15
+1,,2015-04-01T13:57:48.462Z,0,05/01/2015,Otro,"Hector Diaz / Nuevo",AOVRvQrwhB,,10,"Urb. San Jose Caguas",Cajas,"+1 (787) 645-9351",1,2015-04-01T16:25:20.446Z,15
+1,,2015-04-01T16:24:45.522Z,0,05/01/2015,Otro,"Obed Garcia (Padre) Nuevo",BYrXzRAC1w,,10,"Jose Mercado Caguas",Cajas,"+1 (787) 379-3649",1,2015-04-01T16:24:45.522Z,15
+1,,2015-04-01T17:33:07.179Z,0,05/01/2015,Otro,"Luis Gonzalez / Nuevo",B8lxMuO4pS,"aun no se",10,"Urb, Villa Del Rio, Humacao",Cajas,"+1 (787) 718-3858",1,2015-04-01T17:33:07.179Z,15
+1,,2015-04-01T18:33:38.414Z,0,05/01/2015,Otro,"Edwin Cintro / Nuevo",fVvlea017B,,10,Humacao,Cajas,"+1 (787) 376-2969",1,2015-04-01T18:33:38.414Z,15
+1,,2015-04-01T18:51:15.052Z,0,05/01/2015,Otro,"Felipe Perez / Nuevo",ReYAcgSOA1,,10,Juncos,Cajas,"+1 (787) 501-3111",1,2015-04-01T18:51:39.494Z,15
+1,,2015-04-01T20:47:23.748Z,0,05/01/2015,Otro,"Luis Diaz /Nuevo",xEg0xWlzQv,,10,Humacao,Cajas,"+1 (787) 397-3263",1,2015-04-01T20:47:23.748Z,15
+1,,2015-04-01T22:11:59.279Z,0,05/01/2015,Otro,"Judith Nuñez / Nuevo",z2BkfwroiG,,10,Gurabo,Cajas,"+1 (787) 685-3781",1,2015-04-01T22:11:59.279Z,15
+1,,2015-04-04T15:29:52.062Z,0,05/01/2015,Otro,"Carlos Rodriguez",Unquz0vXH5,???,35,???,"Nano, Mach Tv, Roku","+1 (787) 246-1282",1,2015-04-04T20:40:10.252Z,15
+1,,2015-04-04T17:52:07.779Z,0,05/01/2015,Paypal,"Jose De Jesus",hC9FrOHXHM,,30,Cupey,"Nano,Mach Tv","+1 (787) 960-4005",1,2015-04-04T21:10:24.859Z,15
+1,,2015-04-04T20:45:56.744Z,0,05/01/2015,Otro,"Edwin Padin Garcia",9EzrWEtqQW,???,15,Manati,"Mach Tv","+1 (787) 594-8226",1,2015-04-04T20:45:56.744Z,15
+1,,2015-03-19T01:48:38.757Z,0,05/02/2015,Personal,"Carlos Fontanez / 406667/ Nuevo",CTygbf15wz,,10,Gurabo,Cajas,01-787-462-0684,1,2015-04-04T14:50:35.096Z,15
+1,,2015-03-13T07:54:54.588Z,0,05/02/2015,Personal,"Jorge Borge (Luis) / 371452",XTYoxFtsn6,,10,"San Lorenzo",Cajas,"+1 (787) 678-6195",1,2015-03-21T02:17:10.371Z,15
+1,,2015-03-13T07:54:54.643Z,0,05/02/2015,Otro,"Oscar / 517673",0VCE7LyFRN,"Paga Persoal, A veces en Hima",10,"Veredas, Gurabo",Cajas,"+1 (787) 448-5691",1,2015-03-21T02:16:37.036Z,15
+1,,2015-03-13T07:54:54.737Z,0,05/02/2015,Personal,"Alexis Melendez / 404967",Bv9Hb8e4Dq,,10,"Rio Piedras",Cajas,"+1 (787) 532-3841",1,2015-03-21T02:18:57.686Z,15
+1,,2015-04-02T22:42:26.765Z,0,05/02/2015,Otro,"Alturo Francisco",ffEu03f7zS,,10,Canovana,Cajas,"+1 (787) 241-1638",1,2015-04-02T22:42:26.765Z,15
+1,,2015-04-02T15:54:50.732Z,0,05/02/2015,Otro,"Miguel Vazquez / Nuevo",78erFuQ27Y,,10,"Las piedras",Cajas,"+1 (787) 360-7775",1,2015-04-02T21:38:52.026Z,15
+1,,2015-04-02T17:33:42.575Z,0,05/02/2015,Otro,"Jose Santana / Nuevo",bSyLNIF5s8,,20,Naguabo,Cajas,"+1 (787) 949-8788",2,2015-04-02T21:38:14.424Z,15
+1,,2015-04-04T15:31:59.407Z,0,05/02/2015,Otro,"Luis Gonzalez",IIVECAnPPu,???,25,Bayamon,"Nano,Roku","+1 (787) 364-0866",1,2015-04-04T18:11:42.007Z,15
+1,,2015-04-04T15:45:37.878Z,0,05/02/2015,Paypal,"Gerardo Ruiz",aYAEIoXXmw,,20,"Aguas Buenas","Nano,Roku","+1 (787) 586-9697",1,2015-04-04T15:45:37.878Z,15
+1,,2015-04-04T16:42:00.476Z,0,05/02/2015,Otro,"Carlos Santiago",mtB3z9op2J,???,15,???,Nano,"+1 (787) 702-4479",1,2015-04-04T16:42:00.476Z,15
+1,,2015-04-04T17:09:26.772Z,0,05/02/2015,Otro,"Eugenio Fernandez",Nb1VJ8dyjC,???,15,Ciales,Nano,"+1 (787) 216-6550",1,2015-04-04T17:09:26.772Z,15
+1,,2015-04-04T18:17:04.205Z,0,05/02/2015,Otro,"Miguel Martinez",3CdPTSv7Eb,???,25,Gurabo,"Nano,Mach Tv","+1 (787) 354-1887",1,2015-04-04T21:23:54.530Z,15
+1,,2015-04-04T18:33:34.533Z,0,05/02/2015,Otro,"Ramona Diaz Olmeda",ZXGMo2alYA,???,15,"San Lorenzo",Nano,"+1 (939) 630-7907",1,2015-04-04T18:33:34.533Z,15
+1,,2015-04-04T18:45:57.567Z,0,05/02/2015,Paypal,"Yamil Fernandez / Francis Fernandez",7J0mvc1jzh,,25,Ciales,"Nano,Mach Tv","+1 (787) 313-2982",1,2015-04-04T21:34:11.925Z,15
+1,,2015-04-04T20:43:17.099Z,0,05/02/2015,Otro,"Didiel Izquierdo",NwLWYoC4m4,???,15,"Las Piedras","Mach Tv","+1 (787) 323-2436",1,2015-04-04T20:43:17.099Z,15
+1,,2015-03-18T14:20:51.775Z,0,05/03/2015,Otro,"Armando Rivera",67m79bzQyy,???,15,???,Roku,"+1 (787) 553-7049",1,2015-04-04T15:44:03.896Z,15
+1,,2015-03-17T23:56:44.974Z,0,05/04/2015,"Ath Movil","Manuel Valenzuela / Nuevo",ntFEgaKP1o,,10,Gurabo,Cajas,017874109957,1,2015-04-04T19:22:55.894Z,15
+1,,2015-03-13T07:54:55.027Z,0,05/04/2015,Personal,"Hector Lucier / 517757",Z5931TOrlT,,10,"Caguas Military, Caguas",Cajas,"+1 (787) 744-3329",1,2015-04-04T15:16:04.703Z,15
+1,,2015-03-19T00:03:58.548Z,0,05/04/2015,"Ath Movil","Angel Jimenez Polaca / Marcelina / 517796 / 517795",KSvJ733fUj,,40,"Borinquen, Caguas","2 Cajas, Nano, Mach Tv","+1 (787) 596-0738",1,2015-04-04T17:00:17.378Z,15
+1,,2015-03-13T07:54:55.197Z,0,05/05/2015,Personal,"Onesimo Torres SKY / 517755",aQom7xzb9p,,10,Cidra,Cajas,"+1 (787) 348-3751",1,2015-03-21T02:23:48.114Z,15
+1,,2015-03-13T07:54:55.188Z,0,05/05/2015,Personal,"Hill Acosta / 517754",ql1UZhno3B,,10,"Sto Domingo, Caguas",Cajas,"+1 (787) 604-3533",1,2015-03-31T20:45:58.785Z,15
+1,,2015-04-04T17:16:22.450Z,0,05/05/2015,Otro,"Harold Lugo",HQ1deeh61x,???,25,"Rio Grande","Nano,Mach Tv","+1 (787) 438-5788",1,2015-04-04T20:56:26.531Z,15
+1,,2015-03-17T15:25:22.744Z,0,05/06/2015,Personal,"Carlos Contreras/Nuevo",1baddek3cQ,,10,"Bo, Beatriz Caguas",Cajas,"+1 (787) 202-2350",1,2015-03-17T15:25:22.744Z,15
+1,,2015-03-17T23:47:58.992Z,0,05/06/2015,Otro,"Martin Sustache / Nuevo",GHnvQKQlyx,"aun no se como paga",10,"Bairoa, Caguas",Cajas,017873168092,1,2015-04-06T11:59:44.502Z,15
+1,,2015-03-18T01:03:22.843Z,0,05/06/2015,Otro,"Candi Colon/Nuevo",pwYYuW4Q2b,"Paga en Hima con La Hija Kareen ",20,Gurabo,Cajas,017875956289,2,2015-04-06T20:12:22.145Z,15
+1,,2015-03-18T01:05:36.515Z,0,05/06/2015,Paypal,"Javier Gonzalez / Nuevo",O5MdjltUvr,,10,"Trujillo Alto",Cajas,017875957153,1,2015-04-06T12:11:01.990Z,15
+1,,2015-03-13T07:54:54.490Z,0,05/06/2015,Paypal,"Juan Rosa/ Larizza Melendez / Nuevo",7ILjvuMSbV,,10,"San Lorenzo",Cajas,"017876004078 / 787-937-7753",1,2015-04-06T20:21:39.648Z,15
+1,,2015-03-18T01:57:46.423Z,0,05/06/2015,Personal,"Obed Garcia Delgado /Nuevo",CKZRnBnMmu,,10,"Jose Mercado, Caguas",Cajas,"+1 (939) 282-9695",1,2015-04-01T16:47:13.016Z,15
+1,,2015-03-19T00:55:23.710Z,0,05/06/2015,Paypal,"Jose Perez / 407153 / 407152",NIDf3s2nj9,,20,"Carr #1, Rio Piedras",Cajas,017873109628,2,2015-04-06T12:34:46.574Z,15
+1,,2015-03-19T01:32:46.240Z,0,05/06/2015,Paypal,"Edgardo Aponte/407217",JkDMo7qgAM,,10,Carolina,Cajas,017875310264,1,2015-04-06T12:14:38.330Z,15
+1,,2015-03-20T21:09:26.436Z,0,05/06/2015,Otro,"Kareen / 517844 /406686",yl6NtlN5AL,"Paga en Hima",20,Cayey,Cajas,"+1 (787) 236-3367",2,2015-04-06T20:12:04.537Z,15
+1,,2015-03-13T07:54:55.301Z,0,05/06/2015,Personal,"Wanda Lopez / 406644",mMpP8DOXSQ,,10,"San Lorenzo",Cajas,"+1 (787) 678-8425",1,2015-03-21T02:25:24.292Z,15
+1,,2015-04-06T20:46:52.329Z,0,05/06/2015,Otro,"Anastacio Laviena",pfUJwcNk2y,,10,Yabucoa,Cajas,"+1 (787) 384-9109",1,2015-04-06T20:46:52.329Z,15
+1,,2015-04-07T00:43:39.209Z,0,05/06/2015,Paypal,"Benjamin Maisonet",IzV4uz0V7m,,15,"San Juan ","Mach Tv","+1 (787) 397-1477",1,2015-04-07T00:43:39.209Z,15
+1,,2015-03-13T07:54:55.398Z,0,05/07/2015,Paypal,"Ada Vega / Miguel Rodriguez / 406639 / 404953",YXXVlye3dU,,20,"Jardines, Gurabo",Cajas,"+1 (787) 469-6445",2,2015-03-25T01:35:09.649Z,15
+1,,2015-04-04T17:42:13.757Z,0,05/07/2015,Otro,"Jorge Grant",LqQeCDPtjp,???,15,Gurabo,Nano,"+1 (787) 562-6576",1,2015-04-04T17:42:13.757Z,15
+1,,2015-04-04T21:23:29.380Z,0,05/07/2015,Otro,"Marcial Colon ",grFkLH7Pqn,???,15,Caguas,"Mach Tv","+1 (787) 446-2705",1,2015-04-06T23:36:16.300Z,15
+1,,2015-03-13T07:54:55.459Z,0,05/08/2015,Correo,"Eduardo Gonzalez (junior) / 404969",H7IeNMCUlA,,10,"San Lorenzo",Cajas,017876966496,1,2015-04-06T12:20:00.756Z,15
+1,,2015-03-13T07:54:55.634Z,0,05/08/2015,"Ath Movil","Amalia Ramirez (Dir Esc.Diego Vazquez) / 517814 / 517826 / 371373",9x688Yo5dq,,30,Naguabo,Cajas,"+1 (787) 645-6695",3,2015-03-21T02:35:09.460Z,15
+1,,2015-03-13T07:54:55.541Z,0,05/08/2015,Otro,"Pablo Perez / 407247",f88YL2mG6L,???,10,Gurabo,Cajas,"+1 (787) 378-2808",1,2015-03-21T02:32:32.287Z,15
+1,,2015-03-13T07:54:55.722Z,0,05/09/2015,Personal,"Jorge / 371369",bH2uTA9UwG,,10,Cayey,Cajas,"+1 (787) 910-7610",1,2015-03-21T02:46:37.037Z,15
+1,,2015-03-13T07:54:55.748Z,0,05/09/2015,Personal,"Bartolo / 517752",vn5d4eji3u,,10,"Jose Mercado, Caguas",Cajas,"+1 (787) 470-3701",1,2015-03-21T02:45:12.673Z,15
+1,,2015-03-13T07:54:55.891Z,0,05/10/2015,Personal,"Ismael / 406668",RkT4N2Ttnj,,10,"Borinquen, Caguas",Cajas,"+1 (787) 213-1821",1,2015-03-21T03:00:38.548Z,15
+1,,2015-03-21T03:03:08.015Z,0,05/11/2015,Personal,"Winston / 407119",1RlH9J9iO2,,10,"El Verde, Caguas",Cajas,"+1 (787) 607-5772",1,2015-03-21T03:03:08.015Z,15
+1,,2015-03-21T03:07:00.849Z,0,05/11/2015,Personal,"Eva Mercado / 517766",hk1NcvNbNb,,20,"Aguas Buenas","Caja,Internet 1M",017874694040,1,2015-04-04T19:16:22.982Z,15
+1,,2015-03-21T03:10:15.658Z,0,05/13/2015,Otro,"Catalino Rotger / 517653 / 517654",fJY6vPLrMh,???,20,"San Lorenzo",Cajas,"+1 (787) 453-6975",2,2015-03-21T03:10:15.658Z,15
+1,,2015-03-21T03:15:13.159Z,0,05/13/2015,Otro,"Julio / 517697",Z0LQjakaIQ,"Paga en Hima",10,Gurabo,Cajas,"+1 (787) 447-5582",1,2015-03-21T03:15:13.159Z,15
+1,,2015-03-21T03:16:46.611Z,0,05/13/2015,Otro,"Roberto Borges / 371447",i4XYROIp8z,???,10,"San Lorenzo",Cajas,"+1 (787) 451-0049",1,2015-03-21T03:18:58.544Z,15
+1,,2015-03-21T03:21:31.307Z,0,05/14/2015,Otro,"Wilbert Marquez /407232 / 407233",OUXLg6LCtV,???,20,"Rio Piedras",Cajas,"+1 (787) 633-2154",2,2015-03-21T03:21:31.307Z,15
+1,,2015-03-21T03:23:01.979Z,0,05/14/2015,Otro,"Edwin Vazquez /517785",SmwkPPBQLx,???,10,Caguas,Cajas,"+1 (787) 367-2685",1,2015-03-21T03:23:01.979Z,15
+1,,2015-03-21T03:24:52.032Z,0,05/15/2015,Correo,"Carlos Molina / 517702",JC9CvquPCG,,10,Cayey,Cajas,"+1 (787) 717-2845",1,2015-03-21T03:24:52.032Z,15
+1,,2015-03-21T03:26:35.136Z,0,05/15/2015,Otro,"Eddie / 405013 / 405014",Q4SK2Lpunx,???,20,"Certeneja, Cidra",Cajas,017873287768,2,2015-04-04T17:03:07.468Z,15
+1,,2015-03-21T03:32:03.960Z,0,05/16/2015,Otro,"Liza / Juan / 517765",hhQNleSJrv,???,10,"San Lorenzo",Cajas,"+1 (787) 513-1656",1,2015-03-21T03:32:03.960Z,15
+1,,2015-03-21T03:33:56.388Z,0,05/16/2015,Otro,"Manolo Neris / 404988",aVOENju7VR,???,10,"San Lorenzo",Cajas,"+1 (939) 274-5832",1,2015-03-21T03:37:38.932Z,15
+1,,2015-03-21T03:35:25.089Z,0,05/16/2015,Personal,"Angel Rivera / 407130",NvRzbp1rMl,,10,"Jardines de Bairoa, Caguas",Cajas,"+1 (787) 314-3542",1,2015-03-21T03:41:09.415Z,15
+1,,2015-03-21T03:42:44.813Z,0,05/16/2015,Personal,"Francisco Aponte / 407168",NnqEZqhmhj,,10,Caguas,Cajas,"+1 (787) 209-3304",1,2015-03-27T14:28:55.841Z,15
+1,,2015-03-21T02:42:10.250Z,0,05/17/2015,Personal,"Jose / 406640 / 517780",V3QgXVE3Fy,,20,"Las Vegas, Cayey",Cajas,"787-315-7355 / 939-208-8699",2,2015-03-21T03:44:29.678Z,15
+1,,2015-03-21T03:46:02.907Z,0,05/17/2015,Correo,"Maritza / 517759 / 371430",CIB51Nxsh0,,20,Guaynabo,Cajas,"+1 (787) 637-1763",2,2015-03-21T03:51:56.619Z,15
+1,,2015-03-21T03:47:27.761Z,0,05/18/2015,Otro,"Lourdes Saez / 404989",LqTKEwzruO,"Paga en Hima",10,"Rio Grande, Cubuy",Cajas,"+1 (787) 470-2870",1,2015-03-21T03:49:32.234Z,15
+1,,2015-03-17T23:10:14.425Z,0,05/19/2015,Personal,"Roberto Diaz/Nuevo",HYcPP5Cxu4,,10,"Aguas Buenas",Cajas,"+1 (787) 210-4493",1,2015-03-19T22:28:21.848Z,15
+1,,2015-04-04T15:51:07.437Z,0,05/19/2015,Otro,"Jensen Medina",LCCMs2iCRg,"No Paga, Intercambio por ventas de rokus en su local",0,Caguas,Roku,"+1 (787) 996-4655",1,2015-04-04T21:04:57.677Z,15
+1,,2015-03-18T02:57:05.611Z,0,05/20/2015,Personal,Victor/517633,nmmQwBSG2Z,,10,"Las Corujas, Aguas Buenas",Cajas,"+1 (787) 630-5374",1,2015-03-20T12:16:30.735Z,15
+1,,2015-03-18T02:48:55.143Z,0,05/20/2015,Correo,"Carlos Montanez/517707/517708",cd8Laa1vC2,,20,"San Lorenzo",Cajas,1-856-745-4456/787-736-2529,2,2015-03-20T12:16:06.245Z,15
+1,,2015-03-18T03:31:18.905Z,0,05/20/2015,Otro,"Rafael Bonilla/371404",HKcbQTkt8v,"Aun No se como Paga",10,"San Lorenzo",Cajas,"+1 (787) 469-6983",1,2015-03-21T01:43:56.975Z,15
+1,,2015-03-22T13:10:39.814Z,0,05/20/2015,Otro,"Jonathan Martinez / 406652",FkegbXCjJo,???,10,"San Juan",Cajas,"+1 (939) 218-1095",1,2015-03-22T13:13:56.118Z,15
+1,,2015-03-22T13:15:28.023Z,0,05/20/2015,Personal,"Gloria / 371409",wK2sSjb0Yg,,10,BM,Cajas,"+1 (787) 528-1459",1,2015-03-22T13:17:11.035Z,15
+1,,2015-03-22T13:16:35.627Z,0,05/20/2015,Personal,"Papo / 404961 / 407210",4KJyWljT26,,20,"Rincon, Cidra",Cajas,"+1 (787) 243-7062",2,2015-03-22T14:35:44.440Z,15
+1,,2015-03-22T13:20:28.922Z,0,05/22/2015,Otro,"Jesus Medina /404954",mPmryDkXyt,???,10,Yabucoa,Cajas,"787-893-5279 / 787-324-6899",1,2015-03-22T13:20:28.922Z,15
+1,,2015-03-22T13:22:11.346Z,0,05/22/2015,Otro,"Osiris Zorrila /405017",Pk1x9GjVvB,???,10,"Rio Piedras",Cajas,787939-246-6026,1,2015-03-22T13:22:11.346Z,15
+1,,2015-04-04T18:35:45.135Z,0,05/24/2015,Otro,"Roselyn Diaz",3rWui7MROd,???,15,Caguas,Nano,"+1 (787) 605-9974",1,2015-04-04T18:35:45.135Z,15
+1,,2015-03-23T01:55:30.186Z,0,05/25/2015,Correo,"Henrry Flores / 406648",IZhTX3PjLz,,10,"Valenciano, Juncos",Cajas,"+1 (787) 515-4428",1,2015-03-23T01:55:30.186Z,15
+1,,2015-03-22T13:24:02.752Z,0,05/26/2015,Correo,"Jennifer Navarro / 517695",sbsFCKNWsa,,10,Fajardo,Cajas,"+1 (939) 405-0686",1,2015-03-22T13:24:02.752Z,15
+1,,2015-03-19T01:45:50.790Z,0,05/28/2015,"Ath Movil","Cruz Figueroa / 407149",kyPpZjMzFZ,,10,"Villa Rey, Caguas",Cajas,"+1 (787) 364-1135",1,2015-04-02T00:07:40.442Z,15
+1,,2015-03-22T13:26:57.202Z,0,05/28/2015,Otro,"Edwin Carrasquillo / 407135 / 405010",pd4aGBKLsC,???,10,Gurabo,Cajas,"+1 (787) 610-4491",1,2015-03-22T13:26:57.202Z,15
+1,,2015-03-23T00:47:57.767Z,0,05/28/2015,Personal,"Cuchita / Vecina / ",S87eU7R6nV,,10,"Vecina, Aguas BUenas",Cajas,"787-???? cta- 180272802435",1,2015-03-28T20:47:48.600Z,15
+1,,2015-03-22T13:29:41.795Z,0,05/30/2015,Personal,"Alex Gallardo / 404980 / 404981",mVoWpx1TEP,,20,"Villa rey, Caguas BM",Cajas,"+1 (787) 602-2836",2,2015-03-22T13:29:41.795Z,15
+1,,2015-04-04T16:26:13.862Z,0,05/31/2015,Otro,"Alberto Baez",Idb5mSNjKH,"Paga Personal, tiene Caja",10,"Veredas, Gurabo",Nano,"+1 (787) 547-1514",1,2015-04-04T16:26:13.862Z,15
+1,,2015-03-13T07:54:54.274Z,0,06/01/2015,Paypal,"Giovani Velazquez/517671",DeFrscpeiL,,10,"Rio Grande",Cajas,"+1 (787) 206-5542",1,2015-04-02T00:06:35.419Z,15
+1,,2015-03-22T13:33:15.283Z,0,06/01/2015,Correo,"Manuel / 407254",6UsiJFhPPs,,10,Fajardo,Cajas,"+1 (787) 516-4140",1,2015-03-22T13:33:15.283Z,15
+1,,2015-03-22T13:36:34.421Z,0,06/01/2015,Correo,"Luis Rivera / 407157",wzw7MU52X8,,10,Yabucoa,Cajas,"787-266-8247 / 787-923-3654",1,2015-03-22T13:36:34.421Z,15
+1,,2015-03-13T07:54:54.455Z,0,06/01/2015,Personal,"Manuel Vargas / 406637",Af0DQ5wzKs,,10,"Carolina, Aros y Gomas #1",Cajas,"+1 (787) 603-9666",1,2015-03-22T13:42:28.198Z,15
+1,,2015-03-13T07:54:54.661Z,0,06/02/2015,Paypal,"Glenn Perez / 517743",DSDxTWxbTA,,10,"Navarro, Gurabo",Cajas,"(787)433-9797 / 787-398-4719",1,2015-03-22T13:44:24.791Z,15
+1,,2015-03-13T07:54:54.879Z,0,06/03/2015,"Ath Movil","Rafael Huerta (Toby)/517668",19KjFmxNWV,,10,"La Granja",Cajas,"+1 (787) 478-7408",1,2015-03-30T21:34:41.013Z,15
+1,,2015-03-13T07:54:54.807Z,0,06/03/2015,Paypal,"Javier Valentin /371413 / 371393",dDSsyInt0x,,20,"Bayamon, Rooms To Go",Cajas,017876886905,2,2015-04-07T00:14:19.728Z,15
+1,,2015-03-13T07:54:54.949Z,0,06/03/2015,Personal,"Roberto Rodriguez / 407256",nHnHknXGN0,,10,Cayey,Cajas,"+1 (787) 434-6252",1,2015-03-22T13:45:40.503Z,15
+1,,2015-03-13T07:54:54.896Z,0,06/03/2015,Otro,"Heriberto Flores / 517710",rNWIGWQdaz,???,10,"San Lorenzo",Cajas,"+1 (787) 736-0135",1,2015-03-22T13:46:36.109Z,15
+1,,2015-03-13T07:54:54.940Z,0,06/03/2015,Paypal,"Jose Roldan / Pepe / 404973",dZiSh9rb5i,,10,"San Lorenzo",Cajas,"+1 (787) 378-7759",1,2015-03-22T13:48:10.650Z,15
+1,,2015-03-13T07:54:54.571Z,0,06/04/2015,Personal,"Angel Gutierrez/Nuevo",Lx5l7sifeF,,10,"Villa de Castro, Parque Las Merced, Caguas, y Canovanas",Cajas,"+1 (787) 450-5032",1,2015-03-18T00:20:03.977Z,15
+1,,2015-03-13T07:54:55.010Z,0,06/04/2015,Personal,"Carmen Reyes Carmin / 517683 / 517684",9TqdSaVPv8,,20,"Turabo Garden",Cajas,017875951974,2,2015-04-04T19:06:56.862Z,15
+1,,2015-03-13T07:54:55.160Z,0,06/05/2015,Otro,"Fernando Perez / 404987",kC0k0TlnPq,???,10,"Sabanera, Gurabo",Cajas,"+1 (787) 649-0218",1,2015-03-22T13:53:07.742Z,15
+1,,2015-03-18T02:07:29.430Z,0,06/06/2015,Personal,"Ramon Vega / Nuevo",trYDELp9n2,,10,"Borinquen, Caguas",Cajas,"+1 (939) 717-5547",1,2015-03-31T01:26:25.470Z,15
+1,,2015-03-13T07:54:55.424Z,0,06/07/2015,Otro,"Luciano De Jesus /407237",uvSPNhFgAz,???,10,"San Lorenzo",Cajas,"+1 (787) 718-6797",1,2015-03-22T13:55:58.405Z,15
+1,,2015-03-13T07:54:55.378Z,0,06/07/2015,Personal,"Gladys / 371426",IST60WJK6r,,10,"San Lorenzo, Consolidate Mall",Cajas,"+1 (787) 212-0851",1,2015-03-22T13:57:24.166Z,15
+1,,2015-03-13T07:54:55.406Z,0,06/07/2015,Personal,"Laura / 407124",unvBgnu5Mc,,10,"Villa Criollo, Caguas",Cajas,"+1 (787) 469-0076",1,2015-03-22T13:58:44.259Z,15
+1,,2015-03-13T07:54:55.559Z,0,06/08/2015,Paypal,"Wilfredo Borges / Rocio Domenech / 371374",bHoU2QYMB6,,10,"San Lorenzo",Cajas,"+1 (787) 619-8734",1,2015-03-22T14:02:09.605Z,15
+1,,2015-03-22T14:03:29.553Z,0,06/11/2015,Otro,"Jose Perez / 517768",FGW4XcbfWM,???,10,Gurabo,Cajas,"+1 (787) 479-5763",1,2015-03-23T03:12:23.459Z,15
+1,,2015-03-22T14:05:54.787Z,0,06/12/2015,Otro,"Gilberto / 404959",uGGPgB1J0G,???,10,"Borinquen, Caguas",Cajas,"+1 (787) 404-4045",1,2015-03-22T14:05:54.787Z,15
+1,,2015-03-22T14:07:38.993Z,0,06/12/2015,Personal,"Ramiro / 517692",71kaxmV9m2,,10,"Las Orquideas, Aguas Buenas",Cajas,"+1 (787) 390-2118",1,2015-03-22T14:07:38.993Z,15
+1,,2015-03-13T07:54:55.223Z,0,06/13/2015,Otro,"Jose Gonzalez/Nuevo",u1MzDZokUo,"Aun no se como paga",10,Juncos,Cajas,"+1 (787) 595-3186",1,2015-03-18T01:01:08.085Z,15
+1,,2015-03-13T07:54:55.036Z,0,06/13/2015,Personal,"Zaida  Vega/Nuevo",cGzp8bmzNz,,10,"Sonadora,Aguas Buenas",Cajas,"+1 (787) 637-4587",1,2015-03-18T13:00:17.020Z,15
+1,,2015-03-22T14:10:01.269Z,0,06/14/2015,Otro,"Jesus / Don Chu / 404962 / 404963",NcLGYkdkBu,???,20,"San Lorenzo",Cajas,"+1 (787) 736-7647",2,2015-03-22T14:10:01.269Z,15
+1,,2015-03-22T14:12:15.452Z,0,06/14/2015,Otro,"Pedro Rosario / Cartero / 517686",AwaK0q0TnP,???,10,"Las Piedras",Cajas,"+1 (939) 579-0659",1,2015-03-22T14:12:15.452Z,15
+1,,2015-03-22T14:13:50.625Z,0,06/15/2015,Otro,"Jose Soto / 407234",iBQUsrqhqP,???,10,Gurabo,Cajas,"+1 (787) 800-6634",1,2015-03-22T14:16:23.043Z,15
+1,,2015-03-22T14:18:59.778Z,0,06/16/2015,Personal,"Jose / Pepe / 517705",5D9ei2cSAu,,10,"Tomas De Castro, Caguas",Cajas,"+1 (939) 645-8792",1,2015-03-22T14:18:59.778Z,15
+1,,2015-03-22T14:21:08.186Z,0,06/18/2015,"Ath Movil","Carlos Rosa / Carlitos Taco / 517798",ZwNgD3R7wc,,10,Caguas,Cajas,"+1 (787) 568-7738",1,2015-03-22T14:21:08.186Z,15
+1,,2015-03-22T14:23:02.285Z,0,06/18/2015,Personal,"Iara / Angel / 517711",YpmRr5pRnr,,10,"El Pueblo, Caguas",Cajas,"787-943-8925 / 787-479-4623",1,2015-03-22T14:23:02.285Z,15
+1,,2015-03-18T13:27:16.281Z,0,06/21/2015,Personal,"Javier Rivera/407238/407236",nTsMj4g0Ui,,20,"Hormigas, Caguas",Cajas,"+1 (787) 644-8852",2,2015-03-20T13:33:05.393Z,15
+1,,2015-03-22T14:24:30.323Z,0,06/21/2015,Personal,"Felix / 407196",52N1SwXwfL,,10,"San Lorenzo",Cajas,"+1 (787) 396-2968",1,2015-03-22T14:24:30.323Z,15
+1,,2015-03-22T14:26:16.406Z,0,06/25/2015,Personal,"Manuel Davila / 404833",gzMDOQr4Hf,,10,Juncos,Cajas,"787-559-1642 / 787-559-3688",1,2015-03-22T14:26:16.406Z,15
+1,,2015-03-13T07:54:54.905Z,0,06/25/2015,Otro,"Mi Mai / Caja Sala / 404832",8dA4FKLyFD,"No Paga",0,Bm,Cajas,"+1 (787) 402-2810",1,2015-03-23T02:07:52.186Z,15
+1,,2015-03-22T14:27:43.130Z,0,06/26/2015,Correo,"Juan Navarro / 517643",nigbIYnuxf,,10,Fajardo,Cajas,"+1 (787) 556-5847",1,2015-03-22T14:30:43.571Z,15
+1,,2015-03-19T17:50:11.008Z,0,06/28/2015,Personal,"Ferdinan Reyes Merced/517769",kwkzJYaxjl,,10,"Las Orquideas, Aguas Buenas",Cajas,"+1 (787) 306-8525",1,2015-04-06T14:24:54.810Z,15
+1,,2015-03-22T14:28:32.691Z,0,06/28/2015,Otro,"Hector Contreras / 517722",L4FM4bWas8,???,10,Gaynabo,Cajas,"+1 (787) 400-2022",1,2015-03-22T14:32:11.829Z,15
+1,,2015-03-13T07:54:54.754Z,0,06/28/2015,Personal,"Julio Concepcion / Hijo / 407180",M9Pc8LUMos,,10,"Rio Verde, Caguas",Cajas,"+1 (787) 685-3062",1,2015-03-22T14:36:23.002Z,15
+1,,2015-03-19T18:22:01.175Z,0,07/02/2015,Correo,"Maria Antonia Rodriguez (Toñita) 517679",M1IOYmBlUy,,10,"San Lorenzo",Cajas,"017872054000 / 787-736-7168",1,2015-04-06T12:23:34.317Z,15
+1,,2015-03-22T19:44:13.326Z,0,07/02/2015,Paypal,"Danny Casillas / 517675",x2PNnkIiov,,10,"Las PIedras",Cajas,"+1 (787) 635-9660",1,2015-03-22T19:44:13.326Z,15
+1,,2015-03-18T13:33:47.829Z,0,07/04/2015,Paypal,"Hector Reyes Cruz /  Nuevo",9BvTl52N2h,,10,Juncos,Cajas,01-787-373-9787,1,2015-04-04T15:22:53.335Z,15
+1,,2015-03-18T00:52:50.791Z,0,07/05/2015,Otro,"Dominga Carvajal/Nuevo",IzzzKSowjE,"Aun No se como paga",10,"Savarona, Caguas",Cajas,"+1 (787) 507-7038",1,2015-04-06T14:59:32.228Z,15
+1,,2015-03-13T07:54:55.309Z,0,07/06/2015,Personal,"Eddie Jimenez / 371420",LGrYiEwtga,,10,"Boneville, Caguas",Cajas,"+1 (787) 525-7316",1,2015-03-22T19:45:14.100Z,15
+1,,2015-03-13T07:54:55.468Z,0,07/08/2015,Otro,"Juan / Ac / 405003",qbaQSCTKSV,"No Paga",0,"Veredas, Gurabo",Cajas,"+1 (787) 627-3385",1,2015-03-22T19:47:41.447Z,15
+1,,2015-03-13T07:54:55.855Z,0,07/10/2015,Personal,"Oscar (Zory) /517691",rOBzt3s9JG,,10,"Villa Del Carmen, Caguas",Cajas,"+1 (787) 226-7700",1,2015-03-22T19:49:18.856Z,15
+1,,2015-03-17T23:38:36.880Z,0,07/12/2015,Personal,Olga/Nuevo,96AVeinLet,,10,BM,Cajas,"+1 (787) 258-1009",1,2015-03-17T23:38:36.880Z,15
+1,,2015-03-13T07:54:55.533Z,0,07/12/2015,Personal,"Lidya Vazquez/ Carlos Rosa Padre/Nuevo",CEa1Hr8JX7,,10,Caguas,Cajas,01-787-469-9721,1,2015-04-04T15:35:36.321Z,15
+1,,2015-03-13T07:54:55.477Z,0,07/14/2015,Personal,"Hector Carrera/Nuevo",L5b7Dn7E8C,,10,"Veredas Gurabo",Cajas,"+1 (787) 617-8386",1,2015-03-18T12:37:48.046Z,15
+1,,2015-03-22T19:51:36.659Z,0,07/14/2015,Otro,"Angel Garcia / 407255",x1dOnP02AH,???,10,"Trujillo Alto",Cajas,"+1 (787) 463-6782",1,2015-03-22T19:53:03.039Z,15
+1,,2015-03-22T19:54:20.361Z,0,07/15/2015,Otro,"Jose Raul Pena / 517741",QFTPFWlQVJ,???,10,Humacao,Cajas,"+1 (787) 649-7822",1,2015-03-22T19:54:20.361Z,15
+1,,2015-03-22T19:57:54.207Z,0,07/16/2015,Paypal,"Jose Marcano / All Motion / 404998",b0EHoCl9Yd,,10,"Jardines, Caguas",Cajas,017872226738,1,2015-04-04T19:12:20.439Z,15
+1,,2015-03-22T20:00:05.201Z,0,07/16/2015,Personal,"Rafael Ayala / 517789",qHIgkMsB99,,10,"Camino Verde, Aguas Buenas",Cajas,"+1 (787) 313-4407",1,2015-03-22T20:00:05.201Z,15
+1,,2015-03-13T07:54:54.635Z,0,07/18/2015,Paypal,"Iris Casilla / Edgardo Antonio Cruz / 517676",g5j9Vh9Bl2,,20,"Las Piedras","Caja, Nano","787-912-5858 / 787-718-9259 / 787-733-5248",1,2015-04-04T17:26:25.165Z,15
+1,,2015-03-18T19:44:15.019Z,0,07/18/2015,Paypal,"Iris Casilla/ Edgardo Antonio Cruz / Mama / 517674",fKgB019yLy,,20,"Las Piedras","Caja, Nano","01-787-718-9259,00-787-912-5858, 00-787-733-5248",1,2015-04-04T17:26:38.589Z,15
+1,,2015-03-22T20:01:08.719Z,0,07/18/2015,Otro,"Ricardo Diaz / 517704",boT3GVHbrC,???,10,Cayey,Cajas,"+1 (787) 692-2123",1,2015-03-22T20:03:58.103Z,15
+1,,2015-03-22T20:06:04.726Z,0,07/19/2015,Personal,"David / Nelly / Caja Papa / 517800",G2q7Jz2MWb,,10,"Turabo Gardens, Caguas",Cajas,"+1 (787) 585-0566",1,2015-03-22T20:06:30.315Z,15
+1,,2015-03-18T02:41:42.096Z,0,07/23/2015,Paypal,"Noemi Ortiz / Lemuel /407118",IjWUIZDrHM,,10,Cayey,Cajas,"+1 (787) 299-2268",1,2015-03-23T18:51:40.158Z,15
+1,,2015-03-22T20:12:01.986Z,0,07/25/2015,Personal,"Rey / Emily / Carmin / 517825 / 517776 / 407185",pp1XBnabqd,,30,"Turabo Gardens, Caguas",Cajas,"787-513-7523 / 787-595-1974",3,2015-03-22T20:12:01.986Z,15
+1,,2015-03-22T20:13:45.932Z,0,07/25/2015,Paypal,"Berto / 405004",JF9lilaY2W,,10,"Humacao, 3 Monjitas",Cajas,"+1 (787) 423-8746",1,2015-03-22T20:13:45.932Z,15
+1,,2015-03-22T20:15:12.912Z,0,07/25/2015,Paypal,"Jose Luis Cruz / 517774",Mtoe5HGucO,,10,Yabucoa,Cajas,"+1 (787) 613-9622",1,2015-03-22T20:16:26.785Z,15
+1,,2015-03-13T07:54:54.763Z,0,07/25/2015,Correo,"Sandra Miranda / 517842",wrZorsjHxe,,10,Orocovis,Cajas,"+1 (787) 207-4842",1,2015-03-23T19:53:34.111Z,15
+1,,2015-03-20T21:20:20.824Z,0,07/27/2015,Correo,"Jennie Pazo / Eduardo / 517804 / 517805",YwutOnot06,,20,Carolina,Cajas,"787-646-3910 / 787-646-9199",2,2015-04-02T00:28:04.511Z,15
+1,,2015-03-19T00:39:36.807Z,0,07/28/2015,"Ath Movil","Luis Rolon / 517729 / Carlos Rosa",LDb2p37cNY,,10,"Hannas, Bairoa",Cajas,"+1 (787) 438-1266",1,2015-03-29T01:01:30.106Z,15
+1,,2015-03-22T20:17:49.562Z,0,07/28/2015,Otro,"Eliot Melendez / 407150",wh7Shh54ok,???,20,"Carr #31, Juncos , Naguabo","Caja, Mach Tv",017876431089,1,2015-04-04T20:48:13.963Z,15
+1,,2015-04-02T00:21:34.199Z,0,08/01/2015,Personal,"Alfred Perez / Nuevo",5JedFzYEC6,,10,"Las Orquideas, Aguas Buenas",Cajas,"+1 (787) 696-5565",1,2015-04-02T00:21:34.199Z,15
+1,,2015-03-13T07:54:55.151Z,0,08/05/2015,Personal,"Loyda Contreras / 517682",hTgQaO98Tu,,10,"San Lorenzo",Cajas,"+1 (787) 590-1344",1,2015-03-22T20:22:41.079Z,15
+1,,2015-03-13T07:54:55.415Z,0,08/08/2015,Correo,"Joel Pagan/Nuevo",HGbMfgdYdW,,10,Humacao,Cajas,"+1 (787) 616-6545",1,2015-03-18T01:22:28.338Z,15
+1,,2015-03-13T07:54:55.765Z,0,08/09/2015,Personal,"Maritza / Jimmy / 517758",0UJOIacbku,,10,"Altos de la Fuente, Caguas",Cajas,"+1 (787) 638-3695",1,2015-03-22T20:28:41.683Z,15
+1,,2015-03-22T20:22:19.216Z,0,08/13/2015,Otro,"Michael Graciani / 371451",zIOpewTcmp,???,10,Arroyo,Cajas,"+1 (787) 955-9456",1,2015-03-23T00:24:00.592Z,15
+1,,2015-03-22T20:27:47.189Z,0,08/18/2015,Personal,"David / Nelly / Caja Sala / 517721",YoEq16qFC1,,10,"Turabo Gardens, Caguas",Cajas,"1-787-638-6213 / 1-787-585-0566",1,2015-03-22T20:31:21.613Z,15
+1,,2015-03-18T01:52:41.845Z,0,08/27/2015,Personal,"Carlos Burgos/Nuevo",E3yRkPzJtc,,10,"Santa Barbara, Gurabo",Cajas,"+1 (787) 938-7866",1,2015-03-18T01:52:41.845Z,15
+1,,2015-03-13T07:54:54.430Z,0,09/01/2015,Otro,"Antonio / 404999",mw4xixC82Y,???,10,Humacao,Cajas,"+1 (787) 455-4887",1,2015-03-22T20:34:31.322Z,15
+1,,2015-03-13T07:54:55.756Z,0,09/01/2015,Otro,"Junior Mi Pai / 517762 / 517763",sDOoJE9h1y,"No Paga, Papa Yamil",0,"Valle Tolima, Caguas",Cajas,"+1 (787) 360-2250",2,2015-03-23T00:58:27.886Z,15
+1,,2015-03-13T07:54:55.652Z,0,09/08/2015,Personal,"Joel Perez / 404968",GPLRlO193N,,10,Bayamon,Cajas,"+1 (787) 221-9938",1,2015-03-22T20:42:20.444Z,15
+1,,2015-03-13T07:54:55.661Z,0,09/08/2015,Personal,"Jay / 405006 / 405007",WlX6KZ7zCa,,20,Gurabo,Cajas,"+1 (787) 463-4373",2,2015-03-22T20:46:10.280Z,15
+1,,2015-03-22T20:36:59.804Z,0,09/11/2015,Otro,"Frankie Nieves / 371395",O9RgnFJTFS,???,10,"Toa Alta",Cajas,"+1 (787) 425-9397",1,2015-03-22T20:54:09.262Z,15
+1,,2015-03-22T20:38:05.488Z,0,09/17/2015,Personal,"Harry / Toby / 407121",OmmIUBJ1sI,,10,Juncos,Cajas,"+1 (787) 615-6010",1,2015-03-22T20:55:51.917Z,15
+1,,2015-03-23T01:11:46.779Z,0,09/17/2015,Personal,"David / Nelly / Caja de Betsy Hija / 517788",ioNcIFmgv4,,10,,Cajas,31-787-585-0566,1,2015-03-23T22:57:48.738Z,15
+1,,2015-03-22T20:40:40.050Z,0,09/21/2015,Correo,"Osvaldo / Azalea / 407239",DdblN5kehZ,,10,"Villa Espana, Bayamon",Cajas,"787-454-0920 / 787-740-0881 / 787-316-5509",1,2015-03-22T20:57:01.059Z,15
+1,,2015-03-22T20:47:26.580Z,0,09/24/2015,Personal,"Feliciano / 517787",6amrELNcHr,,10,"Villa Rey 4ta, Caguas",Cajas,"+1 (939) 640-8597",1,2015-03-22T20:57:43.547Z,15
+1,,2015-03-22T20:49:06.306Z,0,09/25/2015,Otro,"Javier Neris / 406680",afzNMB0U06,???,10,Cidra,Cajas,"+1 (787) 678-7800",1,2015-03-22T20:59:34.144Z,15
+1,,2015-03-13T07:54:54.308Z,0,09/25/2015,Personal,"Neris / Sala / 517670",3yfC9ylgxI,,10,"Villa Rey, Caguas",Cajas,"+1 (787) 435-5184",1,2015-03-22T21:02:26.363Z,15
+1,,2015-03-19T00:23:42.836Z,0,09/28/2015,Paypal,"Alfred Campos/407213",OrGh5RPtTk,,10,"Tejas, Las Piedras",Cajas,"+1 (787) 242-6889",1,2015-04-01T17:51:06.067Z,15
+1,,2015-03-22T20:58:58.987Z,0,09/29/2015,Otro,"Pablo / HIma / 517661",AaQ7vhPePv,"No Paga",0,"Turabo Gardens, Gurabo",Cajas,"+1 (787) 910-0988",1,2015-03-22T21:04:20.464Z,15
+1,,2015-03-22T21:01:09.545Z,0,09/29/2015,Otro,"Juan Ramos / 406656",P08WhwxsYy,???,10,"Cidra, Canovanas",Cajas,"+1 (787) 239-0289",1,2015-03-22T21:05:46.481Z,15
+1,,2015-03-13T07:54:54.481Z,0,10/01/2015,Otro,"Sixto Rodriguez / 406638",0enU1w4Zvd,???,10,Aguadilla,Cajas,"+1 (787) 390-1263",1,2015-03-22T21:07:48.632Z,15
+1,,2015-03-22T21:10:38.616Z,0,10/04/2015,Otro,"Jorge L Hernadez / Caja Sala / 406678",Yb7oUm0rKq,???,10,"Bo, Mula, Aguas Buenas",Cajas,01-787-221-2137,1,2015-03-22T21:11:24.124Z,15
+1,,2015-03-13T07:54:54.231Z,0,10/1/2015,Personal,"Peyo Navarro/Pedro Merced/Francisca/407132",nm98p1qjsQ,,10,"Gurabo,Navarro",Cajas,"+1 (787) 568-2984",1,2015-03-28T23:51:36.654Z,15
+1,,2015-03-22T21:13:05.182Z,0,10/19/2015,Otro,"Eliezer Cruz / 406645",gDMgRnk2Dl,???,10,Arroyo,Cajas,"+1 (787) 438-2251",1,2015-03-22T21:13:05.182Z,15
+1,,2015-03-22T21:14:32.302Z,0,10/22/2015,Personal,"Lcdo Juan Correa / 371417",o3AR8rnPMf,,10,"Aguas Buenas",Cajas,"+1 (787) 632-1027",1,2015-03-22T21:14:32.302Z,15
+1,,2015-03-23T01:21:04.356Z,0,10/25/2015,Otro,"Nelson Hernandez / Blacky / 407187",bggKChuHox,"No Paga",0,Gurabo,Cajas,"+1 (787) 547-8024",1,2015-03-23T01:21:04.356Z,15
+1,,2015-03-23T01:28:45.381Z,0,10/27/2015,Otro,"Jahny Compay / Casa Mama / 407170",JR02YEQ282,"No Paga",0,BM,Cajas,"01- 939-245-2925",1,2015-03-23T01:28:45.381Z,15
+1,,2015-03-22T21:16:41.770Z,0,10/28/2015,Otro,"Jose Marcano / Abuelo /406650",w6Rn976mkj,???,10,Cidra,Cajas,"+1 (787) 739-0555",1,2015-03-22T21:16:41.770Z,15
+1,,2015-03-23T01:31:44.557Z,0,10/28/2015,Otro,"Mark Figueroa / 407158",u4TYCXGKfR,"No Paga",0,"Turabo Gardens, Caguas",Cajas,"+1 (787) 689-7379",1,2015-03-23T01:31:44.557Z,15
+1,,2015-03-13T07:54:54.553Z,0,11/01/2015,Otro,"Luis Miranda / 517833",rfRdWXl9jy,???,10,Aibonito,Cajas,"+1 (787) 595-1061",1,2015-03-22T21:18:57.425Z,15
+1,,2015-03-23T01:16:06.366Z,0,11/04/2015,Otro,"Yamil / Cuarto / 407257",S3YMpw0JtM,"No Paga",0,"Aguas Buenas",Cajas,01-787-370-9556,1,2015-03-23T01:16:06.366Z,15
+1,,2015-03-13T07:54:55.266Z,0,11/05/2015,Otro,"Jorge Villarini / Aeronet / 406675 / 406674",b08vQ4dx2j,???,20,Guaynabo,Cajas,"+1 (787) 410-1260",2,2015-03-22T21:20:36.115Z,15
+1,,2015-03-13T07:54:55.730Z,0,11/09/2015,Otro,"Marisol / 371441 / 371442 / 407125",BmcqaRa13J,"No Paga, Se Hizo Intercambio Estacion para el Internet",0,"Sonadora, Aguas Buenas",Cajas,"+1 (787) 222-8997",3,2015-03-22T23:27:20.371Z,15
+1,,2015-03-22T21:22:21.108Z,0,11/11/2015,Otro,"Pedro Juan Rosario / 407241",pTImhXIGMc,???,10,Fajardo,Cajas,"+1 (787) 218-6870",1,2015-03-22T21:22:21.108Z,15
+1,,2015-03-23T01:18:01.415Z,0,11/11/2015,Paypal,"Juan Pedraza / 517646",QkhZWyP6Sl,,10,Humacao,Cajas,"+1 (787) 209-8860",1,2015-03-23T01:18:16.307Z,15
+1,,2015-03-22T21:24:46.680Z,0,11/21/2015,Otro,"Dennis Alvarado / 517655 / 407229",A6vUE7aCjp,"No Paga Cajas",0,"Sonadora, Aguas Buenas",Cajas,017872055590,2,2015-04-04T16:45:50.676Z,15
+1,,2015-03-22T21:27:00.142Z,0,12/01/2015,Otro,"Dr Juan Carlos / Hima / 371372",DRBFAvqfAp,"Paga en Hima",10,"Hacienda San Jose, Caguas",Cajas,"+1 (787) 485-0419",1,2015-03-22T21:27:00.142Z,15
+1,,2015-03-13T07:54:55.082Z,0,12/04/2015,Otro,"William Marrero / 371410",hkZJ1TiZbn,???,10,Comerio,Cajas,"+1 (413) 386-8868",1,2015-03-22T21:29:37.024Z,15
+1,,2015-03-13T07:54:55.506Z,0,12/07/2015,Otro,"Jahny (Compay) / Caja de su Casa / 517688",pIXR2UFIOI,"No Paga",0,BM,Cajas,"11 (939) 245-2925",1,2015-03-23T01:29:23.896Z,15
+1,,2015-03-13T07:54:55.946Z,0,12/11/2015,Paypal,"Maria De Los Angeles/Nuevo",jjAASRd6gM,,10,Guaynabo,Cajas,"+1 (787) 920-6237",1,2015-03-18T01:45:18.841Z,15
+1,,2015-03-23T02:28:45.650Z,0,12/11/2015,Otro,"Jose Figueroa / El Goldillo / 517693",SkbH88MQQL,"No Paga",10,Naguabo,Cajas,"+1 (787) 436-2972",1,2015-03-23T02:28:45.650Z,15
+1,,2015-03-22T21:31:12.755Z,0,12/12/2015,Otro,"Alexis / 407169",VL3n9XXi2d,???,10,"El Senorial, Carolina",Cajas,"+1 (787) 632-2400",1,2015-03-22T21:31:12.755Z,15
+1,,2015-03-22T21:33:04.059Z,0,12/15/2015,Otro,"Carlos Jimenez / 517703",Xftgv8KddD,???,10,Cayey,Cajas,"+1 (939) 259-9920",1,2015-03-22T21:33:04.059Z,15
+1,,2015-03-13T07:54:54.521Z,0,12/15/2015,Otro,"Miguel Ramos / 517672",uEbF8obJnL,"No Paga, Intercambio Estacion de Internet",0,Caguas,"Caja,Internet 3M","+1 (787) 409-3036",1,2015-03-22T23:40:09.411Z,15
+1,,2015-03-22T21:34:30.703Z,0,12/17/2015,Paypal,"Liza Fournier / 517709",0uKIVaVIqT,,10,Ciales,Cajas,"+1 (787) 239-6413",1,2015-03-24T23:40:39.066Z,15
+1,,2015-03-22T21:36:22.599Z,0,12/19/2015,Otro,"Claude / Karate / 517801",BjakRm2XKQ,"No Paga",0,"Sonadora, Aguas Buenas",Cajas,"+1 (787) 241-1055",1,2015-03-22T21:36:22.599Z,15
+1,,2015-03-22T23:18:49.312Z,0,12/30/2015,Otro,"Cano / Ivone / ",1TB7UDYqR6,"No Paga",10,"Villa Alegre, Gurabo",Cajas,"+1 (787) 448-1947",1,2015-03-22T23:18:49.312Z,15
+1,,2015-03-22T21:38:19.973Z,0,12/31/2015,Otro,"Miguel Borrero / 517742",BjULRH1ukc,???,10,Ponce,Cajas,"+1 (787) 298-4146",1,2015-03-22T21:38:19.973Z,15
+1,1,2015-03-13T07:54:54.223Z,0,3/26/15,Personal,"Luis Rivera",r9sGZ7uABg,8,20,Yabucoa,"Match TV",(787)266-8247,1,2015-03-13T07:54:54.223Z,15
+1,"Jardines de",2015-03-13T07:54:54.249Z,0,3/29/15,Personal,"Roberto Rivera",BWOVUk2XF7,8,20,Gurabo,"Match TV",(787)426-3620,2,2015-03-13T07:54:54.249Z,15
+1,,2015-03-23T01:42:09.770Z,0,4/16/2015,Paypal,"Jesus / Luz Gomez / 407225",2a5Y5O0JH4,,10,Juncos,Cajas,"+1 (787) 501-6505",1,2015-03-23T02:51:42.529Z,15
+1,,2015-03-23T01:43:46.021Z,0,4/17/2015,Personal,"Javally / Junito / 407219 / 407218",V4mGJVqX7E,,20,"Horizonte, Gurabo, BM",Cajas,"+1 (787) 586-6831",2,2015-03-24T19:19:56.209Z,15
+1,,2015-03-18T02:13:50.530Z,0,4/18/2015,Paypal,"Edwin Ramos (Buster)/407144",fgFYFXAs7x,,10,Gurabo,Cajas,"+1 (787) 340-9790",1,2015-03-18T22:33:04.985Z,15
+1,,2015-03-18T02:20:26.217Z,0,4/18/2015,Paypal,"Oscar Rivera/405015",2Vq3tQSdUH,,10,Carolina,Cajas,787-225-9332/787-518-0206,1,2015-03-23T02:49:47.082Z,15
+1,,2015-03-18T02:27:55.985Z,0,4/18/2015,Paypal,"Pedro Benitez (Peter)/517636",M0a8i6fZTT,,10,"Bo, Jaguas, Gurabo",Cajas,0178721544451,1,2015-04-06T20:14:02.277Z,15
+1,,2015-03-18T02:30:35.799Z,0,4/18/2015,Personal,"Angel Lebron/517637/517638",Wsj4p18WXo,,20,"Idamaris, Caguas",Cajas,"+1 (787) 448-7225",2,2015-03-18T16:28:12.325Z,15
+1,,2015-03-18T02:33:47.533Z,0,4/19/2015,Otro,"Anthony Chango/371406",9yA5zV9lwv,"Paga en Hima",10,Caguas,Cajas,"+1 (787) 358-3002",1,2015-03-21T01:43:41.182Z,15
+1,,2015-03-18T02:37:57.273Z,0,4/19/2015,Personal,"Billy Roque/371401/371436",5u3f6neiWu,,20,"Urb,Jardines, Caguas BM",Cajas,"+1 (787) 448-4806",2,2015-03-18T23:09:48.078Z,15
+1,,2015-03-18T03:00:05.841Z,0,4/20/2015,Paypal,"Miguel/ Amaris Acosta/405016",iqZj9rC9Hw,,10,"San Lorenzo",Cajas,"+1 (787) 586-6846",1,2015-03-18T04:46:32.554Z,15
+1,,2015-03-13T07:54:54.498Z,0,4/20/2015,Paypal,"Omar Garcia/Emilio Rios/371384/371385",pbDWR47nuT,,20,"Vega Alta, 3 Monjitas",Cajas,017873777122,2,2015-04-04T16:40:36.374Z,15
+1,,2015-03-18T13:37:33.414Z,0,4/21/2015,Otro,"Myrna Mama Marelene/407164/517807",mBoxhLPIci,"Paga en Hima",20,"Turabo Gardens, Caguas",Cajas,"+1 (787) 595-2086/787-744-1156",2,2015-03-21T01:44:26.311Z,15
+1,,2015-03-18T18:52:38.323Z,0,4/22/2015,"Ath Movil","Joshua Valentin/371444",MyX5pJRAKT,,10,Juncos,Cajas,"+1 (787) 531-2879",1,2015-03-23T02:54:09.788Z,15
+1,,2015-03-18T18:56:29.385Z,0,4/22/2015,Personal,"Vilmarie Del Valle/371454",nUWIVGBwiN,,10,"Urb, Palma Sola, Aguas Buenas",Cajas,"+1 (787) 469-7512",1,2015-03-18T18:58:23.177Z,15
+1,,2015-03-18T19:07:04.495Z,0,4/22/2015,Paypal,"Emilio Rios/407200/407199/407198",X1wGnREUjs,,40,"Villa Keneddy, Santurce","3 Cajas, Mach Tv","017877287889 / 787-906-6506",1,2015-04-04T20:52:31.227Z,15
+1,,2015-03-18T19:08:46.850Z,0,4/22/2015,Personal,"Carmen Campos (Grilla)/517809/517799",qUTLvNIqjz,,20,BM,Cajas,"+1 (787) 359-4826",2,2015-03-23T02:52:33.020Z,15
+1,,2015-03-17T23:51:36.676Z,0,4/23/2015,Personal,"Wilfredo Alvarez / Nuevo",nYQSaa3jzP,,20,Cupey,"Caja, Nano",017873705047,1,2015-04-04T18:39:46.570Z,15
+1,,2015-03-18T19:22:37.780Z,0,4/23/2015,Paypal,"Pedro Alberto Castro/371419",nFaYR92XCD,,10,Carolina,Cajas,"+1 (787) 423-3481",1,2015-03-23T19:11:39.852Z,15
+1,,2015-03-18T19:29:57.031Z,0,4/23/2015,Personal,"Crystal Arroyo / 371368",MzQ6mdeJUZ,,20,BM,"Caja,Internet 1M",017874460197,1,2015-04-04T19:51:46.237Z,15
+1,,2015-03-18T19:53:55.976Z,0,4/23/2015,"Ath Movil","Jose Perez / 517803",QESqudpOmR,,10,"Las Carolinas, Caguas",Cajas,"+1 (787) 216-4398",1,2015-03-23T03:13:12.944Z,15
+1,,2015-03-18T19:57:48.375Z,0,4/24/2015,Otro,"Carlina Mojica/517813",a4eBRHe7sA,???,10,"Idamaris, Caguas",Cajas,"+1 (787) 717-6993",1,2015-03-24T19:15:45.011Z,15
+1,,2015-03-18T20:46:10.260Z,0,4/24/2015,Paypal,Roberto/Waleska/517719,Dq64FVZec1,,10,"Urb, Palma Solas, Aguas Buenas",Cajas,787-643-7890/787-238-6563,1,2015-03-23T23:04:24.195Z,15
+1,,2015-03-18T21:00:52.618Z,0,4/24/2015,Paypal,"Daniel Hernandez/ Viviangelie Ramirez / Hijo/517634",p5jVRxaRrl,,10,Catano,Cajas,"+1 (787) 247-4834",1,2015-03-23T19:05:07.429Z,15
+1,,2015-03-18T21:16:59.007Z,0,4/24/2015,Personal,"Reynaldo Dominguez / ??????  / 404960 ",GYnOtDMzNe,,20,"Urb, Sta. Juana,Caguas",Cajas,"+1 (787) 922-8707",2,2015-03-29T16:33:15.883Z,15
+1,,2015-03-18T21:18:47.132Z,0,4/24/2015,Personal,"Victor Cruz (Tum Tum)/406635/406632",79SqmYZ33q,,20,"Turabo Gardens, Caguas",Cajas,"+1 (939) 247-2733",2,2015-03-25T13:54:26.162Z,15
+1,,2015-03-18T21:28:32.252Z,0,4/24/2015,Paypal,"Ricardo Figueroa/407123",zuidl3aASg,,10,,Cajas,"+1 (939) 630-3059",1,2015-03-27T14:58:27.758Z,15
+1,,2015-03-18T21:31:09.761Z,0,4/24/2015,Paypal,"Emmanuel De Jesus/407188",Fg6LAGmWeX,,6,"San Lorenzo",Cajas,"+1 (787) 219-6432",1,2015-03-23T18:02:37.177Z,15
+1,,2015-03-18T21:53:06.853Z,0,4/25/2015,Personal,"Leonel Hernandez / 407220",JwQkxBZuQm,,35,"Urb Villa Del Carmen, Caguas","Caja,Internet 3M",019392086544,1,2015-04-04T19:52:25.837Z,15
+1,,2015-03-18T22:06:15.140Z,0,4/25/2015,Otro,"Sharon Ortega/517725",aAOUWgZAI8,"Paga en Hima",10,"Urb, Parque Del Monte Caguas",Cajas,787-675-4780/787-421-3029,1,2015-03-19T00:15:59.047Z,15
+1,,2015-03-18T22:16:59.493Z,0,4/25/2015,Paypal,"Orlando Castro/406688",61SLKF2s9a,,10,Humacao,Cajas,"+1 (787) 514-5866",1,2015-03-27T14:59:43.224Z,15
+1,,2015-03-18T22:21:14.605Z,0,4/25/2015,Personal,"Efrain Hernandez / 404160",DMpUKh1abQ,,35,"Las Orquideas, Aguas Buenas","Caja,Internet 3M",017873429134,1,2015-04-04T19:53:05.601Z,15
+1,,2015-03-18T22:36:26.562Z,0,4/26/2015,Otro,"Jonathan Adorno/371411",m3QpHJkCKP,???,10,"Rio PIedras",Cajas,"+1 (787) 619-7946",1,2015-03-27T14:40:23.254Z,15
+1,,2015-03-18T23:17:23.283Z,0,4/26/2015,Personal,"Luis Nieves/517658/517659/371380/517699",sgRweOaV1u,,40,Carolina,Cajas,787-585-0056/787-348-8395,4,2015-03-25T13:33:38.468Z,15
+1,,2015-03-18T23:19:12.694Z,0,4/26/2015,Personal,"Juan Baez / Johny / 517640",C2oQA1KT1l,,10,"Estacion Dimension, Jose Mercado, Caguas",Cajas,"+1 (787) 703-4368",1,2015-03-20T18:53:10.450Z,15
+1,,2015-03-18T14:22:48.187Z,0,4/27/2015,Otro,"Ruben Bonilla",KhLj5EEIrn,"Paypal, Tiene 2 Equipos Rokus",30,"San Lorenzo","Mach Tv,Roku","+1 (939) 280-0690",1,2015-03-27T16:26:05.517Z,15
+1,,2015-03-18T23:22:19.322Z,0,4/27/2015,Personal,"Raquel Castro/517816",jsL1Nsgu8R,,10,Gurabo,Cajas,"+1 (787) 598-7238",1,2015-03-25T20:12:14.258Z,15
+1,,2015-03-18T23:42:14.773Z,0,4/27/2015,Paypal,"Jose De Jesus/ Aixa Hernandez /407159",HijjGSUyo1,,10,Yabucoa,Cajas,"787-439-8038/787-469-1033 Aixa",1,2015-03-27T15:52:06.927Z,15
+1,,2015-03-18T23:53:03.109Z,0,4/27/2015,Paypal,"Ruben/Emilio Rios/407173/407175",b7d8Xa6ph2,,20,"Villa Kenedy, Santurce",Cajas,787-430-5422/787-628-0426,2,2015-03-23T02:58:00.121Z,15
+1,,2015-03-18T23:57:10.619Z,0,4/27/2015,"Ath Movil","Luis Rivera/407177",vUnmLfzR1V,,10,"Ceteneja,Cidra",Cajas,"+1 (787) 922-5741",1,2015-03-25T01:36:25.983Z,15
+1,,2015-03-18T23:59:40.209Z,0,4/27/2015,Paypal,"Hipolito Pena/407179",IuOxL9khsI,,10,Gurabo,Cajas,"+1 (787) 675-3146",1,2015-03-27T14:43:36.225Z,15
+1,,2015-03-19T00:01:45.320Z,0,4/27/2015,Paypal,"Juan Colon (Juanga)/517822/517823",IRiIR7SIEt,,20,"Las Carolinas, Caguas",Cajas,"+1 (787) 512-5052",2,2015-03-27T16:56:28.545Z,15
+1,,2015-03-19T00:14:51.289Z,0,4/27/2015,Personal,"Juan Mariani / Nuevo",cAiXeSbANe,,30,"Villa Rey la 4ta, Caguas",Cajas,"+1 (787) 470-1765",3,2015-03-28T13:59:56.322Z,15
+1,,2015-03-19T00:47:09.785Z,0,4/28/2015,"Ath Movil","Brian Luquis /404974",q4mAOtxH0b,,10,"Condadito, Caguas",Cajas,"+1 (787) 217-4273",1,2015-03-27T20:30:56.733Z,15
+1,,2015-03-19T01:07:20.438Z,0,4/28/2015,Paypal,"Rafael Negron/407246/407244/407243",UrenzM6ulf,,30,"Rio Grande",Cajas,787-550-2214/787-550-2709,3,2015-03-24T11:55:11.764Z,15
+1,,2015-03-13T07:54:54.384Z,0,4/28/2015,Paypal,"Danny Garcia / Yarithza Garcia /  517797",ggSvPjWnIE,,10,"San Lorenzo",Cajas,"+1 (939) 645-4512",1,2015-03-30T04:41:46.752Z,15
+1,,2015-03-19T01:17:34.806Z,0,4/28/2015,Paypal,"Bryan Borges/Lourdes/407231/407230/407228",oNSNjF7d5D,,30,"San Lorenzo",Cajas,"+1 (939) 332-3409",3,2015-03-29T01:00:06.748Z,15
+1,,2015-03-19T01:30:05.743Z,0,4/28/2015,Paypal,"Juan Gonzalez Lugo / 517730 / Delivette Gonzalez ",J6EHQvCkRQ,,10,"Caimito, Caguas",Cajas,01-787-372-3419,1,2015-04-04T14:53:09.110Z,15
+1,,2015-03-19T01:31:30.101Z,0,4/28/2015,Paypal,"Ramon Vega/405000",XZfY6Tm543,???,10,"San Lorenzo",Cajas,"+1 (787) 552-0136",1,2015-03-27T14:53:32.948Z,15
+1,,2015-03-18T00:55:03.984Z,0,4/29/2015,Personal,"Carmen Miranda / Nuevo",ZWyzT0rvp8,,20,"Edificio Puig, Caguas","Caja,Internet 1M",017875177724,1,2015-04-04T19:59:24.583Z,15
+1,,2015-03-19T01:50:29.117Z,0,4/30/2015,Personal,"Michael Rivera/404977",72DbA0w6nk,,10,"Bairoa, Caguas",Cajas,"+1 (787) 964-0392",1,2015-04-06T18:25:27.302Z,15
+1,,2015-03-18T02:04:07.246Z,0,5/1/2015,Personal,"Luis E Escribano/Nuevo",ySJIr9P26P,,10,"Aguas Buenas",Cajas,"+1 (939) 429-5581",1,2015-04-02T00:16:12.313Z,15
+1,,2015-03-13T07:54:54.538Z,0,5/1/2015,"Ath Movil","Miguel Gomez/517738",xlii3CinPT,,10,"Las Piedras",Cajas,"+1 (787) 414-2560",1,2015-03-30T19:55:07.426Z,15
+1,,2015-03-13T07:54:54.438Z,0,5/1/2015,Paypal,"Gerardo Lopez(Primo Matute)/406643",09cwR6hxFu,,10,Caguas,Cajas,"+1 (787) 348-0769",1,2015-03-23T23:05:49.671Z,15
+1,,2015-03-13T07:54:54.562Z,0,5/1/2015,Otro,"Santa Torres/517834",aJF51eVwdv,"Paga en Hima a Travez de Lourdes Red Medica",10,Yabucoa,Cajas,"+1 (787) 617-0246",1,2015-03-28T14:07:58.327Z,15
+1,,2015-03-13T07:54:54.167Z,0,5/1/2015,Personal,"Tania Rivera / 371370 / 517815",cjwkDTgKwA,,30,BM,"2 Cajas,Internet 1M",017879726489,1,2015-04-04T20:04:47.608Z,15
+1,,2015-03-13T07:54:54.266Z,0,5/1/2015,Paypal,"Gineza Gonzalez (Gina)/407224",ydQBaJTJGu,,10,Caimito,Cajas,017879073737,1,2015-04-04T17:14:19.914Z,15
+1,,2015-03-13T07:54:54.300Z,0,5/1/2015,Paypal,"Justo Rodriguez / 517662",8arc36XQj6,,10,Cayey,Cajas,"+1 (787) 678-1009",1,2015-04-02T02:34:51.987Z,15
+1,,2015-03-13T07:54:54.283Z,0,5/1/2015,Correo,"Rosa/ Willie Colon / 517650 / 517649",lGt0MXhRSg,,20,"Tomas de Castro, Caguas",Cajas,017874468264,2,2015-04-04T18:43:13.006Z,15
+1,,2015-03-13T07:54:54.190Z,0,5/1/2015,Personal,"Alberto Hernandez / Nuevo",5twi8fQIzg,,10,"Aguas Buenas",Cajas,"+1 (787) 732-3646",1,2015-04-02T13:49:39.480Z,15
+1,,2015-03-19T16:54:37.933Z,0,5/1/2015,Paypal,"Juan Javier Torres / 517685",hOEyXYjgXr,,10,"Las Piedras",Cajas,"+1 (939) 350-3787",1,2015-04-02T00:05:48.214Z,15
+1,,2015-03-13T07:54:54.240Z,0,5/1/2015,Correo,"Benito Davila/407133",kqfduvr0et,,10,Gurabo,Cajas,"+1 (787) 207-5817",1,2015-03-28T14:37:48.580Z,15
+1,,2015-03-13T07:54:54.257Z,0,5/1/2015,Paypal,"Antonio Borges Santin  / Malyerie Rosario / 407142 / 407141 / 517808 / 404945",mCZG9eEQY8,,40,"San Lorenzo",Cajas,"+1 (787) 206-2504",4,2015-03-29T16:22:28.027Z,15
+1,,2015-03-19T17:21:55.372Z,0,5/1/2015,"Ath Movil","Marta Turull / 407148",R0LQKs2kMA,,10,"Rooms To Go, San Juan",Cajas,"+1 (787) 919-4418",1,2015-04-02T13:28:09.688Z,15
+1,,2015-03-19T17:37:42.436Z,0,5/1/2015,Paypal,"Hector Santiago/407209",e7B6RY89Uk,,10,"Rincon, Cidra",Cajas,"+1 (787) 900-9779",1,2015-03-30T14:02:16.828Z,15
+1,,2015-03-19T17:40:59.689Z,0,5/1/2015,"Ath Movil","Carmen Cotto Omaira / Paulino Vazquez / 407227",y3T1hBIBSJ,,10,Caimito,Cajas,019396427463,1,2015-04-06T12:17:29.826Z,15
+1,,2015-03-19T17:42:14.927Z,0,5/1/2015,Paypal,"Nilsa / Oneil / 406687 / 406685 / Yajaira Cartagena",kALKYfe7YU,,20,Cayey,Cajas,"+1 (787) 557-6494",2,2015-03-28T23:17:12.745Z,15
+1,,2015-03-19T17:44:06.311Z,0,5/1/2015,Paypal,"Oneil / 406689 / Yajaira Cartagena",YDpEA61Qt5,,10,Cayey,Cajas,"+1 (787) 618-8818",1,2015-03-28T23:17:20.873Z,15
+1,,2015-03-13T07:54:54.464Z,0,5/1/2015,Paypal,"Francisco Fonseca/406664",oZ4ZGKUfYo,,10,"San Lorenzo",Cajas,"+1 (787) 975-1121",1,2015-03-28T23:11:24.712Z,15
+1,,2015-03-13T07:54:54.158Z,0,5/1/2015,Otro,"Aileen Maldonado/Hector Diaz/407221/517819/404979",CKwlFFQ8Wu,"Payapl: Tiene 3 cajas y mando a desconectar 1",20,"San Lorenzo",Cajas,"+1 (787) 664-8679",2,2015-04-01T23:56:42.639Z,15
+1,,2015-03-13T07:54:55.567Z,0,5/10/2015,Paypal,"Angel Gonzalez Cortes/",fD2cIjn7dL,,10,"Rio Piedras",Cajas,"+1 (787) 466-8759",1,2015-03-27T14:38:22.151Z,15
+1,,2015-03-13T07:54:55.292Z,0,5/10/2015,Personal,"Brenda Esquilin / Nuevo ",6Ox3w1uOSs,,20,"Santa Elvira, Caguas",Cajas,"+1 (787) 637-2286",2,2015-03-31T01:23:41.020Z,15
+1,,2015-03-13T07:54:55.837Z,0,5/10/2015,Paypal,"Orlando Borges / 371445",oOEVagpdAm,,10,"San Lorenzo",Cajas,019392454944,1,2015-04-07T00:34:49.553Z,15
+1,,2015-03-13T07:54:55.937Z,0,5/12/2015,Paypal,"Daniel Acosta / Nuevo",trf9jnSdQ5,,20,Ceiba,"Caja, Mach Tv",017873540439,1,2015-04-06T12:12:58.825Z,15
+1,,2015-03-20T18:59:38.639Z,0,5/13/2015,Paypal,"Juan Esquilin / 407151",PHxuI1cBQN,,10,Carolina,Cajas,017873674915,1,2015-04-06T12:02:34.746Z,15
+1,,2015-03-13T07:54:55.899Z,0,5/16/2015,Otro,"Ramon Maisonet / 406661",qxhFkD9B7U,???,20,Carolina,"Caja, Mach Tv",017874782274,1,2015-04-07T00:49:01.964Z,15
+1,,2015-03-20T20:12:22.535Z,0,5/16/2015,Otro,"Vicente / 371381 / 371382",uaf22cKoYA,"Paga en Hima",20,Cidra,Cajas,"787-739-9353 / 787-208-8184 / 787-943-5372",2,2015-04-06T23:56:35.904Z,15
+1,,2015-03-20T20:16:01.260Z,0,5/16/2015,"Ath Movil","Amaury Rivera / 406672",kvDfcPC65j,,10,Gurabo,Cajas,"+1 (787) 225-8239",1,2015-03-28T23:18:52.349Z,15
+1,,2015-03-20T20:29:24.397Z,0,5/17/2015,"Ath Movil","Samuel Guzman / 404955 / 371418",TTqjbv4QW0,,20,Cidra,Cajas,"787-595-0382 / 787-595-0852",2,2015-03-23T02:38:35.809Z,15
+1,,2015-03-23T00:30:09.803Z,0,5/17/2015,Personal,"Omar Berrios Mondonguito / 517706",OcT2rOVUMC,,10,BM,Cajas,"+1 (939) 290-0371",1,2015-03-28T19:59:39.747Z,15
+1,,2015-03-13T07:54:54.198Z,0,5/2/2015,Personal,"Tom Escribano / Nuevo",oSRiWKPnyI,,20,"Aguas Buenas",Cajas,"+1 (787) 406-5385",2,2015-04-02T00:17:48.391Z,15
+1,,2015-03-13T07:54:54.687Z,0,5/2/2015,Paypal,"Wanda Machuca/517838",JOXypRg1vp,,10,"Boneville, Caguas",Cajas,"+1 (939) 640-2411",1,2015-03-28T18:14:07.836Z,15
+1,,2015-03-13T07:54:54.718Z,0,5/2/2015,Personal,"Damaris Santos / 517837 / 371367",AS59BXJIHL,,30,"Villa Esperanza, Caguas","2Caja, Nano",017872058818,1,2015-04-04T16:43:17.433Z,15
+1,,2015-03-13T07:54:54.580Z,0,5/2/2015,Paypal,"Jose M Sanchez (Peluche) / 371439",qvvFqk6hr9,,10,"Las Piedras",Cajas,"+1 (787) 309-3175",1,2015-04-03T00:12:03.283Z,15
+1,,2015-03-13T07:54:54.626Z,0,5/2/2015,"Ath Movil","Edgard Joel Cortes Aguallo / 517641",w1dCTzQc8H,,10,"Villa de lRey ",Cajas,017876721808,1,2015-04-06T12:05:27.485Z,15
+1,,2015-03-13T07:54:54.695Z,0,5/2/2015,Personal,"Luis Torres / 517839 / 517840",ynH2BIiVOx,,20,Bairoa,Cajas,017876783548,2,2015-04-06T12:11:52.884Z,15
+1,,2015-03-13T07:54:54.606Z,0,5/2/2015,Paypal,"Angel Ramirez/Viviangelie Ramirez/371378",EfavLGb8mU,,10,Catano,Cajas,"+1 (787) 666-9878",1,2015-04-02T13:18:46.278Z,15
+1,,2015-03-18T13:07:46.935Z,0,5/21/2015,Otro,"Nelly Navarro/371416",fr675j915e,"Paga en Hima",10,"Boneville, Caguas",Cajas,"+1 (787) 934-8236",1,2015-03-25T00:02:56.753Z,15
+1,,2015-03-20T20:48:16.660Z,0,5/21/2015,Paypal,"VickDaney Roldan / 407208 / Vicky",o9Gzb12aM1,,10,"Las Piedras",Cajas,"+1 (787) 470-9020",1,2015-04-03T00:11:18.350Z,15
+1,,2015-03-22T23:37:56.277Z,0,5/21/2015,Personal,"Angel Alicea / 407130 /407174",13ertO0UTP,,20,Yabucoa,Cajas,"+1 (787) 604-0098",2,2015-03-29T00:27:50.709Z,15
+1,,2015-03-18T19:16:03.323Z,0,5/22/2015,Paypal,"Madeline Baez/407204",VodhKayLcJ,,10,"Ciudad Masso, San Lorenzo",Cajas,"+1 (787) 685-7066",1,2015-03-23T03:19:58.490Z,15
+1,,2015-03-18T19:51:37.408Z,0,5/23/2015,"Ath Movil","Sonia Reyes/407191",pJPEFBOpb2,,10,"Villa Kennedy, Santurce",Cajas,"+1 (787) 408-7856",1,2015-03-23T02:36:50.678Z,15
+1,,2015-03-18T20:50:21.281Z,0,5/24/2015,Personal,"Miguel Rosario (Mickey) / 517656",aHCKEo2IqT,,10,"Las Carolinas, Caguas",Cajas,"+1 (787) 633-6203",1,2015-03-25T20:17:15.051Z,15
+1,,2015-03-18T22:11:12.400Z,0,5/25/2015,Correo,"Oscar Jimenez/371415",S11fKDdR3l,,10,"San Lorenzo",Cajas,787-675-8866/787-736-8658,1,2015-03-25T13:51:15.982Z,15
+1,,2015-03-18T22:18:23.121Z,0,5/25/2015,Personal,"Laura Dones/406676 ",8d1rIk5wjA,,10,"Villa Esperanza, Caguas",Cajas,"+1 (787) 628-8079",1,2015-03-25T15:57:12.715Z,15
+1,,2015-03-18T23:35:41.058Z,0,5/27/2015,Correo,"Ildelfonso Diaz (Pumpy)/517810",XvfWgifss9,,10,"Pueblo, Caguas",Cajas,939-325-3300/787-704-7362,1,2015-03-25T15:52:01.534Z,15
+1,,2015-03-19T00:52:36.424Z,0,5/28/2015,Otro,"Alberto Figueroa/517739",ROJ9Blm8KU,???,10,Gurabo,Cajas,"+1 (787) 649-1058",1,2015-03-28T14:43:29.052Z,15
+1,,2015-03-19T01:34:22.171Z,0,5/28/2015,Personal,"Julio Ramos / Maria Magdalena/517829/517830",9Q96iBjlhs,,20,"Jose Mercado,Caguas",Cajas,787-636-4299/787632-6361,2,2015-03-31T12:54:27.970Z,15
+1,,2015-03-18T01:14:51.965Z,0,5/3/2015,Otro,"Jennifer De Jesus/Nuevo",XxMkzeIhgu,"Aun no se como paga",10,"Navarro, Gurabo",Cajas,"+1 (787) 603-7106",1,2015-04-02T21:57:47.275Z,15
+1,,2015-03-13T07:54:54.932Z,0,5/3/2015,Paypal,"Jose Chevere/Yelitza Marquez/Yanitza/404971/404972",CDxnbzAZDD,,20,"Toa Baja",Cajas,"+1 (787) 552-8521",2,2015-04-02T03:34:25.489Z,15
+1,,2015-03-13T07:54:54.824Z,0,5/3/2015,Paypal,"Raul Matos / Emilio Rios / 371403",KbITbhDMnM,,10,"Vega Baja, 3 Monjitas",Cajas,017872437722,1,2015-04-07T00:16:22.943Z,15
+1,,2015-03-13T07:54:54.815Z,0,5/3/2015,Paypal,"Francisco /Tania Calderon/371391/371392",iVFBkAjiU8,,20,Cidra,Cajas,"+1 (787) 678-0999",2,2015-03-30T14:06:04.567Z,15
+1,,2015-03-13T07:54:54.923Z,0,5/3/2015,Correo,"Gregorio Quinones / 517784",j2HDnZhgVV,,10,Cidra,Cajas,"+1 (787) 739-1785",1,2015-03-29T16:37:29.576Z,15
+1,,2015-03-13T07:54:54.798Z,0,5/3/2015,Paypal,"Wilfredo (Freddy)/Javier Valentin/371394",j3LFnaT7bq,,10,Bayamon,Cajas,017876167171,1,2015-04-07T00:14:43.982Z,15
+1,,2015-03-13T07:54:54.832Z,0,5/3/2015,Paypal,"Jose Davila / Milena Davila / 517678 / 517715 / 517756",IrGGtvG0HW,,30,"La Mesa, La Estrella,Caguas",Cajas,017875314834,3,2015-04-04T17:49:28.413Z,15
+1,,2015-03-13T07:54:54.864Z,0,5/3/2015,Paypal,"Javier Reyes / Emilio Rios / 517677",auLiPBoBRQ,,10,"3 Monjitas",Cajas,017873078823,1,2015-04-06T12:01:13.422Z,15
+1,,2015-03-13T07:54:54.855Z,0,5/3/2015,Correo,"Mindy Negron/407137",4adLXRCOp4,,10,"Las Piedras",Cajas,"+1 (787) 914-6817",1,2015-03-31T17:46:37.856Z,15
+1,,2015-03-13T07:54:54.789Z,0,5/3/2015,Paypal,"Evelyn / Luis Pagan/371397/371398",oSmSJIngMf,,20,"Jardines De Gurabo",Cajas,"+1 (787) 533-8005",2,2015-03-30T19:55:55.924Z,15
+1,,2015-03-20T21:55:55.693Z,0,5/30/2015,Otro,"Jorge Cabezudo / 517745",VNiGKKS9sH,???,10,"Navarro, Gurabo",Cajas,"+1 (787) 810-5000",1,2015-03-27T00:05:55.811Z,15
+1,,2015-03-13T07:54:54.958Z,0,5/4/2015,Correo,"Yessenia Fantauchi / Nuevo",htEqxx0RsN,,10,Patillas,Cajas,"+1 (787) 413-6596",1,2015-04-02T00:26:25.769Z,15
+1,,2015-03-18T00:27:41.267Z,0,5/4/2015,Personal,"Lourdes Rodriguez/Nuevo",6upt45shPy,,10,"Tomas Castro, Caguas",Cajas,"+1 (787) 466-0200",1,2015-04-06T14:33:22.091Z,15
+1,,2015-03-13T07:54:54.772Z,0,5/4/2015,"Ath Movil","Ada Cortes/Nuevo",0JL7Szd9By,,10,Cidra,Cajas,"+1 (787) 678-7538",1,2015-03-23T02:42:56.554Z,15
+1,,2015-03-13T07:54:54.967Z,0,5/4/2015,Correo,"Jose Colon/371400",225Th136k1,,10,"Jardines De Gurabo",Cajas,"+1 (787) 644-8269",1,2015-03-28T15:44:45.902Z,15
+1,,2015-03-19T20:04:20.428Z,0,5/4/2015,Paypal,"Miguel Collazo / 517644 / ??????",yi9DI7NwmH,,20,"Las PIedras",Cajas,017876491894,2,2015-04-06T12:01:56.697Z,15
+1,,2015-03-13T07:54:55.099Z,0,5/5/2015,Paypal,"Jose Martinez / 371414",FagamQscUk,,10,Cupey,Cajas,017875129954,1,2015-04-06T12:06:15.896Z,15
+1,,2015-03-13T07:54:55.134Z,0,5/5/2015,Personal,"Heriberto / Brenda Lee Velazquez/517665",4qInSeHuED,,35,"Parque del Monte, Caguas","Caja,Internet 3M","+1 (787) 612-6051",1,2015-03-28T21:18:29.921Z,15
+1,,2015-03-13T07:54:55.258Z,0,5/5/2015,Personal,"Emilio Santiago / 406673",bF7iC4yojM,,10,"Aguas Buenas",Cajas,017877325952,1,2015-04-06T23:11:04.725Z,15
+1,,2015-03-13T07:54:54.597Z,0,5/5/2015,"Ath Movil","Henrry Carrion  (Padre) / 407128 / 407127",sttUpMwfzr,,20,Arecibo,Cajas,017876439332,2,2015-04-06T12:09:23.607Z,15
+1,,2015-03-13T07:54:54.615Z,0,5/5/2015,"Ath Movil","Henrry Carrion /   407154 / 407155",c2kuDQA0hN,,20,Bairoa,Cajas,017876787960,2,2015-04-06T12:09:47.272Z,15
+1,,2015-04-04T16:31:31.140Z,0,5/6/2015,Personal,"Carlos De Leon",LrgIUckVjP,,30,"Hacienda Borinquen, Caguas","2 Mach, Nano","+1 (787) 382-4232",1,2015-04-06T22:52:27.674Z,15
+1,,2015-03-13T07:54:55.361Z,0,5/7/2015,Paypal,"Ivette Rodriguez / Fernando / 371428 / 371429",G8izaRCvmn,,20,"San Lorenzo",Cajas,017873607276,2,2015-04-06T12:13:56.812Z,15
+1,,2015-03-13T07:54:55.819Z,0,5/9/2015,Otro,"Jorge Maisonet / 406636",O6VEVhQ0qC,???,10,Santurce,Cajas,017874694801,1,2015-04-04T21:07:43.164Z,15
+1,,2015-03-13T07:54:55.704Z,0,5/9/2015,"Ath Movil","Carlos Nunez / Charlie / 371433 / 371434",3gelfXy7Ff,,20,"Villa de Castro",Cajas,017873650467,2,2015-04-07T00:36:24.743Z,15
+1,,2015-03-18T00:12:37.590Z,0,6/2/2015,Personal,"Miguel Suarez / Nuevo",LuH8u5ZC8I,,10,"Urb,Santa Cecilia, Caguas",Cajas,01-787-447-5075,1,2015-04-04T14:54:54.651Z,15
+1,,2015-04-02T21:29:18.056Z,0,6/2/2015,Otro,"Roberto Lopez  / Nuevo",By7m9MQn8K,,10,Canovana,Cajas,01-787-361-3263,1,2015-04-04T15:17:36.826Z,15
+1,,2015-03-18T13:50:39.502Z,0,6/21/2015,Paypal,"Bayoan Heredia/406641",hFLiHruvhz,,10,Ponce,Cajas,"+1 (787) 202-4148",1,2015-03-23T02:55:20.042Z,15
+1,1,2015-03-13T07:54:55.053Z,0,6/24/15,Personal,"Migue Collazo",hwIPkTdLJP,8,20,"Las Piedras",Nano,(787)678-1845,2,2015-03-13T07:54:55.053Z,15
+1,,2015-03-13T07:54:54.887Z,0,6/3/2015,Correo,"Thomas Sanchez / 517669",E85paHHycy,,10,"Villas de Gurabo",Cajas,01-787-310-5182,1,2015-04-04T14:51:56.113Z,15
+1,,2015-04-06T18:57:55.795Z,0,6/6/2015,Otro,"Arlene Payano / Nuevo",gpbVYjinZ7,???,10,Cayey,Cajas,017874339662,1,2015-04-06T20:29:55.496Z,15
+1,,2015-03-13T07:54:54.334Z,0,7/1/2015,Personal,"Hill Acosta/517846",C9wUMYsXl9,,10,"Turabo Gardens, Caguas",Cajas,"+1 (787) 604-3533",1,2015-03-31T20:46:20.905Z,15
+1,,2015-03-20T19:07:34.417Z,0,7/13/2015,Paypal,"Samuel Santos / 404970 / Luis Maisonet",cmqULRA4LG,,10,Canovanas,Cajas,017875094181,1,2015-04-06T12:03:47.117Z,15
+1,1,2015-03-13T07:54:55.142Z,0,7/4/15,"Ath Movil","Hector Garcia",px2svLYY35,8,20,10,Internet,(787)715-2171,1,2015-03-14T04:11:59.530Z,15
+1,,2015-03-13T07:54:55.389Z,0,8/7/2015,Personal,"Haydee Figueroa Conrrado / 517680",71bw3U0pud,,10,"San Lorenzo",Cajas,017877154423,1,2015-04-06T12:24:40.315Z,15
+1,1,2015-03-13T07:54:55.873Z,0,9/19/15,Personal,"Nelson Oquendo",WFvR1Jtts3,8,10,"San Lorenzo",Nano,(787)615-7247,1,2015-03-13T07:54:55.873Z,15
