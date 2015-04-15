@@ -213,7 +213,7 @@
                                     ng-hide="verifyDates(item.expiracion, showActive)">
                                     <tr>
                                        <td>{{item.nombre}}</td>
-                                       <td>{{item.expiracion}}</td>
+                                       <td>{{item.expiracion  | date:'yyyy-MM-dd'}}</td>
                                        <td>{{item.servicio}}</td>
                                        <td>{{item.unidades}}</td>
                                        <td>{{item.telefono}}</td>
@@ -676,7 +676,7 @@
                      <h1 class="page-header">Ventas</h1>
                   </div>
                   <!-- /.col-lg-12 -->
-                  <div class="col-lg-8">
+                  <div class="col-lg-12">
 
                      <div class="panel panel-success">
                         <div class="panel-heading">
@@ -716,13 +716,61 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body table-responsive">
                            <div id="graphContainer2">
+                              <h4 id="totalGanancias"></h4>
                               <canvas id="myChartServicios" ></canvas>
                               <div id="graph2Legend"></div>
                            </div>
                         </div>
                         <!-- /.panel-body -->
                      </div>
-                     
+
+                     <div class="panel panel-success">
+                        <div class="panel-heading">
+                           Ganancias
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body table-responsive">
+                           <div class="col-lg-3">
+                              <select ng-model="revenueChartOption" class="form-control" ng-change="changeRevenueChart()">
+                                 <option value="todo">todos</option>
+                                 <option value="0">Enero</option>
+                                 <option value="1">Febrero</option>
+                                 <option value="2">Marzo</option>
+                                 <option value="3">Abril</option>
+                                 <option value="4">Mayo</option>
+                                 <option value="5">Junio</option>
+                                 <option value="6">Julio</option>
+                                 <option value="7">Agosto</option>
+                                 <option value="8">Septiembre</option>
+                                 <option value="9">Octubre</option>
+                                 <option value="10">Noviembre</option>
+                                 <option value="11">Diciembre</option>
+                              </select>
+                           </div>
+                           <div class="col-lg-3">
+                              <select ng-model="revenueYears" class="form-control" 
+                                 ng-options="i as i.year for i in yearList" ng-change="changeRevenueChart()">
+                              </select>
+                           </div>
+                           <div class="col-lg-3">
+                              <select ng-model="revenueChartOptionLapse" class="form-control" ng-change="changeRevenueChart()">
+                                 <option value="diario">Diario</option>
+                                 <option value="semanal">Semanal</option>
+                                 <option value="bisemanal">Bi-Semanal</option>
+                                 <option value="mensual">Mensual</option>
+                                 <option value="anual">Anual</option>
+                              </select>
+                           </div>
+                           <div class="col-lg-3">
+                              <h4 id="totalRevenue"></h4>
+                           </div>
+                           <div id="graphContainer3">
+                              <canvas id="myChartRevenue" ></canvas>
+                           </div>
+                        </div>
+                        <!-- /.panel-body -->
+                     </div>
+
                   </canvas> 
                   </div>            
                </div>

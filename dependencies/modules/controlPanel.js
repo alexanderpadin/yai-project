@@ -39,8 +39,8 @@
                     var today = (new Date($scope.generateDate())).getTime();
                     var lastBacked = (new Date($scope.dateBakcup)).getTime();
 
-                    if(Math.abs(today - lastBacked) > one_day) {
-                        //$scope.generateBackup();
+                    if(Math.abs(today - lastBacked) > one_day * 7) {
+                        $scope.generateBackup();
                     } 
                 })
                 .error(function(data, status) {
@@ -2121,10 +2121,17 @@
         $scope.startingYear = 2015;
         $scope.yearList = [{'year': "todos"}];
         $scope.chartOption = "bisemanal";
+        $scope.revenueChartOption = (new Date()).getMonth();
+        $scope.revenueYears = (new Date()).getFullYear();
+        $scope.revenueChartOptionLapse = "diario";
         $scope.clientsYears;
         $scope.clients = [];
+        $scope.logs = []
+
         var ctx = document.getElementById("myChart").getContext("2d");
         var ctxBar = document.getElementById("myChartServicios").getContext("2d");
+        var ctxRevenue = document.getElementById("myChartRevenue").getContext("2d");
+
         var Linedata = {
             labels: [],
             datasets: [
@@ -2141,6 +2148,25 @@
             ]
         };
         var Bardata = {};
+        var revenueData = {
+            labels: [],
+            datasets: [
+                {
+                    label: "Cantidad de Clientes",
+                    fillColor: "rgba(51, 174, 30,0.2)",
+                    strokeColor: "rgba(51, 174, 30,1)",
+                    pointColor: "rgba(51, 174, 30,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: []
+                }
+            ]
+        };
+
+        var RevenueChartData = [];
+        var realRevenuewData = [];
+        var chartPagoData =[];
         var options = {
             scaleShowGridLines : true,
             scaleGridLineColor : "rgba(0,0,0,.05)",
@@ -2161,9 +2187,44 @@
 
         var options2 = {
             animation: false
-        }
+        };
+        var options3 = {
+            //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+            scaleBeginAtZero : true,
+
+            //Boolean - Whether grid lines are shown across the chart
+            scaleShowGridLines : true,
+
+            //String - Colour of the grid lines
+            scaleGridLineColor : "rgba(0,0,0,.05)",
+
+            //Number - Width of the grid lines
+            scaleGridLineWidth : 1,
+
+            //Boolean - Whether to show horizontal lines (except X axis)
+            scaleShowHorizontalLines: true,
+
+            //Boolean - Whether to show vertical lines (except Y axis)
+            scaleShowVerticalLines: true,
+
+            //Boolean - If there is a stroke on each bar
+            barShowStroke : true,
+
+            //Number - Pixel width of the bar stroke
+            barStrokeWidth : 2,
+
+            //Number - Spacing between each of the X value sets
+            barValueSpacing : 5,
+
+            //Number - Spacing between data sets within X values
+            barDatasetSpacing : 1,
+
+            //String - A legend template
+            legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+        };
         var myLineChart = new Chart(ctx).Line(Linedata, options);
         var myBarChart = new Chart(ctxBar).Pie(Bardata, options2);
+        var revenueChart = new Chart(ctxRevenue).Bar(revenueData, options3);
         var ChartDataNew;
         
         $scope.getAllItems = function(queryLimit, querySkip, first) {
@@ -2332,8 +2393,8 @@
                 $scope.yearList.push(y);
                 year--;
             }
-            
             $scope.clientsYears = $scope.yearList[1];
+            $scope.revenueYears = $scope.yearList[1];
         };
 
         $scope.yearChange = function() {
@@ -2350,6 +2411,330 @@
 
         $scope.plotServicesCharts = function() {
             var services = [];
+            var grandTotal = 0;
+            for(var i = 0 ; i < $scope.clients.length ; i++) {
+                var temp = {
+                    "servicio": $scope.clients[i].servicio,
+                    "precio": $scope.clients[i].pago
+                };
+                grandTotal = grandTotal + $scope.clients[i].pago;
+                services.push(temp);
+            }
+
+            services = services.sort(function(a,b) {
+                  if (a.servicio < b.servicio)
+                     return -1;
+                  if (a.servicio > b.servicio)
+                    return 1;
+                  return 0;
+                });
+
+            var count = 1;
+            var revenue = 0;
+            for(var i = 0 ; i < services.length ; i++) {
+                revenue = revenue + services[i].precio;
+                while((i < services.length - 1) && services[i].servicio == services[i + 1].servicio) {
+                    revenue = revenue + services[i + 1].precio;
+                    count++;
+                    i++;
+                }
+                myBarChart.addData({
+                    value: count,
+                    color: $scope.getRandomColor(),
+                    highlight: "#C69CBE",
+                    label: services[i].servicio + " ($" + $scope.numberWithCommas(revenue) + ")" 
+                });
+                
+                var revenue = 0;
+                count = 1;
+            }
+            document.getElementById('totalGanancias').innerHTML = "Ganancia estimada: <b style='color:#00CC66'>$" + $scope.numberWithCommas(grandTotal) + "</b>";
+            document.getElementById('graph2Legend').innerHTML = myBarChart.generateLegend();   
+        };
+
+        $scope.getRandomColor = function() {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
+
+        $scope.numberWithCommas = function(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        };
+
+        $scope.getLogs = function(queryLimit, querySkip, first) {
+            $http({
+                    method: 'GET',
+                    url: 'https://api.parse.com/1/classes/log',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    params: {
+                        limit: queryLimit,
+                        skip: querySkip,
+                        order: "createdAt"
+                    },
+
+                }).success(function(data, status) {
+                    if (first) {
+                        $scope.logs = data.results;
+                        first = !first;
+                        if ($scope.logs.length == queryLimit) {
+                            querySkip += queryLimit;
+                            $scope.getLogs(queryLimit, querySkip, first);
+                        } else {
+                            for( var i = 0 ; i < $scope.logs.length ; i++) {
+                                var temp = ($scope.logs[i].accion.split(":"))[0];
+                                var separators = ['$', '.'];
+                                if(temp == "Ejecuto Pago") {
+                                    var m = new Date($scope.logs[i].createdAt).getMonth() + 1;
+                                    var d = new Date($scope.logs[i].createdAt).getDate();
+                                    var y = new Date($scope.logs[i].createdAt).getFullYear();
+                                    var tempObj = {
+                                        "date": m+"/"+d+"/"+y,
+                                        "pago": ($scope.logs[i].accion.split('$')[1]).split(".")[0]
+                                    }
+                                    chartPagoData.push(tempObj);
+                                }
+                            }
+                            $scope.plotRevenueData('');
+                        }
+                    } else {
+                        var newQ = data.results;
+                        for (var i = 0; i < newQ.length; i++) {
+                            $scope.logs.push(newQ[i]);
+                        }
+                        if ($scope.logs.length == queryLimit + querySkip) {
+                            querySkip += queryLimit;
+                            $scope.getLogs(queryLimit, querySkip, first);
+                        } else {
+                            for( var i = 0 ; i < $scope.logs.length ; i++) {
+                                var temp = ($scope.logs[i].accion.split(":"))[0];
+                                var separators = ['$', '.'];
+                                if(temp == "Ejecuto Pago") {
+                                    var m = new Date($scope.logs[i].createdAt).getMonth() + 1;
+                                    var d = new Date($scope.logs[i].createdAt).getDate();
+                                    var y = new Date($scope.logs[i].createdAt).getFullYear();
+                                    var tempObj = {
+                                        "date": m+"/"+d+"/"+y,
+                                        "pago": ($scope.logs[i].accion.split('$')[1]).split(".")[0]
+                                    }
+                                    chartPagoData.push(tempObj);
+                                }
+                            }
+                            $scope.plotRevenueData('');
+                        }
+                    }
+                })
+                .error(function(data, status) {
+                    console.log("Error")
+                });
+        };
+
+        $scope.plotRevenueData = function(option) {
+            var amount = 0;
+            for(var i = 0 ; i < chartPagoData.length ; i++) {
+                while(i < chartPagoData.length - 1 && chartPagoData[i].date == chartPagoData[i + 1].date) {
+                    amount += parseInt(chartPagoData[i + 1].pago);
+                    i++;
+                }
+                var temDataChart = {
+                    "pago": amount,
+                    "date": chartPagoData[i].date
+                    };
+                RevenueChartData.push(temDataChart);
+                total = 1;
+                amount = 0;
+            }
+
+            var nowDate = new Date( ((new Date()).getMonth() + 1) + '/' +  ((new Date()).getDate()) + '/' + ((new Date()).getFullYear() ));
+            var startDate = new Date("01/01/2015");
+            var index = 0;
+
+            while(nowDate > startDate) {
+                var tempDate = new Date(RevenueChartData[index].date);
+                if(tempDate.getDate() == startDate.getDate() &&
+                    tempDate.getMonth() == startDate.getMonth() &&
+                    tempDate.getFullYear() == startDate.getFullYear()) {
+                    var temDataChart = {
+                        "pago": RevenueChartData[index].pago,
+                        "date": RevenueChartData[index].date
+                    };
+                    realRevenuewData.push(temDataChart);
+                    index++;
+                    startDate.setDate(startDate.getDate() + 1);
+                } else {
+                    var temDataChart2 = {
+                        "pago": 0,
+                        "date": (startDate.getMonth() + 1) + "/" + startDate.getDate() + "/" + startDate.getFullYear()
+                    };
+                    realRevenuewData.push(temDataChart2);
+                    startDate.setDate(startDate.getDate() + 1);
+                }
+            }
+            $scope.revenueYears = $scope.yearList[1];
+            var totalRevenue = 0;
+            for(var i = 0 ; i < realRevenuewData.length ; i++) {
+                var tempDate = new Date(realRevenuewData[i].date);
+                if(tempDate.getMonth() == $scope.revenueChartOption && tempDate.getFullYear() == $scope.revenueYears.year) {
+                    revenueChart.addData([realRevenuewData[i].pago], realRevenuewData[i].date);
+                    totalRevenue += realRevenuewData[i].pago;
+                }
+            }
+            document.getElementById('totalRevenue').innerHTML = "Total Ganancias: <b style='color:#00CC66'>$" + $scope.numberWithCommas(totalRevenue) + "</b>";
+        };
+
+        $scope.changeRevenueChart = function() {
+            revenueData.labels = revenueData.labels.splice(0, 0);
+            $('#myChartRevenue').remove();
+            $('#graphContainer3').append('<canvas id="myChartRevenue"><canvas>');
+            canvas = document.getElementById("myChartRevenue");
+            ctxRevenue = canvas.getContext('2d');
+            revenueChart = new Chart(ctxRevenue).Bar(revenueData, options3);
+
+            if($scope.revenueYears.year == 'todos') {
+                $scope.revenueChartOptionLapse = "mensual";
+                var totalRevenue = 0;
+                var revenueByWeek = 0;
+                for(var i = 0 ; i < realRevenuewData.length ; i++) {
+                    var tempDate = new Date(realRevenuewData[i].date);
+                    var finalDate = $scope.daysInMonth(tempDate.getFullYear(), tempDate.getMonth());
+                    revenueByWeek += realRevenuewData[i].pago;
+                    if(tempDate.getDate() == finalDate) {
+                        revenueChart.addData([revenueByWeek], realRevenuewData[i].date);
+                        revenueByWeek = 0;
+                    }                        
+                    totalRevenue += realRevenuewData[i].pago; 
+                }
+    
+                document.getElementById('totalRevenue').innerHTML = "Total Ganancias: <b style='color:#00CC66'>$" + $scope.numberWithCommas(totalRevenue) + "</b>";
+            } else {
+                if($scope.revenueChartOptionLapse == 'diario') {
+                    var totalRevenue = 0;
+                    for(var i = 0 ; i < realRevenuewData.length ; i++) {
+                        var tempDate = new Date(realRevenuewData[i].date);
+                        if(tempDate.getMonth() == $scope.revenueChartOption && tempDate.getFullYear() == $scope.revenueYears.year) {
+                            revenueChart.addData([realRevenuewData[i].pago], realRevenuewData[i].date);
+                            totalRevenue += realRevenuewData[i].pago;
+                        }
+                    }
+                    document.getElementById('totalRevenue').innerHTML = "Total Ganancias: <b style='color:#00CC66'>$" + $scope.numberWithCommas(totalRevenue) + "</b>";
+                } else if($scope.revenueChartOptionLapse == 'semanal') {
+                    var finalDate = $scope.daysInMonth($scope.revenueYears.year, $scope.revenueChartOption);
+                    var totalRevenue = 0;
+                    var revenueByWeek = 0;
+                    for(var i = 0 ; i < realRevenuewData.length ; i++) {
+                        var tempDate = new Date(realRevenuewData[i].date);
+                        if(tempDate.getMonth() == $scope.revenueChartOption && tempDate.getFullYear() == $scope.revenueYears.year) {
+                            revenueByWeek += realRevenuewData[i].pago;
+                            if(tempDate.getDate() == 1 || tempDate.getDate() == 8 || tempDate.getDate() == 15 || 
+                                tempDate.getDate() == 22 || tempDate.getDate() == 29 || tempDate.getDate() == finalDate) {
+                                revenueChart.addData([revenueByWeek], realRevenuewData[i].date);
+                                revenueByWeek = 0;
+                            }                        
+                            totalRevenue += realRevenuewData[i].pago;
+                        }
+                    }
+                    var lastDate = new Date(realRevenuewData[realRevenuewData.length - 1].date);
+                    if(lastDate.getMonth() == $scope.revenueChartOption && lastDate.getFullYear() == $scope.revenueYears.year && 
+                        lastDate.getDate() != finalDate) {
+                        revenueChart.addData([revenueByWeek], realRevenuewData[realRevenuewData.length - 1].date);
+                    }
+                    document.getElementById('totalRevenue').innerHTML = "Total Ganancias: <b style='color:#00CC66'>$" + $scope.numberWithCommas(totalRevenue) + "</b>";
+                } else if($scope.revenueChartOptionLapse == 'bisemanal') {
+                   var finalDate = $scope.daysInMonth($scope.revenueYears.year, $scope.revenueChartOption);
+                    var totalRevenue = 0;
+                    var revenueByWeek = 0;
+                    for(var i = 0 ; i < realRevenuewData.length ; i++) {
+                        var tempDate = new Date(realRevenuewData[i].date);
+                        if(tempDate.getMonth() == $scope.revenueChartOption && tempDate.getFullYear() == $scope.revenueYears.year) {
+                            revenueByWeek += realRevenuewData[i].pago;
+                            if(tempDate.getDate() == 1 || tempDate.getDate() == 15 || 
+                                tempDate.getDate() == 29 || tempDate.getDate() == finalDate) {
+                                revenueChart.addData([revenueByWeek], realRevenuewData[i].date);
+                                revenueByWeek = 0;
+                            }                        
+                            totalRevenue += realRevenuewData[i].pago;
+                        }
+                    }
+                    var lastDate = new Date(realRevenuewData[realRevenuewData.length - 1].date);
+                    if(lastDate.getMonth() == $scope.revenueChartOption && lastDate.getFullYear() == $scope.revenueYears.year && 
+                        lastDate.getDate() != finalDate) {
+                        revenueChart.addData([revenueByWeek], realRevenuewData[realRevenuewData.length - 1].date);
+                    }
+                    document.getElementById('totalRevenue').innerHTML = "Total Ganancias: <b style='color:#00CC66'>$" + $scope.numberWithCommas(totalRevenue) + "</b>";
+                } else if($scope.revenueChartOptionLapse == 'mensual') {
+                    $scope.revenueChartOption = 'todo';
+                    var finalDate = $scope.daysInMonth($scope.revenueYears.year, $scope.revenueChartOption);
+                    var totalRevenue = 0;
+                    var revenueByWeek = 0;
+                    for(var i = 0 ; i < realRevenuewData.length ; i++) {
+                        var tempDate = new Date(realRevenuewData[i].date);
+                        var finalDate = $scope.daysInMonth(tempDate.getFullYear(), tempDate.getMonth());
+                        if(tempDate.getFullYear() == $scope.revenueYears.year) {
+                            revenueByWeek += realRevenuewData[i].pago;
+                            if(tempDate.getDate() == finalDate) {
+                                revenueChart.addData([revenueByWeek], realRevenuewData[i].date);
+                                revenueByWeek = 0;
+                            }                        
+                            totalRevenue += realRevenuewData[i].pago;
+                        }
+                    }
+                    var lastDate = new Date(realRevenuewData[realRevenuewData.length - 1].date);
+                    if(lastDate.getFullYear() == $scope.revenueYears.year && 
+                        lastDate.getDate() != finalDate) {
+                        revenueChart.addData([revenueByWeek], realRevenuewData[realRevenuewData.length - 1].date);
+                    }
+                    document.getElementById('totalRevenue').innerHTML = "Total Ganancias: <b style='color:#00CC66'>$" + $scope.numberWithCommas(totalRevenue) + "</b>";
+                } else {    
+                    $scope.revenueYears = $scope.yearList[0];
+                    $scope.revenueChartOption = 'todo';
+                    var finalDate = $scope.daysInMonth($scope.revenueYears.year, $scope.revenueChartOption);
+                    var totalRevenue = 0;
+                    var revenueByWeek = 0;
+                    for(var i = 0 ; i < realRevenuewData.length ; i++) {
+                        var tempDate = new Date(realRevenuewData[i].date);
+                        var finalDate = $scope.daysInMonth(tempDate.getFullYear(), tempDate.getMonth());
+                        revenueByWeek += realRevenuewData[i].pago;
+                        if(tempDate.getDate() == finalDate) {
+                            revenueChart.addData([revenueByWeek], realRevenuewData[i].date);
+                            revenueByWeek = 0;
+                        }                        
+                        totalRevenue += realRevenuewData[i].pago;
+                    }
+                    var lastDate = new Date(realRevenuewData[realRevenuewData.length - 1].date);
+                    if(lastDate.getDate() != finalDate) {
+                        revenueChart.addData([revenueByWeek], realRevenuewData[realRevenuewData.length - 1].date);
+                    }
+                    document.getElementById('totalRevenue').innerHTML = "Total Ganancias: <b style='color:#00CC66'>$" + $scope.numberWithCommas(totalRevenue) + "</b>";
+                }
+            }
+        };
+
+        $scope.daysInMonth = function(year, month) {
+            var isLeap = ((year % 4) == 0 && ((year % 100) != 0 || (year % 400) == 0));
+            return [31, (isLeap ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+        };
+
+        $scope.getAllItems(1000, 0, true);
+        $scope.generateYears();
+        $scope.getLogs(1000, 0, true);
+
+    }]);
+
+    
+
+})();
+
+
+/*
+
+$scope.plotServicesCharts = function() {
+            var services = [];
             for(var i = 0 ; i < $scope.clients.length ; i++) {
                 services.push($scope.clients[i].servicio)
             }
@@ -2358,9 +2743,7 @@
             var pre = services[0];
             var x = 1;
             var count = 1;
-            for(var i = 0 ; i < services.length ; i++) {
-                console.log(services[i]);
-            }
+            var
 
             for(var i = 0 ; i < services.length ; i++) {
                 while(services[i] == services[i + 1]) {
@@ -2381,25 +2764,7 @@
             document.getElementById('graph2Legend').innerHTML = myBarChart.generateLegend();   
         };
 
-        $scope.getRandomColor = function() {
-            var letters = '0123456789ABCDEF'.split('');
-            var color = '#';
-            for (var i = 0; i < 6; i++ ) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        };
-
-        $scope.getAllItems(1000, 0, true);
-        $scope.generateYears();
-
-        
-
-    }]);
-})();
-
-
-
+*/
 
 
 

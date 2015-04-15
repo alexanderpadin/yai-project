@@ -4,9 +4,8 @@
 	$services = $_POST["services"];
 	$users = $_POST["users"];
 	$logs = $_POST["logs"];
+	$email = $_POST["email"];
 
-	//$email = $_POST["email"];
-	$email = 'alexander.padin91@gmail.com';
 
 	date_default_timezone_set('America/Puerto_Rico');
 	$today = date("md");
