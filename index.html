@@ -125,7 +125,8 @@
 
             <!-- Clientes -->
             <div class="clientes_tab" ng-controller="controlPanelCtrl as cp">
-               <br>
+               <button style="margin:5px;" type="button" ng-click="reloadCP()" class="btn btn-default pull-right"><i class="glyphicon glyphicon-refresh"></i></button>
+
                <div class="row">
                   <div class="col-lg-12">
                      <ul class="nav nav-tabs" role="tablist">
@@ -141,6 +142,7 @@
                         </li>
                      </ul>
                   </div>
+
                   <!-- /.col-lg-12 -->
                </div>
                <br>
@@ -407,8 +409,18 @@
                                     <b>Cantidad a pagar:</b>
                                     <div class="input-group">
                                        <div class="input-group-addon"><i>$</i></div>
-                                       <input value="0" id="pagar_pago" type="number" class="form-control" disabled>
+                                       <input value="0" id="pagar_pago" type="number" class="form-control">
                                        <div class="input-group-addon">.00</div>
+                                    </div>
+                                    <b>Meses a Pagar:</b>
+                                    <div class="input-group spinner">
+                                       <div ng-click="updatePayment()" id="spinner_plus_payment" class="input-group-addon">
+                                          <a href="" class="glyphicon glyphicon-minus"></a>
+                                       </div>
+                                       <input id="add_months_payments" type="text" class="form-control" value="1" disabled>
+                                       <div ng-click="updatePayment()" id="spinner_minus_payment"class="input-group-addon">
+                                          <a href="" class="glyphicon glyphicon-plus"></a>
+                                       </div>
                                     </div>
                                     <hr>
                                     <b>Fecha de proximo pago</b><label style="color:red;">*</label>
@@ -427,11 +439,28 @@
                               <button onclick="hideDeleteAlert()" type="button" class="btn btn-default">Cancelar</button>
                               <button type="button" ng-click="deleteClient()" class="btn btn-danger">Borrar</button>
                            </div>
+                           <div id="creditAlert" class="alert alert-success" role="alert">
+                              <label class="pull-left">Meses de Credito: </label>
+                              <div class="input-group spinner pull-left">
+                                <div id="spinner_minus_credit" class="input-group-addon">
+                                    <a href="" class="glyphicon glyphicon-minus"></a>
+                                 </div>
+                                 <input id="add_credit" type="text" class="form-control" value="1" disabled>
+                                 <div id="spinner_plus_credit"class="input-group-addon">
+                                    <a href="" class="glyphicon glyphicon-plus"></a>
+                                 </div>
+                              </div>
+                              <div>
+                              </div>
+                              <button type="button" style="margin:5px;" id="crtd_btn_close" class="btn btn-default">Cerrar</button>
+                              <button type="button" style="margin:5px;" id="acreditar_btn" class="btn btn-info" ng-click="makeCredit()">Acreditar</button>
+                           </div>
                            <button type="button" class="btn btn-danger pull-left" 
                               onclick="showDeleteAlert()">Borrar Cliente</button>
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                           <button type="button" id="pagar_btn" class="btn btn-success" ng-click="makePayment()">Hacer Pago</button>
-                           <button type="button" id="edit_btn" class="btn btn-primary" ng-click="modifyClient()">Modificar</button>
+                           <button type="button" style="margin:5px;" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                           <button type="button" style="margin:5px;" id="crtd_btn" class="btn btn-info" ng-click="">Credito</button>
+                           <button type="button" style="margin:5px;" id="pagar_btn" class="btn btn-success" ng-click="makePayment()">Hacer Pago</button>
+                           <button type="button"  style="margin:5px;" id="edit_btn" class="btn btn-primary" ng-click="modifyClient()">Modificar</button>
                         </div>
                      </div>
                   </div>
@@ -442,6 +471,7 @@
             <!-- Tickets -->
             <div class="tickets_tab" ng-controller="eTicketsCtrl as etp">
                <input  style="display: none;" type="text" class="form-control" ng-model="ticket_encargado" id="user_tk_firstName" disabled>
+                <button style="margin:5px;" type="button" ng-click="reloadTickets()" class="btn btn-default pull-right"><i class="glyphicon glyphicon-refresh"></i></button>
                <div class="row">
                   <div class="col-lg-12">
                      <h1 class="page-header">e-Tickets</h1>
@@ -671,6 +701,7 @@
 
             <!-- Ventas -->
             <div class="ventas_tab" ng-controller="ventasCtrl as vt">
+               <button style="margin:5px;" type="button" ng-click="reloadVentas()" class="btn btn-default pull-right"><i class="glyphicon glyphicon-refresh"></i></button>
                <div class="row">
                   <div class="col-lg-12">
                      <h1 class="page-header">Ventas</h1>
@@ -715,9 +746,11 @@
 
                         <!-- /.panel-heading -->
                         <div class="panel-body table-responsive">
-                           <div id="graphContainer2">
+                           <div id="graphContainer20">
                               <h4 id="totalGanancias"></h4>
-                              <canvas id="myChartServicios" ></canvas>
+                              <div id="graphContainer2">
+                                 <canvas id="myChartServicios" ></canvas>
+                              </div>
                               <div id="graph2Legend"></div>
                            </div>
                         </div>
@@ -779,6 +812,7 @@
 
             <!-- Configuracion -->
             <div class="configuracion_tab" ng-controller="configurationCtrl as cc">
+               <button style="margin:5px;" type="button" ng-click="reloadConfig()" class="btn btn-default pull-right"><i class="glyphicon glyphicon-refresh"></i></button>
                <div class="row">
                   <div class="col-lg-12">
                      <h1 class="page-header">Configuraciones</h1>
@@ -1231,6 +1265,46 @@
                  $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
                });
              })(jQuery);
+
+             (function ($) {
+               $('#spinner_minus_credit').on('click', function() {
+                 $('#add_credit').val( parseInt($('#add_credit').val(), 10) - 1);
+               });
+               $('#spinner_plus_credit').on('click', function() {
+                 $('#add_credit').val( parseInt($('#add_credit').val(), 10) + 1);
+               });
+             })(jQuery);
+
+
+             (function ($) {
+               $('#spinner_minus_payment').on('click', function() {
+                 $('#add_months_payments').val( parseInt($('#add_months_payments').val(), 10) + 1);
+                 $('#pagar_pago').val( parseInt($('#edit_pago').val(), 10) * parseInt($('#add_months_payments').val(), 10));
+                  var d = new Date(document.getElementById('edit_expiracion').value);
+                  d.setMonth( d.getMonth( ) +  parseInt($('#add_months_payments').val(), 10));
+                  document.getElementById("pagar_expiracion").value = ( d.getMonth( ) + 1 ) + '/' + d.getDate( ) + '/' + d.getFullYear();
+
+               });
+               $('#spinner_plus_payment').on('click', function() {
+                 $('#add_months_payments').val( parseInt($('#add_months_payments').val(), 10) - 1);
+                 $('#pagar_pago').val( parseInt($('#edit_pago').val(), 10) * parseInt($('#add_months_payments').val(), 10));
+                 var d = new Date(document.getElementById('edit_expiracion').value);
+                  d.setMonth( d.getMonth( ) +  parseInt($('#add_months_payments').val(), 10));
+                  document.getElementById("pagar_expiracion").value = ( d.getMonth( ) + 1 ) + '/' + d.getDate( ) + '/' + d.getFullYear();
+               });
+             })(jQuery);
+
+             (function ($) {
+               $('#crtd_btn').on('click', function() {
+                 $('#creditAlert').show();
+               });
+             })(jQuery);
+
+             (function ($) {
+               $('#crtd_btn_close').on('click', function() {
+                 $('#creditAlert').hide();
+               });
+             })(jQuery);
              
              function hideAll() {
                  $("#conf_log").hide();
@@ -1264,6 +1338,8 @@
                  $("#conf_log").hide();
                  $("#tBtnLog").hide();
                  $("#conf_backup").hide();
+                 $('#creditAlert').hide();
+                 $("#crtd_btn").hide();
              }
 
             function tLog() {
@@ -1299,11 +1375,13 @@
              function hideModifyBtn() {
                   $("#edit_btn").hide();
                   $("#pagar_btn").show();
+                  $("#crtd_btn").show();
              }
              
              function showModifyBtn() {
                   $("#edit_btn").show();
                   $("#pagar_btn").hide();
+                  $("#crtd_btn").hide();
              }
              
              function showDeleteAlert() {

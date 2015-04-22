@@ -40,7 +40,7 @@
                     var lastBacked = (new Date($scope.dateBakcup)).getTime();
 
                     if(Math.abs(today - lastBacked) > one_day * 7) {
-                        $scope.generateBackup();
+                        //$scope.generateBackup();
                     } 
                 })
                 .error(function(data, status) {
@@ -176,7 +176,6 @@
                             $scope.getAllItems(queryLimit, querySkip, first);
                         } else {
                             $scope.pagination = Pagination.getNew($scope.numberOfPagesinClients); //Generate pagination in table
-
                             $scope.pagination.numPages = Math.ceil($scope.clients.length / $scope.pagination.perPage); //Generate number of pages
                             document.getElementById("numberOfClients").innerHTML = 'Clientes: ' + $scope.numberOfPagesinClients + ' de ' + $scope.clients.length +' total'
                             $scope.getUsers_conf();
@@ -524,6 +523,8 @@
                     document.getElementById('pagar_servicio').value = raw_servicio;
                     document.getElementById('pagar_unidades').value = unidades;
                     document.getElementById('pagar_pago').value = pago;
+                    document.getElementById('add_months_payments').value = "1";
+                    $("#creditAlert").hide();
 
                     var d = new Date(expiracion);
                     d.setMonth( d.getMonth( ) + 1 );
@@ -725,6 +726,44 @@
             }
         };
 
+        $scope.makeCredit = function() {
+            var ID = document.getElementById('edit_ID').value;
+            var CLIENTE = document.getElementById('pagar_nombre').value;
+            var SERVICIO = document.getElementById('pagar_servicio').value;
+            var PAGO = document.getElementById('pagar_pago').value;
+            var mes = document.getElementById('add_credit').value;
+
+            if(mes > 1) {
+                var action = "Acredito Cliente: (" + mes + " Meses) " + CLIENTE + " con servicio " + SERVICIO;
+            } else {
+                var action = "Acredito Cliente: (" + mes + " Mes) " + CLIENTE + " con servicio " + SERVICIO;
+            }
+            
+
+            var d = new Date(document.getElementById('edit_expiracion').value);
+            d.setMonth( d.getMonth( ) +  parseInt(mes));
+            var Expiracion = (d.getMonth( ) + 1 ) + '/' + d.getDate( ) + '/' + d.getFullYear();
+
+            $http({
+                method: 'PUT',
+                url: 'https://api.parse.com/1/classes/clients/' + ID,
+                headers: {
+                    'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                    'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                },
+                data: {
+                    expiracion: Expiracion,
+                }
+            }).success(function(data, status) {
+                $scope.getAllItems(1000, 0, true);
+                $('#editModal').modal('hide');
+                $scope.insertLog(action);
+            })
+            .error(function(data, status) {
+                alert("Se ha producido un error realizando el credito del cliente.");
+            });        
+        };
+
         $scope.deleteClient = function() {
             var CLIENTE = document.getElementById('pagar_nombre').value;
             var SERVICIO = document.getElementById('pagar_servicio').value;
@@ -763,9 +802,12 @@
             }
         };
 
-        $scope.getAllItems(1000, 0, true);
-        $scope.getServices();
+        $scope.reloadCP = function() {
+            $scope.getAllItems(1000, 0, true);
+            $scope.getServices();
+        };
 
+        $scope.reloadCP();
     }]);
 
     app.controller("loginCtrl", ['$scope', '$http', function($scope, $http) {
@@ -1506,9 +1548,12 @@
                 });
         };
 
-        $scope.prepareField();
-        $scope.getEmailBackup();
+        $scope.reloadConfig = function() {
+            $scope.prepareField();
+            $scope.getEmailBackup();
+        };
 
+        $scope.reloadConfig();        
     }]);
 
     app.controller("eTicketsCtrl", ['$scope', '$http', function($scope, $http) {
@@ -1644,10 +1689,12 @@
                     headers: {
                         'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    params: {
+                        limit: 1000,
+                        order: "-createdAt"
                     }
                 }).success(function(data, status) {
-
-
                     $scope.tickets = data.results;
                     $scope.populateCalendar();
                 })
@@ -1774,6 +1821,10 @@
                     headers: {
                         'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    params: {
+                        limit: 1000,
+                        order: "-createdAt"
                     }
                 }).success(function(data, status) {
                     $scope.tickets = data.results;
@@ -2112,8 +2163,15 @@
                 });
         };
 
-        $scope.getUsers();
-        $scope.getTickets();
+        
+
+        $scope.reloadTickets = function() {
+            $scope.getUsers();
+            $scope.getTickets();
+        };
+
+        $scope.reloadTickets();
+
     }]);
 
     app.controller("ventasCtrl", ['$scope', '$http', function($scope, $http) {
@@ -2184,7 +2242,6 @@
             datasetFill : true,
             legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
         };
-
         var options2 = {
             animation: false
         };
@@ -2720,61 +2777,7 @@
             return [31, (isLeap ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
         };
 
-        $scope.getAllItems(1000, 0, true);
-        $scope.generateYears();
-        $scope.getLogs(1000, 0, true);
-
-    }]);
-
-    
-
-})();
-
-
-/*
-
-$scope.plotServicesCharts = function() {
-            var services = [];
-            for(var i = 0 ; i < $scope.clients.length ; i++) {
-                services.push($scope.clients[i].servicio)
-            }
-            services = services.sort();
-
-            var pre = services[0];
-            var x = 1;
-            var count = 1;
-            var
-
-            for(var i = 0 ; i < services.length ; i++) {
-                while(services[i] == services[i + 1]) {
-                    count++;
-                    i++;
-                }
-                myBarChart.addData({
-                    value: count,
-                    color: $scope.getRandomColor(),
-                    highlight: "#C69CBE",
-
-                    label: services[i] + " (" + count + ")" 
-                });
-                
-                count = 1;
-            }
-
-            document.getElementById('graph2Legend').innerHTML = myBarChart.generateLegend();   
-        };
-
-*/
-
-
-
-/*
-        $scope.getAllItems = function(date, amount) {
-            var pre = date;
-            var next = new Date(pre);
-            //next.setMonth( pre.getMonth( ) + 1 );
-            next.setDate(pre.getDate() + 14);
-
+        $scope.reloadCLientsChart = function(queryLimit, querySkip, first) {
             $http({
                     method: 'GET',
                     url: 'https://api.parse.com/1/classes/clients',
@@ -2783,27 +2786,224 @@ $scope.plotServicesCharts = function() {
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
                     },
                     params: {
-                        limit: 1000,
-                        where: {"createdAt":{"$gte":pre,"$lte":next}}
+                        limit: queryLimit,
+                        skip: querySkip,
+                        order: "createdAt"
                     },
-                }).success(function(data, status) {
-                    var cantidadClientes = data.results.length;
-                    var fecha = (next.getMonth() + 1) + "/" + next.getDate() + "/" + next.getFullYear();
-                    amount += cantidadClientes;
 
-                    var now = new Date();
-                    if (next < now) {
-                        myLineChart.addData([amount], fecha)
-                        $scope.getAllItems(next, amount);
+                }).success(function(data, status) {
+                    Linedata.labels = Linedata.labels.splice(0, 0);
+                    chartPagoData = chartPagoData.splice(0,0)
+                    realRevenuewData = realRevenuewData.splice(0,0);
+                    $('#myChart').remove();
+                    $('#graphContainer').append('<canvas id="myChart"><canvas>');
+                    canvas = document.getElementById("myChart");
+                    ctx = canvas.getContext('2d');
+                    myLineChart = new Chart(ctx).Line(Linedata, options);
+                    
+                    //Bardata = {};
+                    $('#myChartServicios').remove();
+                    $('#graphContainer2').append('<canvas id="myChartServicios"><canvas>');
+                    canvas = document.getElementById("myChartServicios");
+                    ctxBar = canvas.getContext('2d');
+                    myBarChart = new Chart(ctxBar).Pie(Bardata, options2);
+
+                    if (first) {
+                        $scope.clients = data.results;
+                        first = !first;
+                        if ($scope.clients.length == queryLimit) {
+                            querySkip += queryLimit;
+                            $scope.reloadCLientsChart(queryLimit, querySkip, first);
+                        } else {
+
+                            var dateNow = new Date("12/30/2014");
+                            var count = 0;
+                            ChartDataNew = {
+                                fechas: [],
+                                count: []
+                            }
+
+                            for(var i = 0 ; i < $scope.clients.length ; i++) {
+                                var objDate = new Date($scope.clients[i].createdAt);
+                                if(objDate > dateNow) {
+                                    dateNow.setDate(dateNow.getDate() + 1);
+                                    i--;
+                                }
+                                while(dateNow.getMonth() == objDate.getMonth() && 
+                                    dateNow.getDate() == objDate.getDate() && 
+                                    dateNow.getFullYear() == objDate.getFullYear()) {
+                                    count++;
+                                    i++;
+
+                                    try {
+                                        objDate = new Date($scope.clients[i].createdAt);
+                                    }
+                                    catch(err) {
+                                        break;
+                                    }
+                                }
+                                var fecha = (dateNow.getMonth() + 1) + "/" + dateNow.getDate() + "/" + dateNow.getFullYear();
+                                ChartDataNew.fechas.push(fecha)
+                                ChartDataNew.count.push(count)
+                            }
+
+                            for(var j = 0 ; j < ChartDataNew.fechas.length ; j++) {
+                                var thisDate = new Date(ChartDataNew.fechas[j]);
+                                if(thisDate.getFullYear() == $scope.clientsYears.year) {
+                                    if(thisDate.getDate()%14 == 0) {
+                                        myLineChart.addData([ChartDataNew.count[j]], ChartDataNew.fechas[j]);
+                                    }
+                                } 
+                            }
+                            myLineChart.addData([ChartDataNew.count[ChartDataNew.fechas.length - 1]], ChartDataNew.fechas[ChartDataNew.fechas.length - 1]);
+                            $scope.plotServicesCharts();
+                        }
                     } else {
-                        var fecha = (now.getMonth() + 1) + "/" + now.getDate() + "/" + now.getFullYear();
-                        myLineChart.addData([amount], fecha)
+                        var newQ = data.results;
+                        for (var i = 0; i < newQ.length; i++) {
+                            $scope.clients.push(newQ[i]);
+                        }
+                        if ($scope.clients.length == queryLimit + querySkip) {
+                            querySkip += queryLimit;
+                            $scope.reloadCLientsChart(queryLimit, querySkip, first);
+                        } else {
+                             var dateNow = new Date("12/30/2014");
+                            var count = 0;
+                            ChartDataNew = {
+                                fechas: [],
+                                count: []
+                            }
+
+                            for(var i = 0 ; i < $scope.clients.length ; i++) {
+                                var objDate = new Date($scope.clients[i].createdAt);
+                                if(objDate > dateNow) {
+                                    dateNow.setDate(dateNow.getDate() + 1);
+                                    i--;
+                                }
+                                while(dateNow.getMonth() == objDate.getMonth() && 
+                                    dateNow.getDate() == objDate.getDate() && 
+                                    dateNow.getFullYear() == objDate.getFullYear()) {
+                                    count++;
+                                    i++;
+
+                                    try {
+                                        objDate = new Date($scope.clients[i].createdAt);
+                                    }
+                                    catch(err) {
+                                        break;
+                                    }
+                                }
+                                var fecha = (dateNow.getMonth() + 1) + "/" + dateNow.getDate() + "/" + dateNow.getFullYear();
+                                ChartDataNew.fechas.push(fecha)
+                                ChartDataNew.count.push(count)
+                            }
+
+                            for(var j = 0 ; j < ChartDataNew.fechas.length ; j++) {
+                                var thisDate = new Date(ChartDataNew.fechas[j]);
+                                if(thisDate.getFullYear() == $scope.clientsYears.year) {
+                                    if(thisDate.getDate()%14 == 0) {
+                                        myLineChart.addData([ChartDataNew.count[j]], ChartDataNew.fechas[j]);
+                                    }
+                                } 
+                            }
+                            myLineChart.addData([ChartDataNew.count[ChartDataNew.fechas.length - 1]], ChartDataNew.fechas[ChartDataNew.fechas.length - 1]);
+                            $scope.plotServicesCharts();
+                        }
                     }
                 })
                 .error(function(data, status) {
-
+                    alert("Se ha producido un error obteniendo la lista de clientes.");
                 });
         };
-*/
 
+        $scope.reloadLogs = function(queryLimit, querySkip, first) {
+            $http({
+                    method: 'GET',
+                    url: 'https://api.parse.com/1/classes/log',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    params: {
+                        limit: queryLimit,
+                        skip: querySkip,
+                        order: "createdAt"
+                    },
 
+                }).success(function(data, status) {
+
+                    revenueData.labels = revenueData.labels.splice(0, 0);
+                    chartPagoData = chartPagoData.splice(0, 0);
+                    $('#myChartRevenue').remove();
+                    $('#graphContainer3').append('<canvas id="myChartRevenue"><canvas>');
+                    canvas = document.getElementById("myChartRevenue");
+                    ctxRevenue = canvas.getContext('2d');
+                    revenueChart = new Chart(ctxRevenue).Bar(revenueData, options3);
+
+                    if (first) {
+                        $scope.logs = data.results;
+                        first = !first;
+                        if ($scope.logs.length == queryLimit) {
+                            querySkip += queryLimit;
+                            $scope.reloadLogs(queryLimit, querySkip, first);
+                        } else {
+                            for( var i = 0 ; i < $scope.logs.length ; i++) {
+                                var temp = ($scope.logs[i].accion.split(":"))[0];
+                                var separators = ['$', '.'];
+                                if(temp == "Ejecuto Pago") {
+                                    var m = new Date($scope.logs[i].createdAt).getMonth() + 1;
+                                    var d = new Date($scope.logs[i].createdAt).getDate();
+                                    var y = new Date($scope.logs[i].createdAt).getFullYear();
+                                    var tempObj = {
+                                        "date": m+"/"+d+"/"+y,
+                                        "pago": ($scope.logs[i].accion.split('$')[1]).split(".")[0]
+                                    }
+                                    chartPagoData.push(tempObj);
+                                }
+                            }
+                            $scope.plotRevenueData('');
+                        }
+                    } else {
+                        var newQ = data.results;
+                        for (var i = 0; i < newQ.length; i++) {
+                            $scope.logs.push(newQ[i]);
+                        }
+                        if ($scope.logs.length == queryLimit + querySkip) {
+                            querySkip += queryLimit;
+                            $scope.reloadLogs(queryLimit, querySkip, first);
+                        } else {
+                            for( var i = 0 ; i < $scope.logs.length ; i++) {
+                                var temp = ($scope.logs[i].accion.split(":"))[0];
+                                var separators = ['$', '.'];
+                                if(temp == "Ejecuto Pago") {
+                                    var m = new Date($scope.logs[i].createdAt).getMonth() + 1;
+                                    var d = new Date($scope.logs[i].createdAt).getDate();
+                                    var y = new Date($scope.logs[i].createdAt).getFullYear();
+                                    var tempObj = {
+                                        "date": m+"/"+d+"/"+y,
+                                        "pago": ($scope.logs[i].accion.split('$')[1]).split(".")[0]
+                                    }
+                                    chartPagoData.push(tempObj);
+                                }
+                            }
+                            $scope.plotRevenueData('');
+                        }
+                    }
+                })
+                .error(function(data, status) {
+                    console.log("Error")
+                });
+        };
+
+        $scope.reloadVentas = function() {
+            $scope.reloadCLientsChart(1000, 0, true);
+            $scope.generateYears();
+            $scope.reloadLogs(1000, 0, true);            
+        };  
+
+        $scope.getAllItems(1000, 0, true);
+        $scope.generateYears();
+        $scope.getLogs(1000, 0, true);
+    }]);
+
+})();
