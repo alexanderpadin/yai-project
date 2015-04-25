@@ -40,8 +40,11 @@
                     var lastBacked = (new Date($scope.dateBakcup)).getTime();
 
                     if(Math.abs(today - lastBacked) > one_day * 7) {
-                        //$scope.generateBackup();
-                    } 
+                        $scope.generateBackup();
+                    } else {
+                        var diff =  Math.abs(Math.abs(today - lastBacked) - (one_day * 7)) / 86400000;
+                        console.log("Next backup in " + diff.toFixed(2) + " days.")
+                    }
                 })
                 .error(function(data, status) {
                 });
@@ -69,9 +72,34 @@
                         }),
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(data, status) {
-                    console.log(data);
-                    //$scope.insertLog("Backup: Se ha enviado un backup automatico del sistema a " + backupEmail);
-                    //$scope.changeInDBBackup();
+                    $scope.sendEmailMandrill(backupEmail, data);
+                })
+                .error(function(data, status) {
+                });
+        };
+
+        $scope.sendEmailMandrill = function(user_email, email_html) {
+            $http({
+                    method: 'POST',
+                    url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+                    data: {
+                        key: "8bYr5xIuxKV5LkGz5UqVcQ",
+                        message: {
+                          from_email: "control_panel@noreplay.com",
+                          to: [
+                              {
+                                email: user_email,
+                                type: "to"
+                              }
+                            ],
+                          autotext: "true",
+                          subject: "Backup Automatico",
+                          html: email_html
+                        }
+                      }
+                }).success(function(data, status) {
+                    $scope.insertLogBackup("Backup: Se ha creado un backup automatico del sistema a " + user_email);
+                    $scope.changeInDBBackup();
                 })
                 .error(function(data, status) {
                 });
@@ -98,7 +126,6 @@
                     document.getElementById("btnBackupChange").innerText = "Guardar";
                     $("#btnBackupChange").attr('class', 'btn btn-success pull-right');
                     alert("Sea ha producido un error actualizando el email de backup.")
-
                 });
         };  
 
@@ -175,6 +202,9 @@
                             querySkip += queryLimit;
                             $scope.getAllItems(queryLimit, querySkip, first);
                         } else {
+                            for(var i = 0 ; i < $scope.clients.length  ; i++) {
+                                $scope.clients[i].expiracion = new Date($scope.clients[i].expiracion);
+                            }
                             $scope.pagination = Pagination.getNew($scope.numberOfPagesinClients); //Generate pagination in table
                             $scope.pagination.numPages = Math.ceil($scope.clients.length / $scope.pagination.perPage); //Generate number of pages
                             document.getElementById("numberOfClients").innerHTML = 'Clientes: ' + $scope.numberOfPagesinClients + ' de ' + $scope.clients.length +' total'
@@ -190,6 +220,9 @@
                             querySkip += queryLimit;
                             $scope.getAllItems(queryLimit, querySkip, first);
                         } else {
+                            for(var i = 0 ; i < $scope.clients.length  ; i++) {
+                                $scope.clients[i].expiracion = new Date($scope.clients[i].expiracion)
+                            }
                             $scope.pagination = Pagination.getNew($scope.numberOfPagesinClients); //Generate pagination in table
                             $scope.pagination.numPages = Math.ceil($scope.clients.length / $scope.pagination.perPage); //Generate number of pages
                             document.getElementById("numberOfClients").innerHTML = 'Clientes: ' + $scope.numberOfPagesinClients + ' de ' + $scope.clients.length +' total'
@@ -236,7 +269,8 @@
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
                     },
                     params: {
-                        limit: 1000
+                        limit: 1000,
+                        order: "-createdAt"
                     },
 
                 }).success(function(data, status) {
@@ -244,39 +278,14 @@
                 })
                 .error(function(data, status) {
                 });
-        }
+        };
 
         $scope.capitalizeStr = function(str) {
             return str.replace(/\w\S*/g,
                 function(txt) {
                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
                 });
-        }
-
-        $scope.generateDate = function() {
-            var date = new Date();
-            var mo = date.getMonth() + 1;
-            var day = date.getDate();
-            var y = date.getFullYear();
-            var h = date.getHours();
-            var m = date.getMinutes();
-
-            var newDate = mo + '/' + day +'/'+ y;
-   
-            h = ("0" + h).slice(-2);
-            m = ("0" + m).slice(-2);
-
-            var fourDigitTime = h +''+ m;
-
-
-            var hours24 = parseInt(fourDigitTime.substring(0, 2),10);
-            var hours = ((hours24 + 11) % 12) + 1;
-            var amPm = hours24 > 11 ? ' PM' : ' AM';
-            var minutes = fourDigitTime.substring(2);
-
-            newDate = newDate + ' ' + hours + ':' + minutes + amPm;
-            return newDate;
-        }
+        };
 
         $scope.insertLog = function(Action) {
             var USER = document.getElementById('user_header').innerText;
@@ -293,6 +302,29 @@
                     data: {
                         usuario: USER,
                         rol: ROL,
+                        accion: Action,
+                        fecha: FECHA
+                    }
+                }).success(function(data, status) {
+                    
+                })
+                .error(function(data, status) {
+                });
+        };
+
+        $scope.insertLogBackup = function(Action) {
+            var FECHA = $scope.generateDate();
+
+            $http({
+                    method: 'POST',
+                    url: 'https://api.parse.com/1/classes/log',
+                    headers: {
+                        'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
+                        'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
+                    },
+                    data: {
+                        usuario: "Sistema",
+                        rol: "Admin",
                         accion: Action,
                         fecha: FECHA
                     }
@@ -508,10 +540,13 @@
                     metodo = metodo.replace(' ', '_');
                     metodo = metodo.toLowerCase();
 
+                    var exp_date = new Date(expiracion);
+                    var format_exp_date = (exp_date.getMonth() + 1) + '/' + exp_date.getDate() + '/' + exp_date.getFullYear()
+
                     document.getElementById('edit_servicio_print').value = servicio;
                     document.getElementById('edit_ID').value = ID;
                     document.getElementById('edit_nombre').value = nombre;
-                    document.getElementById('edit_expiracion').value = expiracion;
+                    document.getElementById('edit_expiracion').value = format_exp_date;
                     document.getElementById('edit_unidades').value = unidades;
                     document.getElementById('edit_telefono').value = telefono;
                     document.getElementById('edit_pueblo').value = pueblo;
@@ -581,7 +616,7 @@
             if (old.expiracion != Expiracion) {
                 changes += "expiracion de pago, ";
             }
-            if (old.metodo != Metodo.toLowerCase() || old.otro != Otro) {
+            if ((old.metodo).toLowerCase() != Metodo.toLowerCase() || old.otro != Otro) {
                 changes += "metodo de pago, ";
             }
             if (old.pago != Pago) {
@@ -600,12 +635,10 @@
                 changes += "telefono, ";
             }
             
-            
             changes += ".)";
             changes = changes.replace(", .", '');
             
             return changes;
-
         };
 
         $scope.UpdateItem = function(ID, Nombre, Expiracion, Deuda, Metodo, Pago, Pueblo, Servicio, Unidades, Telefono, Clave, Activo, Otro) {
@@ -1164,7 +1197,8 @@
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
                     }, 
                     params: {
-                        order: "-createdAt"
+                        order: "-createdAt",
+                        limit: 1000
                     }
                 }).success(function(data, status) {
                     $scope.users_conf = data.results;
@@ -1182,7 +1216,8 @@
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
                     },
                     params: {
-                        order: "-createdAt"
+                        order: "-createdAt",
+                        limit: 1000
                     }
                 }).success(function(data, status) {
                     $scope.services_conf = data.results;
@@ -1560,8 +1595,8 @@
 
         $scope.tickets;
         $scope.users = [];
-        $scope.tc;
-        $scope.t;
+        $scope.ticketSearch1 = "";
+        $scope.ticketSearch2;
         $scope.dateChosen;
         $scope.tickets_selectedItem_edit;
         $scope.tempModifications;
@@ -1994,22 +2029,32 @@
                     alert("Se ha producido un error borrando el ticket.");
                 });
         };
+        $scope.checkFilter1 = function(tec) {
+            if($scope.ticketSearch1 == '' || $scope.ticketSearch1 == null) {
+                return true;
+            } else {
+                if($scope.ticketSearch1.firstName == tec) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }; 
 
-        $scope.filterJobs = function() {
-            $scope.tc = $scope.tc.firstName;
-        };
 
-        $scope.filterJobs2 = function() {
-            $scope.t = $scope.t.firstName;
-        };
 
-        $scope.filterClear = function() {
-            $scope.tc = "";
-        };
+        $scope.checkFilter2 = function(tec) {
+            if($scope.ticketSearch2 == '' || $scope.ticketSearch2 == null) {
+                return true;
+            } else {
+                if($scope.ticketSearch2.firstName == tec) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }; 
 
-        $scope.filterClear2 = function() {
-            $scope.t = "";
-        };
 
         $scope.verifyEvents = function() { 
             var D = $('#datetimepicker4').data("DateTimePicker").date().format("MM/DD/YYYY h:mm A");

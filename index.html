@@ -39,7 +39,7 @@
       <script type='text/javascript' src='dependencies/js/Chart.js'></script>
       <script src="dependencies/js/angular-chart/dist/angular-chart.js"></script>
       <link rel="stylesheet" href="dependencies/js/angular-chart/dist/angular-chart.css">
-     <script data-require="d3@*" data-semver="3.3.11" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.js"></script>
+      <script data-require="d3@*" data-semver="3.3.11" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.js"></script>
       <script type="text/javascript" src="https://rawgit.com/chinmaymk/angular-charts/bower/dist/angular-charts.min.js"></script>
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -215,7 +215,7 @@
                                     ng-hide="verifyDates(item.expiracion, showActive)">
                                     <tr>
                                        <td>{{item.nombre}}</td>
-                                       <td>{{item.expiracion  | date:'yyyy-MM-dd'}}</td>
+                                       <td>{{item.expiracion | date:'MM/dd/yyyy'}}</td>
                                        <td>{{item.servicio}}</td>
                                        <td>{{item.unidades}}</td>
                                        <td>{{item.telefono}}</td>
@@ -493,13 +493,12 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                           <input style="display:none;"  type="text" class="form-control" placeholder="Search" ng-model="t"> 
                            <div class="row">
                               <div class="col-lg-6">
-                                 <input type="text" ng-click="filterClear2()" class="form-control" placeholder="Search" ng-model="tx"> 
+                                 <input type="text" class="form-control" placeholder="Search" ng-model="serachBar1"> 
                               </div>
                               <div class="col-lg-6">
-                                 <select id="job_tecnicos" ng-model="t" ng-click="filterClear2()" ng-change="filterJobs2()"
+                                 <select id="job_tecnicos" ng-model="ticketSearch1" 
                                     class="form-control" ng-options="i as i.firstName for i in users">
                                     <option value="">Filtro</option>
                                  </select>
@@ -519,8 +518,9 @@
                                        <th>Encargado</th>
                                     </tr>
                                  </thead>
-                                 <tbody ng-repeat="t in tickets |filter:t | filter:tx | orderBy:'start'"
-                                    ng-click="openTicket(t)" ng-if="t.status == 'pendiente'">
+                                 <tbody ng-repeat="t in tickets |filter:serachBar1 | orderBy:'start'" 
+                                    ng-click="openTicket(t)" ng-if="t.status == 'pendiente'" 
+                                    ng-show="checkFilter1(t.tecnico)">
                                     <tr>
                                        <td>{{t.cliente}}</td>
                                        <td>{{t.telefono}}</td>
@@ -545,13 +545,12 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                           <input style="display:none;"  type="text" class="form-control" placeholder="Search" ng-model="tc"> 
                            <div class="row">
                               <div class="col-lg-6">
-                                 <input type="text" ng-click="filterClear()" class="form-control" placeholder="Search" ng-model="tb"> 
+                                 <input type="text" class="form-control" placeholder="Search" ng-model="tb"> 
                               </div>
                               <div class="col-lg-6">
-                                 <select id="job_tecnicos" ng-model="tc" ng-click="filterClear()" ng-change="filterJobs()"
+                                 <select id="job_tecnicos" ng-model="ticketSearch2"
                                     class="form-control" ng-options="i as i.firstName for i in users">
                                     <option value="">Filtro</option>
                                  </select>
@@ -571,8 +570,9 @@
                                        <th>Encargado</th>
                                     </tr>
                                  </thead>
-                                 <tbody ng-repeat="tc in tickets |filter:tc | filter:tb | orderBy:'-start'"
-                                    ng-if="tc.status == 'completado'" ng-click="openTicket(tc)">
+                                 <tbody ng-repeat="tc in tickets | filter:tb | orderBy:'-start'"
+                                    ng-if="tc.status == 'completado'" ng-click="openTicket(tc)"
+                                    ng-show="checkFilter2(tc.tecnico)">
                                     <tr>
                                        <td>{{tc.cliente}}</td>
                                        <td>{{tc.telefono}}</td>

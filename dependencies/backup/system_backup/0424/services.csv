@@ -1,0 +1,83 @@
+createdAt,name,objectId,price,service,updatedAt
+2015-04-04T20:50:41.228Z,"3_cajas,_mach_tv",BLhAqrE8Hc,40,"3 Cajas, Mach Tv",2015-04-04T20:50:41.228Z
+2015-04-04T20:39:16.195Z,"nano,_mach_tv,_roku",5TLns23AFP,35,"Nano, Mach Tv, Roku",2015-04-04T20:39:54.473Z
+2015-04-04T20:37:34.603Z,"2_mach,_nano",dHcyuOCtIQ,30,"2 Mach, Nano",2015-04-04T20:37:34.603Z
+2015-04-04T16:58:12.766Z,"2_cajas,_nano,_mach_tv",eedenKwB2i,40,"2 Cajas, Nano, Mach Tv",2015-04-04T16:59:30.855Z
+2015-04-04T15:27:03.201Z,"2_cajas,_nano,_roku",nOs5fmv75y,40,"2 Cajas, Nano, Roku",2015-04-04T15:27:03.201Z
+2015-03-24T23:21:30.614Z,"caja,nano,mach_tv",CtEFwSPkoY,30,"Caja,Nano,Mach Tv",2015-03-24T23:21:30.614Z
+2015-03-17T12:09:06.370Z,"caja,roku_live,internet_5m",hYI47aiTJ8,60,"Caja,Roku Live,Internet 5M",2015-03-17T12:09:19.899Z
+2015-03-17T12:09:06.222Z,"caja,roku,internet_5m",qUBZgFoOoR,60,"Caja,Roku,Internet 5M",2015-03-17T12:09:06.222Z
+2015-03-17T12:08:51.161Z,"caja,mach_tv,internet_5m",QZpGgR8yWB,60,"Caja,Mach Tv,Internet 5M",2015-03-17T12:08:51.161Z
+2015-03-17T12:08:26.397Z,"caja,nano,internet_5m",hDQgpazjcJ,60,"Caja,Nano,Internet 5M",2015-03-17T12:08:26.397Z
+2015-03-17T12:07:57.414Z,"caja,roku_live,internet_3m",zIaIGXUlsi,45,"Caja,Roku Live,Internet 3M",2015-03-17T12:07:57.414Z
+2015-03-17T12:07:27.690Z,"caja,roku,internet_3m",S0rMyHX7wH,45,"Caja,Roku,Internet 3M",2015-03-17T12:07:41.267Z
+2015-03-17T12:07:25.556Z,"caja,mach_tv,internet_3m",F3gLUwdw7N,45,"Caja,Mach Tv,Internet 3M",2015-03-17T12:07:25.556Z
+2015-03-17T12:06:59.402Z,"caja,nano,internet_3m",AY2xEH8AFU,45,"Caja,Nano,Internet 3M",2015-03-17T12:06:59.402Z
+2015-03-17T12:06:03.317Z,"caja,roku_live,internet_2m",KGEjvO7LxH,38,"Caja,Roku Live,Internet 2M",2015-03-17T12:06:17.694Z
+2015-03-17T12:05:08.455Z,"caja,roku,internet_2m",P3eZ6rUK0i,38,"Caja,Roku,Internet 2M",2015-03-17T12:05:43.046Z
+2015-03-17T12:04:56.830Z,"caja,mach_tv,internet_2m",WOv8bP7MbU,38,"Caja,Mach Tv,Internet 2M",2015-03-17T12:05:32.371Z
+2015-03-17T12:04:43.299Z,"caja,nano,internet_2m",5HijVK1xpH,38,"Caja,Nano,Internet 2M",2015-03-17T12:05:22.106Z
+2015-03-17T12:02:54.565Z,"internet_5m,_roku_live",MFSlQNrj68,50,"Internet 5M, Roku Live",2015-03-17T12:02:54.565Z
+2015-03-17T12:02:46.136Z,"internet_5m,_roku",1hMaaKqzTj,50,"Internet 5M, Roku",2015-03-17T12:02:46.136Z
+2015-03-17T12:02:38.309Z,"internet_5m,_mach_tv",hgGScwsG5D,50,"Internet 5M, Mach Tv",2015-03-17T12:02:38.309Z
+2015-03-17T12:02:25.360Z,"internet_5m,_nano",syxqbsPFiC,50,"Internet 5M, Nano",2015-03-17T12:02:25.360Z
+2015-03-17T12:00:52.558Z,"internet_3m,_roku_live",Mu3KQqnvit,35,"Internet 3M, Roku Live",2015-03-17T12:00:52.558Z
+2015-03-17T12:00:46.436Z,"internet_3m,_roku",Bn85n0lkke,35,"Internet 3M, Roku",2015-03-17T12:00:46.436Z
+2015-03-17T12:00:39.393Z,"internet_3m,_mach_tv",HyFpcxU6pr,35,"Internet 3M, Mach Tv",2015-03-17T12:00:39.393Z
+2015-03-17T12:00:29.493Z,"internet_3m,_nano",huAY629Ho7,35,"Internet 3M, Nano",2015-03-17T12:00:29.493Z
+2015-03-17T11:59:42.958Z,"internet_2m,_roku_live",tRiu3VaYFJ,28,"Internet 2M, Roku Live",2015-03-17T11:59:42.958Z
+2015-03-17T11:59:33.043Z,"internet_2m,_roku",qK89B7ruiI,28,"Internet 2M, Roku",2015-03-17T11:59:33.043Z
+2015-03-17T11:59:23.328Z,"internet_2m,_mach_tv",Cgur8QtlDg,28,"Internet 2M, Mach Tv",2015-03-17T11:59:23.328Z
+2015-03-17T11:58:21.505Z,"internet_2m,_nano",rSqKZXnJfw,28,"Internet 2M, Nano",2015-03-17T11:58:21.505Z
+2015-03-17T11:57:14.651Z,"4cajas,_roku_live",sYoTwcyYGo,50,"4Cajas, Roku Live",2015-03-17T11:57:14.651Z
+2015-03-17T11:57:08.325Z,"4cajas,_roku",GazBzolsKe,50,"4Cajas, Roku",2015-03-17T11:57:08.325Z
+2015-03-17T11:56:59.191Z,"4cajas,_mach_tv",vu4wmkAJgZ,50,"4Cajas, Mach Tv",2015-03-17T11:56:59.191Z
+2015-03-17T11:56:44.621Z,"4cajas,_nano",RyQvDaBHvK,50,"4Cajas, Nano",2015-03-17T11:56:44.621Z
+2015-03-17T11:55:18.469Z,"3caja,_roku_live",AYT4jDsUzc,40,"3Caja, Roku Live",2015-03-17T11:55:26.330Z
+2015-03-17T11:55:17.820Z,"3caja,_roku",xevNGINllp,40,"3Caja, Roku",2015-03-17T11:55:17.820Z
+2015-03-17T11:54:54.790Z,"3caja,_mach_tv",UTtD5YSwuX,40,"3Caja, Mach Tv",2015-03-17T11:54:54.790Z
+2015-03-17T11:54:45.112Z,"3caja,_nano",Kx7z5UwPNo,40,"3Caja, Nano",2015-03-17T11:54:45.112Z
+2015-03-17T11:54:10.772Z,"2caja,_roku_live",2O505hNF1g,30,"2Caja, Roku live",2015-03-17T11:54:10.772Z
+2015-03-17T11:53:41.337Z,"2caja,_roku",dAsLcRvwEp,30,"2Caja, Roku",2015-03-17T11:53:51.682Z
+2015-03-17T11:53:40.794Z,"2caja,_mach_tv",Xg9vdSbDN0,30,"2Caja, Mach Tv",2015-03-17T11:53:40.794Z
+2015-03-17T11:53:28.785Z,"2caja,_nano",RCeRTTeRdZ,30,"2Caja, Nano",2015-03-17T11:53:28.785Z
+2015-03-17T11:52:56.103Z,"caja,_roku_live",UgRBxwtPrv,20,"Caja, Roku Live",2015-03-17T11:52:56.103Z
+2015-03-17T11:52:49.926Z,"caja,_roku",yqynGJbyaN,20,"Caja, Roku",2015-03-17T11:52:49.926Z
+2015-03-17T11:52:41.715Z,"caja,_mach_tv",JlF8Tp3yK7,20,"Caja, Mach Tv",2015-03-17T11:52:41.715Z
+2015-03-17T11:52:25.765Z,"caja,_nano",pyzTFzQ8lj,20,"Caja, Nano",2015-03-17T11:52:25.765Z
+2015-03-17T11:51:32.438Z,"roku,roku_live",uMPKMtNFjM,25,"Roku,Roku Live",2015-03-17T11:51:32.438Z
+2015-03-17T11:50:42.922Z,"mach_tv,roku_live",Mby3tSIvLd,25,"Mach Tv,Roku Live",2015-03-17T11:50:42.922Z
+2015-03-17T11:47:27.867Z,"mach_tv,roku",ZdCmY4UF3U,25,"Mach Tv,Roku",2015-03-17T11:49:58.386Z
+2015-03-17T11:47:20.682Z,"nano,roku_live",FVPaXlz5MY,25,"Nano,Roku Live",2015-03-17T11:49:28.300Z
+2015-03-17T11:47:03.297Z,"nano,roku",8RRovIh0SB,25,"Nano,Roku",2015-03-17T11:48:56.201Z
+2015-03-17T11:46:52.204Z,"nano,mach_tv",AuNcTwUdLS,25,"Nano,Mach Tv",2015-03-17T11:48:33.163Z
+2015-03-17T11:43:55.987Z,"4_cajas,internet_5m",QgzCKynpJg,80,"4 Cajas,Internet 5M",2015-03-17T11:45:39.008Z
+2015-03-17T11:43:52.591Z,"4_cajas,internet_4m",rhYw1O7dg1,72,"4 Cajas,Internet 4M",2015-03-17T11:45:21.844Z
+2015-03-17T11:43:52.547Z,"4_cajas,internet_3m",msExhUf8n1,65,"4 Cajas,Internet 3M",2015-03-17T11:45:06.303Z
+2015-03-17T11:43:52.490Z,"4_cajas,internet_2m",aYoMBbPlQF,58,"4 Cajas,Internet 2M",2015-03-17T11:44:43.658Z
+2015-03-17T11:43:52.471Z,"4_cajas,internet_1m",RffUNcQ1YE,50,"4 Cajas,Internet 1M",2015-03-17T11:43:52.471Z
+2015-03-17T11:41:21.022Z,"3_cajas,internet_5m",SQpYwHGyhK,70,"3 Cajas,Internet 5M",2015-03-17T11:41:21.022Z
+2015-03-17T11:41:05.477Z,"3_cajas,internet_4m",irBOwZXr3o,62,"3 Cajas,Internet 4M",2015-03-17T11:41:05.477Z
+2015-03-17T11:40:37.458Z,"3_cajas,internet_3m",pT3vLxELrk,55,"3 Cajas,Internet 3M",2015-03-17T11:40:37.458Z
+2015-03-17T11:40:13.478Z,"3_cajas,internet_2m",ZxSwEZuKde,48,"3 Cajas,Internet 2M",2015-03-17T11:40:13.478Z
+2015-03-17T11:39:44.020Z,"3_cajas,internet_1m",towfQ1CMBg,40,"3 Cajas,Internet 1M",2015-03-17T11:39:44.020Z
+2015-03-17T11:39:16.220Z,"2_cajas,internet_5m",6apZkwuhSw,60,"2 Cajas,Internet 5M",2015-03-17T11:39:16.220Z
+2015-03-17T11:38:47.041Z,"2_cajas,internet_4m",iVvSn87kOU,52,"2 Cajas,Internet 4M",2015-03-17T11:38:47.041Z
+2015-03-17T11:38:22.252Z,"2_cajas,internet_3m",h72JZViudO,45,"2 Cajas,Internet 3M",2015-03-17T11:38:22.252Z
+2015-03-17T11:37:32.580Z,"2_cajas,internet_2m",1vGOA1yxLB,38,"2 Cajas,Internet 2M",2015-03-17T11:37:32.580Z
+2015-03-17T11:37:14.857Z,"2_cajas,internet_1m",2qVDczFpLY,30,"2 Cajas,Internet 1M",2015-03-17T11:37:14.857Z
+2015-03-17T11:36:51.083Z,"caja,internet_5m",R0B75pA5Qy,50,"Caja,Internet 5M",2015-03-17T11:36:51.083Z
+2015-03-17T11:36:35.356Z,"caja,internet_4m",bvcXAS3WQg,42,"Caja,Internet 4M",2015-03-17T11:36:35.356Z
+2015-03-17T11:36:15.559Z,"caja,internet_3m",YWwiwYPA3m,35,"Caja,Internet 3M",2015-03-17T11:36:15.559Z
+2015-03-17T11:35:58.069Z,"caja,internet_2m",97lEq1DNMu,28,"Caja,Internet 2M",2015-03-17T11:35:58.069Z
+2015-03-17T11:35:29.694Z,"caja,internet_1m",EK9OXXk1w9,20,"Caja,Internet 1M",2015-03-17T11:35:29.694Z
+2015-03-17T11:24:52.325Z,internet_5m,WASVkUnWFt,40,"Internet 5M",2015-03-17T11:24:52.325Z
+2015-03-17T11:24:40.435Z,internet_4m,zZaPRsjFoi,32,"Internet 4M",2015-03-17T11:24:40.435Z
+2015-03-17T11:24:23.949Z,internet_3m,pZ3lZ54yjH,25,"Internet 3M",2015-03-17T11:24:30.779Z
+2015-03-17T11:24:17.061Z,internet_2m,KuoSvegYNw,18,"Internet 2M",2015-03-17T11:24:17.061Z
+2015-03-17T11:24:07.540Z,internet_1m,4YuxYffNJR,10,"Internet 1M",2015-03-17T11:24:07.540Z
+2015-03-17T11:22:56.469Z,roku_live,t6l3jonY1J,15,"Roku Live",2015-03-17T11:22:56.469Z
+2015-03-17T11:22:50.001Z,roku,sAJLN3zSQZ,15,Roku,2015-03-17T11:22:50.001Z
+2015-03-17T11:22:41.782Z,mach_tv,8ZIQrNaoSD,15,"Mach Tv",2015-03-17T11:22:41.782Z
+2015-03-17T11:22:28.005Z,nano,r8oSnTRtbU,15,Nano,2015-03-17T11:22:28.005Z
+2015-03-12T18:55:40.946Z,cajas,rZmn6Wc7lR,10,Cajas,2015-03-17T11:04:28.767Z
