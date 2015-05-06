@@ -567,8 +567,18 @@
                     $("#creditAlert").hide();
 
                     var d = new Date(expiracion);
-                    d.setMonth( d.getMonth( ) + 1 );
-                    document.getElementById("pagar_expiracion").value = ( d.getMonth( ) + 1 ) + '/' + d.getDate( ) + '/' + d.getFullYear( );
+                    var todayDate = new Date();
+                    var nuevaFechaDeExp;
+
+                    if(d < todayDate) {
+                        todayDate.setMonth( todayDate.getMonth( ) + 1 );
+                        nuevaFechaDeExp = ( todayDate.getMonth( ) + 1 ) + '/' + todayDate.getDate( ) + '/' + todayDate.getFullYear( )
+                    } else {
+                        d.setMonth( d.getMonth( ) + 1 );
+                        nuevaFechaDeExp = ( d.getMonth( ) + 1 ) + '/' + d.getDate( ) + '/' + d.getFullYear( )
+                    }
+
+                    document.getElementById("pagar_expiracion").value = nuevaFechaDeExp;
 
                     if(metodo != 'otro') {
                         document.getElementById('modify_otro_metodo').value = "";
@@ -777,6 +787,13 @@
             var PAGO = document.getElementById('pagar_pago').value;
             var mes = document.getElementById('add_credit').value;
 
+            var USER = document.getElementById('user_header').innerText;
+            var FECHA = $scope.generateDate();
+
+            var mesWord = (mes > 1) ? "meses" : "mes";
+
+            var ultimoPagoClient = FECHA + " Acreditado " + mes + " " + mesWord + " - " + USER;
+
             if(mes > 1) {
                 var action = "Acredito Cliente: (" + mes + " Meses) " + CLIENTE + " con servicio " + SERVICIO;
             } else {
@@ -797,6 +814,7 @@
                 },
                 data: {
                     expiracion: Expiracion,
+                    ultimo_pago: ultimoPagoClient
                 }
             }).success(function(data, status) {
                 $scope.getAllItems(1000, 0, true);
