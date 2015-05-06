@@ -203,7 +203,9 @@
                             $scope.getAllItems(queryLimit, querySkip, first);
                         } else {
                             for(var i = 0 ; i < $scope.clients.length  ; i++) {
-                                $scope.clients[i].expiracion = new Date($scope.clients[i].expiracion);
+                                var tempDate = new Date($scope.clients[i].expiracion);
+                                $scope.clients[i].clave = ('0' + (tempDate.getMonth() + 1)).slice(-2) + '/' + ('0' + tempDate.getDate()).slice(-2) + '/' + tempDate.getFullYear();
+                                $scope.clients[i].expiracion = tempDate
                             }
                             $scope.pagination = Pagination.getNew($scope.numberOfPagesinClients); //Generate pagination in table
                             $scope.pagination.numPages = Math.ceil($scope.clients.length / $scope.pagination.perPage); //Generate number of pages
@@ -221,7 +223,9 @@
                             $scope.getAllItems(queryLimit, querySkip, first);
                         } else {
                             for(var i = 0 ; i < $scope.clients.length  ; i++) {
-                                $scope.clients[i].expiracion = new Date($scope.clients[i].expiracion)
+                                var tempDate = new Date($scope.clients[i].expiracion);
+                                $scope.clients[i].clave = ('0' + (tempDate.getMonth() + 1)).slice(-2) + '/' + ('0' + tempDate.getDate()).slice(-2) + '/' + tempDate.getFullYear();
+                                $scope.clients[i].expiracion = tempDate
                             }
                             $scope.pagination = Pagination.getNew($scope.numberOfPagesinClients); //Generate pagination in table
                             $scope.pagination.numPages = Math.ceil($scope.clients.length / $scope.pagination.perPage); //Generate number of pages
@@ -521,7 +525,7 @@
             }
         };
 
-        $scope.populateModal = function(ID, nombre, expiracion, servicio, unidades, telefono, pueblo, pago, metodo, deuda, otro) {
+        $scope.populateModal = function(ID, nombre, expiracion, servicio, unidades, telefono, pueblo, pago, metodo, deuda, otro, ultimoPago) {
             $http({
                     method: 'GET',
                     url: 'https://api.parse.com/1/classes/services',
@@ -559,6 +563,7 @@
                     document.getElementById('pagar_unidades').value = unidades;
                     document.getElementById('pagar_pago').value = pago;
                     document.getElementById('add_months_payments').value = "1";
+                    document.getElementById('ultimo_pago').value = ultimoPago;
                     $("#creditAlert").hide();
 
                     var d = new Date(expiracion);
@@ -727,6 +732,11 @@
             var SERVICIO = document.getElementById('pagar_servicio').value;
             var PAGO = document.getElementById('pagar_pago').value;
 
+            var USER = document.getElementById('user_header').innerText;
+            var FECHA = $scope.generateDate();
+
+            var ultimoPagoClient = FECHA + " ($" + PAGO + ".00) - " + USER;
+
             var action = "Ejecuto Pago: ($" + PAGO + ".00) " + CLIENTE + " con servicio " + SERVICIO;
 
             if (Expiracion == null || Expiracion == "") {
@@ -745,6 +755,7 @@
                         },
                         data: {
                             expiracion: Expiracion,
+                            ultimo_pago: ultimoPagoClient
                         }
                     }).success(function(data, status) {
                         alert("Se realizo el pago exitosamente.");
@@ -2061,7 +2072,7 @@
             var dateTry = new Date(D);
             var events = "Tickets pendientes para " + (dateTry.getMonth() + 1) + '/' + dateTry.getDate() + '/' + dateTry.getFullYear() + ":"  + 
                         "<div class='table-responsive'><table class='table table-bordered table-hover'><thead>" + 
-                        "<tr ><th>Cliente</th><th>Fecha</th><th>Asunto</th><th>Encargado</th></tr></thead><tbody>";
+                        "<tr ><th>Cliente</th><th>Fecha</th><th>Pueblo</th><th>Encargado</th><th>Asunto</th></tr></thead><tbody>";
             var isThereTickets = false;  
 
             for(var i = 0 ; i < $scope.tickets.length ; i++) {
@@ -2070,7 +2081,7 @@
                     && dateTry.getMonth() == date2.getMonth()
                     && dateTry.getDate() == date2.getDate()) {
                     isThereTickets = true;
-                    events += "<tr bgcolor='#FFFFFF'><th>" + $scope.tickets[i].cliente + "</th><th>" + $scope.tickets[i].start + "</th><th>" + $scope.tickets[i].title + "</th><th>" + $scope.tickets[i].tecnico + "</th></tr>";
+                    events += "<tr bgcolor='#FFFFFF'><th>" + $scope.tickets[i].cliente + "</th><th>" + $scope.tickets[i].start + "</th><th>" + $scope.tickets[i].pueblo + "</th><th>" + $scope.tickets[i].tecnico + "</th><th>" + $scope.tickets[i].title + "</th></tr>";
                 }      
             }
 

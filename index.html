@@ -211,7 +211,7 @@
                                     data-toggle="modal" 
                                     data-target="#editModal"
                                     ng-click="populateModal(item.objectId, item.nombre, item.expiracion, item.servicio, item.unidades, 
-                                    item.telefono, item.pueblo, item.pago, item.metodo, item.deuda, item.otro)"
+                                    item.telefono, item.pueblo, item.pago, item.metodo, item.deuda, item.otro, item.ultimo_pago)"
                                     ng-hide="verifyDates(item.expiracion, showActive)">
                                     <tr>
                                        <td>{{item.nombre}}</td>
@@ -222,6 +222,7 @@
                                        <td>{{item.pueblo}}</td>
                                        <td>{{item.pago | currency}}</td>
                                        <td>{{item.metodo + " " + item.otro}}</td>
+                                       <td ng-hide="true" >{{item.clave}}</td>
                                     </tr>
                                  </tbody>
                               </table>
@@ -398,6 +399,7 @@
                                     <b id="modify_otro_metodo_b">Otro</b><label id="modify_otro_metodo_label" style="color:red;">*</label>
                                     <input id="modify_otro_metodo" type="text" class="form-control" placeholder="Especifique" >
                                  </div>
+
                                  <!-- Hacer Pago -->
                                  <div role="tabpanel" class="tab-pane" id="profile">
                                     <b>Nombre:</b>
@@ -428,7 +430,9 @@
                                        <input id="pagar_expiracion" placeholder="MM/DD/YYYY" type='text' class="form-control" />
                                        <span class="input-group-addon"><a data-toggle="tooltip" data-placement="top" title="Escoge fecha" class=""><span class="glyphicon glyphicon-calendar"></span></a>
                                        </span>
-                                    </div>
+                                    </div><br>
+                                    <b>Ultimo Pago</b>
+                                    <input type="text" class="form-control" id="ultimo_pago" disabled>
                                  </div>
                               </div>
                            </div>
@@ -1173,9 +1177,9 @@
                   <div class="modal-body">
                      <div id="login_alert" class="alert alert-danger" role="alert">Error</div>
                      <b>Username:</b>
-                     <input type="text" value="user_admin" ng-keyup="$event.keyCode == 13 ? validateLoginInputs() : null" placeholder="username" class="form-control" id="login_user"><br>
+                     <input type="text"  ng-keyup="$event.keyCode == 13 ? validateLoginInputs() : null" placeholder="username" class="form-control" id="login_user"><br>
                      <b>Password:</b>
-                     <input type="password" value="test" ng-keyup="$event.keyCode == 13 ? validateLoginInputs() : null" placeholder="password" class="form-control" id="login_pass">
+                     <input type="password" ng-keyup="$event.keyCode == 13 ? validateLoginInputs() : null" placeholder="password" class="form-control" id="login_pass">
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-success btn-block" ng-click="validateLoginInputs()" ng-enter="validateLoginInputs()">Log in</button>
