@@ -560,7 +560,7 @@
 
                     document.getElementById('pagar_nombre').value = nombre;
                     document.getElementById('pagar_servicio').value = raw_servicio;
-                    document.getElementById('pagar_unidades').value = unidades;
+                    //document.getElementById('pagar_unidades').value = "1";
                     document.getElementById('pagar_pago').value = pago;
                     document.getElementById('add_months_payments').value = "1";
                     document.getElementById('ultimo_pago').value = ultimoPago;

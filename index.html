@@ -184,11 +184,11 @@
                                           <i class="fa fa-sort"></i>
                                           </a>
                                        </th>
-                                       <th>Unidades&nbsp; 
+                                       <!-- <th>Unidades&nbsp; 
                                           <a href="" ng-click="orderByField='unidades'; reverseSort = !reverseSort">
                                           <i class="fa fa-sort"></i>
                                           </a>
-                                       </th>
+                                       </th> -->
                                        <th>Telefono</th>
                                        <th>Direccion&nbsp;
                                           <a href="" ng-click="orderByField='pueblo'; reverseSort = !reverseSort">
@@ -217,7 +217,7 @@
                                        <td>{{item.nombre}}</td>
                                        <td>{{item.expiracion | date:'MM/dd/yyyy'}}</td>
                                        <td>{{item.servicio}}</td>
-                                       <td>{{item.unidades}}</td>
+                                       <!-- <td>{{item.unidades}}</td> -->
                                        <td>{{item.telefono}}</td>
                                        <td>{{item.pueblo}}</td>
                                        <td>{{item.pago | currency}}</td>
@@ -287,8 +287,8 @@
                               class="form-control" ng-options="i as i.service for i in servicios">
                               <option value="">Selecciona</option>
                            </select>
-                           <b>Unidades</b><label style="color:red;">*</label>
-                           <div class="input-group spinner">
+                           <!-- <b>Unidades</b><label style="color:red;">*</label> -->
+                           <div id="hideThis" class="input-group spinner">
                               <div ng-click="updatePrice()" id="spinner_plus" class="input-group-addon">
                                  <a href="" class="glyphicon glyphicon-minus"></a>
                               </div>
@@ -367,8 +367,8 @@
                                        class="form-control" ng-options="i as i.service for i in servicios">
                                        <option value="">Selecciona</option>
                                     </select>
-                                    <b>Unidades</b><label style="color:red;">*</label>
-                                    <div class="input-group spinner">
+                                    <!-- <b>Unidades</b><label style="color:red;">*</label> -->
+                                    <div id="hideThisToo" class="input-group spinner">
                                        <div ng-click="edit_updatePrice()" id="edit_spinner_plus" class="input-group-addon">
                                           <a href="" class="glyphicon glyphicon-minus"></a>
                                        </div>
@@ -406,8 +406,8 @@
                                     <input type="text" class="form-control" id="pagar_nombre" disabled>
                                     <b>Servicio:</b>
                                     <input type="text" class="form-control" id="pagar_servicio" disabled>
-                                    <b>Unidades:</b>
-                                    <input type="text" class="form-control" id="pagar_unidades" disabled>
+                                    <!-- <b>Unidades:</b> -->
+                                    <input id="hideThisAsWell" type="text" class="form-control" id="pagar_unidades" disabled>
                                     <b>Cantidad a pagar:</b>
                                     <div class="input-group">
                                        <div class="input-group-addon"><i>$</i></div>
@@ -1344,6 +1344,9 @@
                  $("#conf_backup").hide();
                  $('#creditAlert').hide();
                  $("#crtd_btn").hide();
+                 $("#hideThis").hide();
+                 $("#hideThisToo").hide();
+                 $("#hideThisAsWell").hide();
              }
 
             function tLog() {
