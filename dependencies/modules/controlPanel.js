@@ -2596,7 +2596,7 @@
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         };
 
-        $scope.getLogs = function(queryLimit, querySkip, first) {
+        $scope.getLogs = function(queryLimit, querySkip, first, lastDate, subtract) {
             $http({
                     method: 'GET',
                     url: 'https://api.parse.com/1/classes/log',
@@ -2606,17 +2606,20 @@
                     },
                     params: {
                         limit: queryLimit,
-                        skip: querySkip,
-                        order: "createdAt"
+                        skip: querySkip - subtract,
+                        order: "createdAt",
+                        where: {"createdAt":{"$gt": { "__type": "Date", "iso": lastDate }}}
+
                     },
 
                 }).success(function(data, status) {
+                    
                     if (first) {
                         $scope.logs = data.results;
-                        first = !first;
-                        if ($scope.logs.length == queryLimit) {
-                            querySkip += queryLimit;
-                            $scope.getLogs(queryLimit, querySkip, first);
+                        first = !first; //Ya no es primera vez.
+                        if ($scope.logs.length == queryLimit) { //Si el numero de elementos es igual de grande que el limite.
+                            querySkip += queryLimit; //Se le añaden 1000
+                            $scope.getLogs(queryLimit, querySkip, first, lastDate, subtract);
                         } else {
                             for( var i = 0 ; i < $scope.logs.length ; i++) {
                                 var temp = ($scope.logs[i].accion.split(":"))[0];
@@ -2639,10 +2642,31 @@
                         for (var i = 0; i < newQ.length; i++) {
                             $scope.logs.push(newQ[i]);
                         }
+
+
+
+
+
                         if ($scope.logs.length == queryLimit + querySkip) {
                             querySkip += queryLimit;
-                            $scope.getLogs(queryLimit, querySkip, first);
+
+
+
+                            if(querySkip%10000 == 0) {
+                                // console.log("Skip: " + querySkip)
+                                // console.log("Date: " + $scope.logs[$scope.logs.length - 1].createdAt)
+                                // console.log("Index: " + $scope.logs.length)
+
+                                //Este es el patch mas tecato que he tirado. 
+                                lastDate = $scope.logs[$scope.logs.length - 1].createdAt;
+                                subtract =+ 10000;
+                            }
+
+
+                            $scope.getLogs(queryLimit, querySkip, first, lastDate, subtract);
+
                         } else {
+                            console.log($scope.logs)
                             for( var i = 0 ; i < $scope.logs.length ; i++) {
                                 var temp = ($scope.logs[i].accion.split(":"))[0];
                                 var separators = ['$', '.'];
@@ -2662,7 +2686,7 @@
                     }
                 })
                 .error(function(data, status) {
-                    console.log("Error")
+                    console.log($scope.logs)
                 });
         };
 
@@ -3077,7 +3101,7 @@
 
         $scope.getAllItems(1000, 0, true);
         $scope.generateYears();
-        $scope.getLogs(1000, 0, true);
+        $scope.getLogs(1000, 0, true, "2015-02-26T14:34:56.033Z", 0);
     }]);
 
 })();
