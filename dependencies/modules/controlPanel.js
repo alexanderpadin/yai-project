@@ -1,3 +1,11 @@
+/*
+    To update data:
+    find: 'fetchFromParse'
+
+    To change queries:
+    find: '$http({'
+*/
+
 (function() {
     var app = angular.module('controlPanel', ['simplePagination', 'chart.js']);
 
@@ -141,6 +149,8 @@
                         order: "-createdAt"
                     }
                 }).success(function(data, status) {
+                    //fetchFromParse
+                    //console.log(JSON.stringify(data))
                     $scope.users_conf = data.results;
                     $scope.getLogs_conf();
                 })
@@ -171,8 +181,13 @@
                     headers: {
                         'X-Parse-Application-Id': 'eTTIg8J0wMN5GYb4ys3PH152xuMK8WdpNUy8u8S8',
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
-                    }
+                    }, 
+                    params:{
+                        limit: 1000
+                    },
                 }).success(function(data, status) {
+                    //fetchFromParse
+                    //console.log(JSON.stringify(data))
                     $scope.tickets = data.results;
                     $scope.getEmailBackup();
                 })
@@ -222,6 +237,8 @@
                             querySkip += queryLimit;
                             $scope.getAllItems(queryLimit, querySkip, first);
                         } else {
+                            //fetchFromParse
+                            //console.log(JSON.stringify($scope.clients))
                             for(var i = 0 ; i < $scope.clients.length  ; i++) {
                                 var tempDate = new Date($scope.clients[i].expiracion);
                                 $scope.clients[i].clave = ('0' + (tempDate.getMonth() + 1)).slice(-2) + '/' + ('0' + tempDate.getDate()).slice(-2) + '/' + tempDate.getFullYear();
@@ -278,6 +295,8 @@
                     },
 
                 }).success(function(data, status) {
+                    //fetchFromParse
+                    //console.log(JSON.stringify(data))
                     $scope.servicios = data.results;
                 })
                 .error(function(data, status) {
@@ -1051,6 +1070,8 @@
                         'X-Parse-REST-API-Key': 'VmzCpgQRTiP4UYNEvIbeOiOEK8WB3ruA0WnAmmBU'
                     }
                 }).success(function(data, status) {
+                    //fetchFromParse
+                    //console.log(JSON.stringify(data))
                     document.getElementById('email_backup').value = data.results[0].email;
                     document.getElementById('date_backup').value = data.results[0].date_backup;
                     document.getElementById('ID_backup').value = data.results[0].objectId;
@@ -1249,6 +1270,8 @@
                         limit: 1000
                     }
                 }).success(function(data, status) {
+                    //fetchFromParse
+                    //console.log(JSON.stringify(data))
                     $scope.services_conf = data.results;
                 })
                 .error(function(data, status) {
@@ -2666,7 +2689,8 @@
                             $scope.getLogs(queryLimit, querySkip, first, lastDate, subtract);
 
                         } else {
-                            console.log($scope.logs)
+                            //fetchFromParse
+                            //console.log(JSON.stringify($scope.logs))
                             for( var i = 0 ; i < $scope.logs.length ; i++) {
                                 var temp = ($scope.logs[i].accion.split(":"))[0];
                                 var separators = ['$', '.'];
